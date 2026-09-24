@@ -1,0 +1,260 @@
+<!--
+title: Tech | Rough Rider Racing
+description: Explore the Rough Rider Racing Baja SAE car system by system: chassis, suspension, steering, brakes, engine, CVT, gearbox and electrical.
+og_image: dsc_0541.jpg
+-->
+    <!--
+      =====================================================================
+      INTERACTIVE CAR
+      - Swap the placeholder: save the render as assets/img/tech/car-render.png
+        (transparent background, ~2400px wide) and change the <img> src below.
+        Remove class "is-placeholder" from .car-canvas when you do.
+      - Reposition hotspots: open tech.html?edit in a browser, drag each dot,
+        and paste the printed style="--x:..; --y:.." back onto that hotspot.
+      - Each hotspot's data-system must match an <article id="sys-...">.
+      - Optional data-zoom="1.6" on a hotspot controls how far the camera zooms.
+      =====================================================================
+    -->
+    <section class="car-stage-wrap" data-car aria-labelledby="tech-title" tabindex="-1">
+      <div class="car-stage">
+        <div class="car-viewport">
+          <p class="kicker">Car #230 · 2026–27 season</p>
+          <h1 id="tech-title" class="page-title worn" style="margin-bottom:var(--s3)">The <span style="color:var(--garnet)">car.</span></h1>
+          <div class="car-canvas is-placeholder">
+            <img src="assets/img/tech/car-placeholder.svg" alt="Side view of the Rough Rider Racing Baja car with its main systems marked" width="1600" height="900">
+            <button class="hotspot" type="button" data-system="chassis" style="--x:48.1%; --y:23.9%" aria-label="Chassis and roll cage">1<span class="hotspot__label">Chassis</span></button>
+            <button class="hotspot" type="button" data-system="front-suspension" style="--x:25.5%; --y:58%" aria-label="Front suspension" data-side="left">2<span class="hotspot__label">Front suspension</span></button>
+            <button class="hotspot" type="button" data-system="steering" style="--x:36.9%; --y:43.6%" aria-label="Steering">3<span class="hotspot__label">Steering</span></button>
+            <button class="hotspot" type="button" data-system="brakes" style="--x:20.4%; --y:74.9%" aria-label="Brakes" data-side="left">4<span class="hotspot__label">Brakes</span></button>
+            <button class="hotspot" type="button" data-system="cockpit" style="--x:43.8%; --y:52%" aria-label="Cockpit and ergonomics">5<span class="hotspot__label">Cockpit</span></button>
+            <button class="hotspot" type="button" data-system="electrical" style="--x:56.4%; --y:39.1%" aria-label="Electrical and data acquisition">6<span class="hotspot__label">Electrical</span></button>
+            <button class="hotspot" type="button" data-system="engine" style="--x:70.3%; --y:43.9%" aria-label="Engine">7<span class="hotspot__label">Engine</span></button>
+            <button class="hotspot" type="button" data-system="cvt" style="--x:62.5%; --y:58.3%" aria-label="CVT transmission" data-side="left">8<span class="hotspot__label">CVT</span></button>
+            <button class="hotspot" type="button" data-system="gearbox" style="--x:79.1%; --y:67.2%" aria-label="Gearbox and final drive">9<span class="hotspot__label">Gearbox</span></button>
+            <button class="hotspot" type="button" data-system="rear-suspension" style="--x:68.1%; --y:73.9%" aria-label="Rear suspension" data-side="left">10<span class="hotspot__label">Rear suspension</span></button>
+          </div>
+          <span class="car-floor" aria-hidden="true"></span>
+        </div>
+
+        <aside class="system-panel" aria-live="polite">
+          <div class="system-panel__count"><span class="system-panel__index">Overview</span><span>Scroll or tap a point</span></div>
+          <div class="system-panel__body"></div>
+          <div class="stage-progress" aria-hidden="true"></div>
+          <div class="system-panel__nav">
+            <button type="button" data-car-prev aria-label="Previous system">← Prev</button>
+            <button type="button" data-car-next aria-label="Next system">Next →</button>
+          </div>
+        </aside>
+      </div>
+
+      <!-- System content. The panel above shows one article at a time. -->
+      <div class="system-data">
+        <article id="sys-overview">
+          <h3>Ten systems. <span class="accent-hl">One car.</span></h3>
+          <p class="muted">Apart from the rules-specified engine, this single-seat off-road car is designed, analysed, built and tested by students. Scroll to take it apart, or tap any point on the car.</p>
+          <ul class="spec-list">
+            <li><span>Engine</span><span>Kohler CH440 · 14 hp</span></li>
+            <li><span>Drive</span><span>2WD · tuned CVT</span></li>
+            <li><span>Suspension</span><span>4-wheel independent</span></li>
+            <li><span>Brakes</span><span>Hydraulic disc ×4</span></li>
+          </ul>
+        </article>
+        <article id="sys-chassis">
+          <p class="tag">Chassis subteam</p>
+          <h3>Chassis &amp; roll cage</h3>
+          <p class="muted">A steel space frame with an integrated roll cage, designed for stiffness, driver safety, low weight and easy access to every serviceable part.</p>
+          <ul class="spec-list todo">
+            <li><span>Tubing</span><span>TBD</span></li>
+            <li><span>Frame mass</span><span>TBD</span></li>
+            <li><span>Analysis</span><span>FEA · TBD</span></li>
+          </ul>
+        </article>
+        <article id="sys-front-suspension">
+          <p class="tag">Suspension subteam</p>
+          <h3>Front suspension</h3>
+          <p class="muted">Double-wishbone independent suspension with coilover dampers, tuned for ground clearance, wheel travel and stability over jumps, rocks and ruts.</p>
+          <ul class="spec-list todo">
+            <li><span>Travel</span><span>TBD</span></li>
+            <li><span>Dampers</span><span>TBD</span></li>
+            <li><span>Ride height</span><span>TBD</span></li>
+          </ul>
+        </article>
+        <article id="sys-steering">
+          <p class="tag">Suspension subteam</p>
+          <h3>Steering</h3>
+          <p class="muted">A steering system built for precise, low-speed manoeuvring on tight courses, where the car has to thread cones, logs and hairpins.</p>
+          <ul class="spec-list todo">
+            <li><span>Type</span><span>TBD</span></li>
+            <li><span>Turning radius</span><span>TBD</span></li>
+            <li><span>Ackermann</span><span>TBD</span></li>
+          </ul>
+        </article>
+        <article id="sys-brakes">
+          <p class="tag">Drivetrain subteam</p>
+          <h3>Brakes</h3>
+          <p class="muted">Hydraulic disc brakes at all four wheels, able to lock all four wheels, as the rules require.</p>
+          <ul class="spec-list todo">
+            <li><span>Rotors</span><span>TBD</span></li>
+            <li><span>Calipers</span><span>TBD</span></li>
+            <li><span>Circuits</span><span>TBD</span></li>
+          </ul>
+        </article>
+        <article id="sys-cockpit">
+          <p class="tag">Chassis subteam</p>
+          <h3>Cockpit &amp; ergonomics</h3>
+          <p class="muted">The driver's seating position, controls and visibility are designed around the drivers, all inside the protection of the roll cage and behind a firewall.</p>
+          <ul class="spec-list todo">
+            <li><span>Seat</span><span>TBD</span></li>
+            <li><span>Harness</span><span>TBD</span></li>
+            <li><span>Egress time</span><span>TBD</span></li>
+          </ul>
+        </article>
+        <article id="sys-electrical">
+          <p class="tag">Electrical subteam</p>
+          <h3>Electrical &amp; data</h3>
+          <p class="muted">Safety shutdown circuits and kill switches, driver controls, a sensor network and data acquisition, all packaged to stay reliable through mud and water.</p>
+          <ul class="spec-list todo">
+            <li><span>Kill switches</span><span>TBD</span></li>
+            <li><span>Sensors</span><span>TBD</span></li>
+            <li><span>Logger</span><span>TBD</span></li>
+          </ul>
+        </article>
+        <article id="sys-engine">
+          <p class="tag">Rules-specified</p>
+          <h3>Engine</h3>
+          <p class="muted">Every team runs the same engine specified by the Baja SAE rules: currently a 14 hp Kohler CH440 with a restrictor plate. The power is fixed, so the gains have to come from the rest of the car.</p>
+          <ul class="spec-list">
+            <li><span>Model</span><span>Kohler CH440</span></li>
+            <li><span>Power</span><span>14 hp</span></li>
+            <li><span>Modifications</span><span>None permitted</span></li>
+          </ul>
+        </article>
+        <article id="sys-cvt">
+          <p class="tag">Drivetrain subteam</p>
+          <h3>CVT</h3>
+          <p class="muted">A tuned continuously variable transmission keeps the engine in its power band from launch to top speed. Tuning it is one of the biggest performance levers on a fixed-engine car.</p>
+          <ul class="spec-list todo">
+            <li><span>Unit</span><span>TBD</span></li>
+            <li><span>Ratio range</span><span>TBD</span></li>
+            <li><span>Tuning</span><span>TBD</span></li>
+          </ul>
+        </article>
+        <article id="sys-gearbox">
+          <p class="tag">Drivetrain subteam</p>
+          <h3>Gearbox &amp; final drive</h3>
+          <p class="muted">A student-designed gearbox, shafts, hubs and bearings deliver power to a two-wheel-drive rear end, built for efficiency and to survive a four-hour endurance race.</p>
+          <ul class="spec-list todo">
+            <li><span>Reduction</span><span>TBD</span></li>
+            <li><span>Stages</span><span>TBD</span></li>
+            <li><span>Design tool</span><span>KISSsoft</span></li>
+          </ul>
+        </article>
+        <article id="sys-rear-suspension">
+          <p class="tag">Suspension subteam</p>
+          <h3>Rear suspension</h3>
+          <p class="muted">Independent rear suspension that keeps the driven wheels planted for traction on hill climbs and through rough sections, without giving up durability.</p>
+          <ul class="spec-list todo">
+            <li><span>Type</span><span>TBD</span></li>
+            <li><span>Travel</span><span>TBD</span></li>
+            <li><span>Dampers</span><span>TBD</span></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <div class="marquee" data-marquee="-1" data-speed="30" aria-hidden="true">
+      <div class="marquee__track"><div class="marquee__group">
+        <span class="marquee__item">Hand calcs</span><span class="marquee__sep"></span>
+        <span class="marquee__item marquee__item--outline">CAD</span><span class="marquee__sep"></span>
+        <span class="marquee__item">FEA</span><span class="marquee__sep"></span>
+        <span class="marquee__item marquee__item--outline">Machining</span><span class="marquee__sep"></span>
+        <span class="marquee__item">Welding</span><span class="marquee__sep"></span>
+        <span class="marquee__item marquee__item--outline">Testing</span><span class="marquee__sep"></span>
+      </div></div>
+    </div>
+
+    <!-- ================= SPEC SHEET ================= -->
+    <section id="specs" class="section" aria-labelledby="spec-title">
+      <span class="section-index" aria-hidden="true">01</span>
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div><p class="kicker">Spec sheet</p><h2 id="spec-title" class="title worn" data-split="lines">By the <span class="accent">numbers</span></h2></div>
+          <p class="lead">The headline figures for this season's car. <span class="todo-note">Values marked TBD are placeholders.</span></p>
+        </div>
+        <div class="grid grid--4" data-reveal="stagger">
+          <div class="panel"><span class="panel__num">14</span><h3>Horsepower</h3><p class="muted">Kohler CH440, identical for every team</p></div>
+          <div class="panel todo"><span class="panel__num">TBD</span><h3>Curb weight</h3><p class="muted">Without driver</p></div>
+          <div class="panel todo"><span class="panel__num">TBD</span><h3>Wheelbase</h3><p class="muted">Front to rear axle</p></div>
+          <div class="panel todo"><span class="panel__num">TBD</span><h3>Top speed</h3><p class="muted">Measured in testing</p></div>
+          <div class="panel todo"><span class="panel__num">TBD</span><h3>Susp. travel</h3><p class="muted">Front / rear</p></div>
+          <div class="panel todo"><span class="panel__num">TBD</span><h3>Ground clearance</h3><p class="muted">At ride height</p></div>
+          <div class="panel"><span class="panel__num">4</span><h3>Disc brakes</h3><p class="muted">Hydraulic, all four wheels</p></div>
+          <div class="panel"><span class="panel__num">2WD</span><h3>Drive</h3><p class="muted">Tuned CVT + gearbox</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROCESS ================= -->
+    <section class="section section--charcoal torn-top" aria-labelledby="process-title">
+      <span class="section-index" aria-hidden="true">02</span>
+      <div class="container split">
+        <div>
+          <p class="kicker">How it gets built</p>
+          <h2 id="process-title" class="title worn" data-split="lines">From sketch <span class="accent">to start line</span></h2>
+          <p class="lead mt-4" data-reveal>The program runs on a two-year vehicle cycle: each season we race the current car while the next one is already in design.</p>
+          <div class="frame frame--wide mt-5" data-reveal="clip"><img src="assets/img/photos/dsc_0663.jpg" alt="Car #230 on course with another team's car behind" loading="lazy"></div>
+        </div>
+        <ol class="timeline">
+          <li class="timeline__item" data-reveal><span class="timeline__date">Phase 01</span><h3>Concept &amp; analysis</h3><p class="muted">Targets, hand calculations, load cases and design reviews with faculty, alumni and sponsors.</p></li>
+          <li class="timeline__item" data-reveal><span class="timeline__date">Phase 02</span><h3>CAD &amp; simulation</h3><p class="muted">Full-vehicle CAD and finite element analysis, plus gear and PCB design on partner software.</p></li>
+          <li class="timeline__item" data-reveal><span class="timeline__date">Phase 03</span><h3>Manufacture</h3><p class="muted">Machining, welding, fabrication, wiring and assembly, done by students.</p></li>
+          <li class="timeline__item" data-reveal><span class="timeline__date">Phase 04</span><h3>Test &amp; tune</h3><p class="muted">Track days, data logging and off-road testing to find failures before competition does.</p></li>
+          <li class="timeline__item" data-reveal><span class="timeline__date">Phase 05</span><h3>Compete</h3><p class="muted">Static judging, dynamic events and endurance, and the lessons go straight into the next car.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= TOOLS ================= -->
+    <section class="section" aria-labelledby="tools-title">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div><p class="kicker">Software partners</p><h2 id="tools-title" class="title worn" data-split="lines">The <span class="outline">toolbox</span></h2></div>
+          <p class="lead">Provided under academic licensing programs, and used on every system of the car.</p>
+        </div>
+        <div class="logo-wall" data-reveal="stagger">
+          <div class="logo-wall__item"><img src="assets/img/sponsors/solidworks.png" alt="SolidWorks" loading="lazy"></div>
+          <div class="logo-wall__item"><img src="assets/img/sponsors/siemens.png" alt="Siemens" loading="lazy"></div>
+          <div class="logo-wall__item"><span>Altair<small>Simulation</small></span></div>
+          <div class="logo-wall__item"><img src="assets/img/sponsors/kisssoft.png" alt="KISSsoft" loading="lazy"></div>
+          <div class="logo-wall__item"><img src="assets/img/sponsors/altium.png" alt="Altium Designer" loading="lazy"></div>
+          <div class="logo-wall__item"><img src="assets/img/sponsors/3dconnexion.png" alt="3Dconnexion" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HIGHLIGHTS ================= -->
+    <section class="section section--tight" aria-labelledby="hl-title">
+      <div class="container">
+        <div class="section-head"><p class="kicker">Design highlights</p><h2 id="hl-title" class="title worn" data-split="lines">What's <span class="accent">new</span> this year</h2></div>
+        <!-- TODO: one card per headline change on the car (e.g. new A-arms, CVT tune, DAQ) -->
+        <div class="grid grid--3 todo" data-reveal="stagger">
+          <article class="media-card"><img src="assets/img/photos/dsc_0677.jpg" alt="Car #230 cornering on grass" loading="lazy"><div class="media-card__body"><span class="tag">Suspension</span><h3 style="margin-top:.6rem">Highlight title</h3><p>One or two sentences on what changed and why it's faster, lighter or tougher.</p></div></article>
+          <article class="media-card"><img src="assets/img/photos/dsc_1041.jpg" alt="Car #230 on a grassy slope" loading="lazy"><div class="media-card__body"><span class="tag">Drivetrain</span><h3 style="margin-top:.6rem">Highlight title</h3><p>One or two sentences on what changed and why it's faster, lighter or tougher.</p></div></article>
+          <article class="media-card"><img src="assets/img/photos/dsc_0832.jpg" alt="Car #230 turning past a cone" loading="lazy"><div class="media-card__body"><span class="tag">Chassis</span><h3 style="margin-top:.6rem">Highlight title</h3><p>One or two sentences on what changed and why it's faster, lighter or tougher.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SUBSYSTEM SPONSOR CTA ================= -->
+    <section class="section section--garnet scratched torn-top" aria-labelledby="sub-cta">
+      <div class="container split">
+        <div>
+          <p class="kicker kicker--on-garnet">Named subsystem sponsor</p>
+          <h2 id="sub-cta" class="title worn" data-split="lines">Put your name <span class="accent">on a system</span></h2>
+        </div>
+        <div>
+          <p class="lead">Gold and Platinum sponsors can be recognized as the named supporter of a subsystem — "Drivetrain supported by …" — and work directly with the students who design it.</p>
+          <div class="btn-row"><a class="btn btn--light" href="sponsors.html#tiers">See sponsorship tiers <span class="arrow">→</span></a></div>
+        </div>
+      </div>
+    </section>

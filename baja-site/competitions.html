@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Competitions | Rough Rider Racing</title>
+  <meta name="description" content="Rough Rider Racing's 2026–2027 season (OktoBajaFest and Baja SAE Williamsport), how Baja SAE events are scored, and the team photo gallery.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Rough Rider Racing">
+  <meta property="og:title" content="Competitions | Rough Rider Racing">
+  <meta property="og:description" content="Rough Rider Racing's 2026–2027 season (OktoBajaFest and Baja SAE Williamsport), how Baja SAE events are scored, and the team photo gallery.">
+  <meta property="og:image" content="assets/img/photos/img_5557.jpg">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <script>
+    /* Boot flags before first paint: motion, first-visit splash, page-enter wipe */
+    (function (h) {
+      h.className = h.className.replace('no-js', 'js');
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      h.classList.add('motion');
+      try {
+        if (!sessionStorage.getItem('rrr-splash')) h.classList.add('show-splash');
+        else if (sessionStorage.getItem('rrr-wipe')) h.classList.add('is-entering');
+        sessionStorage.removeItem('rrr-wipe');
+      } catch (e) {}
+    })(document.documentElement);
+  </script>
+  <link rel="preload" href="assets/fonts/big-shoulders-display-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/vendor/lenis.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/vendor/gsap.min.js" defer></script>
+  <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/vendor/SplitText.min.js" defer></script>
+  <script src="assets/vendor/lenis.min.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body class="page-competitions">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===== Splash (first visit per session) ===== -->
+  <div class="splash" hidden aria-hidden="true">
+    <div class="splash__inner">
+      <img class="splash__crest" src="assets/img/logo.png" alt="" width="170" height="170">
+      <p class="splash__title">Rough Rider Racing</p>
+      <p class="splash__sub">uOttawa · Baja SAE</p>
+      <div class="splash__gauge"><span class="splash__bar"><i></i></span><span class="splash__rpm">000% THR</span></div>
+    </div>
+    <div class="splash__panel splash__panel--2"></div>
+    <div class="splash__panel splash__panel--1"></div>
+  </div>
+  <!-- ===== Page wipe between pages ===== -->
+  <div class="wipe" aria-hidden="true">
+    <div class="wipe__panel wipe__panel--2"></div>
+    <div class="wipe__panel wipe__panel--1"></div>
+    <img class="wipe__crest" src="assets/img/logo.png" alt="" width="90" height="90">
+  </div>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html" aria-label="Rough Rider Racing home">
+        <img src="assets/img/logo.png" alt="" width="46" height="46">
+        <span class="brand__name">Rough Rider Racing<small>uOttawa Baja SAE</small></span>
+      </a>
+      <div class="header-actions">
+        <a class="btn btn--sm" href="sponsors.html#become-a-sponsor">Sponsor us</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">
+          <span class="menu-toggle__text">Menu</span><span class="menu-toggle__lines" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+    <span class="progress" aria-hidden="true"></span>
+  </header>
+
+  <!-- ===== Full-screen menu ===== -->
+  <nav id="menu" class="menu scratched" aria-label="Main">
+    <div class="menu__grid">
+      <ul class="menu__list">
+        <li><a class="menu__link" href="index.html"><span>01</span>Home</a></li>
+        <li><a class="menu__link" href="about.html"><span>02</span>About</a></li>
+        <li><a class="menu__link" href="team.html"><span>03</span>Team</a></li>
+        <li><a class="menu__link" href="tech.html"><span>04</span>Tech</a></li>
+        <li><a class="menu__link" href="competitions.html" aria-current="page"><span>05</span>Competitions</a></li>
+        <li><a class="menu__link" href="sponsors.html"><span>06</span>Sponsors</a></li>
+      </ul>
+      <div class="menu__preview" aria-hidden="true">
+        <img src="assets/img/photos/img_5850.jpg" alt="" loading="lazy">
+        <img src="assets/img/photos/img_5212.jpg" alt="" loading="lazy">
+        <img src="assets/img/photos/img_4971.jpg" alt="" loading="lazy">
+        <img src="assets/img/photos/dsc_0541.jpg" alt="" loading="lazy">
+        <img src="assets/img/photos/img_5557.jpg" alt="" loading="lazy" class="is-active">
+        <img src="assets/img/photos/img_6028.jpg" alt="" loading="lazy">
+      </div>
+    </div>
+    <div class="menu__foot">
+      <a href="mailto:baja@uottawa.ca">baja@uottawa.ca</a>
+      <a href="https://www.instagram.com/uottawabaja/" target="_blank" rel="noopener">Instagram @uottawabaja</a>
+      <span>Faculty of Engineering · University of Ottawa</span>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="hero hero--page" aria-labelledby="page-title">
+      <div class="hero__media"><img src="assets/img/photos/dsc_1060.jpg" alt="Car #230 driving across a grassy slope between cones" fetchpriority="high"></div>
+      <span class="hero__number" aria-hidden="true">26/27</span>
+      <div class="container hero__content">
+        <p class="kicker">Competitions</p>
+        <h1 id="page-title" class="hero__title worn worn--light">
+          <span class="line"><span>Where it</span></span>
+          <span class="line"><span class="stencil">gets real.</span></span>
+        </h1>
+        <p class="hero__lead">Every design decision gets judged twice: once by industry engineers, and once by the terrain.</p>
+      </div>
+    </section>
+
+    <!-- SEASON -->
+    <section id="season" class="section" aria-labelledby="season-title">
+      <span class="section-index" aria-hidden="true">01</span>
+      <div class="container split">
+        <div>
+          <p class="kicker">2026–2027 season</p>
+          <h2 id="season-title" class="title worn" data-split="lines">This season's <span class="accent">schedule</span></h2>
+          <p class="lead mt-4" data-reveal>Two events: an early-season exhibition race to shake the car down, and the SAE International competition we build toward all year.</p>
+          <p class="muted" data-reveal data-delay="1">Sponsor branding travels with the team to every event, on the vehicle, the paddock banner and team apparel.</p>
+          <div class="frame frame--wide mt-5" data-reveal="clip"><img src="assets/img/photos/img_5557.jpg" alt="Car #230 racing down a dirt hill on the endurance course" loading="lazy"></div>
+        </div>
+        <ol class="timeline">
+          <li class="timeline__item" id="oktobajafest" data-reveal>
+            <span class="timeline__date">Oct 2–4, 2026 · Exhibition</span>
+            <h3>OktoBajaFest</h3>
+            <p><span class="tag tag--ghost">Seven Springs · Colton, NY</span></p>
+            <p class="muted">The largest exhibition race for Baja vehicles in North America, with roughly 30 vehicles from 15 universities. An early chance to run the car in race conditions, refine drivetrain and suspension set-up, collect performance data and give newer members competition experience ahead of the SAE event.</p>
+          </li>
+          <li class="timeline__item" id="williamsport" data-reveal>
+            <span class="timeline__date">May 20–23, 2027 · Target event</span>
+            <h3>Baja SAE Williamsport</h3>
+            <p><span class="tag">Williamsport, PA</span></p>
+            <p class="muted">The team's target SAE International competition for 2027, subject to the SAE registration lottery. Four days of static judging, dynamic events and the four-hour endurance race, and our main benchmark against the leading Baja programs in North America.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <div class="marquee" data-marquee="1" data-speed="26" aria-hidden="true">
+      <div class="marquee__track"><div class="marquee__group">
+        <span class="marquee__item">Tech inspection</span><span class="marquee__sep"></span>
+        <span class="marquee__item marquee__item--outline">Acceleration</span><span class="marquee__sep"></span>
+        <span class="marquee__item">Hill climb</span><span class="marquee__sep"></span>
+        <span class="marquee__item marquee__item--outline">Manoeuvrability</span><span class="marquee__sep"></span>
+        <span class="marquee__item">Endurance</span><span class="marquee__sep"></span>
+      </div></div>
+    </div>
+
+    <!-- SCORING -->
+    <section class="section section--charcoal" aria-labelledby="scoring-title">
+      <span class="section-index" aria-hidden="true">02</span>
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div><p class="kicker">How it works</p><h2 id="scoring-title" class="title worn" data-split="lines">What happens <span class="accent">at an event</span></h2></div>
+          <p class="lead">Every team runs the same 14 hp Kohler CH440 and meets the same safety rules, so results come down to design, weight, reliability and execution.</p>
+        </div>
+        <div class="grid grid--3" data-reveal="stagger">
+          <div class="panel"><span class="panel__num">01</span><h3>Static &amp; business</h3><p class="muted">Technical inspection, design judging, a cost report and a sales presentation, defended in front of industry judges.</p></div>
+          <div class="panel"><span class="panel__num">02</span><h3>Dynamic events</h3><p class="muted">Acceleration, hill climb or traction, manoeuvrability and suspension events under demanding off-road conditions.</p></div>
+          <div class="panel panel--garnet"><span class="panel__num">03</span><h3>Endurance</h3><p>A four-hour wheel-to-wheel race where reliability and pit-crew coordination matter as much as outright speed.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="results" class="section torn-top" aria-labelledby="results-title">
+      <span class="section-index" aria-hidden="true">03</span>
+      <div class="container">
+        <div class="section-head"><p class="kicker">History</p><h2 id="results-title" class="title worn" data-split="lines">Past <span class="outline">seasons</span></h2></div>
+        <!-- TODO: fill with real results. One panel per event; newest first. -->
+        <div class="grid grid--3 todo" data-reveal="stagger">
+          <div class="panel"><span class="timeline__date">Season</span><h3 style="margin-top:.5rem">Event name</h3><p class="muted">Location · dates</p><p class="muted">Overall placing, standout event results (e.g. endurance laps, design finals) and one line on what the team learned.</p></div>
+          <div class="panel"><span class="timeline__date">Season</span><h3 style="margin-top:.5rem">Event name</h3><p class="muted">Location · dates</p><p class="muted">Result summary.</p></div>
+          <div class="panel"><span class="timeline__date">Season</span><h3 style="margin-top:.5rem">Event name</h3><p class="muted">Location · dates</p><p class="muted">Result summary.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="section section--tight" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div><p class="kicker">Gallery</p><h2 id="gallery-title" class="title worn" data-split="lines">Track <span class="accent">&amp;</span> paddock</h2></div>
+          <p class="lead">Tap any photo to open it full screen.</p>
+        </div>
+        <div class="gallery-filters" role="group" aria-label="Filter photos">
+          <button type="button" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" data-filter="track" aria-pressed="false">On track</button>
+          <button type="button" data-filter="paddock" aria-pressed="false">Paddock</button>
+          <button type="button" data-filter="people" aria-pressed="false">People</button>
+        </div>
+        <div class="gallery" data-gallery>
+          <button class="gallery__item" type="button" data-tags="paddock"><img src="assets/img/photos/dsc_0463.jpg" alt="Team member in the paddock wearing ear protection" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="people"><img src="assets/img/photos/dsc_0541.jpg" alt="Driver in a blue helmet seated in car #230" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="people"><img src="assets/img/photos/dsc_0546.jpg" alt="Driver at the wheel with sponsor decals on the side panel" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="track"><img src="assets/img/photos/dsc_0663.jpg" alt="Car #230 on course with another car behind" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="track"><img src="assets/img/photos/dsc_0665.jpg" alt="Car #230 turning between cones" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="track"><img src="assets/img/photos/dsc_0677.jpg" alt="Car #230 cornering on grass" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="track"><img src="assets/img/photos/dsc_0832.jpg" alt="Car #230 turning past a cone" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="track"><img src="assets/img/photos/dsc_0833.jpg" alt="Car #230 rounding a cone" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="track"><img src="assets/img/photos/dsc_0850.jpg" alt="Car #230 kicking up dust through a turn" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="track"><img src="assets/img/photos/dsc_0936.jpg" alt="Car #230 on a dirt section of the course" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="track"><img src="assets/img/photos/dsc_0937.jpg" alt="Car #230 on a dirt slope with cones" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="track"><img src="assets/img/photos/dsc_0954.jpg" alt="Car #230 climbing a berm past hay bales" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="track"><img src="assets/img/photos/dsc_1036.jpg" alt="Car #230 cornering beside another team's car" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="track"><img src="assets/img/photos/dsc_1041.jpg" alt="Car #230 on a grassy slope" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="track"><img src="assets/img/photos/dsc_1060.jpg" alt="Car #230 on a grassy slope between cones" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="paddock"><img src="assets/img/photos/img_3576.jpg" alt="Team working on the car under the tent" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="paddock"><img src="assets/img/photos/img_3578.jpg" alt="Team member inspecting the cockpit" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="paddock"><img src="assets/img/photos/img_3587.jpg" alt="Team members working on the car under the tent" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="paddock"><img src="assets/img/photos/img_3596.jpg" alt="Team member in a Baja SAE uOttawa shirt watching the car" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="paddock"><img src="assets/img/photos/img_3612.jpg" alt="Team members working on the car in the paddock" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="paddock"><img src="assets/img/photos/img_3693.jpg" alt="Team member working on the rear frame" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="people"><img src="assets/img/photos/img_4971.jpg" alt="Team photo with the car in front of the trailer" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="people"><img src="assets/img/photos/img_4973.jpg" alt="Team photo in front of the team trailer" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="paddock"><img src="assets/img/photos/img_5029.jpg" alt="Team working on the car beside the team trailer" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="track"><img src="assets/img/photos/img_5096.jpg" alt="Car #230 in a field" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="track"><img src="assets/img/photos/img_5114.jpg" alt="Car #230 parked in a grass field" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="people"><img src="assets/img/photos/img_5163.jpg" alt="Team members helping the driver strap in" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="people"><img src="assets/img/photos/img_5203.jpg" alt="Team members posing with the car and driver" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="people"><img src="assets/img/photos/img_5212.jpg" alt="Team members with the car and driver" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="track"><img src="assets/img/photos/img_5284.jpg" alt="Cars on the endurance course" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="track"><img src="assets/img/photos/img_5372.jpg" alt="Car #230 through a turn beside cones" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="track"><img src="assets/img/photos/img_5557.jpg" alt="Car #230 on the endurance course" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="track"><img src="assets/img/photos/img_5559.jpg" alt="Car #230 descending a dirt hill" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="track"><img src="assets/img/photos/img_5574.jpg" alt="Car #230 on course with spectators behind" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="track"><img src="assets/img/photos/img_5582.jpg" alt="Car #230 driving across a grassy slope" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="track"><img src="assets/img/photos/img_5678.jpg" alt="Car #230 approaching an obstacle" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="paddock"><img src="assets/img/photos/img_5777.jpg" alt="Team members watching from the fence line" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="track"><img src="assets/img/photos/img_5829.jpg" alt="Car #230 cornering near course marshals" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="track"><img src="assets/img/photos/img_5836.jpg" alt="Car #230 cornering beside a tire obstacle" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="track"><img src="assets/img/photos/img_5850.jpg" alt="Car #230 close up on course" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="track"><img src="assets/img/photos/img_5859.jpg" alt="Car #230 on a grass hillside" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="track"><img src="assets/img/photos/img_5879.jpg" alt="Car #230 on course near an excavator" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="paddock"><img src="assets/img/photos/img_5931.jpg" alt="Team gathered around the car in the paddock" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="people"><img src="assets/img/photos/img_5937.jpg" alt="Driver smiling in the cockpit" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="paddock"><img src="assets/img/photos/img_5976.jpg" alt="Front view of the car with team members" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="paddock"><img src="assets/img/photos/img_5983.jpg" alt="Car #230 surrounded by team members in the paddock" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="paddock"><img src="assets/img/photos/img_6028.jpg" alt="Sponsor decals on the side of car #230" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="paddock"><img src="assets/img/photos/img_6036.jpg" alt="Team members around the car in the paddock" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="paddock"><img src="assets/img/photos/img_6038.jpg" alt="Team members working on the car in the paddock" loading="lazy"></button>
+          <button class="gallery__item" type="button" data-tags="paddock"><img src="assets/img/photos/img_6045.jpg" alt="Team members working on the car with tools laid out" loading="lazy"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--garnet scratched torn-top" aria-labelledby="travel-title">
+      <div class="container split">
+        <h2 id="travel-title" class="title worn" data-split="lines">Travel <span class="accent">with us</span></h2>
+        <div>
+          <p class="lead">Travel and lodging for 12 to 14 team members, plus trailer and vehicle transport, make up about 30% of the season budget. Sponsors put their name on the car that gets us there.</p>
+          <div class="btn-row"><a class="btn btn--light" href="sponsors.html">Sponsorship opportunities <span class="arrow">→</span></a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer torn-top">
+    <div class="container">
+      <div class="footer-cta">
+        <h2 class="worn worn--light">Fuel the <span class="accent-hl">next build.</span></h2>
+        <div>
+          <p class="muted">Money, machining time, materials or software — every contribution ends up on the car.</p>
+          <div class="btn-row" style="margin-top:var(--s3)">
+            <a class="btn" href="sponsors.html">Become a sponsor <span class="arrow">→</span></a>
+            <a class="btn btn--ghost" href="team.html#join">Join the team</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-grid">
+        <div>
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="tech.html">Tech</a></li>
+            <li><a href="competitions.html">Competitions</a></li>
+            <li><a href="sponsors.html">Sponsors</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <ul>
+            <li><a href="mailto:baja@uottawa.ca">baja@uottawa.ca</a></li>
+            <li><a href="sponsors.html#become-a-sponsor">Sponsorship</a></li>
+            <li><a href="team.html#join">Recruitment</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Find us</h3>
+          <p class="muted" style="font-size:var(--fs-sm)">Faculty of Engineering<br>University of Ottawa<br>Ottawa, Ontario, Canada</p>
+        </div>
+        <div>
+          <h3>Follow</h3>
+          <div class="socials">
+            <a href="https://www.instagram.com/uottawabaja/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM17.5 5.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+            </a>
+            <!-- TODO: add LinkedIn URL -->
+            <a class="todo" href="#" aria-label="LinkedIn (link to be added)">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM2.3 9h3.4v12H2.3V9zm6 0h3.3v1.7h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.2 2.3 4.2 5.4V21h-3.4v-5.9c0-1.4 0-3.2-2-3.2s-2.2 1.5-2.2 3.1v6H8.3V9z"/></svg>
+            </a>
+            <a href="mailto:baja@uottawa.ca" aria-label="Email">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2.4V17h16V7.4l-8 5.3-8-5.3zM5.2 7l6.8 4.5L18.8 7H5.2z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="footer-wordmark worn" aria-hidden="true">Rough Riders</p>
+    <div class="container footer-legal">
+      <span>&copy; <span data-year>2026</span> Rough Rider Racing · uOttawa Baja SAE</span>
+      <span>Designed, built &amp; raced by students</span>
+    </div>
+  </footer>
+
+  <!-- Lightbox (used by galleries) -->
+  <div class="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <img src="" alt="">
+    <button class="lightbox__close" type="button" aria-label="Close">✕</button>
+    <button class="lightbox__prev" type="button" aria-label="Previous photo">‹</button>
+    <button class="lightbox__next" type="button" aria-label="Next photo">›</button>
+    <span class="lightbox__count"></span>
+  </div>
+</body>
+</html>

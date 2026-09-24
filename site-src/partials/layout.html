@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{title}}</title>
+  <meta name="description" content="{{description}}">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Rough Rider Racing">
+  <meta property="og:title" content="{{title}}">
+  <meta property="og:description" content="{{description}}">
+  <meta property="og:image" content="{{og_image_url}}">
+{{canonical_tag}}  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <script>
+    /* Boot flags before first paint: motion, first-visit splash, page-enter wipe */
+    (function (h) {
+      h.className = h.className.replace('no-js', 'js');
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      h.classList.add('motion');
+      try {
+        if (!sessionStorage.getItem('rrr-splash')) h.classList.add('show-splash');
+        else if (sessionStorage.getItem('rrr-wipe')) h.classList.add('is-entering');
+        sessionStorage.removeItem('rrr-wipe');
+      } catch (e) {}
+    })(document.documentElement);
+  </script>
+  <link rel="preload" href="assets/fonts/big-shoulders-display-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/vendor/lenis.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/vendor/gsap.min.js" defer></script>
+  <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/vendor/SplitText.min.js" defer></script>
+  <script src="assets/vendor/lenis.min.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body class="page-{{slug}}">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===== Splash (first visit per session) ===== -->
+  <div class="splash" hidden aria-hidden="true">
+    <div class="splash__inner">
+      <img class="splash__crest" src="assets/img/logo.png" alt="" width="170" height="170">
+      <p class="splash__title">Rough Rider Racing</p>
+      <p class="splash__sub">uOttawa · Baja SAE</p>
+      <div class="splash__gauge"><span class="splash__bar"><i></i></span><span class="splash__rpm">000% THR</span></div>
+    </div>
+    <div class="splash__panel splash__panel--2"></div>
+    <div class="splash__panel splash__panel--1"></div>
+  </div>
+  <!-- ===== Page wipe between pages ===== -->
+  <div class="wipe" aria-hidden="true">
+    <div class="wipe__panel wipe__panel--2"></div>
+    <div class="wipe__panel wipe__panel--1"></div>
+    <img class="wipe__crest" src="assets/img/logo.png" alt="" width="90" height="90">
+  </div>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html" aria-label="Rough Rider Racing home">
+        <img src="assets/img/logo.png" alt="" width="46" height="46">
+        <span class="brand__name">Rough Rider Racing<small>uOttawa Baja SAE</small></span>
+      </a>
+      <div class="header-actions">
+        <a class="btn btn--sm" href="sponsors.html#become-a-sponsor">Sponsor us</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">
+          <span class="menu-toggle__text">Menu</span><span class="menu-toggle__lines" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+    <span class="progress" aria-hidden="true"></span>
+  </header>
+
+  <!-- ===== Full-screen menu ===== -->
+  <nav id="menu" class="menu scratched" aria-label="Main">
+    <div class="menu__grid">
+      <ul class="menu__list">
+{{nav}}
+      </ul>
+      <div class="menu__preview" aria-hidden="true">
+{{nav_previews}}
+      </div>
+    </div>
+    <div class="menu__foot">
+      <a href="mailto:baja@uottawa.ca">baja@uottawa.ca</a>
+      <a href="https://www.instagram.com/uottawabaja/" target="_blank" rel="noopener">Instagram @uottawabaja</a>
+      <span>Faculty of Engineering · University of Ottawa</span>
+    </div>
+  </nav>
+
+  <main id="main">
+{{body}}
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer torn-top">
+    <div class="container">
+      <div class="footer-cta">
+        <h2 class="worn worn--light">Fuel the <span class="accent-hl">next build.</span></h2>
+        <div>
+          <p class="muted">Money, machining time, materials or software — every contribution ends up on the car.</p>
+          <div class="btn-row" style="margin-top:var(--s3)">
+            <a class="btn" href="sponsors.html">Become a sponsor <span class="arrow">→</span></a>
+            <a class="btn btn--ghost" href="team.html#join">Join the team</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-grid">
+        <div>
+          <h3>Explore</h3>
+          <ul>
+{{footer_nav}}
+          </ul>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <ul>
+            <li><a href="mailto:baja@uottawa.ca">baja@uottawa.ca</a></li>
+            <li><a href="sponsors.html#become-a-sponsor">Sponsorship</a></li>
+            <li><a href="team.html#join">Recruitment</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Find us</h3>
+          <p class="muted" style="font-size:var(--fs-sm)">Faculty of Engineering<br>University of Ottawa<br>Ottawa, Ontario, Canada</p>
+        </div>
+        <div>
+          <h3>Follow</h3>
+          <div class="socials">
+            <a href="https://www.instagram.com/uottawabaja/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM17.5 5.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+            </a>
+            <!-- TODO: add LinkedIn URL -->
+            <a class="todo" href="#" aria-label="LinkedIn (link to be added)">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM2.3 9h3.4v12H2.3V9zm6 0h3.3v1.7h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.2 2.3 4.2 5.4V21h-3.4v-5.9c0-1.4 0-3.2-2-3.2s-2.2 1.5-2.2 3.1v6H8.3V9z"/></svg>
+            </a>
+            <a href="mailto:baja@uottawa.ca" aria-label="Email">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2.4V17h16V7.4l-8 5.3-8-5.3zM5.2 7l6.8 4.5L18.8 7H5.2z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="footer-wordmark worn" aria-hidden="true">Rough Riders</p>
+    <div class="container footer-legal">
+      <span>&copy; <span data-year>2026</span> Rough Rider Racing · uOttawa Baja SAE</span>
+      <span>Designed, built &amp; raced by students</span>
+    </div>
+  </footer>
+
+  <!-- Lightbox (used by galleries) -->
+  <div class="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <img src="" alt="">
+    <button class="lightbox__close" type="button" aria-label="Close">✕</button>
+    <button class="lightbox__prev" type="button" aria-label="Previous photo">‹</button>
+    <button class="lightbox__next" type="button" aria-label="Next photo">›</button>
+    <span class="lightbox__count"></span>
+  </div>
+</body>
+</html>

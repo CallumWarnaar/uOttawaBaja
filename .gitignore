@@ -1,0 +1,13 @@
+# Raw, full-size photos and archives: too big for GitHub (web-sized copies live in baja-site/assets/img/photos)
+website pics/
+*.zip
+
+# Original package PDF (the site's copy lives in baja-site/assets/docs)
+/RRR_Sponsorship_Package_2026-2027.pdf
+
+# Python / OS clutter
+__pycache__/
+*.pyc
+Thumbs.db
+desktop.ini
+.DS_Store

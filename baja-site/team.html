@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Team | Rough Rider Racing</title>
+  <meta name="description" content="Meet the students of Rough Rider Racing, the University of Ottawa Baja SAE team: leadership, technical subteams and administration.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Rough Rider Racing">
+  <meta property="og:title" content="Team | Rough Rider Racing">
+  <meta property="og:description" content="Meet the students of Rough Rider Racing, the University of Ottawa Baja SAE team: leadership, technical subteams and administration.">
+  <meta property="og:image" content="assets/img/photos/img_4971.jpg">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <script>
+    /* Boot flags before first paint: motion, first-visit splash, page-enter wipe */
+    (function (h) {
+      h.className = h.className.replace('no-js', 'js');
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      h.classList.add('motion');
+      try {
+        if (!sessionStorage.getItem('rrr-splash')) h.classList.add('show-splash');
+        else if (sessionStorage.getItem('rrr-wipe')) h.classList.add('is-entering');
+        sessionStorage.removeItem('rrr-wipe');
+      } catch (e) {}
+    })(document.documentElement);
+  </script>
+  <link rel="preload" href="assets/fonts/big-shoulders-display-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/vendor/lenis.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/vendor/gsap.min.js" defer></script>
+  <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/vendor/SplitText.min.js" defer></script>
+  <script src="assets/vendor/lenis.min.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body class="page-team">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===== Splash (first visit per session) ===== -->
+  <div class="splash" hidden aria-hidden="true">
+    <div class="splash__inner">
+      <img class="splash__crest" src="assets/img/logo.png" alt="" width="170" height="170">
+      <p class="splash__title">Rough Rider Racing</p>
+      <p class="splash__sub">uOttawa · Baja SAE</p>
+      <div class="splash__gauge"><span class="splash__bar"><i></i></span><span class="splash__rpm">000% THR</span></div>
+    </div>
+    <div class="splash__panel splash__panel--2"></div>
+    <div class="splash__panel splash__panel--1"></div>
+  </div>
+  <!-- ===== Page wipe between pages ===== -->
+  <div class="wipe" aria-hidden="true">
+    <div class="wipe__panel wipe__panel--2"></div>
+    <div class="wipe__panel wipe__panel--1"></div>
+    <img class="wipe__crest" src="assets/img/logo.png" alt="" width="90" height="90">
+  </div>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html" aria-label="Rough Rider Racing home">
+        <img src="assets/img/logo.png" alt="" width="46" height="46">
+        <span class="brand__name">Rough Rider Racing<small>uOttawa Baja SAE</small></span>
+      </a>
+      <div class="header-actions">
+        <a class="btn btn--sm" href="sponsors.html#become-a-sponsor">Sponsor us</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">
+          <span class="menu-toggle__text">Menu</span><span class="menu-toggle__lines" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+    <span class="progress" aria-hidden="true"></span>
+  </header>
+
+  <!-- ===== Full-screen menu ===== -->
+  <nav id="menu" class="menu scratched" aria-label="Main">
+    <div class="menu__grid">
+      <ul class="menu__list">
+        <li><a class="menu__link" href="index.html"><span>01</span>Home</a></li>
+        <li><a class="menu__link" href="about.html"><span>02</span>About</a></li>
+        <li><a class="menu__link" href="team.html" aria-current="page"><span>03</span>Team</a></li>
+        <li><a class="menu__link" href="tech.html"><span>04</span>Tech</a></li>
+        <li><a class="menu__link" href="competitions.html"><span>05</span>Competitions</a></li>
+        <li><a class="menu__link" href="sponsors.html"><span>06</span>Sponsors</a></li>
+      </ul>
+      <div class="menu__preview" aria-hidden="true">
+        <img src="assets/img/photos/img_5850.jpg" alt="" loading="lazy">
+        <img src="assets/img/photos/img_5212.jpg" alt="" loading="lazy">
+        <img src="assets/img/photos/img_4971.jpg" alt="" loading="lazy" class="is-active">
+        <img src="assets/img/photos/dsc_0541.jpg" alt="" loading="lazy">
+        <img src="assets/img/photos/img_5557.jpg" alt="" loading="lazy">
+        <img src="assets/img/photos/img_6028.jpg" alt="" loading="lazy">
+      </div>
+    </div>
+    <div class="menu__foot">
+      <a href="mailto:baja@uottawa.ca">baja@uottawa.ca</a>
+      <a href="https://www.instagram.com/uottawabaja/" target="_blank" rel="noopener">Instagram @uottawabaja</a>
+      <span>Faculty of Engineering · University of Ottawa</span>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="hero hero--page" aria-labelledby="page-title">
+      <div class="hero__media"><img src="assets/img/photos/img_4971.jpg" alt="The Rough Rider Racing team with the car in front of the team trailer" fetchpriority="high"></div>
+      <span class="hero__number" aria-hidden="true">230</span>
+      <div class="container hero__content">
+        <p class="kicker">The team</p>
+        <h1 id="page-title" class="hero__title worn worn--light">
+          <span class="line"><span>The crew</span></span>
+          <span class="line"><span class="stencil">behind #230</span></span>
+        </h1>
+        <p class="hero__lead">A student-run team drawn from mechanical, electrical, software and computer engineering, and beyond.</p>
+      </div>
+    </section>
+
+    <nav class="onpage-nav" aria-label="Subteams">
+      <div class="container"><ul>
+        <li><a href="#leadership">Leadership</a></li>
+        <li><a href="#chassis">Chassis</a></li>
+        <li><a href="#suspension">Suspension</a></li>
+        <li><a href="#drivetrain">Drivetrain</a></li>
+        <li><a href="#electrical">Electrical</a></li>
+        <li><a href="#administration">Administration</a></li>
+        <li><a href="#join">Join</a></li>
+      </ul></div>
+    </nav>
+
+    <!--
+      MEMBER CARD — copy one <article class="member"> per person.
+      Headshot:     <div class="member__photo" style="background-image:url('assets/img/team/firstname-lastname.jpg')"></div>
+      No headshot:  <div class="member__photo"><span class="member__initials" aria-hidden="true">AB</span></div>
+      Headshots: portrait 4:5 crop, ~800x1000 JPG, saved to assets/img/team/ (shown greyscale, colour on hover).
+    -->
+
+    <section id="leadership" class="section" aria-labelledby="lead-title">
+      <span class="section-index" aria-hidden="true">01</span>
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div><p class="kicker">Leadership</p><h2 id="lead-title" class="title worn" data-split="lines">Executive <span class="accent">team</span></h2></div>
+          <p class="lead">Running a vehicle program means budgets, schedules and sponsors as much as welds and CAD.</p>
+        </div>
+        <div class="grid grid--members">
+            <article class="member" data-reveal>
+              <div class="member__photo"><span class="member__initials" aria-hidden="true">NJ</span></div>
+              <p class="member__name">Nora Jordan</p><p class="member__role">Team Captain</p>
+            </article>
+            <article class="member todo" data-reveal>
+              <div class="member__photo"><span class="member__initials" aria-hidden="true">?</span></div>
+              <p class="member__name">Name</p><p class="member__role">Technical Director</p>
+            </article>
+            <article class="member todo" data-reveal>
+              <div class="member__photo"><span class="member__initials" aria-hidden="true">?</span></div>
+              <p class="member__name">Name</p><p class="member__role">Business Lead</p>
+            </article>
+            <article class="member todo" data-reveal>
+              <div class="member__photo"><span class="member__initials" aria-hidden="true">?</span></div>
+              <p class="member__name">Name</p><p class="member__role">Role</p>
+            </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight" aria-labelledby="subteams-title" style="padding-top:0">
+      <div class="container">
+        <div class="section-head"><p class="kicker">Technical &amp; business</p><h2 id="subteams-title" class="title worn" data-split="lines">The <span class="outline">subteams</span></h2></div>
+        <div id="chassis" class="subteam">
+          <div class="subteam__intro">
+            <p class="subteam__count">Subteam 01</p>
+            <h3 class="subteam__title worn">Chassis</h3>
+            <p class="muted">Designs the frame, roll cage, ergonomics and mounting points, with a focus on stiffness, safety, weight reduction and serviceability.</p>
+            <div class="frame frame--wide frame--duo mt-4" data-reveal="clip"><img src="assets/img/photos/img_3578.jpg" alt="Team member inspecting the cockpit" loading="lazy"></div>
+          </div>
+          <div class="grid grid--members">
+            <article class="member todo" data-reveal>
+              <div class="member__photo"><span class="member__initials" aria-hidden="true">?</span></div>
+              <p class="member__name">Name</p><p class="member__role">Chassis Lead</p>
+            </article>
+            <article class="member todo" data-reveal>
+              <div class="member__photo"><span class="member__initials" aria-hidden="true">?</span></div>
+              <p class="member__name">Name</p><p class="member__role">Member</p>
+            </article>
+            <article class="member todo" data-reveal>
+              <div class="member__photo"><span class="member__initials" aria-hidden="true">?</span></div>
+              <p class="member__name">Name</p><p class="member__role">Member</p>
+            </article>
+          </div>
+        </div>
+        <div id="suspension" class="subteam">
+          <div class="subteam__intro">
+            <p class="subteam__count">Subteam 02</p>
+            <h3 class="subteam__title worn">Suspension</h3>
+            <p class="muted">Develops suspension geometry, selects springs and dampers, and tunes ride height, handling and durability over rough terrain.</p>
+            <div class="frame frame--wide frame--duo mt-4" data-reveal="clip"><img src="assets/img/photos/dsc_0937.jpg" alt="Car #230 on a dirt slope with cones" loading="lazy"></div>
+          </div>
+          <div class="grid grid--members">
+            <article class="member todo" data-reveal>
+              <div class="member__photo"><span class="member__initials" aria-hidden="true">?</span></div>
+              <p class="member__name">Name</p><p class="member__role">Suspension Lead</p>
+            </article>
+            <article class="member" data-reveal>
+              <div class="member__photo"><span class="member__initials" aria-hidden="true">C</span></div>
+              <p class="member__name">Callum</p><p class="member__role">Suspension &amp; Steering Engineer</p>
+            </article>
+            <article class="member todo" data-reveal>
+              <div class="member__photo"><span class="member__initials" aria-hidden="true">?</span></div>
+              <p class="member__name">Name</p><p class="member__role">Member</p>
+            </article>
+          </div>
+        </div>
+        <div id="drivetrain" class="subteam">
+          <div class="subteam__intro">
+            <p class="subteam__count">Subteam 03</p>
+            <h3 class="subteam__title worn">Drivetrain</h3>
+            <p class="muted">Responsible for CVT tuning, gearbox design, gearing, shafts, hubs and bearings, with a focus on efficiency and reliability.</p>
+            <div class="frame frame--wide frame--duo mt-4" data-reveal="clip"><img src="assets/img/photos/img_3587.jpg" alt="Team members working on the car under the tent" loading="lazy"></div>
+          </div>
+          <div class="grid grid--members">
+            <article class="member todo" data-reveal>
+              <div class="member__photo"><span class="member__initials" aria-hidden="true">?</span></div>
+              <p class="member__name">Name</p><p class="member__role">Drivetrain Lead</p>
+            </article>
+            <article class="member todo" data-reveal>
+              <div class="member__photo"><span class="member__initials" aria-hidden="true">?</span></div>
+              <p class="member__name">Name</p><p class="member__role">Member</p>
+            </article>
+            <article class="member todo" data-reveal>
+              <div class="member__photo"><span class="member__initials" aria-hidden="true">?</span></div>
+              <p class="member__name">Name</p><p class="member__role">Member</p>
+            </article>
+          </div>
+        </div>
+        <div id="electrical" class="subteam">
+          <div class="subteam__intro">
+            <p class="subteam__count">Subteam 04</p>
+            <h3 class="subteam__title worn">Electrical</h3>
+            <p class="muted">Designs the wiring harness, kill switches, sensor network and data acquisition for safe and reliable operation.</p>
+            <div class="frame frame--wide frame--duo mt-4" data-reveal="clip"><img src="assets/img/photos/img_5163.jpg" alt="Team members helping the driver strap in" loading="lazy"></div>
+          </div>
+          <div class="grid grid--members">
+            <article class="member todo" data-reveal>
+              <div class="member__photo"><span class="member__initials" aria-hidden="true">?</span></div>
+              <p class="member__name">Name</p><p class="member__role">Electrical Lead</p>
+            </article>
+            <article class="member todo" data-reveal>
+              <div class="member__photo"><span class="member__initials" aria-hidden="true">?</span></div>
+              <p class="member__name">Name</p><p class="member__role">Member</p>
+            </article>
+            <article class="member todo" data-reveal>
+              <div class="member__photo"><span class="member__initials" aria-hidden="true">?</span></div>
+              <p class="member__name">Name</p><p class="member__role">Member</p>
+            </article>
+          </div>
+        </div>
+        <div id="administration" class="subteam">
+          <div class="subteam__intro">
+            <p class="subteam__count">Subteam 05</p>
+            <h3 class="subteam__title worn">Administration</h3>
+            <p class="muted">Responsible for sponsorship, purchasing, budgeting, marketing, events and the logistics of testing and competition travel.</p>
+            <div class="frame frame--wide frame--duo mt-4" data-reveal="clip"><img src="assets/img/photos/img_5931.jpg" alt="Team gathered around the car in the paddock" loading="lazy"></div>
+          </div>
+          <div class="grid grid--members">
+            <article class="member todo" data-reveal>
+              <div class="member__photo"><span class="member__initials" aria-hidden="true">?</span></div>
+              <p class="member__name">Name</p><p class="member__role">Sponsorship</p>
+            </article>
+            <article class="member todo" data-reveal>
+              <div class="member__photo"><span class="member__initials" aria-hidden="true">?</span></div>
+              <p class="member__name">Name</p><p class="member__role">Finance</p>
+            </article>
+            <article class="member todo" data-reveal>
+              <div class="member__photo"><span class="member__initials" aria-hidden="true">?</span></div>
+              <p class="member__name">Name</p><p class="member__role">Marketing</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee marquee--dark" data-marquee="1" data-speed="32" aria-hidden="true">
+      <div class="marquee__track"><div class="marquee__group">
+        <span class="marquee__item">Mechanical</span><span class="marquee__sep"></span>
+        <span class="marquee__item marquee__item--outline">Electrical</span><span class="marquee__sep"></span>
+        <span class="marquee__item">Software</span><span class="marquee__sep"></span>
+        <span class="marquee__item marquee__item--outline">Computer</span><span class="marquee__sep"></span>
+        <span class="marquee__item">Business</span><span class="marquee__sep"></span>
+      </div></div>
+    </div>
+
+    <section id="join" class="section section--garnet scratched torn-top" aria-labelledby="join-title">
+      <div class="container split">
+        <div>
+          <p class="kicker kicker--on-garnet">Recruitment</p>
+          <h2 id="join-title" class="title worn" data-split="lines">Join Rough <span class="accent">Rider Racing</span></h2>
+          <p class="lead mt-4">You'll get experience a classroom can't give you: CAD, hand calcs and FEA; machining, welding and wiring; budgeting, scheduling and delivering to a fixed deadline.</p>
+          <!-- TODO: confirm recruitment window / info session dates and add a sign-up form link -->
+          <p class="todo todo-note" style="color:var(--white)">Recruitment dates and sign-up link to be added</p>
+          <div class="btn-row">
+            <a class="btn btn--light" href="mailto:baja@uottawa.ca?subject=Joining%20Rough%20Rider%20Racing">Email the team <span class="arrow">→</span></a>
+            <a class="btn btn--ghost" href="https://www.instagram.com/uottawabaja/" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+        <div>
+          <ol class="steps" data-reveal="stagger">
+            <li><div><h3>Reach out</h3><p>Email the team or catch us at a recruitment event.</p></div></li>
+            <li><div><h3>Pick a subteam</h3><p>Chassis, Suspension, Drivetrain, Electrical or Administration.</p></div></li>
+            <li><div><h3>Get in the shop</h3><p>Start on real parts for a car that races this season.</p></div></li>
+          </ol>
+          <div class="frame frame--wide mt-4" data-reveal="clip"><img src="assets/img/photos/img_3612.jpg" alt="Team members working on the car under the paddock tent" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer torn-top">
+    <div class="container">
+      <div class="footer-cta">
+        <h2 class="worn worn--light">Fuel the <span class="accent-hl">next build.</span></h2>
+        <div>
+          <p class="muted">Money, machining time, materials or software — every contribution ends up on the car.</p>
+          <div class="btn-row" style="margin-top:var(--s3)">
+            <a class="btn" href="sponsors.html">Become a sponsor <span class="arrow">→</span></a>
+            <a class="btn btn--ghost" href="team.html#join">Join the team</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-grid">
+        <div>
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="tech.html">Tech</a></li>
+            <li><a href="competitions.html">Competitions</a></li>
+            <li><a href="sponsors.html">Sponsors</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <ul>
+            <li><a href="mailto:baja@uottawa.ca">baja@uottawa.ca</a></li>
+            <li><a href="sponsors.html#become-a-sponsor">Sponsorship</a></li>
+            <li><a href="team.html#join">Recruitment</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Find us</h3>
+          <p class="muted" style="font-size:var(--fs-sm)">Faculty of Engineering<br>University of Ottawa<br>Ottawa, Ontario, Canada</p>
+        </div>
+        <div>
+          <h3>Follow</h3>
+          <div class="socials">
+            <a href="https://www.instagram.com/uottawabaja/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM17.5 5.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+            </a>
+            <!-- TODO: add LinkedIn URL -->
+            <a class="todo" href="#" aria-label="LinkedIn (link to be added)">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM2.3 9h3.4v12H2.3V9zm6 0h3.3v1.7h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.2 2.3 4.2 5.4V21h-3.4v-5.9c0-1.4 0-3.2-2-3.2s-2.2 1.5-2.2 3.1v6H8.3V9z"/></svg>
+            </a>
+            <a href="mailto:baja@uottawa.ca" aria-label="Email">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2.4V17h16V7.4l-8 5.3-8-5.3zM5.2 7l6.8 4.5L18.8 7H5.2z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="footer-wordmark worn" aria-hidden="true">Rough Riders</p>
+    <div class="container footer-legal">
+      <span>&copy; <span data-year>2026</span> Rough Rider Racing · uOttawa Baja SAE</span>
+      <span>Designed, built &amp; raced by students</span>
+    </div>
+  </footer>
+
+  <!-- Lightbox (used by galleries) -->
+  <div class="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <img src="" alt="">
+    <button class="lightbox__close" type="button" aria-label="Close">✕</button>
+    <button class="lightbox__prev" type="button" aria-label="Previous photo">‹</button>
+    <button class="lightbox__next" type="button" aria-label="Next photo">›</button>
+    <span class="lightbox__count"></span>
+  </div>
+</body>
+</html>

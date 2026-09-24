@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Us | Rough Rider Racing</title>
+  <meta name="description" content="What Baja SAE is, who Rough Rider Racing is, and how the uOttawa team designs, builds and races its off-road vehicle.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Rough Rider Racing">
+  <meta property="og:title" content="About Us | Rough Rider Racing">
+  <meta property="og:description" content="What Baja SAE is, who Rough Rider Racing is, and how the uOttawa team designs, builds and races its off-road vehicle.">
+  <meta property="og:image" content="assets/img/photos/img_5212.jpg">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <script>
+    /* Boot flags before first paint: motion, first-visit splash, page-enter wipe */
+    (function (h) {
+      h.className = h.className.replace('no-js', 'js');
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      h.classList.add('motion');
+      try {
+        if (!sessionStorage.getItem('rrr-splash')) h.classList.add('show-splash');
+        else if (sessionStorage.getItem('rrr-wipe')) h.classList.add('is-entering');
+        sessionStorage.removeItem('rrr-wipe');
+      } catch (e) {}
+    })(document.documentElement);
+  </script>
+  <link rel="preload" href="assets/fonts/big-shoulders-display-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/vendor/lenis.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/vendor/gsap.min.js" defer></script>
+  <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/vendor/SplitText.min.js" defer></script>
+  <script src="assets/vendor/lenis.min.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body class="page-about">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===== Splash (first visit per session) ===== -->
+  <div class="splash" hidden aria-hidden="true">
+    <div class="splash__inner">
+      <img class="splash__crest" src="assets/img/logo.png" alt="" width="170" height="170">
+      <p class="splash__title">Rough Rider Racing</p>
+      <p class="splash__sub">uOttawa · Baja SAE</p>
+      <div class="splash__gauge"><span class="splash__bar"><i></i></span><span class="splash__rpm">000% THR</span></div>
+    </div>
+    <div class="splash__panel splash__panel--2"></div>
+    <div class="splash__panel splash__panel--1"></div>
+  </div>
+  <!-- ===== Page wipe between pages ===== -->
+  <div class="wipe" aria-hidden="true">
+    <div class="wipe__panel wipe__panel--2"></div>
+    <div class="wipe__panel wipe__panel--1"></div>
+    <img class="wipe__crest" src="assets/img/logo.png" alt="" width="90" height="90">
+  </div>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html" aria-label="Rough Rider Racing home">
+        <img src="assets/img/logo.png" alt="" width="46" height="46">
+        <span class="brand__name">Rough Rider Racing<small>uOttawa Baja SAE</small></span>
+      </a>
+      <div class="header-actions">
+        <a class="btn btn--sm" href="sponsors.html#become-a-sponsor">Sponsor us</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">
+          <span class="menu-toggle__text">Menu</span><span class="menu-toggle__lines" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+    <span class="progress" aria-hidden="true"></span>
+  </header>
+
+  <!-- ===== Full-screen menu ===== -->
+  <nav id="menu" class="menu scratched" aria-label="Main">
+    <div class="menu__grid">
+      <ul class="menu__list">
+        <li><a class="menu__link" href="index.html"><span>01</span>Home</a></li>
+        <li><a class="menu__link" href="about.html" aria-current="page"><span>02</span>About</a></li>
+        <li><a class="menu__link" href="team.html"><span>03</span>Team</a></li>
+        <li><a class="menu__link" href="tech.html"><span>04</span>Tech</a></li>
+        <li><a class="menu__link" href="competitions.html"><span>05</span>Competitions</a></li>
+        <li><a class="menu__link" href="sponsors.html"><span>06</span>Sponsors</a></li>
+      </ul>
+      <div class="menu__preview" aria-hidden="true">
+        <img src="assets/img/photos/img_5850.jpg" alt="" loading="lazy">
+        <img src="assets/img/photos/img_5212.jpg" alt="" loading="lazy" class="is-active">
+        <img src="assets/img/photos/img_4971.jpg" alt="" loading="lazy">
+        <img src="assets/img/photos/dsc_0541.jpg" alt="" loading="lazy">
+        <img src="assets/img/photos/img_5557.jpg" alt="" loading="lazy">
+        <img src="assets/img/photos/img_6028.jpg" alt="" loading="lazy">
+      </div>
+    </div>
+    <div class="menu__foot">
+      <a href="mailto:baja@uottawa.ca">baja@uottawa.ca</a>
+      <a href="https://www.instagram.com/uottawabaja/" target="_blank" rel="noopener">Instagram @uottawabaja</a>
+      <span>Faculty of Engineering · University of Ottawa</span>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="hero hero--page" aria-labelledby="page-title">
+      <div class="hero__media"><img src="assets/img/photos/img_5212.jpg" alt="Team members with the car and driver at competition" fetchpriority="high"></div>
+      <span class="hero__number" aria-hidden="true">RRR</span>
+      <div class="container hero__content">
+        <p class="kicker">About us</p>
+        <h1 id="page-title" class="hero__title worn worn--light">
+          <span class="line"><span>Engineering</span></span>
+          <span class="line"><span class="stencil">you can drive.</span></span>
+        </h1>
+        <p class="hero__lead">Classroom theory, applied to a complete vehicle, under strict rules, a limited budget and fixed deadlines.</p>
+      </div>
+    </section>
+
+    <nav class="onpage-nav" aria-label="On this page">
+      <div class="container"><ul>
+        <li><a href="#baja-sae">What is Baja SAE?</a></li>
+        <li><a href="#format">Competition format</a></li>
+        <li><a href="#who-we-are">Who we are</a></li>
+        <li><a href="#how-we-work">How we work</a></li>
+      </ul></div>
+    </nav>
+
+    <!-- WHAT IS BAJA SAE -->
+    <section id="baja-sae" class="section" aria-labelledby="baja-title">
+      <span class="section-index" aria-hidden="true">01</span>
+      <div class="container split split--wide">
+        <div>
+          <p class="kicker">The competition</p>
+          <h2 id="baja-title" class="title worn" data-split="lines">What is <span class="accent">Baja SAE?</span></h2>
+          <p class="lead mt-4" data-reveal>Baja SAE is an international collegiate design competition organized by SAE International. Student teams design, manufacture and race a single-seat, all-terrain vehicle that has to withstand rough terrain, jumps, rocks and mud, and complete a multi-hour endurance race.</p>
+          <div class="prose" data-reveal data-delay="1">
+            <p class="muted">Every team uses the engine specified by the rules (currently a 14 hp Kohler CH440 with a restrictor plate) and meets the same safety and design requirements. Differences in performance come down to vehicle design, weight, reliability and team execution, not the powertrain.</p>
+            <p class="muted">Teams are also judged on cost, design justification and a sales presentation, all evaluated by practising engineers from industry. It's a head-to-head test of engineering judgement, manufacturing quality and project management.</p>
+          </div>
+        </div>
+        <div class="frame-stack">
+          <div class="frame" data-reveal="clip"><img src="assets/img/photos/img_5284.jpg" alt="Cars racing on the endurance course with dust in the air" loading="lazy"><span class="frame__tag">Endurance</span></div>
+          <div class="frame frame--offset frame--duo" data-reveal="clip" data-delay="3"><img src="assets/img/photos/dsc_0541.jpg" alt="Driver in a blue helmet seated in car #230" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BAND -->
+    <section class="band" aria-label="One seat, four hours">
+      <img src="assets/img/photos/img_5096.jpg" alt="" loading="lazy">
+      <p class="band__text worn">One seat.<br><span class="outline">Four hours.</span></p>
+    </section>
+
+    <!-- FORMAT -->
+    <section id="format" class="section section--charcoal" aria-labelledby="format-title">
+      <span class="section-index" aria-hidden="true">02</span>
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div><p class="kicker">Competition format</p><h2 id="format-title" class="title worn" data-split="lines">Judged <span class="accent">three ways</span></h2></div>
+          <p class="lead">A Baja SAE event scores the whole program, from the engineering report and cost sheet to how the car holds up after hours of abuse.</p>
+        </div>
+        <div class="grid grid--3" data-reveal="stagger">
+          <article class="media-card">
+            <img src="assets/img/photos/img_6038.jpg" alt="Team members working on the car in the paddock" loading="lazy">
+            <div class="media-card__body"><span class="media-card__num" style="position:static">01</span><h3>Static &amp; business</h3><p>Technical inspection, design judging, a cost report and a sales presentation, defended in front of industry judges.</p></div>
+          </article>
+          <article class="media-card">
+            <img src="assets/img/photos/img_5582.jpg" alt="Car #230 driving across a grassy slope" loading="lazy">
+            <div class="media-card__body"><span class="media-card__num" style="position:static">02</span><h3>Dynamic events</h3><p>Acceleration, hill climb or traction, manoeuvrability and suspension events under demanding off-road conditions.</p></div>
+          </article>
+          <article class="media-card">
+            <img src="assets/img/photos/dsc_0936.jpg" alt="Car #230 on a dirt section of the course" loading="lazy">
+            <div class="media-card__body"><span class="media-card__num" style="position:static">03</span><h3>Endurance</h3><p>A four-hour wheel-to-wheel race where reliability and pit-crew coordination count as much as outright speed.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO WE ARE -->
+    <section id="who-we-are" class="section torn-top" aria-labelledby="who-title">
+      <span class="section-index" aria-hidden="true">03</span>
+      <div class="container split split--reverse">
+        <div>
+          <p class="kicker">The team</p>
+          <h2 id="who-title" class="title worn" data-split="lines">Who <span class="accent">we are</span></h2>
+          <p class="lead mt-4" data-reveal>Rough Rider Racing (RRR) is the University of Ottawa's Baja SAE team and one of the Faculty of Engineering's competitive design teams, with members from mechanical, electrical, software and computer engineering and other programs.</p>
+          <ul class="check-list mt-4" data-reveal="stagger">
+            <li>Design, manufacture and race a competitive Baja SAE vehicle that complies with the current rules.</li>
+            <li>Give students practical experience in design, fabrication, testing and project management.</li>
+            <li>Represent the University of Ottawa at competitions across North America and build a program that lasts for future students.</li>
+          </ul>
+        </div>
+        <div class="frame" data-reveal="clip"><img src="assets/img/photos/img_4973.jpg" alt="Rough Rider Racing team photo in front of the team trailer" loading="lazy"><span class="frame__tag">The crew</span></div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section section--polar" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div><p class="kicker">What members learn</p><h2 id="skills-title" class="title worn" data-split="lines">Can't learn this <span class="outline">in a lecture</span></h2></div>
+          <p class="lead muted">Members graduate with a portfolio of real, tested hardware and the experience of delivering a vehicle to a fixed deadline.</p>
+        </div>
+        <div class="grid grid--3" data-reveal="stagger">
+          <div class="panel"><span class="panel__num">01</span><h3>Engineering practice</h3><p class="muted">CAD modelling, hand calculations, finite element analysis, design reviews and technical documentation.</p></div>
+          <div class="panel"><span class="panel__num">02</span><h3>Manufacturing skills</h3><p class="muted">Machining, welding, fabrication, wiring, assembly and troubleshooting.</p></div>
+          <div class="panel"><span class="panel__num">03</span><h3>Project execution</h3><p class="muted">Budgeting, scheduling, risk management, communication and delivery to fixed deadlines.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW WE WORK -->
+    <section id="how-we-work" class="section" aria-labelledby="how-title">
+      <span class="section-index" aria-hidden="true">04</span>
+      <div class="container split">
+        <div>
+          <p class="kicker">The process</p>
+          <h2 id="how-title" class="title worn" data-split="lines">How <span class="accent">we work</span></h2>
+          <p class="lead mt-4" data-reveal>The program runs on a two-year vehicle cycle. Each season's work funds racing the current car and starting development of its replacement.</p>
+          <p class="muted" data-reveal data-delay="1">The team is organized into four technical subteams (Chassis, Suspension, Drivetrain and Electrical) and an Administration group responsible for finance, sponsorship, outreach and logistics.</p>
+          <div class="btn-row" data-reveal data-delay="2"><a class="btn" href="team.html">Meet the subteams <span class="arrow">→</span></a><a class="btn btn--ghost" href="tech.html">See the car</a></div>
+        </div>
+        <ol class="timeline">
+          <li class="timeline__item" data-reveal><span class="timeline__date">Design</span><h3>Concept &amp; analysis</h3><p class="muted">CAD, hand calcs, FEA and design reviews.</p></li>
+          <li class="timeline__item" data-reveal><span class="timeline__date">Build</span><h3>Manufacture</h3><p class="muted">Machining, welding, fabrication and wiring, all by students.</p></li>
+          <li class="timeline__item" data-reveal><span class="timeline__date">Test</span><h3>Validate &amp; tune</h3><p class="muted">Track days and off-road testing to find failures before competition does.</p></li>
+          <li class="timeline__item" data-reveal><span class="timeline__date">Race</span><h3>Compete</h3><p class="muted">Static judging, dynamic events and endurance, then feed it into the next car.</p></li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer torn-top">
+    <div class="container">
+      <div class="footer-cta">
+        <h2 class="worn worn--light">Fuel the <span class="accent-hl">next build.</span></h2>
+        <div>
+          <p class="muted">Money, machining time, materials or software — every contribution ends up on the car.</p>
+          <div class="btn-row" style="margin-top:var(--s3)">
+            <a class="btn" href="sponsors.html">Become a sponsor <span class="arrow">→</span></a>
+            <a class="btn btn--ghost" href="team.html#join">Join the team</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-grid">
+        <div>
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="tech.html">Tech</a></li>
+            <li><a href="competitions.html">Competitions</a></li>
+            <li><a href="sponsors.html">Sponsors</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <ul>
+            <li><a href="mailto:baja@uottawa.ca">baja@uottawa.ca</a></li>
+            <li><a href="sponsors.html#become-a-sponsor">Sponsorship</a></li>
+            <li><a href="team.html#join">Recruitment</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Find us</h3>
+          <p class="muted" style="font-size:var(--fs-sm)">Faculty of Engineering<br>University of Ottawa<br>Ottawa, Ontario, Canada</p>
+        </div>
+        <div>
+          <h3>Follow</h3>
+          <div class="socials">
+            <a href="https://www.instagram.com/uottawabaja/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM17.5 5.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+            </a>
+            <!-- TODO: add LinkedIn URL -->
+            <a class="todo" href="#" aria-label="LinkedIn (link to be added)">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM2.3 9h3.4v12H2.3V9zm6 0h3.3v1.7h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.2 2.3 4.2 5.4V21h-3.4v-5.9c0-1.4 0-3.2-2-3.2s-2.2 1.5-2.2 3.1v6H8.3V9z"/></svg>
+            </a>
+            <a href="mailto:baja@uottawa.ca" aria-label="Email">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2.4V17h16V7.4l-8 5.3-8-5.3zM5.2 7l6.8 4.5L18.8 7H5.2z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="footer-wordmark worn" aria-hidden="true">Rough Riders</p>
+    <div class="container footer-legal">
+      <span>&copy; <span data-year>2026</span> Rough Rider Racing · uOttawa Baja SAE</span>
+      <span>Designed, built &amp; raced by students</span>
+    </div>
+  </footer>
+
+  <!-- Lightbox (used by galleries) -->
+  <div class="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <img src="" alt="">
+    <button class="lightbox__close" type="button" aria-label="Close">✕</button>
+    <button class="lightbox__prev" type="button" aria-label="Previous photo">‹</button>
+    <button class="lightbox__next" type="button" aria-label="Next photo">›</button>
+    <span class="lightbox__count"></span>
+  </div>
+</body>
+</html>
