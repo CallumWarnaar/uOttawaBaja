@@ -1,0 +1,17 @@
+# AWS Amplify Hosting build settings
+# The site is already built (baja-site/), so Amplify just serves that folder.
+version: 1
+frontend:
+  phases:
+    build:
+      commands:
+        - echo "Static site - nothing to build"
+  artifacts:
+    baseDirectory: baja-site
+    files:
+      - '**/*'
+  customHeaders:
+    - pattern: 'assets/**'
+      headers:
+        - key: Cache-Control
+          value: 'public, max-age=604800'
