@@ -624,7 +624,9 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
 .site-footer { position: relative; background: var(--charcoal); --edge: var(--charcoal); padding-top: var(--s6); overflow: hidden; }
 .footer-cta { display: grid; gap: var(--s4); padding-bottom: var(--s5); border-bottom: 1px solid var(--line); }
 @media (min-width: 900px) { .footer-cta { grid-template-columns: 1.4fr 1fr; align-items: end; } }
-.footer-cta h2 { font-size: clamp(3rem, 7vw, 6.5rem); margin: 0; }
+.footer-cta h2 { font-size: clamp(3rem, 7vw, 6.5rem); line-height: 1; margin: 0; }
+/* keep the highlighted phrase as one block so its paint box can't spill over the line above */
+.footer-cta h2 .accent-hl { display: inline-block; white-space: nowrap; line-height: .95; padding: .06em .12em 0; margin-top: .08em; }
 .footer-grid { display: grid; gap: var(--s4); grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); padding-block: var(--s5); }
 .footer-grid h3 { font-family: var(--f-label); font-weight: 700; font-size: var(--fs-xs); letter-spacing: .3em; color: var(--text-muted); margin-bottom: var(--s2); }
 .footer-grid ul { list-style: none; padding: 0; margin: 0; }
