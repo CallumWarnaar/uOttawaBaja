@@ -39,6 +39,8 @@ amplify.yml          Amplify serves baja-site/ as-is, no build step
 - Placeholders needing real content use class `todo` (dashed outline) or `todo-note`.
 - Roster: seniority = earliest `joined` season, then `rank` (0 captain, 1 lead, 2 member), then name. Headshots go in `baja-site/assets/img/team/<id>.jpg` (4:5, ~800×1000). Delete the `placeholder: true` entries as real members are added.
 - Sponsor logos are white-on-transparent PNGs in `assets/img/sponsors/`. Still missing: JMTS.
+- Garnet highlight blocks (`.accent-hl`, and `.accent` inside `.section--charcoal .title`) are `inline-block` + `nowrap` so they never split across lines and overlap the line above. Keep highlighted phrases short (they can't wrap).
+- Subteam titles on the team page are sized with container units (`16cqi`) so long names like "Administration" fit the intro column.
 - Hero `.line` spans use padding-top/negative margin so glyph tops aren't clipped by the reveal mask; `data-split` masks are reverted after they animate. Keep both if touching headings.
 
 ## Hosting
