@@ -31,10 +31,15 @@ PAGES = [
     ("sponsors", "Sponsors", "img_6028.jpg"),
 ]
 
+# Built and listed in the footer, but kept out of the full-screen menu
+EXTRA_PAGES = [
+    ("roster", "Full roster", "img_6036.jpg"),
+]
+
 
 def build():
     layout = (ROOT / "partials" / "layout.html").read_text(encoding="utf-8")
-    for slug, _, _ in PAGES:
+    for slug, _, _ in PAGES + EXTRA_PAGES:
         raw = (ROOT / "pages" / f"{slug}.html").read_text(encoding="utf-8")
         m = re.match(r"\s*<!--(.*?)-->\s*\n", raw, re.S)
         if not m:
@@ -56,7 +61,8 @@ def build():
             + (' class="is-active"' if s == slug else "") + ">"
             for s, _, img in PAGES
         )
-        footer_nav = "\n".join(f'            <li><a href="{s}.html">{label}</a></li>' for s, label, _ in PAGES)
+        footer_pages = PAGES[:3] + EXTRA_PAGES + PAGES[3:]
+        footer_nav = "\n".join(f'            <li><a href="{s}.html">{label}</a></li>' for s, label, _ in footer_pages)
 
         og = f"assets/img/photos/{meta.get('og_image', 'img_5850.jpg')}"
         page_file = "" if slug == "index" else f"{slug}.html"

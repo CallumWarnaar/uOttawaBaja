@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{title}}</title>
-  <meta name="description" content="{{description}}">
+  <title>Full Roster | Rough Rider Racing</title>
+  <meta name="description" content="Every student who designs, builds and races with Rough Rider Racing, the University of Ottawa Baja SAE team, with individual member profiles.">
   <meta name="theme-color" content="#000000">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Rough Rider Racing">
-  <meta property="og:title" content="{{title}}">
-  <meta property="og:description" content="{{description}}">
-  <meta property="og:image" content="{{og_image_url}}">
-{{canonical_tag}}  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <meta property="og:title" content="Full Roster | Rough Rider Racing">
+  <meta property="og:description" content="Every student who designs, builds and races with Rough Rider Racing, the University of Ottawa Baja SAE team, with individual member profiles.">
+  <meta property="og:image" content="assets/img/photos/img_6036.jpg">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <script>
     /* Boot flags before first paint: motion, first-visit splash, page-enter wipe */
     (function (h) {
@@ -35,7 +35,7 @@
   <script src="assets/vendor/lenis.min.js" defer></script>
   <script src="assets/js/main.js?v=2" defer></script>
 </head>
-<body class="page-{{slug}}">
+<body class="page-roster">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ===== Splash (first visit per session) ===== -->
@@ -77,10 +77,20 @@
   <nav id="menu" class="menu scratched" aria-label="Main">
     <div class="menu__grid">
       <ul class="menu__list">
-{{nav}}
+        <li><a class="menu__link" href="index.html"><span>01</span>Home</a></li>
+        <li><a class="menu__link" href="about.html"><span>02</span>About</a></li>
+        <li><a class="menu__link" href="team.html"><span>03</span>Team</a></li>
+        <li><a class="menu__link" href="tech.html"><span>04</span>Tech</a></li>
+        <li><a class="menu__link" href="competitions.html"><span>05</span>Competitions</a></li>
+        <li><a class="menu__link" href="sponsors.html"><span>06</span>Sponsors</a></li>
       </ul>
       <div class="menu__preview" aria-hidden="true">
-{{nav_previews}}
+        <img src="assets/img/photos/img_5850.jpg" alt="" loading="lazy">
+        <img src="assets/img/photos/img_5212.jpg" alt="" loading="lazy">
+        <img src="assets/img/photos/img_4971.jpg" alt="" loading="lazy">
+        <img src="assets/img/photos/dsc_0541.jpg" alt="" loading="lazy">
+        <img src="assets/img/photos/img_5557.jpg" alt="" loading="lazy">
+        <img src="assets/img/photos/img_6028.jpg" alt="" loading="lazy">
       </div>
     </div>
     <div class="menu__foot">
@@ -91,7 +101,61 @@
   </nav>
 
   <main id="main">
-{{body}}
+    <!--
+      FULL ROSTER
+      The people and their profiles live in  baja-site/assets/js/roster-data.js  (edit that file, no build needed).
+      This page only holds the controls and empty containers; assets/js/roster.js renders the cards and profiles.
+      Each profile has its own link: roster.html#firstname-lastname
+    -->
+    <section class="hero hero--page hero--short" aria-labelledby="page-title">
+      <div class="hero__media"><img src="assets/img/photos/img_6036.jpg" alt="The team gathered around the car" fetchpriority="high"></div>
+      <span class="hero__number" aria-hidden="true">230</span>
+      <div class="container hero__content">
+        <p class="kicker">The full roster</p>
+        <h1 id="page-title" class="hero__title worn worn--light">
+          <span class="line"><span>Every name</span></span>
+          <span class="line"><span class="stencil">on the car.</span></span>
+        </h1>
+        <p class="hero__lead">Everyone who contributes to Rough Rider Racing. Select a member to read their profile: what they work on, what they've built, and where they're headed.</p>
+        <div class="btn-row"><a class="btn btn--ghost" href="team.html"><span class="arrow">←</span> Back to the team</a></div>
+      </div>
+    </section>
+
+    <section class="section section--tight" aria-labelledby="roster-title">
+      <div class="container">
+        <h2 id="roster-title" class="visually-hidden">Team members</h2>
+        <div class="roster-controls">
+          <div class="roster-filter" role="group" aria-label="Filter by subteam" data-roster-filters></div>
+          <div class="roster-sort">
+            <label for="roster-sort">Sort by</label>
+            <select id="roster-sort" data-roster-sort>
+              <option value="alpha">Name (A–Z)</option>
+              <option value="seniority">Seniority</option>
+            </select>
+          </div>
+        </div>
+        <p class="roster-count" data-roster-count aria-live="polite"></p>
+        <div class="grid grid--members roster-grid" data-roster-grid>
+          <noscript><p class="muted">The roster needs JavaScript to display. Email <a class="text-link" href="mailto:baja@uottawa.ca">baja@uottawa.ca</a> to get in touch with a member.</p></noscript>
+        </div>
+      </div>
+    </section>
+
+    <!-- Profile drawer (filled in by roster.js) -->
+    <div class="profile" hidden data-profile role="dialog" aria-modal="true" aria-labelledby="profile-name">
+      <div class="profile__backdrop" data-profile-close></div>
+      <article class="profile__panel" tabindex="-1">
+        <div class="profile__bar">
+          <button type="button" class="profile__nav" data-profile-prev aria-label="Previous member">←</button>
+          <button type="button" class="profile__nav" data-profile-next aria-label="Next member">→</button>
+          <button type="button" class="profile__close" data-profile-close aria-label="Close profile">✕</button>
+        </div>
+        <div class="profile__body" data-profile-body></div>
+      </article>
+    </div>
+
+    <script src="assets/js/roster-data.js" defer></script>
+    <script src="assets/js/roster.js" defer></script>
   </main>
 
   <!-- ===== Footer ===== -->
@@ -111,7 +175,13 @@
         <div>
           <h3>Explore</h3>
           <ul>
-{{footer_nav}}
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="roster.html">Full roster</a></li>
+            <li><a href="tech.html">Tech</a></li>
+            <li><a href="competitions.html">Competitions</a></li>
+            <li><a href="sponsors.html">Sponsors</a></li>
           </ul>
         </div>
         <div>
