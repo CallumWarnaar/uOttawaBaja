@@ -19,10 +19,13 @@ Still ask first when a request is ambiguous or the change is hard to undo: delet
 site-src/            <- EDIT HERE
   build.py           python build.py  (Python 3, stdlib only) -> writes ../baja-site/*.html
   partials/layout.html   shared <head>, splash, header, menu, footer
-  pages/*.html       index, about, team, tech, competitions, sponsors (front-matter comment at top)
+  pages/*.html       index, about, team, tech, competitions, sponsors, roster (front-matter comment at top)
+                     PAGES in build.py = menu pages; EXTRA_PAGES = built + footer only (roster)
 baja-site/           <- GENERATED HTML + hand-edited assets; this folder is what gets deployed
   assets/css/styles.css  design system, tokens at the top
   assets/js/main.js      all interactions (GSAP, ScrollTrigger, SplitText, Lenis in assets/vendor/)
+  assets/js/roster-data.js  FULL ROSTER DATA: one object per member (roles, joined, about, focus, links...). Edit directly, no build needed
+  assets/js/roster.js    renders roster.html: A–Z / seniority sort, subteam filter, profile drawer at roster.html#member-id
   assets/img/photos/     1920px web-sized team photos
   assets/img/sponsors/   white-on-transparent logos
   assets/docs/           sponsorship package PDF
@@ -34,13 +37,16 @@ amplify.yml          Amplify serves baja-site/ as-is, no build step
 - `SITE_URL` in `build.py` is empty until the custom domain is live; set it then (canonical + og:image URLs).
 - `baja-site/README.md` documents the effect attributes (`data-reveal`, `data-split`, `worn`, `data-count`, `data-marquee`, `data-countdown`, etc.) and the tech-page hotspot editor (`tech.html?edit`).
 - Placeholders needing real content use class `todo` (dashed outline) or `todo-note`.
+- Roster: seniority = earliest `joined` season, then `rank` (0 captain, 1 lead, 2 member), then name. Headshots go in `baja-site/assets/img/team/<id>.jpg` (4:5, ~800×1000). Delete the `placeholder: true` entries as real members are added.
+- Sponsor logos are white-on-transparent PNGs in `assets/img/sponsors/`. Still missing: JMTS.
+- Hero `.line` spans use padding-top/negative margin so glyph tops aren't clipped by the reveal mask; `data-split` masks are reverted after they animate. Keep both if touching headings.
 
 ## Hosting
 
 - AWS Amplify Hosting, connected to GitHub `CallumWarnaar/uOttawaBaja`, branch `main`. Every push to `main` redeploys automatically.
 - Current URL: `https://main.duwhaiwnzv75w.amplifyapp.com/`, **password-protected** (Amplify Access control) while the site is unfinished. Deploys don't change that setting.
 - No custom domain yet; plan is to register one (likely via Route 53) at launch, then switch Access control to public and set `SITE_URL`.
-- `amplify.yml` sets `Cache-Control: max-age=604800` (7 days) on `assets/**`, so CSS/JS changes may need a hard refresh to see.
+- `amplify.yml` sets `Cache-Control: max-age=604800` (7 days) on `assets/**`. **Whenever `styles.css` or `main.js` changes, bump the `?v=N` on their links in `site-src/partials/layout.html`** (and on any page-specific script) so returning visitors get the new file.
 
 ## Design
 
@@ -60,7 +66,11 @@ amplify.yml          Amplify serves baja-site/ as-is, no build step
 - **Cockpit:** custom foam seat inserts, 5-point harness, egress under 5 s.
 - **Electrical:** 2 kill switches (1 interior, 1 exterior); sensors and data logging are work in progress.
 - **Drive:** 2WD, CVT + gearbox.
-- Still TBD: curb weight, top speed, CVT and gearbox specs.
+- **Curb weight:** under 550 lb (without driver).
+- Still TBD: top speed, CVT and gearbox specs.
+- **Program:** one-year vehicle cycle, a brand-new car every season (not two-year).
+- **Budget:** shown as ~$40K typical annual budget (the $50,260 figure was an unusually high year; don't show it). 10–15 members travel per event.
+- **Links:** Faculty of Engineering https://www.uottawa.ca/faculty-engineering/ · Baja SAE https://www.bajasae.net/ (footer + About page).
 
 ## Team (first names only unless given)
 

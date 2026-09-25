@@ -28,12 +28,12 @@
   <link rel="preload" href="assets/fonts/big-shoulders-display-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/vendor/lenis.css">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/styles.css?v=2">
   <script src="assets/vendor/gsap.min.js" defer></script>
   <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
   <script src="assets/vendor/SplitText.min.js" defer></script>
   <script src="assets/vendor/lenis.min.js" defer></script>
-  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/main.js?v=2" defer></script>
 </head>
 <body class="page-tech">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -96,7 +96,7 @@
     <div class="menu__foot">
       <a href="mailto:baja@uottawa.ca">baja@uottawa.ca</a>
       <a href="https://www.instagram.com/uottawabaja/" target="_blank" rel="noopener">Instagram @uottawabaja</a>
-      <span>Faculty of Engineering · University of Ottawa</span>
+      <a href="https://www.uottawa.ca/faculty-engineering/" target="_blank" rel="noopener">Faculty of Engineering · University of Ottawa</a>
     </div>
   </nav>
 
@@ -157,6 +157,7 @@
             <li><span>Brakes</span><span>Disc ×4 · 2 circuits</span></li>
             <li><span>Wheelbase</span><span>70 in</span></li>
             <li><span>Track width</span><span>58 in</span></li>
+            <li><span>Curb weight</span><span>&lt; 550 lb</span></li>
           </ul>
         </article>
         <article id="sys-chassis">
@@ -282,11 +283,11 @@
       <div class="container">
         <div class="section-head section-head--split">
           <div><p class="kicker">Spec sheet</p><h2 id="spec-title" class="title worn" data-split="lines">By the <span class="accent">numbers</span></h2></div>
-          <p class="lead">The headline figures for this season's car. <span class="todo-note">Values marked TBD are placeholders.</span></p>
+          <p class="lead">The headline figures for this season's car.</p>
         </div>
         <div class="grid grid--4" data-reveal="stagger">
           <div class="panel"><span class="panel__num">10</span><h3>Horsepower</h3><p class="muted">Kohler CH440, restricted from 14 hp per the rules</p></div>
-          <div class="panel todo"><span class="panel__num">TBD</span><h3>Curb weight</h3><p class="muted">Without driver</p></div>
+          <div class="panel"><span class="panel__num">&lt;550</span><h3>Curb weight</h3><p class="muted">Pounds, without driver</p></div>
           <div class="panel"><span class="panel__num">70"</span><h3>Wheelbase</h3><p class="muted">Front to rear axle</p></div>
           <div class="panel"><span class="panel__num">58"</span><h3>Track width</h3><p class="muted">Wheel centre to wheel centre</p></div>
           <div class="panel"><span class="panel__num">12/10</span><h3>Susp. travel</h3><p class="muted">Front / rear, inches</p></div>
@@ -304,7 +305,7 @@
         <div>
           <p class="kicker">How it gets built</p>
           <h2 id="process-title" class="title worn" data-split="lines">From sketch <span class="accent">to start line</span></h2>
-          <p class="lead mt-4" data-reveal>The program runs on a two-year vehicle cycle: each season we race the current car while the next one is already in design.</p>
+          <p class="lead mt-4" data-reveal>The program runs on a one-year vehicle cycle: every season starts from a clean sheet and ends with a new car on the start line.</p>
           <div class="frame frame--wide mt-5" data-reveal="clip"><img src="assets/img/photos/dsc_0663.jpg" alt="Car #230 on course with another team's car behind" loading="lazy"></div>
         </div>
         <ol class="timeline">
@@ -327,7 +328,7 @@
         <div class="logo-wall" data-reveal="stagger">
           <div class="logo-wall__item"><img src="assets/img/sponsors/solidworks.png" alt="SolidWorks" loading="lazy"></div>
           <div class="logo-wall__item"><img src="assets/img/sponsors/siemens.png" alt="Siemens" loading="lazy"></div>
-          <div class="logo-wall__item"><span>Altair<small>Simulation</small></span></div>
+          <div class="logo-wall__item"><img src="assets/img/sponsors/altair.png" alt="Altair" loading="lazy"></div>
           <div class="logo-wall__item"><img src="assets/img/sponsors/kisssoft.png" alt="KISSsoft" loading="lazy"></div>
           <div class="logo-wall__item"><img src="assets/img/sponsors/altium.png" alt="Altium Designer" loading="lazy"></div>
           <div class="logo-wall__item"><img src="assets/img/sponsors/3dconnexion.png" alt="3Dconnexion" loading="lazy"></div>
@@ -383,6 +384,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="team.html">Team</a></li>
+            <li><a href="roster.html">Full roster</a></li>
             <li><a href="tech.html">Tech</a></li>
             <li><a href="competitions.html">Competitions</a></li>
             <li><a href="sponsors.html">Sponsors</a></li>
@@ -399,6 +401,10 @@
         <div>
           <h3>Find us</h3>
           <p class="muted" style="font-size:var(--fs-sm)">Faculty of Engineering<br>University of Ottawa<br>Ottawa, Ontario, Canada</p>
+          <ul style="margin-top:var(--s2)">
+            <li><a href="https://www.uottawa.ca/faculty-engineering/" target="_blank" rel="noopener">uOttawa Engineering ↗</a></li>
+            <li><a href="https://www.bajasae.net/" target="_blank" rel="noopener">Baja SAE ↗</a></li>
+          </ul>
         </div>
         <div>
           <h3>Follow</h3>

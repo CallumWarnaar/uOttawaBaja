@@ -45,6 +45,7 @@
     }));
   }
   const scrollLock = (on) => { if (lenis) on ? lenis.stop() : lenis.start(); document.body.style.overflow = on ? 'hidden' : ''; };
+  window.RRR = { scrollLock }; // shared with page scripts (roster.js)
 
   /* ---------------------------------------------------------------------
      Splash screen (first visit per session) + page wipes
@@ -241,6 +242,8 @@
       gsap.from(type === 'chars' ? split.chars : split.lines, {
         yPercent: 110, duration: 1.1, ease: 'expo.out', stagger: type === 'chars' ? 0.018 : 0.08,
         scrollTrigger: { trigger: el, start: 'top 88%' },
+        // drop the masks once revealed so tight line-heights don't clip glyph tops
+        onComplete: () => split.revert(),
       });
     });
 
