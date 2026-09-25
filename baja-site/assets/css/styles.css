@@ -163,7 +163,7 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
 .wipe { position: fixed; inset: 0; z-index: 9400; pointer-events: none; display: grid; place-items: center; }
 .wipe__panel { position: absolute; inset: 0; background: var(--garnet); transform: translateY(100%); }
 .wipe__panel--2 { background: var(--charcoal); }
-.wipe__crest { position: relative; z-index: 2; width: 90px; opacity: 0; }
+.wipe__crest { position: relative; z-index: 2; width: 180px; opacity: 0; }
 .is-entering .wipe__panel { transform: translateY(0); }
 
 /* ---------- 06 HEADER --------------------------------------------------- */
