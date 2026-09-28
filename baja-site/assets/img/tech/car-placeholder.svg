@@ -31,11 +31,11 @@
     <path d="M320 520 L360 585 M330 590 L360 690"/>
     <path d="M300 530 L330 470 M310 610 L300 575"/>
   </g>
-  <g stroke="#9c1c30" stroke-width="9"><path d="M430 470 L385 610"/></g>
+  <g stroke="#9e243a" stroke-width="9"><path d="M430 470 L385 610"/></g>
   <g stroke="#f2f2f2" stroke-width="2"><path d="M438 492 l-18 6 M432 512 l-18 6 M426 532 l-18 6 M420 552 l-18 6 M414 572 l-18 6"/></g>
   <!-- rear suspension: double wishbone + coilover -->
   <g stroke="#f2f2f2" stroke-width="5"><path d="M990 560 L1180 600 M995 640 L1180 690"/></g>
-  <g stroke="#9c1c30" stroke-width="9"><path d="M1090 440 L1160 610"/></g>
+  <g stroke="#9e243a" stroke-width="9"><path d="M1090 440 L1160 610"/></g>
   <g stroke="#f2f2f2" stroke-width="2"><path d="M1098 468 l18 -6 M1106 488 l18 -6 M1114 508 l18 -6 M1122 528 l18 -6 M1130 548 l18 -6"/></g>
   <!-- engine -->
   <g stroke="#f2f2f2" stroke-width="5">
