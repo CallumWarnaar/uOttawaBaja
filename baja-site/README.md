@@ -53,7 +53,7 @@ Garnet `#8f001a` · Secondary Garnet `#9c1c30` · Charcoal `#2d2d2c` · Secondar
 | Page-to-page wipe | Automatic on internal links |
 | Fade/slide in on scroll | `data-reveal` (`clip`, `stagger`, `left`, `right`; `data-delay="1-3"`) |
 | Masked line-by-line headline | `data-split="lines"` (or `chars`) |
-| Distressed paint on type | class `worn` (`worn--light` = subtler) |
+| Distressed paint on type | class `worn` (`worn--light` = subtler; `--worn-floor` in `styles.css` sets how much of the worn-away paint still shows) |
 | Garnet highlight block | class `accent-hl` (never wraps, so keep the phrase short) |
 | Word-by-word brighten | class `scrub-text` |
 | Count-up numbers | `data-count="40" data-prefix="~$"` |
@@ -75,10 +75,13 @@ All motion switches off for visitors with "reduce motion" enabled, and content s
 Anything with a dashed grey outline (class `todo`) needs real content:
 - the tech-page car render and hotspot positions
 - CVT and gearbox specs
-- design highlights (tech page) and past results (competitions page)
+- design highlights (tech page)
 - recruitment dates and the sign-up link (team page)
 - the JMTS sponsor logo
 - real roster entries and headshots
+
+## Parked for later
+- **Past seasons (competitions page)** was taken out in Sept 2026 so the page focuses on upcoming events. To bring it back, copy the `<!-- RESULTS -->` section from `git show 245e5ea:site-src/pages/competitions.html` and fill in real results.
 
 ## Hosting
 - **AWS Amplify Hosting**, connected to this GitHub repo. Every push to `main` redeploys the site automatically, usually within a minute or two.

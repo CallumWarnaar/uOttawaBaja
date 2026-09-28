@@ -107,11 +107,15 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
 
 /* ---------- 03 TEXTURE LAYERS ------------------------------------------- */
 /* Distressed paint on display type */
+/* The solid second layer sets a floor on the mask so worn-away patches stay partly
+   visible instead of fully cut out. Raise --worn-floor for cleaner letters, lower it for more grit. */
 .worn {
-  -webkit-mask-image: url("../img/texture/grunge-mask.png"); mask-image: url("../img/texture/grunge-mask.png");
-  -webkit-mask-size: 900px auto; mask-size: 900px auto;
+  --worn-floor: rgb(0 0 0 / .55);
+  -webkit-mask-image: url("../img/texture/grunge-mask.png"), linear-gradient(var(--worn-floor), var(--worn-floor));
+  mask-image: url("../img/texture/grunge-mask.png"), linear-gradient(var(--worn-floor), var(--worn-floor));
+  -webkit-mask-size: 900px auto, 100% 100%; mask-size: 900px auto, 100% 100%;
 }
-.worn--light { -webkit-mask-size: 1400px auto; mask-size: 1400px auto; }
+.worn--light { -webkit-mask-size: 1400px auto, 100% 100%; mask-size: 1400px auto, 100% 100%; }
 /* Scratched surface on panels */
 .scratched { position: relative; isolation: isolate; }
 .scratched::after {
