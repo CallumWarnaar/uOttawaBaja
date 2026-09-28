@@ -26,8 +26,12 @@ baja-site/           <- GENERATED HTML + hand-edited assets; this folder is what
   assets/js/main.js      all interactions (GSAP, ScrollTrigger, SplitText, Lenis in assets/vendor/)
   assets/js/roster-data.js  FULL ROSTER DATA: one object per member (roles, joined, about, focus, links...). Edit directly, no build needed
   assets/js/roster.js    renders roster.html: A–Z / seniority sort, subteam filter, profile drawer at roster.html#member-id
+  assets/vendor/         GSAP, ScrollTrigger, SplitText, Lenis (self-hosted, no CDN)
+  assets/fonts/          self-hosted woff2 files
   assets/img/photos/     1920px web-sized team photos
   assets/img/sponsors/   white-on-transparent logos
+  assets/img/tech/       car image for the tech-page hotspots (still car-placeholder.svg)
+  assets/img/texture/    grunge mask, scratches, splatter, torn edges
   assets/docs/           sponsorship package PDF
 amplify.yml          Amplify serves baja-site/ as-is, no build step
 ```
@@ -35,9 +39,12 @@ amplify.yml          Amplify serves baja-site/ as-is, no build step
 - **Never hand-edit `baja-site/*.html`**; the next build overwrites it. CSS, JS and images in `baja-site/assets/` are edited directly.
 - **Always run `build.py` and commit `baja-site/`** along with `site-src/`. Amplify does not run the build, so an unbuilt change deploys as nothing.
 - `SITE_URL` in `build.py` is empty until the custom domain is live; set it then (canonical + og:image URLs).
-- `baja-site/README.md` documents the effect attributes (`data-reveal`, `data-split`, `worn`, `data-count`, `data-marquee`, `data-countdown`, etc.) and the tech-page hotspot editor (`tech.html?edit`).
-- Placeholders needing real content use class `todo` (dashed outline) or `todo-note`.
-- Roster: seniority = earliest `joined` season, then `rank` (0 captain, 1 lead, 2 member), then name. Headshots go in `baja-site/assets/img/team/<id>.jpg` (4:5, ~800×1000). Delete the `placeholder: true` entries as real members are added.
+- `baja-site/README.md` documents the effect attributes (`data-reveal`, `data-split`, `worn`, `data-count`, `data-marquee`, `data-countdown`, etc.) and the tech-page hotspot editor (`tech.html?edit`). The README is the human-friendly guide and CLAUDE.md is the agent guide, and **they must stay aligned**. When a change affects workflow, structure, hosting or the placeholder list, update both in the same PR.
+- Placeholders needing real content use class `todo` (dashed outline) or `todo-note`. `todo-note` is also reused as plain small-note styling (e.g. "Drag or scroll →" on the home page), so check context before treating one as unfinished.
+- Still placeholder: tech-page car render + hotspot positions, CVT and gearbox spec lists, tech "design highlights" and competitions "past results" grids, team-page recruitment dates/sign-up link, footer LinkedIn URL, JMTS logo.
+- Home-page countdown (`data-countdown` in `pages/index.html`) is set to 2026-10-02 (OktoBajaFest); update it to the next event each season.
+- Roster: seniority = earliest `joined` season, then `rank` (0 captain, 1 lead, 2 member), then name. Headshots go in `baja-site/assets/img/team/<id>.jpg` (4:5, ~800×1000; the `team/` folder doesn't exist yet, create it with the first photo). Delete the `placeholder: true` entries as real members are added. The roster is also hand-listed on `pages/team.html`; keep names and titles in sync between the two.
+- `roster-data.js` / `roster.js` fall under the 7-day `assets/**` cache but have no `?v=` yet. When editing them, add/bump `?v=N` on their `<script>` tags in `site-src/pages/roster.html` and rebuild, or returning visitors may see the old roster for a week.
 - Sponsor logos are white-on-transparent PNGs in `assets/img/sponsors/`. Still missing: JMTS.
 - Garnet highlight blocks (`.accent-hl`, and `.accent` inside `.section--charcoal .title`) are `inline-block` + `nowrap` so they never split across lines and overlap the line above. Keep highlighted phrases short (they can't wrap).
 - Subteam titles on the team page are sized with container units (`16cqi`) so long names like "Administration" fit the intro column.
@@ -45,7 +52,7 @@ amplify.yml          Amplify serves baja-site/ as-is, no build step
 
 ## Hosting
 
-- AWS Amplify Hosting, connected to GitHub `CallumWarnaar/uOttawaBaja`, branch `main`. Every push to `main` redeploys automatically.
+- AWS Amplify Hosting, connected to GitHub `CallumWarnaar/uOttawaBaja`, branch `main`. Every push to `main` redeploys automatically. (An `origin/staging` branch also exists, currently identical to `main`; it isn't referenced anywhere in the repo.)
 - Current URL: `https://main.duwhaiwnzv75w.amplifyapp.com/`, **password-protected** (Amplify Access control) while the site is unfinished. Deploys don't change that setting.
 - No custom domain yet; plan is to register one (likely via Route 53) at launch, then switch Access control to public and set `SITE_URL`.
 - `amplify.yml` sets `Cache-Control: max-age=604800` (7 days) on `assets/**`. **Whenever `styles.css` or `main.js` changes, bump the `?v=N` on their links in `site-src/partials/layout.html`** (and on any page-specific script) so returning visitors get the new file.
