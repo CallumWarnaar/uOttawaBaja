@@ -1,13 +1,20 @@
 /* =========================================================================
-   Full roster: renders RRR_ROSTER (roster-data.js) as a sortable, filterable
-   grid, and opens a profile drawer per person at roster.html#person-id.
+   Full roster: renders RRR_ROSTER (roster-data.js) as leads (full-size cards)
+   plus a slim members list, sortable and filterable, and opens a profile
+   drawer per person at roster.html#person-id.
    ========================================================================= */
 (function () {
   'use strict';
   const people = window.RRR_ROSTER || [];
   const teams = window.RRR_TEAMS || [];
-  const grid = document.querySelector('[data-roster-grid]');
-  if (!grid) return;
+  const root = document.querySelector('[data-roster]');
+  if (!root) return;
+  const leadsGrid = root.querySelector('[data-roster-leads]');
+  const list = root.querySelector('[data-roster-list]');
+  const leadsWrap = root.querySelector('[data-roster-leads-wrap]');
+  const membersWrap = root.querySelector('[data-roster-members-wrap]');
+  const isLead = (p) => p.lead === true || (p.rank ?? 2) <= 1;
+  const classYear = (p) => { const m = String(p.grad || '').match(/\d{4}/); return m ? Number(m[0]) : null; };
 
   const $ = (s, r = document) => r.querySelector(s);
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -17,7 +24,8 @@
   const sortSel = $('[data-roster-sort]');
   const filterBox = $('[data-roster-filters]');
   const countEl = $('[data-roster-count]');
-  let sortBy = store.get('rrr-roster-sort') === 'seniority' ? 'seniority' : 'alpha';
+  const savedSort = store.get('rrr-roster-sort');
+  let sortBy = savedSort === 'seniority' || savedSort === 'class' ? savedSort : 'alpha';
   let team = 'All';
   let visible = [];
 
@@ -29,7 +37,12 @@
       (a.rank ?? 2) - (b.rank ?? 2) ||
       (a.placeholder ? 1 : 0) - (b.placeholder ? 1 : 0) ||
       byName(a, b),
+    class: (a, b) =>
+      (classYear(a) ?? Infinity) - (classYear(b) ?? Infinity) ||
+      (a.placeholder ? 1 : 0) - (b.placeholder ? 1 : 0) ||
+      byName(a, b),
   };
+  const sortLabel = { alpha: 'A–Z', seniority: 'most senior first', class: 'by class year' };
 
   function photo(p, cls) {
     const box = el('div', cls);
@@ -38,25 +51,56 @@
     return box;
   }
 
-  /* ---- Grid ---- */
+  const teamTags = (p) => { const t = el('p', 'roster-card__teams'); (p.roles || []).forEach((r) => t.append(el('span', '', r.team))); return t; };
+  const label = (p) => `${p.name}, ${(p.roles || []).map((r) => r.title).join(', ')}. Open profile`;
+
+  /* ---- Leads: full-size cards ---- */
+  function card(p) {
+    const a = el('a', 'member roster-card' + (p.placeholder ? ' todo' : ''));
+    a.href = '#' + p.id;
+    a.setAttribute('aria-label', label(p));
+    a.append(photo(p, 'member__photo'));
+    a.append(el('p', 'member__name', p.name));
+    a.append(el('p', 'member__role', ((p.roles || [])[0] || {}).title || ''));
+    const meta = [classYear(p) && `Class of ${classYear(p)}`, p.program].filter(Boolean).join(' · ');
+    if (meta) a.append(el('p', 'roster-card__meta', meta));
+    a.append(teamTags(p));
+    return a;
+  }
+
+  /* ---- Members: slim list rows ---- */
+  function row(p) {
+    const li = el('li');
+    const a = el('a', 'member roster-row' + (p.placeholder ? ' todo' : ''));
+    a.href = '#' + p.id;
+    a.setAttribute('aria-label', label(p));
+    a.append(photo(p, 'member__photo roster-row__photo'));
+    const who = el('div', 'roster-row__who');
+    who.append(el('p', 'roster-row__name', p.name), el('p', 'roster-row__title', ((p.roles || [])[0] || {}).title || ''));
+    const tags = teamTags(p); tags.classList.add('roster-row__teams');
+    const cy = classYear(p);
+    const cls = el('p', 'roster-row__class' + (cy ? '' : ' is-empty'), cy ? String(cy) : '—'); cls.dataset.label = 'Class';
+    const major = el('p', 'roster-row__major' + (p.program ? '' : ' is-empty'), p.program || '—'); major.dataset.label = 'Major';
+    const go = el('span', 'roster-row__go', '→'); go.setAttribute('aria-hidden', 'true');
+    a.append(who, tags, cls, major, go);
+    li.append(a);
+    return li;
+  }
+
   function render() {
-    visible = people.filter((p) => team === 'All' || (p.roles || []).some((r) => r.team === team)).sort(sorters[sortBy]);
-    grid.textContent = '';
-    visible.forEach((p) => {
-      const a = el('a', 'member roster-card' + (p.placeholder ? ' todo' : ''));
-      a.href = '#' + p.id;
-      const role = (p.roles || [])[0] || {};
-      a.setAttribute('aria-label', `${p.name}, ${(p.roles || []).map((r) => r.title).join(', ')}. Open profile`);
-      a.append(photo(p, 'member__photo'));
-      a.append(el('p', 'member__name', p.name));
-      a.append(el('p', 'member__role', role.title || ''));
-      const tags = el('p', 'roster-card__teams');
-      (p.roles || []).forEach((r) => tags.append(el('span', '', r.team)));
-      a.append(tags);
-      grid.append(a);
-    });
-    const real = visible.filter((p) => !p.placeholder).length;
-    countEl.textContent = `${visible.length} ${visible.length === 1 ? 'person' : 'people'}` + (real < visible.length ? ` · ${visible.length - real} placeholder${visible.length - real === 1 ? '' : 's'}` : '') + (sortBy === 'seniority' ? ' · most senior first' : ' · A–Z');
+    const shown = people.filter((p) => team === 'All' || (p.roles || []).some((r) => r.team === team)).sort(sorters[sortBy]);
+    const leads = shown.filter(isLead).sort((a, b) => (a.rank ?? 1) - (b.rank ?? 1) || sorters[sortBy](a, b)); // captain first
+    const members = shown.filter((p) => !isLead(p));
+    visible = [...leads, ...members]; // drawer prev/next follows page order
+    leadsGrid.textContent = '';
+    list.textContent = '';
+    leads.forEach((p) => leadsGrid.append(card(p)));
+    members.forEach((p) => list.append(row(p)));
+    leadsWrap.hidden = !leads.length;
+    membersWrap.hidden = !members.length;
+    const ph = shown.filter((p) => p.placeholder).length;
+    const n = (k, one, many) => `${k} ${k === 1 ? one : many}`;
+    countEl.textContent = [n(leads.length, 'lead', 'leads'), n(members.length, 'member', 'members'), ph && n(ph, 'placeholder', 'placeholders'), sortLabel[sortBy]].filter(Boolean).join(' · ');
   }
 
   /* ---- Controls ---- */
@@ -170,7 +214,7 @@
     window.RRR?.scrollLock(false);
     document.title = baseTitle;
     if (clearHash && location.hash) history.replaceState(null, '', location.pathname + location.search);
-    if (current) { const card = grid.querySelector(`a[href="#${CSS.escape(current.id)}"]`); (card || lastFocus)?.focus({ preventScroll: true }); }
+    if (current) { const link = root.querySelector(`a[href="#${CSS.escape(current.id)}"]`); (link || lastFocus)?.focus({ preventScroll: true }); }
     current = null;
   }
   function step(d) {
@@ -197,7 +241,7 @@
       else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
     }
   });
-  grid.addEventListener('click', (e) => {
+  root.addEventListener('click', (e) => {
     const a = e.target.closest('a[href^="#"]');
     if (!a) return;
     e.preventDefault();

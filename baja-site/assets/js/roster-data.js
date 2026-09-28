@@ -10,13 +10,16 @@
    sortName    optional: what A–Z sorting uses (e.g. "Jordan Nora" to sort by last name)
    roles       one entry per subteam: { team, title }. The first role is shown on the card.
                team must be one of TEAMS below.
-   rank        seniority tie-breaker: 0 = captain, 1 = lead, 2 = member
+   rank        0 = captain, 1 = lead, 2 = member. Ranks 0–1 get a full-size card in the
+               "Leads" block; rank 2 goes in the slim "Members" list. Also the seniority tie-breaker.
+   lead        optional: true puts a rank-2 person in the Leads block anyway
    joined      first season on the team, as the starting year (2024 = 2024–25). Earlier = more senior.
-   program     e.g. "Mechanical Engineering"
+   program     e.g. "Mechanical Engineering" (shown as "Major" in the members list)
    year        year of study, e.g. "3rd year"
-   grad        expected graduation, e.g. "April 2028"
+   grad        expected graduation, e.g. "April 2028". Its 4-digit year is shown as "Class"
    photo       headshot path, e.g. "assets/img/team/nora-jordan.jpg"
-               (portrait 4:5 crop, ~800×1000 JPG). Leave "" to show initials.
+               (portrait 4:5 crop, ~800×1000 JPG, used for both cards and list rows).
+               Leave "" to show initials.
    about       "About me" paragraph(s). Separate paragraphs with a blank line (\n\n).
    focus       short list of skills / areas, shown as tags
    highlights  what they designed, built or led on the car (list of sentences)
@@ -86,14 +89,12 @@ window.RRR_ROSTER = [
     about: '', focus: [], highlights: [], seeking: '', links: {},
   },
 
-  /* ---- Placeholders: replace with real members, then delete what's left ---- */
-  { id: 'placeholder-chassis-1', name: 'Member Name', rank: 2, placeholder: true, roles: [{ team: 'Chassis', title: 'Chassis Member' }] },
-  { id: 'placeholder-chassis-2', name: 'Member Name', rank: 2, placeholder: true, roles: [{ team: 'Chassis', title: 'Chassis Member' }] },
-  { id: 'placeholder-suspension-1', name: 'Member Name', rank: 2, placeholder: true, roles: [{ team: 'Suspension', title: 'Suspension Member' }] },
-  { id: 'placeholder-suspension-2', name: 'Member Name', rank: 2, placeholder: true, roles: [{ team: 'Suspension', title: 'Suspension Member' }] },
-  { id: 'placeholder-drivetrain-1', name: 'Member Name', rank: 2, placeholder: true, roles: [{ team: 'Drivetrain', title: 'Drivetrain Member' }] },
-  { id: 'placeholder-drivetrain-2', name: 'Member Name', rank: 2, placeholder: true, roles: [{ team: 'Drivetrain', title: 'Drivetrain Member' }] },
-  { id: 'placeholder-electrical-1', name: 'Member Name', rank: 2, placeholder: true, roles: [{ team: 'Electrical', title: 'Electrical Member' }] },
-  { id: 'placeholder-electrical-2', name: 'Member Name', rank: 2, placeholder: true, roles: [{ team: 'Electrical', title: 'Electrical Member' }] },
-  { id: 'placeholder-admin-1', name: 'Member Name', rank: 2, placeholder: true, roles: [{ team: 'Administration', title: 'Administration Member' }] },
 ];
+
+/* ---- Placeholders: 37 slots, which with Callum, Etienne and Joseph makes 40 regular
+   members. Replace them with real entries (above), then lower or delete these counts. ---- */
+[['Chassis', 8], ['Suspension', 7], ['Drivetrain', 8], ['Electrical', 7], ['Administration', 7]].forEach(([team, n]) => {
+  for (let i = 1; i <= n; i++) {
+    window.RRR_ROSTER.push({ id: `placeholder-${team.toLowerCase()}-${i}`, name: 'Member Name', rank: 2, placeholder: true, roles: [{ team, title: `${team} Member` }] });
+  }
+});

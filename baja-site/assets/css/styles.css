@@ -452,6 +452,51 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
 .roster-card:focus-visible .member__photo::after { transform: scaleX(1); }
 .roster-card__teams { display: flex; flex-wrap: wrap; gap: .35rem; margin: .6rem 0 0; }
 .roster-card__teams span { font-family: var(--f-label); font-weight: 700; font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--polar); border: 1px solid var(--line); padding: .2rem .45rem; }
+.roster-card__meta { font-size: var(--fs-sm); color: var(--text-muted); margin: .35rem 0 0; }
+.roster-block[hidden] { display: none; }
+.roster-block + .roster-block { margin-top: var(--s6); }
+.roster-block__title { font-family: var(--f-display); font-weight: 900; font-size: var(--fs-h3); text-transform: uppercase; line-height: 1; margin: 0 0 var(--s3); padding-left: .8rem; border-left: 4px solid var(--garnet); }
+
+/* Members list: slim rows (headshot · name/title · subteam tags · class · major) */
+.roster-list, .roster-list__head { --cols: 56px minmax(0, 1.3fr) minmax(0, 1.2fr) 5.5rem minmax(0, 1.3fr) 1.5rem; }
+.roster-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.roster-list__head {
+  display: grid; grid-template-columns: var(--cols); gap: var(--s3); padding: 0 var(--s2) .6rem;
+  font-family: var(--f-label); font-weight: 700; font-size: var(--fs-xs); letter-spacing: .2em; text-transform: uppercase; color: var(--text-muted);
+}
+.roster-row {
+  display: grid; grid-template-columns: var(--cols); gap: var(--s3); align-items: center;
+  padding: .75rem var(--s2); border-bottom: 1px solid var(--line); color: inherit; text-decoration: none; transition: background .2s;
+}
+.roster-row:hover, .roster-row:focus-visible { background: var(--charcoal); }
+.roster-row.todo { outline-offset: -3px; }
+.roster-row__photo { aspect-ratio: 4 / 5; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%); }
+.roster-row__photo::after { height: 3px; }
+.roster-row:hover .roster-row__photo, .roster-row:focus-visible .roster-row__photo { filter: none; }
+.roster-row__photo .member__initials { font-size: 1.5rem; }
+.roster-row__who { min-width: 0; }
+.roster-row__name { font-family: var(--f-display); font-weight: 800; font-size: 1.35rem; line-height: 1; text-transform: uppercase; margin: 0; }
+.roster-row__title { font-family: var(--f-label); font-size: var(--fs-xs); letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); margin: .3rem 0 0; }
+.roster-row__teams { margin: 0; }
+.roster-row__class, .roster-row__major { margin: 0; font-size: var(--fs-sm); }
+.roster-row__class { font-family: var(--f-label); font-weight: 600; letter-spacing: .08em; font-variant-numeric: tabular-nums; }
+.roster-row .is-empty { color: var(--text-muted); }
+.roster-row__go { color: var(--text-muted); transition: transform .3s var(--ease-out), color .2s; }
+.roster-row:hover .roster-row__go, .roster-row:focus-visible .roster-row__go { color: var(--garnet); transform: translateX(4px); }
+@media (max-width: 760px) {
+  .roster-list__head { display: none; }
+  .roster-row {
+    grid-template-columns: 56px auto minmax(0, 1fr) 1.2rem; gap: .45rem var(--s2); align-items: start;
+    grid-template-areas: "photo who who go" "photo teams teams go" "photo class major go";
+  }
+  .roster-row__photo { grid-area: photo; }
+  .roster-row__who { grid-area: who; }
+  .roster-row__teams { grid-area: teams; }
+  .roster-row__class { grid-area: class; }
+  .roster-row__major { grid-area: major; }
+  .roster-row__go { grid-area: go; }
+  .roster-row__class::before, .roster-row__major::before { content: attr(data-label) " "; font-family: var(--f-label); font-weight: 700; font-size: var(--fs-xs); letter-spacing: .2em; text-transform: uppercase; color: var(--text-muted); margin-right: .4rem; }
+}
 
 .profile { position: fixed; inset: 0; z-index: 9000; } /* above the site header (8000), below page wipes */
 .profile__backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.72); opacity: 0; transition: opacity .35s; }
