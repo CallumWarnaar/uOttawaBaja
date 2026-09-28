@@ -8,7 +8,7 @@ Callum has authorized Claude to **merge requested changes into `main` without as
 
 1. Start the working branch from the latest `main` (a merged PR's branch is finished; restart it from `origin/main`, don't stack on old history).
 2. Edit `site-src/` (and `baja-site/assets/` for CSS/JS/images), then run `python build.py` from `site-src/`.
-3. For visual changes, check the result in headless Chromium (Playwright is installed globally for node; serve `baja-site/` with `python3 -m http.server`).
+3. For visual changes, check the result in a headless browser. Playwright is **not** installed on Callum's Windows machine; use headless Edge (`"/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" --headless=new --force-prefers-reduced-motion --window-size=W,H --screenshot=out.png file:///.../baja-site/page.html`). Tall windows inflate the `svh` heroes, so to see lower sections, screenshot a scratch copy with `<base href>` pointing at `baja-site/` and `.hero,.splash{display:none}` injected. Edge won't go below ~500px wide; for phone widths, wrap the page in a 390px iframe.
 4. Commit, push, open a PR into `main`, merge it, and give Callum a short summary plus the PR link.
 
 Still ask first when a request is ambiguous or the change is hard to undo: deleting pages, photos or sections, changing hosting/deploy config (`amplify.yml`), or anything touching access control or the domain.
@@ -19,7 +19,7 @@ Still ask first when a request is ambiguous or the change is hard to undo: delet
 site-src/            <- EDIT HERE
   build.py           python build.py  (Python 3, stdlib only) -> writes ../baja-site/*.html
   partials/layout.html   shared <head>, splash, header, menu, footer
-  pages/*.html       index, about, team, tech, competitions, sponsors, roster (front-matter comment at top)
+  pages/*.html       index, about, team, tech, competitions, sponsors, merch, roster (front-matter comment at top)
                      PAGES in build.py = menu pages; EXTRA_PAGES = built + footer only (roster)
 baja-site/           <- GENERATED HTML + hand-edited assets; this folder is what gets deployed
   assets/css/styles.css  design system, tokens at the top
@@ -41,17 +41,30 @@ amplify.yml          Amplify serves baja-site/ as-is, no build step
 - `SITE_URL` in `build.py` is empty until the custom domain is live; set it then (canonical + og:image URLs).
 - `baja-site/README.md` documents the effect attributes (`data-reveal`, `data-split`, `worn`, `data-count`, `data-marquee`, `data-countdown`, etc.) and the tech-page hotspot editor (`tech.html?edit`). The README is the human-friendly guide and CLAUDE.md is the agent guide, and **they must stay aligned**. When a change affects workflow, structure, hosting or the placeholder list, update both in the same PR.
 - Placeholders needing real content use class `todo` (dashed outline) or `todo-note`. `todo-note` is also reused as plain small-note styling (e.g. "Drag or scroll →" on the home page), so check context before treating one as unfinished.
-- Still placeholder: tech-page car render + hotspot positions, CVT and gearbox spec lists, tech "design highlights" grid, team-page recruitment dates/sign-up link, JMTS logo.
+- Still placeholder: tech-page car render + hotspot positions, CVT and gearbox spec lists, tech "design highlights" grid, team-page recruitment dates/sign-up link, JMTS logo, merch products (names, prices, photos) and merch-page photos.
 - **Competitions "Past seasons" section removed for now** (2026-09-28) so the page focuses on upcoming events; it may come back. It was section 03 (`<section id="results">`, a `todo` grid of 3 placeholder panels: season, event, location/dates, result summary; newest first) between the scoring section and the gallery. Recover the markup with `git show 245e5ea:site-src/pages/competitions.html`.
 - `worn` (grunge mask on display type) has a floor, `--worn-floor` in `styles.css` (currently .55), so worn patches stay partly visible for readability. Tune that value rather than removing the effect; Callum wants the grit kept.
 - Home-page countdown (`data-countdown` in `pages/index.html`) is set to 2026-10-02 (OktoBajaFest); update it to the next event each season.
 - Roster layout (modelled on cwrumotorsports.com/team): leads (`rank` 0–1, or `lead: true`) get full-size cards; everyone else is a slim clickable row (headshot, name/title, subteam tags, Class = 4-digit year from `grad`, Major = `program`). Every card and row opens the same profile drawer. 37 `placeholder` slots generated at the bottom of `roster-data.js` (with Callum, Etienne, Joseph = 40 regular members); Callum will send an Excel file (names, position, subteam) to fill them.
 - Roster: seniority = earliest `joined` season, then `rank` (0 captain, 1 lead, 2 member), then name. Sort options: A–Z, seniority, class year. Headshots go in `baja-site/assets/img/team/<id>.jpg` (4:5, ~800×1000; the `team/` folder doesn't exist yet, create it with the first photo). Delete the `placeholder: true` entries as real members are added. The roster is also hand-listed on `pages/team.html`; keep names and titles in sync between the two.
-- `roster-data.js` / `roster.js` fall under the 7-day `assets/**` cache but have no `?v=` yet. When editing them, add/bump `?v=N` on their `<script>` tags in `site-src/pages/roster.html` and rebuild, or returning visitors may see the old roster for a week.
+- `roster-data.js` / `roster.js` fall under the 7-day `assets/**` cache (currently `?v=2`). When editing them, bump `?v=N` on their `<script>` tags in `site-src/pages/roster.html` and rebuild, or returning visitors may see the old roster for a week.
 - Sponsor logos are white-on-transparent PNGs in `assets/img/sponsors/`. Still missing: JMTS.
 - Garnet highlight blocks (`.accent-hl`, and `.accent` inside `.section--charcoal .title`) are `inline-block` + `nowrap` so they never split across lines and overlap the line above. Keep highlighted phrases short (they can't wrap).
 - Subteam titles on the team page are sized with container units (`16cqi`) so long names like "Administration" fit the intro column.
 - Hero `.line` spans use padding-top/negative margin so glyph tops aren't clipped by the reveal mask; `data-split` masks are reverted after they animate. Keep both if touching headings.
+
+## Merch page (`pages/merch.html`, menu item 07, added 2026-09-28)
+
+- Sections: hero, 01 "Why it matters" (how merch funds the team), 02 shop gallery (`#shop`), and a garnet "Get first dibs" section (Instagram + email).
+- Photos are stand-ins from `img/photos/` (hero `img_4973`, `img_3596` Baja SAE shirt, `img_5203`). Callum will supply merch-photoshoot photos to replace them.
+- The shop is **placeholder only**: 6 invented products (tee, hoodie, crewneck, cap, toque, sticker pack), "Price TBA", a "Coming soon!" box instead of a photo, and disabled "Coming soon" buttons. Each `<article class="product">` has a `data-product` id for the future cart. For a real photo, put an `<img>` inside `.product__img` in place of the `<span>`.
+- **TODO, not started: a full shopping cart and secure checkout**, to build once the merch designs are final and the team is ready to ship. Likely **PayPal** (PayPal JS SDK buttons + Orders API v2). Requirements:
+  - The site is static (Amplify serves `baja-site/` with no build), so checkout needs a small backend, e.g. Lambda + API Gateway, to **create and capture PayPal orders server-side**. Never trust prices, totals or discounts sent from the browser. Recalculate from a server-side product/price list.
+  - PayPal client secret in environment variables or AWS Secrets Manager, **never in the repo**. Use sandbox credentials until launch.
+  - Verify PayPal webhook signatures before marking an order paid. Make order handling idempotent.
+  - Card data stays with PayPal (hosted buttons/fields), so it never touches our servers (keeps PCI scope minimal). HTTPS only (Amplify default).
+  - The cart itself can live client-side (localStorage, wrapped in try/catch like `roster.js`). It needs sizes/variants, quantities, stock limits, shipping vs campus pickup, Ontario HST, an order-confirmation email (e.g. SES) and a refund/returns policy page.
+  - Changes to `amplify.yml`, backend or AWS resources need Callum's go-ahead first (see Standing permission).
 
 ## Hosting
 

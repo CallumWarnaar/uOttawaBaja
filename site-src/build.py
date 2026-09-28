@@ -29,6 +29,7 @@ PAGES = [
     ("tech", "Tech", "dsc_0541.jpg"),
     ("competitions", "Competitions", "img_5557.jpg"),
     ("sponsors", "Sponsors", "img_6028.jpg"),
+    ("merch", "Merch", "img_3596.jpg"),
 ]
 
 # Built and listed in the footer, but kept out of the full-screen menu

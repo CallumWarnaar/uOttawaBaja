@@ -9,7 +9,7 @@ uOttawaBaja/
 ├── site-src/            ← EDIT PAGES HERE
 │   ├── build.py         run:  python build.py   (Python 3, no packages needed)
 │   ├── partials/layout.html   shared <head>, splash, header, menu, footer
-│   └── pages/*.html     one file per page (index, about, team, tech, competitions, sponsors, roster)
+│   └── pages/*.html     one file per page (index, about, team, tech, competitions, sponsors, merch, roster)
 ├── baja-site/           ← WHAT GETS PUBLISHED (HTML is generated, assets are edited by hand)
 │   ├── *.html           built by build.py, don't edit these directly
 │   └── assets/
@@ -79,8 +79,10 @@ Anything with a dashed grey outline (class `todo`) needs real content:
 - recruitment dates and the sign-up link (team page)
 - the JMTS sponsor logo
 - real roster entries and headshots
+- merch: product names, prices and photos (the shop shows "Coming soon!" placeholders), and merch-photoshoot photos for the rest of the page
 
 ## Parked for later
+- **Merch cart and checkout:** the merch page is a preview only, with nothing for sale. Once the designs are final, it needs a proper cart and secure checkout, likely PayPal. Payments must be created and confirmed on a small server (not in the browser) and PayPal keys must never go in the repo. CLAUDE.md has the full checklist.
 - **Past seasons (competitions page)** was taken out in Sept 2026 so the page focuses on upcoming events. To bring it back, copy the `<!-- RESULTS -->` section from `git show 245e5ea:site-src/pages/competitions.html` and fill in real results.
 
 ## Hosting
