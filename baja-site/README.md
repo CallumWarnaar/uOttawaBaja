@@ -77,7 +77,6 @@ Anything with a dashed grey outline (class `todo`) needs real content:
 - CVT and gearbox specs
 - design highlights (tech page) and past results (competitions page)
 - recruitment dates and the sign-up link (team page)
-- the LinkedIn URL in the footer
 - the JMTS sponsor logo
 - real roster entries and headshots
 

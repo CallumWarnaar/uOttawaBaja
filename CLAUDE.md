@@ -41,7 +41,7 @@ amplify.yml          Amplify serves baja-site/ as-is, no build step
 - `SITE_URL` in `build.py` is empty until the custom domain is live; set it then (canonical + og:image URLs).
 - `baja-site/README.md` documents the effect attributes (`data-reveal`, `data-split`, `worn`, `data-count`, `data-marquee`, `data-countdown`, etc.) and the tech-page hotspot editor (`tech.html?edit`). The README is the human-friendly guide and CLAUDE.md is the agent guide, and **they must stay aligned**. When a change affects workflow, structure, hosting or the placeholder list, update both in the same PR.
 - Placeholders needing real content use class `todo` (dashed outline) or `todo-note`. `todo-note` is also reused as plain small-note styling (e.g. "Drag or scroll →" on the home page), so check context before treating one as unfinished.
-- Still placeholder: tech-page car render + hotspot positions, CVT and gearbox spec lists, tech "design highlights" and competitions "past results" grids, team-page recruitment dates/sign-up link, footer LinkedIn URL, JMTS logo.
+- Still placeholder: tech-page car render + hotspot positions, CVT and gearbox spec lists, tech "design highlights" and competitions "past results" grids, team-page recruitment dates/sign-up link, JMTS logo.
 - Home-page countdown (`data-countdown` in `pages/index.html`) is set to 2026-10-02 (OktoBajaFest); update it to the next event each season.
 - Roster: seniority = earliest `joined` season, then `rank` (0 captain, 1 lead, 2 member), then name. Headshots go in `baja-site/assets/img/team/<id>.jpg` (4:5, ~800×1000; the `team/` folder doesn't exist yet, create it with the first photo). Delete the `placeholder: true` entries as real members are added. The roster is also hand-listed on `pages/team.html`; keep names and titles in sync between the two.
 - `roster-data.js` / `roster.js` fall under the 7-day `assets/**` cache but have no `?v=` yet. When editing them, add/bump `?v=N` on their `<script>` tags in `site-src/pages/roster.html` and rebuild, or returning visitors may see the old roster for a week.
@@ -80,6 +80,7 @@ amplify.yml          Amplify serves baja-site/ as-is, no build step
 - **Program:** one-year vehicle cycle, a brand-new car every season (not two-year).
 - **Budget:** shown as ~$40K typical annual budget (the $50,260 figure was an unusually high year; don't show it). 10–15 members travel per event.
 - **Links:** Faculty of Engineering https://www.uottawa.ca/faculty-engineering/ · Baja SAE https://www.bajasae.net/ (footer + About page).
+- **Socials (footer):** Instagram https://www.instagram.com/uottawabaja/ · LinkedIn https://www.linkedin.com/company/baja-uottawa/
 
 ## Team (first names only unless given)
 
