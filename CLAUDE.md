@@ -61,7 +61,7 @@ amplify.yml          Amplify serves baja-site/ as-is, no build step
 
 ## Design
 
-- Official uOttawa palette: Garnet `#8f001a`, Secondary Garnet `#9c1c30`, Charcoal `#2d2d2c`, Polar Grey `#f2f2f2`; page background black.
+- Official uOttawa palette, three colours only (Callum, 2026-09-28): Garnet/red `#8f001a`, Charcoal Grey `#3a3a37`, Polar Grey `#f2f2f2`; page background black. `--garnet-2`, `--charcoal-2`, `--grey`, `--grey-2` in `styles.css` are tints mixed from those three; don't add other hues (the old warm greys, `#9c1c30` and `#2d2d2c` were removed).
 - Fonts (self-hosted, OFL): Big Shoulders Display/Stencil, Barlow, Barlow Condensed.
 - `.frame` images are sized by `aspect-ratio` on the frame, with the image overscanned (`top:-9%; height:118%`) so the ±7% parallax never shows the background. Keep that if touching frames.
 - Canadian spelling in copy (manoeuvring, centre, organization is fine).

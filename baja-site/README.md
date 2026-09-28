@@ -44,7 +44,7 @@ CSS, JavaScript and images in `baja-site/assets/` are edited directly, with no b
 - **Headshots:** put them in `baja-site/assets/img/team/<id>.jpg` (portrait 4:5, about 800×1000). Create the `team/` folder when you add the first one.
 
 ## Colours (official uOttawa palette)
-Garnet `#8f001a` · Secondary Garnet `#9c1c30` · Charcoal `#2d2d2c` · Secondary Charcoal `#3a3a37` · Warm Grey `#80746c` / `#908681` · Polar Grey `#f2f2f2` · White. Page background is black (PMS Black C, the base of uOttawa's charcoal tint). To go charcoal-only, set `--bg: var(--charcoal)` in `:root`.
+Three official colours only: Garnet (red) `#8f001a` · Charcoal Grey `#3a3a37` · Polar Grey `#f2f2f2`, plus black and white. The other tokens (`--garnet-2`, `--charcoal-2`, `--grey`, `--grey-2`) are tints mixed from those three, not extra hues. Page background is black (PMS Black C, the base of uOttawa's charcoal tint). To go charcoal-only, set `--bg: var(--charcoal)` in `:root`.
 
 ## Effects and how to use them
 | Effect | How |
