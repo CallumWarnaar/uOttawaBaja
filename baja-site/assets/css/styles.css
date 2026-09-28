@@ -215,7 +215,7 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
 .menu__list li { overflow: hidden; border-bottom: 1px solid rgba(255,255,255,.18); }
 .menu__link {
   display: flex; align-items: baseline; gap: 1.2rem; text-decoration: none; padding: .15em 0;
-  font-family: var(--f-display); font-weight: 900; font-size: clamp(2.6rem, 7.5vw, 6.2rem); line-height: 1; text-transform: uppercase;
+  font-family: var(--f-display); font-weight: 900; font-size: clamp(2.6rem, min(7.5vw, 9vh), 6.2rem); line-height: 1; text-transform: uppercase; /* vh cap keeps all 7 links on a laptop screen */
   transition: padding-left .5s var(--ease-out), color .3s;
 }
 .menu__link span { font-family: var(--f-label); font-size: .9rem; font-weight: 600; letter-spacing: .2em; opacity: .7; min-width: 2.5ch; }
@@ -248,6 +248,7 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
 .btn--ghost { --btn-bg: transparent; --btn-fg: var(--polar); --btn-fill: var(--polar); --btn-fg-hover: var(--black); box-shadow: inset 0 0 0 2px var(--polar); }
 .btn--light { --btn-bg: var(--white); --btn-fg: var(--garnet); --btn-fill: var(--bg); --btn-fg-hover: var(--white); }
 .btn--sm { padding: .7rem 1.1rem; font-size: .8rem; --cut: 10px; }
+.btn[disabled] { opacity: .5; cursor: not-allowed; pointer-events: none; }
 .btn-row { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s4); }
 
 /* ---------- 09 HERO ----------------------------------------------------- */
@@ -456,6 +457,26 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
 .roster-block[hidden] { display: none; }
 .roster-block + .roster-block { margin-top: var(--s6); }
 .roster-block__title { font-family: var(--f-display); font-weight: 900; font-size: var(--fs-h3); text-transform: uppercase; line-height: 1; margin: 0 0 var(--s3); padding-left: .8rem; border-left: 4px solid var(--garnet); }
+
+/* Merch shop (merch.html). Products are placeholders until the cart/checkout exists */
+.product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s4) var(--s3); }
+.product { display: flex; flex-direction: column; gap: var(--s2); }
+.product__img {
+  position: relative; aspect-ratio: 4 / 5; overflow: hidden; display: grid; place-items: center;
+  background: repeating-linear-gradient(-45deg, var(--charcoal-2) 0 2px, transparent 2px 22px), var(--bg);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 28px), calc(100% - 28px) 100%, 0 100%);
+}
+.product__img span {
+  font-family: var(--f-stencil); font-weight: 900; font-size: clamp(1.8rem, 3.2vw, 2.6rem); text-transform: uppercase; line-height: 1;
+  color: var(--polar); background: var(--garnet); padding: .5rem 1rem; transform: rotate(-6deg); box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+.product__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.product__body { flex: 1; }
+.product__cat { font-family: var(--f-label); font-weight: 700; font-size: var(--fs-xs); letter-spacing: .2em; text-transform: uppercase; color: var(--text-muted); margin: 0 0 .35rem; }
+.product__name { font-family: var(--f-display); font-weight: 800; font-size: 1.7rem; line-height: 1; text-transform: uppercase; margin: 0; }
+.product__price { font-family: var(--f-label); font-weight: 600; letter-spacing: .08em; margin: .5rem 0 0; color: var(--text-muted); }
+.product .btn { align-self: flex-start; }
+@media (max-width: 900px) { .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s3) var(--s2); } .product__name { font-size: 1.3rem; } .product__img span { font-size: 1.15rem; padding: .4rem .6rem; white-space: nowrap; } }
 
 /* Members list: slim rows (headshot · name/title · subteam tags · class · major) */
 .roster-list, .roster-list__head { --cols: 56px minmax(0, 1.3fr) minmax(0, 1.2fr) 5.5rem minmax(0, 1.3fr) 1.5rem; }
