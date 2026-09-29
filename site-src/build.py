@@ -9,7 +9,7 @@ Each page starts with a front-matter comment:
 <!--
 title: Page title
 description: One sentence for search engines
-og_image: img_5850.jpg        (a file in assets/img/photos)
+og_image: img_5850            (a photo name in assets/img/photos; optimize_images.py makes its -og.jpg)
 -->
 """
 import re
@@ -24,18 +24,18 @@ OUT = ROOT.parent / "baja-site"
 
 # slug, menu label, menu preview photo
 PAGES = [
-    ("index", "Home", "img_5850.jpg"),
-    ("about", "About", "img_5212.jpg"),
-    ("team", "Team", "img_4971.jpg"),
-    ("tech", "Tech", "dsc_0541.jpg"),
-    ("competitions", "Competitions", "img_5557.jpg"),
-    ("sponsors", "Sponsors", "img_6028.jpg"),
-    ("merch", "Merch", "img_3596.jpg"),
+    ("index", "Home", "img_5850.webp"),
+    ("about", "About", "img_5212.webp"),
+    ("team", "Team", "img_4971.webp"),
+    ("tech", "Tech", "dsc_0541.webp"),
+    ("competitions", "Competitions", "img_5557.webp"),
+    ("sponsors", "Sponsors", "img_6028.webp"),
+    ("merch", "Merch", "img_4534.webp"),
 ]
 
 # Built and listed in the footer, but kept out of the full-screen menu
 EXTRA_PAGES = [
-    ("roster", "Full roster", "img_6036.jpg"),
+    ("roster", "Full roster", "img_4479.webp"),
 ]
 
 
@@ -83,21 +83,46 @@ def add_image_sizes(html):
     reserve its space before it loads. Without this, lazy images in the gallery are 0px
     tall, all count as on-screen, and all download at once. CSS still sets the display
     size (img { height: auto } in styles.css); the attributes only supply the aspect ratio.
+    Photos made by optimize_images.py also get srcset + sizes (see photo_srcset).
     Images loaded later by main.js (data-src inside a data-lazy group) also get a 1x1
     placeholder src, so they lay out as images (not alt text) until they load."""
     def fill(m):
         tag = m.group(0)
         if " data-src=" in tag and not re.search(r"\ssrc=", tag):
             tag = tag.replace("<img", f'<img src="{BLANK_GIF}"', 1)
-        if re.search(r"\swidth=", tag):
+        src = re.search(r'\s(data-)?src="(assets/img/[^"?#]+)"', tag)
+        if not src:
             return tag
-        src = re.search(r'\s(?:data-)?src="(assets/img/[^"?#]+)"', tag)
-        size = src and image_size(OUT / src.group(1))
-        if not size:
-            return tag
+        extra = ""
+        size = image_size(OUT / src.group(2))
+        if size and not re.search(r"\swidth=", tag):
+            extra += f' width="{size[0]}" height="{size[1]}"'
+        srcset = photo_srcset(src.group(2), size)
+        if srcset and "srcset=" not in tag:
+            extra += f' {src.group(1) or ""}srcset="{srcset}"'
+            if " sizes=" not in tag:
+                # "auto" (lazy images only) lets the browser use the laid-out width; others fall back to 100vw
+                extra += ' sizes="auto, 100vw"' if 'loading="lazy"' in tag else ' sizes="100vw"'
         end = "/>" if tag.endswith("/>") else ">"
-        return tag[:-len(end)].rstrip() + f' width="{size[0]}" height="{size[1]}"{end}'
+        return tag[:-len(end)].rstrip() + extra + end
     return re.sub(r"<img\b[^>]*>", fill, html)
+
+
+def photo_srcset(src, size):
+    """srcset for a photo made by optimize_images.py: <name>-640.webp, <name>-1280.webp and
+    <name>.webp (the largest). None if the smaller copies don't exist."""
+    m = re.fullmatch(r"(assets/img/photos/[a-z0-9_]+)\.webp", src)
+    if not m or not size:
+        return None
+    parts = []
+    for w in (640, 1280):
+        small = OUT / f"{m.group(1)}-{w}.webp"
+        dims = image_size(small) if small.exists() else None
+        if dims and dims[0] < size[0]:
+            parts.append(f"{m.group(1)}-{w}.webp {dims[0]}w")
+    if not parts:
+        return None
+    return ", ".join(parts + [f"{src} {size[0]}w"])
 
 
 def build():
@@ -127,7 +152,7 @@ def build():
         footer_pages = PAGES[:3] + EXTRA_PAGES + PAGES[3:]
         footer_nav = "\n".join(f'            <li><a href="{s}.html">{label}</a></li>' for s, label, _ in footer_pages)
 
-        og = f"assets/img/photos/{meta.get('og_image', 'img_5850.jpg')}"
+        og = f"assets/img/photos/{Path(meta.get('og_image', 'img_5850')).stem}-og.jpg"
         page_file = "" if slug == "index" else f"{slug}.html"
         values = {
             **meta,

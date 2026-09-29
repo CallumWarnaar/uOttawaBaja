@@ -209,7 +209,10 @@
      loading="lazy" can't tell what's coming (the scrolling photo marquees).
      The swap runs when the group is reached, so it also covers marquee clones.
      --------------------------------------------------------------------- */
-  const loadGroup = (el) => $$('img[data-src]', el).forEach((im) => { im.src = im.dataset.src; im.removeAttribute('data-src'); });
+  const loadGroup = (el) => $$('img[data-src]', el).forEach((im) => {
+    if (im.dataset.srcset) { im.srcset = im.dataset.srcset; im.removeAttribute('data-srcset'); }
+    im.src = im.dataset.src; im.removeAttribute('data-src');
+  });
   const lazyGroups = $$('[data-lazy]');
   if ('IntersectionObserver' in window) {
     const lazyIO = new IntersectionObserver((entries) => entries.forEach((e) => {
@@ -411,7 +414,7 @@
       const show = (i) => {
         const v = visible(); idx = (i + v.length) % v.length;
         const src = v[idx].querySelector('img');
-        img.src = src.currentSrc || src.src; img.alt = src.alt; count.textContent = `${idx + 1} / ${v.length}`;
+        img.src = src.src; img.alt = src.alt; // src is the largest copy; the thumbnail's srcset picks a small one count.textContent = `${idx + 1} / ${v.length}`;
       };
       const open = (i) => { lastFocus = document.activeElement; lb.hidden = false; scrollLock(true); show(i); $('.lightbox__close', lb).focus(); };
       const close = () => { lb.hidden = true; scrollLock(false); lastFocus && lastFocus.focus(); };
