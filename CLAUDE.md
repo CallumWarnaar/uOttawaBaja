@@ -66,6 +66,15 @@ amplify.yml          Amplify serves baja-site/ as-is, no build step
   - The cart itself can live client-side (localStorage, wrapped in try/catch like `roster.js`). It needs sizes/variants, quantities, stock limits, shipping vs campus pickup, Ontario HST, an order-confirmation email (e.g. SES) and a refund/returns policy page.
   - Changes to `amplify.yml`, backend or AWS resources need Callum's go-ahead first (see Standing permission).
 
+## Performance plan (`Optimization.md`, planned 2026-09-28, not started)
+
+Callum wants the site to stay snappy as headshots, merch photos and the car render land. **`Optimization.md` (repo root) holds the full plan, baseline numbers and decisions. Read it before adding images or touching loading/caching, and tick its status line as phases merge.** Don't start a phase unless Callum asks. In short:
+
+- Baseline: competitions loads all 50 photos (20 MB), home 12 MB. Lazy loading is defeated by the hidden full-screen menu's 7 preview images and by the marquees/gallery. Photos are single 1920px ~400 KB JPEGs with no WebP/`srcset`.
+- Phases: **1** load menu previews on menu open, lazy-load marquees/gallery via `data-src` + IntersectionObserver, shrink `logo.png`/`grunge-mask.png`. **2** `site-src/optimize_images.py` (Pillow, optional tool) makes WebP 640/1280/1920 web copies, and `build.py` (stays stdlib) writes `srcset` automatically. **3** headshots (~200px list + ~800px drawer), merch through the same pipeline, and the car render as WebP with alpha (~1600 + ~3600px). **4** `build.py` hashes asset files into `?v=` automatically, `assets/**` max-age goes to **30 days** (Callum doesn't want 1 year; `amplify.yml` change needs his go-ahead), and `site-src/perf_check.py` checks page weight against a budget.
+- **Originals live in Google Drive; the repo holds only web copies** (smaller dimensions). Headshots and merch photos will come from Callum as a folder of full-size files for us to convert. Never commit full-size originals.
+- **Car:** no 3D/360° model for now (out of scope while the car is still in SolidWorks). Callum will supply a background-free, high-res SolidWorks Visualize render. It replaces `car-placeholder.svg` and keeps the existing hotspots and camera zoom, at ≥ ~3600px wide so the zoomed views stay sharp.
+
 ## Hosting
 
 - AWS Amplify Hosting, connected to GitHub `CallumWarnaar/uOttawaBaja`, branch `main`. Every push to `main` redeploys automatically. (An `origin/staging` branch also exists, currently identical to `main`; it isn't referenced anywhere in the repo.)

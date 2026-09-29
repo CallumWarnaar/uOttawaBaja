@@ -82,6 +82,7 @@ Anything with a dashed grey outline (class `todo`) needs real content:
 - merch: product names, prices and photos (the shop shows "Coming soon!" placeholders), and merch-photoshoot photos for the rest of the page
 
 ## Parked for later
+- **Speed optimization:** see `Optimization.md` in the repo root for the phased plan (lazy-loading fixes, smaller web copies of photos with automatic `srcset`, headshot/merch/car-render sizes, automatic cache versioning with a 30-day cache). Full-size originals stay in Google Drive; only web-sized copies go in the repo.
 - **Merch cart and checkout:** the merch page is a preview only, with nothing for sale. Once the designs are final, it needs a proper cart and secure checkout, likely PayPal. Payments must be created and confirmed on a small server (not in the browser) and PayPal keys must never go in the repo. CLAUDE.md has the full checklist.
 - **Past seasons (competitions page)** was taken out in Sept 2026 so the page focuses on upcoming events. To bring it back, copy the `<!-- RESULTS -->` section from `git show 245e5ea:site-src/pages/competitions.html` and fill in real results.
 
