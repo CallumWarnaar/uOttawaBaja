@@ -1,8 +1,8 @@
 # Site speed optimization plan
 
-Goal: keep the site snappy as we add headshots, merch photos and the high-res car render. Planned 2026-09-28 with Callum. **Nothing here is implemented yet.** Work through the phases in order, one PR per phase, and tick them off below as they merge.
+Goal: keep the site snappy as we add headshots, merch photos and the high-res car render. Planned 2026-09-28 with Callum. Work through the phases in order, one PR per phase, and tick them off below as they merge.
 
-Status: [x] Phase 1 · [x] Phase 2 · [ ] Phase 3 · [ ] Phase 4
+Status: [x] Phase 1 · [x] Phase 2 · [ ] Phase 3 · [x] Phase 4 (30-day max-age still waiting on Callum's go-ahead)
 
 ## Baseline (measured 2026-09-28)
 
@@ -79,7 +79,28 @@ What's left on every page is fixed chrome, ~600 KB: fonts (~230 KB), vendor JS (
 - **Future 3D model** (parked): if it comes back, use a GLB decimated to ~200–500k triangles with Draco/Meshopt compression (under ~5 MB) and a self-hosted `<model-viewer>`/three.js that loads only on a "View in 3D" tap, with the render as the poster.
 - **Video**, if ever added: `preload="none"` plus a poster image, muted, 720p, H.264 + WebM/AV1, ~2–4 MB.
 
-## Phase 4: caching and guardrails
+## Phase 4: caching and guardrails (done 2026-09-29, except the max-age change)
+
+**What was done:**
+- `build.py` `add_asset_versions()` stamps every `href`/`src` pointing at `assets/**.css|js|pdf` with `?v=<first 8 hex of SHA-256>` (vendor files and the sponsorship PDF included). The hand-kept `?v=15` / `?v=5` / roster `?v=3` / `?v=2` are gone from `layout.html` and `roster.html`. A missing linked file stops the build.
+- Not stamped: **fonts** (the preload `href` must equal the `url()` in `styles.css`, which the build doesn't touch, or the font downloads twice) and **images** (their URLs appear in `srcset`, `data-src` and CSS; the rule below covers them). `url()`s inside `styles.css` (fonts, textures) aren't versioned either, so those files get new names when replaced.
+- `site-src/perf_check.py` (stdlib): local server that logs every response's size, headless Edge per page with a fresh profile, `--blink-settings=lazyLoadEnabled=true`, `--virtual-time-budget=8000`. Prints requests and KB (photos / other / total), budget 2048 KB, exit 1 if over. Includes `competitions.html#gallery`. **Run it from PowerShell:** in the agent's Git Bash sandbox Edge starts but makes no requests (the script now says so instead of printing zeros).
+- **Not done yet: `amplify.yml` max-age 604800 → 2592000.** Needs Callum's go-ahead (hosting config). Everything else works the same with either value.
+
+**perf_check.py results (2026-09-29, uncompressed bytes):**
+
+| Page | 1440×900 | 500×900 |
+|---|---|---|
+| index | 1329 KB (286 KB photos) | 1134 KB (91 KB) |
+| about | 1127 KB (510 KB) | – |
+| competitions (top) | 1004 KB (370 KB) | – |
+| competitions `#gallery` | 1267 KB (633 KB) | 721 KB (87 KB) |
+| sponsors | 928 KB | – |
+| team / merch / roster | 813–849 KB | – |
+| tech | 633 KB | – |
+
+**Plan (as written 2026-09-28):**
+
 
 **How caching works here:** `Cache-Control: max-age` is set **per file**, only for `assets/**` (CSS, JS, images, fonts, PDF), and never for the HTML pages. It means "a browser that already has this exact URL may reuse it for up to N days without asking the server". It does **not** cache the whole site. The HTML is always re-checked, so page text and new sections show up right away. What goes stale are asset files reached by the same URL, e.g. `roster-data.js?v=2` edited without bumping `v`, or a photo replaced under the same file name.
 
