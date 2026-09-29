@@ -429,6 +429,11 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
 }
 .member:hover .member__photo { filter: none; }
 .member__initials { font-family: var(--f-stencil); font-weight: 900; font-size: 4.5rem; color: var(--charcoal-2); -webkit-text-stroke: 1px var(--grey); }
+/* Empty roster slot (placeholder: true): "Under construction" instead of a headshot */
+.member__photo.is-tbd { background: repeating-linear-gradient(-45deg, var(--charcoal-2) 0 2px, transparent 2px 16px), var(--charcoal); }
+.member__tbd { font-family: var(--f-label); font-weight: 700; font-size: var(--fs-xs); letter-spacing: .12em; text-transform: uppercase; line-height: 1.2; text-align: center; color: var(--polar); padding: 0 .75rem; }
+.roster-row__photo .member__tbd { font-size: .5rem; letter-spacing: .06em; padding: 0 .2rem; }
+.profile__photo .member__tbd { font-size: var(--fs-sm); }
 .member__photo::after { content: ""; position: absolute; inset: auto 0 0 0; height: 4px; background: var(--garnet); transform: scaleX(0); transform-origin: left; transition: transform .5s var(--ease-out); }
 .member:hover .member__photo::after { transform: scaleX(1); }
 .member__name { font-family: var(--f-display); font-weight: 800; font-size: 1.6rem; line-height: 1; text-transform: uppercase; margin: var(--s2) 0 .25rem; }
@@ -498,7 +503,6 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
   padding: .75rem var(--s2); border-bottom: 1px solid var(--line); color: inherit; text-decoration: none; transition: background .2s;
 }
 .roster-row:hover, .roster-row:focus-visible { background: var(--charcoal); }
-.roster-row.todo { outline-offset: -3px; }
 .roster-row__photo { aspect-ratio: 4 / 5; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%); }
 .roster-row__photo::after { height: 3px; }
 .roster-row:hover .roster-row__photo, .roster-row:focus-visible .roster-row__photo { filter: none; }

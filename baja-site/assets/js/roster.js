@@ -47,16 +47,17 @@
   function photo(p, cls) {
     const box = el('div', cls);
     if (p.photo) box.style.backgroundImage = `url('${p.photo}')`;
-    else { const i = el('span', 'member__initials', p.placeholder ? '?' : initials(p.name)); i.setAttribute('aria-hidden', 'true'); box.append(i); }
+    else if (p.placeholder) { box.classList.add('is-tbd'); const t = el('span', 'member__tbd', 'Under construction'); t.setAttribute('aria-hidden', 'true'); box.append(t); }
+    else { const i = el('span', 'member__initials', initials(p.name)); i.setAttribute('aria-hidden', 'true'); box.append(i); }
     return box;
   }
 
   const teamTags = (p) => { const t = el('p', 'roster-card__teams'); (p.roles || []).forEach((r) => t.append(el('span', '', r.team))); return t; };
-  const label = (p) => `${p.name}, ${(p.roles || []).map((r) => r.title).join(', ')}. Open profile`;
+  const label = (p) => p.placeholder ? 'Member profile under construction' : `${p.name}, ${(p.roles || []).map((r) => r.title).join(', ')}. Open profile`;
 
   /* ---- Leads: full-size cards ---- */
   function card(p) {
-    const a = el('a', 'member roster-card' + (p.placeholder ? ' todo' : ''));
+    const a = el('a', 'member roster-card');
     a.href = '#' + p.id;
     a.setAttribute('aria-label', label(p));
     a.append(photo(p, 'member__photo'));
@@ -71,7 +72,7 @@
   /* ---- Members: slim list rows ---- */
   function row(p) {
     const li = el('li');
-    const a = el('a', 'member roster-row' + (p.placeholder ? ' todo' : ''));
+    const a = el('a', 'member roster-row');
     a.href = '#' + p.id;
     a.setAttribute('aria-label', label(p));
     a.append(photo(p, 'member__photo roster-row__photo'));
@@ -98,9 +99,8 @@
     members.forEach((p) => list.append(row(p)));
     leadsWrap.hidden = !leads.length;
     membersWrap.hidden = !members.length;
-    const ph = shown.filter((p) => p.placeholder).length;
     const n = (k, one, many) => `${k} ${k === 1 ? one : many}`;
-    countEl.textContent = [n(leads.length, 'lead', 'leads'), n(members.length, 'member', 'members'), ph && n(ph, 'placeholder', 'placeholders'), sortLabel[sortBy]].filter(Boolean).join(' · ');
+    countEl.textContent = [n(leads.length, 'lead', 'leads'), n(members.length, 'member', 'members'), sortLabel[sortBy]].join(' · ');
   }
 
   /* ---- Controls ---- */
@@ -155,6 +155,7 @@
     });
     head.append(id);
     body.append(head);
+    if (p.placeholder) { body.append(el('p', 'profile__empty', 'This profile is under construction. Check back soon.')); return; }
 
     const facts = el('dl', 'profile__facts');
     facts.append(
@@ -192,7 +193,6 @@
       row.append(a);
     }
     body.append(row);
-    if (p.placeholder) body.append(el('p', 'todo-note', 'Placeholder entry: replace it in assets/js/roster-data.js'));
   }
 
   function open(id, focusPanel = true) {

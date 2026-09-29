@@ -28,7 +28,7 @@
   <link rel="preload" href="assets/fonts/big-shoulders-display-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/vendor/lenis.css?v=8746c1dc">
-  <link rel="stylesheet" href="assets/css/styles.css?v=0f77cdc1">
+  <link rel="stylesheet" href="assets/css/styles.css?v=933b14a6">
   <script src="assets/vendor/gsap.min.js?v=dd7dc87e" defer></script>
   <script src="assets/vendor/ScrollTrigger.min.js?v=ba6ffe7b" defer></script>
   <script src="assets/vendor/SplitText.min.js?v=e6a2238d" defer></script>
@@ -238,19 +238,13 @@
           <p class="tag">Drivetrain subteam</p>
           <h3>CVT</h3>
           <p class="muted">A tuned continuously variable transmission keeps the engine in its power band from launch to top speed. Tuning it is one of the biggest performance levers on a fixed-engine car.</p>
-          <ul class="spec-list todo">
-            <li><span>Unit</span><span>TBD</span></li>
-            <li><span>Ratio range</span><span>TBD</span></li>
-            <li><span>Tuning</span><span>TBD</span></li>
-          </ul>
         </article>
         <article id="sys-gearbox">
           <p class="tag">Drivetrain subteam</p>
           <h3>Gearbox &amp; final drive</h3>
           <p class="muted">A student-designed gearbox, shafts, hubs and bearings deliver power to a two-wheel-drive rear end, built for efficiency and to survive a four-hour endurance race.</p>
-          <ul class="spec-list todo">
-            <li><span>Reduction</span><span>TBD</span></li>
-            <li><span>Stages</span><span>TBD</span></li>
+          <ul class="spec-list">
+            <li><span>Design</span><span>Custom, designed in house</span></li>
             <li><span>Design tool</span><span>KISSsoft</span></li>
           </ul>
         </article>
@@ -342,11 +336,10 @@
     <section class="section section--tight" aria-labelledby="hl-title">
       <div class="container">
         <div class="section-head"><p class="kicker">Design highlights</p><h2 id="hl-title" class="title worn" data-split="lines">What's <span class="accent">new</span> this year</h2></div>
-        <!-- TODO: one card per headline change on the car (e.g. new A-arms, CVT tune, DAQ) -->
-        <div class="grid grid--3 todo" data-reveal="stagger">
-          <article class="media-card"><img src="assets/img/photos/dsc_0677.webp" alt="Car #230 cornering on grass" loading="lazy" width="1920" height="1280" srcset="assets/img/photos/dsc_0677-640.webp 640w, assets/img/photos/dsc_0677-1280.webp 1280w, assets/img/photos/dsc_0677.webp 1920w" sizes="auto, 100vw"><div class="media-card__body"><span class="tag">Suspension</span><h3 style="margin-top:.6rem">Highlight title</h3><p>One or two sentences on what changed and why it's faster, lighter or tougher.</p></div></article>
-          <article class="media-card"><img src="assets/img/photos/dsc_9957.webp" alt="Rear view of car #230 on course, showing the engine and drivetrain" loading="lazy" width="1920" height="1275" srcset="assets/img/photos/dsc_9957-640.webp 640w, assets/img/photos/dsc_9957-1280.webp 1280w, assets/img/photos/dsc_9957.webp 1920w" sizes="auto, 100vw"><div class="media-card__body"><span class="tag">Drivetrain</span><h3 style="margin-top:.6rem">Highlight title</h3><p>One or two sentences on what changed and why it's faster, lighter or tougher.</p></div></article>
-          <article class="media-card"><img src="assets/img/photos/dsc_0832.webp" alt="Car #230 turning past a cone" loading="lazy" width="1920" height="1280" srcset="assets/img/photos/dsc_0832-640.webp 640w, assets/img/photos/dsc_0832-1280.webp 1280w, assets/img/photos/dsc_0832.webp 1920w" sizes="auto, 100vw"><div class="media-card__body"><span class="tag">Chassis</span><h3 style="margin-top:.6rem">Highlight title</h3><p>One or two sentences on what changed and why it's faster, lighter or tougher.</p></div></article>
+        <div class="grid grid--3" data-reveal="stagger">
+          <article class="media-card"><img src="assets/img/photos/dsc_0677.webp" alt="Car #230 cornering on grass" loading="lazy" width="1920" height="1280" srcset="assets/img/photos/dsc_0677-640.webp 640w, assets/img/photos/dsc_0677-1280.webp 1280w, assets/img/photos/dsc_0677.webp 1920w" sizes="auto, 100vw"><div class="media-card__body"><span class="tag">Suspension</span><h3 style="margin-top:.6rem">Redesigned front and rear</h3><p>Completely redesigned front and rear suspension, built to take bigger jumps and tougher obstacles. Designed and simulated in 3D kinematics software, then built in house.</p></div></article>
+          <article class="media-card"><img src="assets/img/photos/dsc_9957.webp" alt="Rear view of car #230 on course, showing the engine and drivetrain" loading="lazy" width="1920" height="1275" srcset="assets/img/photos/dsc_9957-640.webp 640w, assets/img/photos/dsc_9957-1280.webp 1280w, assets/img/photos/dsc_9957.webp 1920w" sizes="auto, 100vw"><div class="media-card__body"><span class="tag">Drivetrain</span><h3 style="margin-top:.6rem">Custom gearbox</h3><p>A fully custom gearbox designed by the team, putting more of the engine's power to the wheels to carry us through the toughest challenges.</p></div></article>
+          <article class="media-card"><img src="assets/img/photos/dsc_0832.webp" alt="Car #230 turning past a cone" loading="lazy" width="1920" height="1280" srcset="assets/img/photos/dsc_0832-640.webp 640w, assets/img/photos/dsc_0832-1280.webp 1280w, assets/img/photos/dsc_0832.webp 1920w" sizes="auto, 100vw"><div class="media-card__body"><span class="tag">Chassis</span><h3 style="margin-top:.6rem">Lighter, nimbler chassis</h3><p>A lighter, more manoeuvrable chassis that gets us through the field quickly, safely and reliably.</p></div></article>
         </div>
       </div>
     </section>
