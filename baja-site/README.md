@@ -108,6 +108,6 @@ Anything with a dashed grey outline (class `todo`) needs real content:
 
 ## Hosting
 - **AWS Amplify Hosting**, connected to this GitHub repo. Every push to `main` redeploys the site automatically, usually within a minute or two.
-- `amplify.yml` tells Amplify to serve `baja-site/` as-is (no build step) and sets the 7-day cache on `assets/`.
+- `amplify.yml` tells Amplify to serve `baja-site/` as-is (no build step) and sets a 30-day browser cache on `assets/` (changed CSS/JS still update right away because the build fingerprints their links).
 - While the site is unfinished it's **password-protected** (Amplify → Access control). Deploys don't change that.
 - **Launch plan:** register a custom domain (likely through Route 53) and connect it in Amplify, switch Access control to public, then set `SITE_URL` in `site-src/build.py` and rebuild so canonical and social-share links use the real domain.
