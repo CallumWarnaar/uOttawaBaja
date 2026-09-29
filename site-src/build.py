@@ -12,6 +12,7 @@ description: One sentence for search engines
 og_image: img_5850            (a photo name in assets/img/photos; optimize_images.py makes its -og.jpg)
 -->
 """
+import hashlib
 import re
 import struct
 from pathlib import Path
@@ -125,6 +126,27 @@ def photo_srcset(src, size):
     return ", ".join(parts + [f"{src} {size[0]}w"])
 
 
+_hashes = {}
+
+
+def add_asset_versions(html):
+    """Stamp every linked CSS, JS and PDF file with ?v=<first 8 hex of its SHA-256>.
+    assets/** is cached by browsers (amplify.yml), so a changed file needs a new URL or
+    returning visitors keep the old copy. The hash changes exactly when the file does, so
+    there's nothing to bump by hand; just rebuild after editing a CSS/JS file.
+    Fonts and images are left alone: preloaded fonts must match the url() in styles.css
+    exactly, and replaced photos/logos get a new file name instead (see README)."""
+    def stamp(m):
+        path = m.group(2)
+        if path not in _hashes:
+            f = OUT / path
+            if not f.exists():
+                raise SystemExit(f"linked file not found: {path}")
+            _hashes[path] = hashlib.sha256(f.read_bytes()).hexdigest()[:8]
+        return f'{m.group(1)}="{path}?v={_hashes[path]}"'
+    return re.sub(r'\b(href|src)="(assets/[^"?#]+\.(?:css|js|pdf))(?:\?v=[^"]*)?"', stamp, html)
+
+
 def build():
     layout = (ROOT / "partials" / "layout.html").read_text(encoding="utf-8")
     for slug, _, _ in PAGES + EXTRA_PAGES:
@@ -171,6 +193,7 @@ def build():
         if left:
             raise SystemExit(f"{slug}: unfilled placeholders {left}")
         html = add_image_sizes(html)
+        html = add_asset_versions(html)
         (OUT / f"{slug}.html").write_text(html, encoding="utf-8")
         print(f"built {slug}.html")
 
