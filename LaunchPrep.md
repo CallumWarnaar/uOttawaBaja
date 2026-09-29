@@ -2,7 +2,7 @@
 
 The site goes public the weekend of **2026-10-03**. This file tracks the changes Callum asked for before launch, in batches as they come in. Tick items as they merge. CLAUDE.md and the README hold a short summary; this is the full list.
 
-Launch itself (domain, Access control → public, `SITE_URL`) is in the README's "Hosting" section and still needs Callum's go-ahead.
+The domain `uottawabaja.ca` is live and public (2026-09-30); see "Search / Google" below and the README's "Hosting" section.
 
 ## Batch 1 (requested 2026-09-29)
 
@@ -24,6 +24,13 @@ Launch itself (domain, Access control → public, `SITE_URL`) is in the README's
   - Roster: dashed outline on member slots removed (above).
   - Not changed: the merch "Coming soon!" boxes (diagonal-striped product images) and "Price TBA", which read as intentional pre-launch copy, and the small notes "Drag or scroll →" (home) and "★ Exclusive to the Platinum sponsor" (sponsors), which share the `todo-note` style but aren't placeholders.
 - [x] **Merch:** the "Car #230 Crewneck" is now the **"Car #230 Quarter-Zip"** (`data-product="car-230-quarter-zip"`).
+
+## Search / Google (2026-09-30)
+
+- [x] `SITE_URL = "https://uottawabaja.ca"` in `build.py`: every page now has a canonical tag, `og:url`, and an absolute `og:image` (so link previews work on social media).
+- [x] `build.py` writes `baja-site/sitemap.xml` (all 8 pages, incl. merch and roster) and `robots.txt` (allow all + sitemap link).
+- [ ] **Callum:** in Google Search Console, verify the domain (DNS TXT record in Route 53 for a Domain property), then Sitemaps → submit `sitemap.xml`, and URL Inspection → Request indexing on the home page.
+- [ ] Optional (domain config, Callum's call): redirect `www.uottawabaja.ca` → `uottawabaja.ca` in Amplify → Domain management. Canonical tags already cover it.
 
 ## Batch 2
 
