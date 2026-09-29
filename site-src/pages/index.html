@@ -40,7 +40,7 @@ og_image: img_5850
       <div class="container split split--wide">
         <div>
           <p class="kicker">Who we are</p>
-          <h2 id="intro-title" class="title worn" data-split="lines">Student-built. <span class="accent">Dirt-tested.</span></h2>
+          <h2 id="intro-title" class="title worn" data-split="lines">Student-built. <span class="accent">Grit-tested.</span></h2>
           <p class="lead mt-4" data-reveal>Rough Rider Racing (RRR) is one of the Faculty of Engineering's competitive design teams. Every season we design, manufacture, test and race a single-seat all-terrain vehicle that has to survive jumps, rocks, mud and a four-hour endurance race.</p>
           <p class="muted" data-reveal data-delay="1">All of the design, analysis, fabrication and testing is done by students from mechanical, electrical, software and computer engineering and other programs, with guidance from faculty and alumni.</p>
           <div class="btn-row" data-reveal data-delay="2"><a class="btn btn--ghost" href="about.html">About the program <span class="arrow">→</span></a></div>
@@ -66,9 +66,9 @@ og_image: img_5850
     </section>
 
     <!-- ================= BAND ================= -->
-    <section class="band" aria-label="Built in Ottawa, raced in the dirt">
+    <section class="band" aria-label="Built in Ottawa, raced through the dust">
       <img src="assets/img/photos/dsc_0850.webp" alt="" loading="lazy">
-      <p class="band__text worn">Built in Ottawa.<br><span class="outline">Raced in the dirt.</span></p>
+      <p class="band__text worn">Built in Ottawa.<br><span class="outline">Raced through the dust.</span></p>
     </section>
 
     <!-- ================= SUBTEAMS — HORIZONTAL TRACK ================= -->
@@ -116,22 +116,21 @@ og_image: img_5850
           <p class="kicker">The machine</p>
           <h2 id="tech-title" class="title worn" data-split="lines">Take it <span class="accent">apart.</span></h2>
           <p class="lead mt-4" data-reveal>Steel space frame. Double-wishbone front suspension and a semi-trailing arm rear. A tuned CVT, hydraulic discs and a full safety electrical system. Tap through every system on the car.</p>
-          <div class="btn-row" data-reveal data-delay="1"><a class="btn" href="tech.html">Open the tech page <span class="arrow">→</span></a></div>
+          <div class="btn-row" data-reveal data-delay="1"><a class="btn" href="tech.html">Open the car page <span class="arrow">→</span></a></div>
         </div>
         <div class="frame frame--wide" data-reveal="clip"><img src="assets/img/photos/dsc_0833.webp" alt="Car #230 with the driver at the wheel" loading="lazy"></div>
       </div>
     </section>
 
     <!-- ================= NEXT RACE ================= -->
-    <section class="section section--garnet scratched torn-top" aria-labelledby="next-race">
+    <section class="section section--garnet scratched torn-top" aria-labelledby="next-race" data-next-event>
       <div class="container split">
         <div>
-          <p class="kicker kicker--on-garnet">Next up · Oct 2–4, 2026</p>
-          <h2 id="next-race" class="title worn" data-split="lines">OktoBajaFest</h2>
-          <p class="lead mt-4">Seven Springs, Colton, New York. It's the largest exhibition race for Baja vehicles in North America, with around 30 cars from 15 universities, and our first race-condition run of the season.</p>
+          <p class="kicker kicker--on-garnet" data-event="kicker">Next up · Oct 2–4, 2026</p>
+          <h2 id="next-race" class="title worn" data-split="lines" data-event="title">OktoBajaFest</h2>
+          <p class="lead mt-4" data-event="lead">Seven Springs, Colton, New York. It's the largest exhibition race for Baja vehicles in North America, with around 30 cars from 15 universities, and our first race-condition run of the season.</p>
           <div class="btn-row"><a class="btn btn--light" href="competitions.html">Season schedule <span class="arrow">→</span></a></div>
         </div>
-        <!-- Update data-countdown to the next event each season -->
         <div class="countdown" data-countdown="2026-10-02T08:00:00-04:00" data-countdown-done="Race weekend — follow along @uottawabaja" data-reveal>
           <div class="countdown__unit"><span class="countdown__num" data-unit="d">00</span><span class="countdown__lbl">Days</span></div>
           <div class="countdown__unit"><span class="countdown__num" data-unit="h">00</span><span class="countdown__lbl">Hrs</span></div>
@@ -139,6 +138,24 @@ og_image: img_5850
           <div class="countdown__unit"><span class="countdown__num" data-unit="s">00</span><span class="countdown__lbl">Sec</span></div>
         </div>
       </div>
+      <!--
+        EVENTS: main.js shows the first event whose "end" hasn't passed, swapping the kicker, title,
+        lead and countdown. The text written above is the first event (shown without JS).
+        Each season, add the next events here (and update the text above to match the first one).
+        start = countdown target, end = when to flip to the next event, done = shown during the event.
+      -->
+      <script type="application/json" data-events>
+      [
+        { "start": "2026-10-02T08:00:00-04:00", "end": "2026-10-05T00:00:00-04:00",
+          "kicker": "Next up · Oct 2–4, 2026", "title": "OktoBajaFest",
+          "lead": "Seven Springs, Colton, New York. It's the largest exhibition race for Baja vehicles in North America, with around 30 cars from 15 universities, and our first race-condition run of the season.",
+          "done": "Race weekend — follow along @uottawabaja" },
+        { "start": "2027-05-20T08:00:00-04:00", "end": "2027-05-24T00:00:00-04:00",
+          "kicker": "Next up · May 20–23, 2027", "title": "Baja SAE Williamsport",
+          "lead": "Williamsport, Pennsylvania. Our target SAE International competition of the season (subject to the SAE registration lottery): four days of static judging, dynamic events and the four-hour endurance race.",
+          "done": "Competition week — follow along @uottawabaja" }
+      ]
+      </script>
     </section>
 
     <!-- ================= PHOTO MARQUEE ================= -->
@@ -161,7 +178,7 @@ og_image: img_5850
         <div class="marquee__track"><div class="marquee__group" style="gap:var(--s2);padding-right:var(--s2)">
           <img data-src="assets/img/photos/img_5678.webp" sizes="510px" alt="Car approaching an obstacle">
           <img data-src="assets/img/photos/img_4906.webp" sizes="510px" alt="Two team members lying in the grass between events">
-          <img data-src="assets/img/photos/dsc_9516.webp" sizes="510px" alt="Car #230 climbing a banked dirt turn past a hay bale">
+          <img data-src="assets/img/photos/dsc_9516.webp" sizes="510px" alt="Car #230 climbing a banked turn past a hay bale">
           <img data-src="assets/img/photos/img_4434.webp" sizes="510px" alt="Team member smiling beside the car's engine bay">
           <img data-src="assets/img/photos/img_5879.webp" sizes="510px" alt="Car on course near an excavator">
           <img data-src="assets/img/photos/img_5180.webp" sizes="510px" alt="Team member laughing beside the driver in car #230">

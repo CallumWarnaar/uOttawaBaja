@@ -60,7 +60,7 @@ window.RRR_ROSTER = [
   },
   {
     id: 'callum', name: 'Callum', rank: 2,
-    roles: [{ team: 'Suspension', title: 'Front Suspension Engineer' }, { team: 'Administration', title: 'Administration' }],
+    roles: [{ team: 'Suspension', title: 'Director of Front Suspension' }, { team: 'Administration', title: 'Administration' }],
     joined: null, program: '', year: '', grad: '', photo: '',
     about: '', focus: [], highlights: [], seeking: '', links: {},
   },

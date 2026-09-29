@@ -379,6 +379,14 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
 .panel--garnet { background: var(--garnet); border-top-color: var(--white); }
 .panel--garnet:hover { background: var(--garnet-2); }
 .panel--garnet .panel__num { background: var(--bg); }
+/* Sponsors "Four ways in": panels stacked as rows on the left, two photos on the right */
+.ways { align-items: start; }
+.ways__list, .ways__media { display: grid; gap: var(--s2); }
+.ways .panel { display: grid; grid-template-columns: auto 1fr; column-gap: var(--s3); padding: var(--s3); }
+.ways .panel__num { grid-row: span 2; margin: 0; font-size: 2.4rem; align-self: start; }
+.ways .panel h3 { margin-top: 0; }
+@media (min-width: 960px) { .ways__media { position: sticky; top: calc(var(--header-h) + var(--s3)); } }
+@media (max-width: 560px) { .ways .panel { grid-template-columns: 1fr; } .ways .panel__num { grid-row: auto; margin-bottom: var(--s2); justify-self: start; } }
 .section--polar .panel { background: var(--white); color: var(--black); }
 .section--polar .panel:hover { background: var(--white); }
 .section--garnet .panel { background: rgba(0,0,0,.28); border-top-color: var(--white); }

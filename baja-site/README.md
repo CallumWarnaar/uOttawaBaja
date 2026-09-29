@@ -71,7 +71,7 @@ Official colours only: Garnet (red) `#8f001a` · Primary Charcoal `#2d2d2c` · S
 | Pinned horizontal scroll | `data-htrack` on a section with `.htrack__inner` |
 | Parallax | `data-parallax="0.2"`; `.frame` and `.band` images parallax automatically |
 | Torn paper edge | class `torn-top` on a section |
-| Countdown | `data-countdown="2026-10-02T08:00:00-04:00"` on the home page (update each season) |
+| Countdown | The home page's "Next up" section lists events in a small JSON block (`data-events`); it counts down to the first event that hasn't ended and switches to the next one on its own. Add next season's events there. |
 
 All motion switches off for visitors with "reduce motion" enabled, and content still shows if JavaScript fails.
 
@@ -80,6 +80,10 @@ All motion switches off for visitors with "reduce motion" enabled, and content s
 2. In `site-src/pages/tech.html`, change the `<img>` src in `.car-canvas` and remove the `is-placeholder` class.
 3. Open `tech.html?edit` in a browser. Drag each numbered dot onto its part; the HUD prints `style="--x:..%; --y:..%"`. Paste that onto the matching hotspot.
 4. `python build.py`.
+
+## Each new season
+- **Car number:** #230 is this season's number and it usually changes at the end of each calendar year. Update it everywhere it appears (search the site for `230`).
+- **Events:** add the season's competitions to the home page's `data-events` list and the competitions page schedule.
 
 ## Still to fill in
 Anything with a dashed grey outline (class `todo`) needs real content:
