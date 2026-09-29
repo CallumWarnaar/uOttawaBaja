@@ -19,7 +19,7 @@ uOttawaBaja/
 │       ├── js/roster.js       draws the roster page (sorting, filters, profiles)
 │       ├── vendor/            GSAP + ScrollTrigger + SplitText, Lenis (self-hosted)
 │       ├── fonts/             Big Shoulders Display/Stencil, Barlow, Barlow Condensed (self-hosted, OFL)
-│       ├── img/photos/        team photos (1920px, web-sized)
+│       ├── img/photos/        team photos as WebP web copies (made by site-src/optimize_images.py)
 │       ├── img/sponsors/      white-on-transparent sponsor logos
 │       ├── img/tech/          car image for the tech page (placeholder SVG for now)
 │       ├── img/texture/       grunge mask, scratches, mud spray, torn edges
@@ -38,6 +38,13 @@ The build also adds each photo's real `width` and `height` to its `<img>` tag au
 Amplify doesn't run the build itself. It publishes `baja-site/` exactly as committed, so if you skip step 2 your change won't appear on the site.
 
 CSS, JavaScript and images in `baja-site/assets/` are edited directly, with no build needed. Assets are cached for 7 days, so when you change `styles.css`, `main.js` or the roster scripts, bump the `?v=` number where they're linked (`site-src/partials/layout.html`, or `site-src/pages/roster.html` for the roster) and rebuild. Otherwise returning visitors will keep the old file.
+
+## Adding photos
+Full-size originals stay in Google Drive; the site only gets small web copies.
+1. Download the originals into a folder **outside** `baja-site/` (e.g. `website pics/`, which git ignores).
+2. From `site-src/`, run `python optimize_images.py "path/to/folder"` (needs Pillow: `pip install pillow`). Each photo becomes `assets/img/photos/<name>.webp` plus smaller `-640` and `-1280` copies. The name comes from the file name, e.g. `IMG_5212.JPG` → `img_5212`; use `python optimize_images.py photo.jpg --name good_name` to choose one.
+3. Use it in a page as `<img src="assets/img/photos/img_5212.webp" alt="What's in the photo" loading="lazy">`, then run `python build.py`. The build adds the sizes so phones download the small copy.
+4. Try not to reuse a photo already shown on another page; the competitions gallery is the one place that collects them all.
 
 ## Updating the team
 
@@ -85,7 +92,7 @@ Anything with a dashed grey outline (class `todo`) needs real content:
 - merch: product names, prices and photos (the shop shows "Coming soon!" placeholders), and merch-photoshoot photos for the rest of the page
 
 ## Parked for later
-- **Speed optimization:** see `Optimization.md` in the repo root for the phased plan (Phase 1, the lazy-loading fixes, is done; still to come: smaller web copies of photos with automatic `srcset`, headshot/merch/car-render sizes, automatic cache versioning with a 30-day cache). Full-size originals stay in Google Drive; only web-sized copies go in the repo.
+- **Speed optimization:** see `Optimization.md` in the repo root for the phased plan (Phases 1–2, lazy-loading fixes and smaller WebP web copies of every photo, are done; still to come: headshot/merch/car-render sizes, automatic cache versioning with a 30-day cache). Full-size originals stay in Google Drive; only web-sized copies go in the repo.
 - **Merch cart and checkout:** the merch page is a preview only, with nothing for sale. Once the designs are final, it needs a proper cart and secure checkout, likely PayPal. Payments must be created and confirmed on a small server (not in the browser) and PayPal keys must never go in the repo. CLAUDE.md has the full checklist.
 - **Past seasons (competitions page)** was taken out in Sept 2026 so the page focuses on upcoming events. To bring it back, copy the `<!-- RESULTS -->` section from `git show 245e5ea:site-src/pages/competitions.html` and fill in real results.
 

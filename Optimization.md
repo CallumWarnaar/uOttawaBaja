@@ -2,7 +2,7 @@
 
 Goal: keep the site snappy as we add headshots, merch photos and the high-res car render. Planned 2026-09-28 with Callum. **Nothing here is implemented yet.** Work through the phases in order, one PR per phase, and tick them off below as they merge.
 
-Status: [x] Phase 1 · [ ] Phase 2 · [ ] Phase 3 · [ ] Phase 4
+Status: [x] Phase 1 · [x] Phase 2 · [ ] Phase 3 · [ ] Phase 4
 
 ## Baseline (measured 2026-09-28)
 
@@ -25,7 +25,7 @@ What was heavy, and what Phase 1 did about it:
 1. **Gallery images had no size.** `<img>` tags without `width`/`height` in the CSS-columns gallery were 0px tall until loaded, so all 50 "fit" in the viewport and downloaded together as soon as you scrolled there. Fixed: `build.py` now writes real `width`/`height` on every local `<img>`.
 2. **The home-page photo marquees** loaded all 12 photos on page load. Fixed: they use `data-lazy` + `data-src` and load about a screen before they're reached.
 3. **Oversized chrome on every page:** `logo.png` 200 KB → 31 KB (468px, 256-colour PNG, looks identical), textures moved to WebP (grunge mask 314 → 139 KB, scratches 87 → 42 KB, splatter 66 → 24 KB).
-4. **Menu previews were not actually a problem:** real browsers don't load them until the menu opens (they're `visibility:hidden` and lazy). Opening the menu on desktop still pulls all 7 full 1920px photos (~2.9 MB); Phase 2's small copies fix that.
+4. **Menu previews were not actually a problem:** real browsers don't load them until the menu opens (they're `visibility:hidden` and lazy). Opening the menu on desktop pulled all 7 full 1920px photos (~2.9 MB); since Phase 2 they have `srcset` with `sizes="auto"`, so small copies load.
 5. Still to do: every photo is one 1920px JPEG (~400 KB), with no WebP/AVIF and no `srcset` (Phase 2). The sponsorship PDF is 9 MB but only downloads on click; compressing it is optional.
 
 Fine as-is: vendor JS (GSAP + ScrollTrigger + SplitText + Lenis, ~150 KB, `defer`), fonts (~230 KB self-hosted woff2, 2 preloaded), sponsor logos (15–70 KB each). CloudFront already gzips/brotlis text files.
@@ -44,16 +44,27 @@ Fine as-is: vendor JS (GSAP + ScrollTrigger + SplitText + Lenis, ~150 KB, `defer
 - Logo and textures shrunk (see Baseline). `styles.css` → `?v=14`, `main.js` → `?v=3`.
 - Checked with before/after headless-Edge screenshots of all 8 pages at 1440 and 500px: pixel-identical apart from the 46px header logo resample and the live countdown.
 
-## Phase 2: image pipeline for web copies
+## Phase 2: image pipeline for web copies (done, 2026-09-29)
 
-- **`site-src/optimize_images.py`** (Pillow): reads a folder of originals and writes web copies. It keeps the aspect ratio, never upscales, strips EXIF (privacy and size), and fixes rotation with `ImageOps.exif_transpose` first.
-  - Photos: WebP at **640, 1280, 1920px** wide (quality ~78), plus one JPEG fallback at 1280. Naming: `img_5212-640.webp`, `img_5212-1280.webp`, `img_5212-1920.webp`, `img_5212.jpg`.
-  - Re-running it skips outputs that are already up to date.
-  - Usage lives at the top of the script and in the README.
-- **The current 50 photos:** regenerate from the existing 1920px JPEGs (they are the largest copies in the repo). Better, re-run from the Drive originals if Callum drops them in a scratch folder. Replace the 400 KB JPEGs.
-- **`build.py`** (still stdlib): when rendering an `<img src="assets/img/photos/X.jpg">` that has `-640/-1280/-1920.webp` siblings, write `srcset` + `sizes` automatically (or emit a `<picture>` with a WebP source and a JPEG fallback). Page sources don't need to change.
-- Add `width`/`height` (or keep the `.frame` `aspect-ratio`) so nothing shifts while loading.
-- **Target:** a photo on a phone is ~40–80 KB instead of ~400 KB.
+- **`site-src/optimize_images.py`** (Pillow, optional tool; usage at the top of the file and in the README). For each original it writes `photos/<name>.webp` (long edge 1920px: 1920 wide for landscape, 1920 tall for portrait), `<name>-640.webp` and `<name>-1280.webp` (skipped when not smaller than the largest), WebP quality 70, `method=6`, rotation fixed, metadata stripped, never upscaled. Re-runs skip up-to-date copies (`--force` to redo). Names come from the file name (`Copy of IMG_5212.JPG` → `img_5212`) or `--name`.
+- **No JPEG fallback** for photos: every browser the site targets reads WebP. The one exception is social sharing: the script also writes `<name>-og.jpg` (1200px) for each page's `og_image` front-matter value, which `build.py` uses for `og:image`. `og_image` is now a bare name (`og_image: img_5850`).
+- **Quality 70, not 78:** at 100% zoom it's indistinguishable on the hero (sponsor decals stay crisp) and saves ~17%. Grass and dirt texture is what makes these photos expensive.
+- **`build.py`** (still stdlib): for `<img src="assets/img/photos/<name>.webp">` with smaller siblings it writes `srcset` and, unless the tag has its own, `sizes="auto, 100vw"` for lazy images (Chromium uses the laid-out width; others fall back to 100vw) or `sizes="100vw"` for eager ones. `data-src` images get `data-srcset`, which the `data-lazy` loader copies. The marquee photos declare `sizes="510px"` (their max CSS width). The gallery lightbox opens `src` (the largest copy), not the thumbnail's `currentSrc`.
+- **Photos regenerated from the Drive originals** (`pics sep29/`, 3888–6960px) instead of the old 1920px JPEGs, then the 50 JPEGs were removed. 17 new competition photos were added in the same pass; see CLAUDE.md "Photo placement".
+- **Sizes:** average per photo 212 KB (1920), 122 KB (1280), 41 KB (640), vs ~384 KB per old JPEG. `photos/` is 25 MB for 67 photos × 3 sizes.
+
+**Results** (first load, empty cache; photos only in brackets):
+
+| Page | After Phase 1 (1440px) | After Phase 2 (1440px) | After Phase 2 (500px) |
+|---|---|---|---|
+| index | 2.1 MB | 1.3 MB (286 KB) | 1.1 MB (91 KB) |
+| about | 2.0 MB | 1.1 MB (509 KB) | 0.75 MB (137 KB) |
+| competitions (top) | 1.5 MB | 1.0 MB (369 KB) | 0.72 MB (86 KB) |
+| competitions `#gallery` | 5.1 MB (14 photos) | 1.6 MB (17 photos, 943 KB) | 0.79 MB (156 KB) |
+| team / merch / sponsors / roster | 1.0–1.7 MB | 0.81–0.85 MB | ~0.7 MB |
+| tech | 0.6 MB | 0.6 MB | – |
+
+What's left on every page is fixed chrome, ~600 KB: fonts (~230 KB), vendor JS (~150 KB), textures (~205 KB), CSS and the logo. Phase 4's 30-day cache makes that a one-time cost per visitor. Trimming unused font weights would be the next small win.
 
 ## Phase 3: new assets
 
