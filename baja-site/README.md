@@ -42,6 +42,8 @@ CSS, JavaScript and images in `baja-site/assets/` are edited directly. Browsers 
 
 Images and fonts aren't fingerprinted. When you replace a photo, sponsor logo or headshot, **give the new file a new name** instead of overwriting the old one, or returning visitors may keep seeing the old image.
 
+Sponsor logos link to the sponsor's website and open in a new tab (`target="_blank" rel="noopener noreferrer"`). They appear in three places: the home-page logo marquee (`pages/index.html`), the sponsors-page logo walls (`pages/sponsors.html`) and the software partners on the car page (`pages/tech.html`). When you add or change a sponsor, update the link in all three.
+
 ## Checking page weight
 From `site-src/`, run `python perf_check.py` (Windows with Edge; run it from PowerShell or a normal terminal). It loads every page in headless Edge with an empty cache and prints requests and KB per page, split into photos and everything else. Any page over 2 MB is flagged and the script exits with an error. `--width 500` checks a narrow window, `-v` lists every file, and `python perf_check.py index team` checks only those pages. Run it before merging changes that add images.
 
