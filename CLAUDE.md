@@ -39,7 +39,7 @@ amplify.yml          Amplify serves baja-site/ as-is, no build step
 
 - **Never hand-edit `baja-site/*.html`**; the next build overwrites it. CSS, JS and images in `baja-site/assets/` are edited directly.
 - **Always run `build.py` and commit `baja-site/`** along with `site-src/`. Amplify does not run the build, so an unbuilt change deploys as nothing.
-- `SITE_URL` in `build.py` is empty until the custom domain is live; set it then (canonical + og:image URLs).
+- `SITE_URL` in `build.py` is `https://uottawabaja.ca` (set 2026-09-30). It drives the canonical, `og:url` and `og:image` URLs, and the build writes `baja-site/sitemap.xml` (every page in `PAGES` + `EXTRA_PAGES`) and `robots.txt` from it. Don't hand-edit those two files; a new page added to `PAGES`/`EXTRA_PAGES` lands in the sitemap automatically.
 - `baja-site/README.md` documents the effect attributes (`data-reveal`, `data-split`, `worn`, `data-count`, `data-marquee`, `data-countdown`, etc.) and the tech-page hotspot editor (`tech.html?edit`). The README is the human-friendly guide and CLAUDE.md is the agent guide, and **they must stay aligned**. When a change affects workflow, structure, hosting or the placeholder list, update both in the same PR.
 - Placeholders needing real content use class `todo` (dashed outline) or `todo-note`, but **none are left on public pages since launch prep** (see `LaunchPrep.md`); don't add new ones to live pages. `todo-note` is also reused as plain small-note styling (e.g. "Drag or scroll →" on the home page), so check context before treating one as unfinished.
 - Still placeholder: tech-page car render + hotspot positions, CVT and gearbox specs (TBD rows removed for launch), team-page recruitment dates/sign-up link (note removed for launch), JMTS logo (plain text tile for now), real roster members, merch products (names, prices, photos) and merch-page photos.
@@ -95,8 +95,9 @@ Callum wants the site to stay snappy as headshots, merch photos and the car rend
 ## Hosting
 
 - AWS Amplify Hosting, connected to GitHub `CallumWarnaar/uOttawaBaja`, branch `main`. Every push to `main` redeploys automatically. (An `origin/staging` branch also exists, currently identical to `main`; it isn't referenced anywhere in the repo.)
-- Current URL: `https://main.duwhaiwnzv75w.amplifyapp.com/`, **password-protected** (Amplify Access control) while the site is unfinished. Deploys don't change that setting.
-- No custom domain yet; plan is to register one (likely via Route 53) at launch, then switch Access control to public and set `SITE_URL`.
+- **Live at `https://uottawabaja.ca`** (custom domain, public; registered 2026-09-30). The Amplify default URL `https://main.duwhaiwnzv75w.amplifyapp.com/` still exists.
+- `www.uottawabaja.ca` serves the site too (no redirect to the bare domain as of 2026-09-30), and Amplify serves `/about` as well as `/about.html`. The canonical tags point Google at the bare-domain `.html` URLs, so this is safe; a www → bare-domain redirect in Amplify → Domain management would be tidier (Callum's call, it's domain config).
+- **Google Search Console:** sitemap is `https://uottawabaja.ca/sitemap.xml`. Callum submits it in Search Console (Sitemaps) after verifying the domain.
 - `amplify.yml` sets `Cache-Control: max-age=2592000` (30 days) on `assets/**`. CSS/JS versions are automatic; just rebuild after editing them.
 
 ## Design

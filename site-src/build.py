@@ -17,8 +17,9 @@ import re
 import struct
 from pathlib import Path
 
-# Set this once the domain is live, e.g. "https://www.example.ca" (no trailing slash).
-SITE_URL = ""
+# The live domain (no trailing slash). Used for canonical, og:url and og:image URLs, and
+# for sitemap.xml / robots.txt, which the build writes into baja-site/ for search engines.
+SITE_URL = "https://uottawabaja.ca"
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT.parent / "baja-site"
@@ -183,7 +184,8 @@ def build():
             "nav_previews": previews,
             "footer_nav": footer_nav,
             "og_image_url": f"{SITE_URL}/{og}" if SITE_URL else og,
-            "canonical_tag": f'  <link rel="canonical" href="{SITE_URL}/{page_file}">\n' if SITE_URL else "",
+            "canonical_tag": (f'  <link rel="canonical" href="{SITE_URL}/{page_file}">\n'
+                              f'  <meta property="og:url" content="{SITE_URL}/{page_file}">\n') if SITE_URL else "",
             "body": body,
         }
         html = layout
@@ -196,6 +198,25 @@ def build():
         html = add_asset_versions(html)
         (OUT / f"{slug}.html").write_text(html, encoding="utf-8")
         print(f"built {slug}.html")
+    write_sitemap()
+
+
+def write_sitemap():
+    """sitemap.xml (every page in PAGES + EXTRA_PAGES) and robots.txt, for Google Search
+    Console. URLs use the .html form the site links to internally, which matches the
+    canonical tags; the home page is the bare domain."""
+    if not SITE_URL:
+        return
+    urls = "\n".join(
+        f"  <url><loc>{SITE_URL}/{'' if s == 'index' else s + '.html'}</loc></url>"
+        for s, _, _ in PAGES + EXTRA_PAGES
+    )
+    (OUT / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + "\n</urlset>\n",
+        encoding="utf-8")
+    (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n", encoding="utf-8")
+    print("built sitemap.xml, robots.txt")
 
 
 if __name__ == "__main__":

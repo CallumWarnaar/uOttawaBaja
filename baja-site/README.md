@@ -111,5 +111,5 @@ Placeholder notes and dashed boxes were taken off the public pages for launch, s
 ## Hosting
 - **AWS Amplify Hosting**, connected to this GitHub repo. Every push to `main` redeploys the site automatically, usually within a minute or two.
 - `amplify.yml` tells Amplify to serve `baja-site/` as-is (no build step) and sets a 30-day browser cache on `assets/` (changed CSS/JS still update right away because the build fingerprints their links).
-- While the site is unfinished it's **password-protected** (Amplify → Access control). Deploys don't change that.
-- **Launch plan:** register a custom domain (likely through Route 53) and connect it in Amplify, switch Access control to public, then set `SITE_URL` in `site-src/build.py` and rebuild so canonical and social-share links use the real domain.
+- **Live at https://uottawabaja.ca** (public since launch, fall 2026). `SITE_URL` in `site-src/build.py` is set to it, so canonical and social-share links use the real domain.
+- **Search engines:** `python build.py` also writes `sitemap.xml` (every page) and `robots.txt` into `baja-site/`, so a new page is added to the sitemap automatically. Don't edit those two files by hand. The sitemap is submitted in Google Search Console at `https://uottawabaja.ca/sitemap.xml`.
