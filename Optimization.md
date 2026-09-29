@@ -2,27 +2,31 @@
 
 Goal: keep the site snappy as we add headshots, merch photos and the high-res car render. Planned 2026-09-28 with Callum. **Nothing here is implemented yet.** Work through the phases in order, one PR per phase, and tick them off below as they merge.
 
-Status: [ ] Phase 1 · [ ] Phase 2 · [ ] Phase 3 · [ ] Phase 4
+Status: [x] Phase 1 · [ ] Phase 2 · [ ] Phase 3 · [ ] Phase 4
 
 ## Baseline (measured 2026-09-28)
 
-First visit, empty cache, headless Edge at 1440×900 against a local server (`python -m http.server` in `baja-site/`, with a script that reads `performance.getEntriesByType('resource')` after load):
+First visit, empty cache, desktop 1440×900, top of each page. Measured by logging every request on a local server while headless Edge loads the page (screenshot mode, fresh profile).
 
-| Page | Requests | Downloaded | Photos loaded |
-|---|---|---|---|
-| competitions | 69 | 20.2 MB | all 50 (19.2 MB) |
-| index | 61 | 12.3 MB | 28 (10.9 MB) |
-| about | 32 | 5.9 MB | 13 |
-| team | 32 | 5.9 MB | 13 |
-| merch | 28 | 4.4 MB | 9 |
-| roster | 29 | 4.0 MB | 8 |
+> **Measuring gotcha:** headless Edge/Chrome **ignores `loading="lazy"`** unless you pass `--blink-settings=lazyLoadEnabled=true`. The first numbers in this plan (competitions 20 MB, home 12 MB) were measured without it and were wrong. Always use that flag (Phase 4's `perf_check.py` must too).
 
-Why it's heavy:
+| Page | Before Phase 1 | After Phase 1 |
+|---|---|---|
+| index | 7.6 MB (15 photos) | **2.1 MB** (3 photos) |
+| about | 2.4 MB | 2.0 MB |
+| competitions (top) | 1.9 MB | 1.5 MB |
+| competitions `#gallery` | **19.2 MB of photos (all 50)** | **5.1 MB** (14 photos) |
+| merch | 2.1 MB | 1.7 MB |
+| team / sponsors / roster | 1.4 MB | 1.0 MB |
+| tech | 1.0 MB | 0.6 MB |
 
-1. **`loading="lazy"` is mostly defeated.** The full-screen menu (`.menu`, `visibility:hidden`, `position:fixed; inset:0`) sits "in the viewport", so its 7 preview photos (~2.9 MB) load on every page. The home-page photo marquees and the competitions gallery put their images inside the browser's lazy-load distance, so they all load at once.
-2. **Every photo is one 1920px JPEG (~400 KB)**, with no WebP/AVIF and no `srcset`. A phone downloads the same file as a desktop.
-3. **Oversized chrome:** `img/logo.png` is 200 KB but shown at 234px max; `img/texture/grunge-mask.png` is 314 KB.
-4. The sponsorship PDF is 9 MB, but it only downloads on click. Compressing it is optional.
+What was heavy, and what Phase 1 did about it:
+
+1. **Gallery images had no size.** `<img>` tags without `width`/`height` in the CSS-columns gallery were 0px tall until loaded, so all 50 "fit" in the viewport and downloaded together as soon as you scrolled there. Fixed: `build.py` now writes real `width`/`height` on every local `<img>`.
+2. **The home-page photo marquees** loaded all 12 photos on page load. Fixed: they use `data-lazy` + `data-src` and load about a screen before they're reached.
+3. **Oversized chrome on every page:** `logo.png` 200 KB → 31 KB (468px, 256-colour PNG, looks identical), textures moved to WebP (grunge mask 314 → 139 KB, scratches 87 → 42 KB, splatter 66 → 24 KB).
+4. **Menu previews were not actually a problem:** real browsers don't load them until the menu opens (they're `visibility:hidden` and lazy). Opening the menu on desktop still pulls all 7 full 1920px photos (~2.9 MB); Phase 2's small copies fix that.
+5. Still to do: every photo is one 1920px JPEG (~400 KB), with no WebP/AVIF and no `srcset` (Phase 2). The sponsorship PDF is 9 MB but only downloads on click; compressing it is optional.
 
 Fine as-is: vendor JS (GSAP + ScrollTrigger + SplitText + Lenis, ~150 KB, `defer`), fonts (~230 KB self-hosted woff2, 2 preloaded), sponsor logos (15–70 KB each). CloudFront already gzips/brotlis text files.
 
@@ -33,16 +37,12 @@ Fine as-is: vendor JS (GSAP + ScrollTrigger + SplitText + Lenis, ~150 KB, `defer
 - **Car: high-res 2D render, not a 3D model (for now).** The car is still being designed in SolidWorks. A spinnable 360° model like Case Western's is out of scope. Callum will export a background-free, high-res render from SolidWorks Visualize. It replaces `car-placeholder.svg` and keeps the current hotspot tagging and camera zoom/pan, with enough resolution that zoomed views stay sharp.
 - **Cache: 30 days, not 1 year**, with automatic version numbers (see Phase 4). Changing `amplify.yml` still needs Callum's go-ahead when that phase starts.
 
-## Phase 1: stop loading what nobody sees
+## Phase 1: stop loading what nobody sees (done, 2026-09-28)
 
-No new tools. Biggest win.
-
-- **Menu previews:** change the `<img src>` to `data-src` in `partials/layout.html`. In `main.js`, copy `data-src` to `src` the first time the menu opens (or on first hover of a menu link). On phones the preview is `display:none`, so it never loads.
-- **Marquees and galleries:** use `data-src` for images in `.photo-marquee` and the competitions gallery, and load them when the section comes near the viewport (an `IntersectionObserver` with a `rootMargin` of about one screen). Keep the first visible frame or two as normal `src` so nothing pops in.
-- **Logo:** resize `logo.png` to ~480px (enough for 234px at 2× DPR). Target under 30 KB.
-- **Grunge mask:** re-save smaller or as WebP (it's a mask, so any lossy artifacts are hidden). Target under 100 KB. Check that `worn` still looks right.
-- Bump `?v=` on `main.js` / `styles.css` (still manual until Phase 4).
-- **Target:** index under ~2 MB, competitions under ~3 MB, every other page under ~1.5 MB on first load.
+- `build.py` `add_image_sizes()`: every local `<img>` without a `width` gets its real `width`/`height`, read from the file header (JPEG/PNG/WebP, stdlib only). CSS still sets the display size (`img { height: auto }`); the attributes only reserve the aspect ratio. This is what fixed the gallery.
+- `data-lazy` groups (`main.js`): a container with `data-lazy` holding `<img data-src>` loads all of its images when it's about a screen away (IntersectionObserver, `rootMargin: 100% 0px`). It covers the marquee's cloned copies. `build.py` gives every `data-src` image a 1×1 placeholder `src` so it lays out as an image. Used on the two home-page `.photo-marquee`s. Plain `loading="lazy"` is still right almost everywhere else.
+- Logo and textures shrunk (see Baseline). `styles.css` → `?v=14`, `main.js` → `?v=3`.
+- Checked with before/after headless-Edge screenshots of all 8 pages at 1440 and 500px: pixel-identical apart from the 46px header logo resample and the live countdown.
 
 ## Phase 2: image pipeline for web copies
 
