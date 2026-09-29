@@ -114,8 +114,8 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
    visible instead of fully cut out. Raise --worn-floor for cleaner letters, lower it for more grit. */
 .worn {
   --worn-floor: rgb(0 0 0 / .55);
-  -webkit-mask-image: url("../img/texture/grunge-mask.png"), linear-gradient(var(--worn-floor), var(--worn-floor));
-  mask-image: url("../img/texture/grunge-mask.png"), linear-gradient(var(--worn-floor), var(--worn-floor));
+  -webkit-mask-image: url("../img/texture/grunge-mask.webp"), linear-gradient(var(--worn-floor), var(--worn-floor));
+  mask-image: url("../img/texture/grunge-mask.webp"), linear-gradient(var(--worn-floor), var(--worn-floor));
   -webkit-mask-size: 900px auto, 100% 100%; mask-size: 900px auto, 100% 100%;
 }
 .worn--light { -webkit-mask-size: 1400px auto, 100% 100%; mask-size: 1400px auto, 100% 100%; }
@@ -123,12 +123,12 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
 .scratched { position: relative; isolation: isolate; }
 .scratched::after {
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  background: url("../img/texture/scratches.png") center / 900px auto; opacity: .35; mix-blend-mode: overlay;
+  background: url("../img/texture/scratches.webp") center / 900px auto; opacity: .35; mix-blend-mode: overlay;
 }
 /* Mud kick-up decoration */
 .mud {
   position: absolute; pointer-events: none; width: min(70vw, 900px); aspect-ratio: 7 / 3; background: var(--grey);
-  -webkit-mask: url("../img/texture/splatter.png") center / contain no-repeat; mask: url("../img/texture/splatter.png") center / contain no-repeat;
+  -webkit-mask: url("../img/texture/splatter.webp") center / contain no-repeat; mask: url("../img/texture/splatter.webp") center / contain no-repeat;
   opacity: .22;
 }
 /* Hazard stripe band */

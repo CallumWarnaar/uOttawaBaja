@@ -204,6 +204,21 @@
   }
 
   /* ---------------------------------------------------------------------
+     Lazy image groups: <div data-lazy> ... <img data-src="..."> ...
+     Loads every image in the group once it's about a screen away. Used where
+     loading="lazy" can't tell what's coming (the scrolling photo marquees).
+     The swap runs when the group is reached, so it also covers marquee clones.
+     --------------------------------------------------------------------- */
+  const loadGroup = (el) => $$('img[data-src]', el).forEach((im) => { im.src = im.dataset.src; im.removeAttribute('data-src'); });
+  const lazyGroups = $$('[data-lazy]');
+  if ('IntersectionObserver' in window) {
+    const lazyIO = new IntersectionObserver((entries) => entries.forEach((e) => {
+      if (e.isIntersecting) { loadGroup(e.target); lazyIO.unobserve(e.target); }
+    }), { rootMargin: '100% 0px' });
+    lazyGroups.forEach((el) => lazyIO.observe(el));
+  } else lazyGroups.forEach(loadGroup);
+
+  /* ---------------------------------------------------------------------
      Marquees (text, photos, logos) — speed reacts to scroll velocity
      --------------------------------------------------------------------- */
   $$('[data-marquee]').forEach((el) => {

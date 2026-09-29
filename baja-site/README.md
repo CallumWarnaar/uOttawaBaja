@@ -33,6 +33,8 @@ uOttawaBaja/
 2. From `site-src/`, run `python build.py`. This regenerates the HTML in `baja-site/`.
 3. Commit **both** `site-src/` and `baja-site/`, then push to `main`.
 
+The build also adds each photo's real `width` and `height` to its `<img>` tag automatically, so the browser can reserve space and lazy-load properly. You don't need to type them.
+
 Amplify doesn't run the build itself. It publishes `baja-site/` exactly as committed, so if you skip step 2 your change won't appear on the site.
 
 CSS, JavaScript and images in `baja-site/assets/` are edited directly, with no build needed. Assets are cached for 7 days, so when you change `styles.css`, `main.js` or the roster scripts, bump the `?v=` number where they're linked (`site-src/partials/layout.html`, or `site-src/pages/roster.html` for the roster) and rebuild. Otherwise returning visitors will keep the old file.
@@ -58,6 +60,7 @@ Official colours only: Garnet (red) `#8f001a` · Primary Charcoal `#2d2d2c` · S
 | Word-by-word brighten | class `scrub-text` |
 | Count-up numbers | `data-count="40" data-prefix="~$"` |
 | Marquee (text/photos/logos) | `data-marquee="1"` (or `-1` reversed), `data-speed="40"` seconds per loop |
+| Load a group of images just before it's reached (for marquees, where normal lazy loading can't tell) | `data-lazy` on the container, and `data-src="..."` instead of `src` on its images |
 | Pinned horizontal scroll | `data-htrack` on a section with `.htrack__inner` |
 | Parallax | `data-parallax="0.2"`; `.frame` and `.band` images parallax automatically |
 | Torn paper edge | class `torn-top` on a section |
@@ -82,7 +85,7 @@ Anything with a dashed grey outline (class `todo`) needs real content:
 - merch: product names, prices and photos (the shop shows "Coming soon!" placeholders), and merch-photoshoot photos for the rest of the page
 
 ## Parked for later
-- **Speed optimization:** see `Optimization.md` in the repo root for the phased plan (lazy-loading fixes, smaller web copies of photos with automatic `srcset`, headshot/merch/car-render sizes, automatic cache versioning with a 30-day cache). Full-size originals stay in Google Drive; only web-sized copies go in the repo.
+- **Speed optimization:** see `Optimization.md` in the repo root for the phased plan (Phase 1, the lazy-loading fixes, is done; still to come: smaller web copies of photos with automatic `srcset`, headshot/merch/car-render sizes, automatic cache versioning with a 30-day cache). Full-size originals stay in Google Drive; only web-sized copies go in the repo.
 - **Merch cart and checkout:** the merch page is a preview only, with nothing for sale. Once the designs are final, it needs a proper cart and secure checkout, likely PayPal. Payments must be created and confirmed on a small server (not in the browser) and PayPal keys must never go in the repo. CLAUDE.md has the full checklist.
 - **Past seasons (competitions page)** was taken out in Sept 2026 so the page focuses on upcoming events. To bring it back, copy the `<!-- RESULTS -->` section from `git show 245e5ea:site-src/pages/competitions.html` and fill in real results.
 
