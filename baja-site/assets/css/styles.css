@@ -652,6 +652,9 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
 
 /* ---------- 16 TABLES, BARS, LISTS ------------------------------------- */
 .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--line); }
+/* Tier price cards: the price scales with the card so "$1,500+" fits the 2-up phone layout */
+.tier-card { container-type: inline-size; }
+.tier-card .stat__value { font-size: min(3.2rem, 26cqi); margin-top: 1rem; }
 .tier-table { width: 100%; min-width: 820px; border-collapse: collapse; font-size: var(--fs-sm); }
 .tier-table th, .tier-table td { padding: .85rem 1rem; border-bottom: 1px solid var(--line); text-align: center; vertical-align: middle; }
 .tier-table tbody th { text-align: left; font-weight: 500; color: var(--polar); }
@@ -771,7 +774,9 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
 /* ---------- Small-screen tuning ---------- */
 @media (max-width: 700px) {
   .section { padding-block: var(--s6); }
-  .grid--4 { grid-template-columns: 1fr 1fr; gap: var(--s2); }
+  /* minmax(0, …) so wide content (big prices) can't push the second column off-screen */
+  .grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s2); }
+  .tier-card .tag { letter-spacing: .12em; }
   .panel { padding: var(--s3) var(--s2) var(--s2); }
   .panel h3 { font-size: 1.3rem; }
   .panel__num { font-size: 2.2rem; }
@@ -780,8 +785,8 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
   .logo-wall__item img { max-height: 48px; }
   .hotspot { width: 26px; height: 26px; margin: -13px 0 0 -13px; font-size: .7rem; }
   .hotspot::before { inset: -5px; }
-  .show-labels .hotspot__label { opacity: 0; }
-  .hotspot.is-active .hotspot__label { opacity: 1; }
+  /* No room beside the dots on a phone (edge labels got cut off); the panel below names the system */
+  .hotspot__label { display: none; }
   .car-stage { min-height: 0; padding-bottom: var(--s5); }
   .system-panel { min-height: 0; margin-top: var(--s3); }
   .countdown__unit { padding: var(--s2) .4rem; }
