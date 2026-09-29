@@ -44,7 +44,7 @@ amplify.yml          Amplify serves baja-site/ as-is, no build step
 - Still placeholder: tech-page car render + hotspot positions, CVT and gearbox spec lists, tech "design highlights" grid, team-page recruitment dates/sign-up link, JMTS logo, merch products (names, prices, photos) and merch-page photos.
 - **Competitions "Past seasons" section removed for now** (2026-09-28) so the page focuses on upcoming events; it may come back. It was section 03 (`<section id="results">`, a `todo` grid of 3 placeholder panels: season, event, location/dates, result summary; newest first) between the scoring section and the gallery. Recover the markup with `git show 245e5ea:site-src/pages/competitions.html`.
 - `worn` (grunge mask on display type) has a floor, `--worn-floor` in `styles.css` (currently .55), so worn patches stay partly visible for readability. Tune that value rather than removing the effect; Callum wants the grit kept.
-- Home-page countdown (`data-countdown` in `pages/index.html`) is set to 2026-10-02 (OktoBajaFest); update it to the next event each season.
+- Home-page "Next up" section (`data-next-event` in `pages/index.html`) holds a JSON list of events (`<script type="application/json" data-events>`: start, end, kicker, title, lead, done). `main.js` shows the first event whose `end` hasn't passed, so it flips from OktoBajaFest (Oct 2–4, 2026) to Baja SAE Williamsport (May 20–23, 2027) by itself (Vincent's request, 2026-09-29). Each season, add the next events and update the written-out text (the no-JS fallback) to match the first one. After the last event it shows "Next season's schedule is coming soon".
 - Roster layout (modelled on cwrumotorsports.com/team): leads (`rank` 0–1, or `lead: true`) get full-size cards; everyone else is a slim clickable row (headshot, name/title, subteam tags, Class = 4-digit year from `grad`, Major = `program`). Every card and row opens the same profile drawer. 37 `placeholder` slots generated at the bottom of `roster-data.js` (with Callum, Etienne, Joseph = 40 regular members); Callum will send an Excel file (names, position, subteam) to fill them.
 - Roster: seniority = earliest `joined` season, then `rank` (0 captain, 1 lead, 2 member), then name. Sort options: A–Z, seniority, class year. Headshots go in `baja-site/assets/img/team/<id>.jpg` (4:5, ~800×1000; the `team/` folder doesn't exist yet, create it with the first photo). Delete the `placeholder: true` entries as real members are added. The roster is also hand-listed on `pages/team.html`; keep names and titles in sync between the two.
 - `roster-data.js` / `roster.js` fall under the 7-day `assets/**` cache (currently `?v=2`). When editing them, bump `?v=N` on their `<script>` tags in `site-src/pages/roster.html` and rebuild, or returning visitors may see the old roster for a week.
@@ -53,9 +53,18 @@ amplify.yml          Amplify serves baja-site/ as-is, no build step
 - Subteam titles on the team page are sized with container units (`16cqi`) so long names like "Administration" fit the intro column.
 - Hero `.line` spans use padding-top/negative margin so glyph tops aren't clipped by the reveal mask; `data-split` masks are reverted after they animate. Keep both if touching headings.
 
+## Pending review (don't change yet)
+
+Vincent flagged these on 2026-09-29 and will review them with Nora. **Leave them as they are until Callum says otherwise:**
+- Sponsors page, "Travel with us" section: he'd rather not state how many students go to competitions (e.g. say "multiple team members" instead of 10–15).
+- Sponsors page, budget section: he isn't a fan of it as is.
+
+The tech page's menu label is **"The Car"** (Vincent, 2026-09-29); the file stays `tech.html` so links keep working.
+
 ## Merch page (`pages/merch.html`, menu item 07, added 2026-09-28)
 
-- Sections: hero, 01 "Why it matters" (how merch funds the team), 02 shop gallery (`#shop`), and a garnet "Get first dibs" section (Instagram + email).
+- Sections: hero ("Team gear."), 01 "Where it goes" (how merch helps the team), 02 shop gallery (`#shop`, "The first run"), and a garnet "Stay in the loop" section (Instagram + email).
+- **Tone: low-key, "it's here if you want it"** (Vincent, 2026-09-29). No hype, urgency or "buy now" language, and no head counts of members sent to events.
 - Photos are stand-ins from `img/photos/` chosen to show team apparel (hero `img_4534` shirt backs, `crew_headset` team tee, `img_4441` sponsor shirts). Callum will supply merch-photoshoot photos to replace them.
 - The shop is **placeholder only**: 6 invented products (tee, hoodie, crewneck, cap, toque, sticker pack), "Price TBA", a "Coming soon!" box instead of a photo, and disabled "Coming soon" buttons. Each `<article class="product">` has a `data-product` id for the future cart. For a real photo, put an `<img>` inside `.product__img` in place of the `<span>`.
 - **TODO, not started: a full shopping cart and secure checkout**, to build once the merch designs are final and the team is ready to ship. Likely **PayPal** (PayPal JS SDK buttons + Orders API v2). Requirements:
@@ -94,7 +103,9 @@ Callum wants the site to stay snappy as headshots, merch photos and the car rend
 
 ## Facts (confirmed by Callum, 2026-27 season, car #230)
 
-- **Engine:** Kohler CH440, 14 hp stock, restricted to **10 hp** by the rules. Same engine for every team.
+- **Car number changes most seasons.** #230 is this season's number; expect a new one at the end of each calendar year. When it changes, update it everywhere (`grep -rn 230 site-src baja-site/assets/js`): hero numbers, alt text, copy, CLAUDE.md, README.
+
+- **Engine:** Kohler CH440, 14 hp stock, restricted to **10 hp** by the rules. Same engine for every team. (The team's dyno graph shows ~9.5 hp; Vincent said to keep showing the 10 hp spec.)
 - **Chassis:** 4130 steel, 1-1/4" OD × 0.065" wall tubing. Wheelbase 70", track width 58".
 - **Front suspension:** double wishbone, 12" travel, King PR2008 2.0 air shocks (8" shock travel), 14" ride height.
 - **Rear suspension:** semi-trailing arm with camber links, 10" travel, King PR2012 2.0 air shocks (12" shock travel), 13" ride height.
@@ -113,8 +124,9 @@ Callum wants the site to stay snappy as headshots, merch photos and the car rend
 ## Team (first names only unless given)
 
 - Leadership: Nora Jordan (Team Captain). No technical director or business lead currently.
+- Faculty advisors: Jason, Alex (first names only; shown under Leadership on `team.html`, not on the roster).
 - 01 Chassis: Megan, Kira (co-leads)
-- 02 Suspension: Matthew (lead), Callum (front suspension engineer)
+- 02 Suspension: Matthew (lead), Callum (Director of Front Suspension, 2026-09-29)
 - 03 Drivetrain: Vincent (lead)
 - 04 Electrical: Fahad (lead)
 - 05 Administration: Etienne, Callum, Joseph

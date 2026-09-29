@@ -222,6 +222,26 @@
   } else lazyGroups.forEach(loadGroup);
 
   /* ---------------------------------------------------------------------
+     Next event: <section data-next-event> with <script type="application/json" data-events>
+     [{ start, end, kicker, title, lead, done }]. Shows the first event that hasn't ended, so the
+     home page flips to the next competition by itself. Runs before SplitText touches the title.
+     --------------------------------------------------------------------- */
+  $$('[data-next-event]').forEach((sec) => {
+    let events;
+    try { events = JSON.parse($('script[data-events]', sec).textContent); } catch (e) { return; }
+    if (!events.length) return;
+    const now = Date.now();
+    const next = events.find((ev) => new Date(ev.end).getTime() > now);
+    const ev = next || events[events.length - 1];
+    ['kicker', 'title', 'lead'].forEach((k) => { const n = $(`[data-event="${k}"]`, sec); if (n && ev[k]) n.textContent = ev[k]; });
+    const cd = $('[data-countdown]', sec);
+    if (cd) {
+      cd.dataset.countdown = ev.start;
+      cd.dataset.countdownDone = next ? (ev.done || 'Race weekend') : 'Next season’s schedule is coming soon';
+    }
+  });
+
+  /* ---------------------------------------------------------------------
      Marquees (text, photos, logos) — speed reacts to scroll velocity
      --------------------------------------------------------------------- */
   $$('[data-marquee]').forEach((el) => {

@@ -27,7 +27,7 @@ PAGES = [
     ("index", "Home", "img_5850.webp"),
     ("about", "About", "img_5212.webp"),
     ("team", "Team", "img_4971.webp"),
-    ("tech", "Tech", "dsc_0541.webp"),
+    ("tech", "The Car", "dsc_0541.webp"),
     ("competitions", "Competitions", "img_5557.webp"),
     ("sponsors", "Sponsors", "img_6028.webp"),
     ("merch", "Merch", "img_4534.webp"),
