@@ -57,11 +57,20 @@ amplify.yml          Amplify serves baja-site/ as-is, no build step
 
 ## Launch prep (site goes public weekend of 2026-10-03)
 
-Callum is sending pre-launch change requests in batches. **`LaunchPrep.md` (repo root) is the checklist**: add each new batch there, tick items as they merge, and keep this summary current. Batch 1 (2026-09-29, done): Nora's last name removed, roster members replaced by "TBD / Under construction" slots, tech "What's new this year" filled in (suspension, gearbox, chassis), every dashed `todo` box and "to be added" note removed from public pages, merch crewneck → quarter-zip.
+Callum is sending pre-launch change requests in batches. **`LaunchPrep.md` (repo root) is the checklist**: add each new batch there, tick items as they merge, and keep this summary current. Batch 1 (2026-09-29, done): Nora's last name removed, roster members replaced by "TBD / Under construction" slots, tech "What's new this year" filled in (suspension, gearbox, chassis), every dashed `todo` box and "to be added" note removed from public pages, merch crewneck → quarter-zip. Batch 2 (2026-10-01, done): copy trimmed and repetition cut on home, about and sponsors (see "Copy" below and `LaunchPrep.md`).
+
+## Copy: less repetition, every section unique (Callum, 2026-10-01)
+
+- **Each section must tell the reader something new.** Before adding text, check the page (and the sections around it) doesn't already say it. Only a few sections summarize the page (home stats, sponsors tier table). Known overlaps to avoid: the engineering-programs list (About "Who we are" + home join only), the one-year cycle (About "How we work", car page timeline, sponsors budget each phrase it differently), skills lists (About "What members learn" + team-page join only), the build process (car-page timeline only; the About timeline is about why, not what).
+- **Sponsors page stays short;** the sponsorship package PDF carries the detail. "Four ways in" is headline-only panels (`.ways`, stretched to the photo column), and the lead links the PDF. Don't add the descriptions back.
+- Budget section: ~$40K is the **cash** budget; in-kind sponsorship is separate and on top, with a line saying it makes a massive impact on design and development. Tiers title is "How you can help"; talent title is "Meet the talent behind the team".
+- Scrub text (`.scrub-text`, home + sponsors) is all white now. Callum found the red `<em>` highlight hard to read, so don't add `<em>` back.
+- Home scrub line is deliberately plain ("Every team runs the same engine under the same rules. The rest of the car is ours to design."); Callum found the old one over the top. Keep the tone understated.
+- About "Who we are" uses `.split--media` (wider image column; from 1200px the frame stretches to the text height) + `.frame--tall-wide` (7:5) so the photo isn't shorter than the text. Below 1200px it doesn't stretch, because the extra crop cut people off the group photo.
 
 ## Pending review (don't change yet)
 
-Vincent flagged these on 2026-09-29 and will review them with Nora. **Leave them as they are until Callum says otherwise:**
+Vincent flagged these on 2026-09-29 and will review them with Nora. **Leave them as they are until Callum says otherwise** (Callum changed the budget section's wording on 2026-10-01, cash vs in-kind, but didn't close the review):
 - Sponsors page, "Travel with us" section: he'd rather not state how many students go to competitions (e.g. say "multiple team members" instead of 10–15).
 - Sponsors page, budget section: he isn't a fan of it as is.
 

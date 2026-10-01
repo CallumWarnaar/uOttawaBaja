@@ -32,6 +32,18 @@ The domain `uottawabaja.ca` is live and public (2026-09-30); see "Search / Googl
 - [ ] **Callum:** in Google Search Console, verify the domain (DNS TXT record in Route 53 for a Domain property), then Sitemaps → submit `sitemap.xml`, and URL Inspection → Request indexing on the home page.
 - [ ] Optional (domain config, Callum's call): redirect `www.uottawabaja.ca` → `uottawabaja.ca` in Amplify → Domain management. Canonical tags already cover it.
 
-## Batch 2
+## Batch 2: trimming the copy and cutting repetition (requested 2026-10-01)
 
-_Waiting on Callum._
+Goal: every section tells the reader something new. Only a few sections summarize the page (home stats, sponsors tier table), and the sponsorship PDF carries the detail so the sponsors page doesn't have to.
+
+- [x] **Sponsors, "Four ways in":** the four items are headlines only now (Brand exposure, Talent & recruitment, Technical partnership, Community & education), with no descriptions. The section lead points to the sponsorship package PDF for details. The panels stretch to the height of the two photos beside them.
+- [x] **Sponsors, scrub text** now reads "Your brand reaches uOttawa engineering students and faculty all year round. Your brand is visible at competitions to other teams, judges, and industry reps." All white, no red highlight. (The home-page scrub line lost its red highlight too, for the same readability reason.)
+- [x] **Sponsors, budget:** the ~$40K is labelled the **cash** budget ("Typical annual cash budget"), and a new line explains that in-kind sponsorship (machining, materials, components, software) comes on top of it, isn't counted in it, and makes a massive impact on how we design and develop the car.
+- [x] **Sponsors, tiers title:** "Pick your line" → **"How you can help"**.
+- [x] **Sponsors, talent title:** "Meet them before they graduate" → **"Meet the talent behind the team"**.
+- [x] **About, "What is Baja SAE?":** the two paragraphs on the shared engine and judging cut to one sentence (~45% of the old length). The judging detail already lives in the "Judged three ways" section right below.
+- [x] **About, "Who we are":** the team photo is bigger on laptops (wider column, 7:5 frame, and from 1200px wide the frame stretches to the text height), so the bullets no longer hang below it. The bullet "Give students practical experience in design, fabrication, testing and project management" was cut because "What members learn" right below says the same thing.
+- [x] **About, "How we work":** the subteam paragraph was removed (the home and team pages cover the subteams), and the four timeline steps were rewritten so they no longer repeat the "What members learn" panels or the car page's build timeline.
+- [x] **Home, scrub line:** "Every team runs the same engine, restricted to 10 hp. Same rules… What separates the field is…" → "Every team runs the same engine under the same rules. The rest of the car is ours to design." (The 10 hp figure stays in the stat right below it.)
+- [x] **Home, "Want to build a race car?":** photo changed to `img_3612` (team members working on car #230 under the paddock tent). `img_3854` is now only in the competitions gallery.
+- [x] **Home, small repetition fixes:** the intro no longer lists the engineering programs (the join section does) and the join section no longer repeats the hero's "design, machine, weld, wire".

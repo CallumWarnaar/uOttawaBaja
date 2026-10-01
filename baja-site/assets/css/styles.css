@@ -338,6 +338,12 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
 
 .split { display: grid; gap: var(--s5); align-items: center; }
 @media (min-width: 960px) { .split { grid-template-columns: 1fr 1fr; } .split--wide { grid-template-columns: 1.2fr 1fr; } .split--reverse > :first-child { order: 2; } }
+/* Media-first split: the image column is wider (used with split--reverse, where the image sits first),
+   and from 1200px the frame stretches to the text column's height if the text runs taller than its aspect ratio
+   (not below: the extra crop would cut people off the edges of a group photo) */
+@media (min-width: 960px) { .split--media { grid-template-columns: 1.2fr 1fr; } }
+@media (min-width: 1200px) { .split--media > .frame { align-self: stretch; width: 100%; } }
+@media (min-width: 1366px) { .split--media { grid-template-columns: 1.35fr 1fr; } }
 
 .grid { display: grid; gap: var(--s3); }
 .grid--2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
@@ -347,6 +353,7 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
 /* Framed image with clip reveal + parallax inner */
 .frame { position: relative; overflow: hidden; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 48px), calc(100% - 48px) 100%, 0 100%); background: var(--charcoal); aspect-ratio: 4 / 5; }
 .frame--wide { aspect-ratio: 16 / 10; }
+.frame--tall-wide { aspect-ratio: 7 / 5; }
 /* Image overscans the frame by 9% top and bottom so the ±7% parallax never exposes the frame background */
 .frame img { position: absolute; left: 0; top: -9%; width: 100%; height: 118%; object-fit: cover; }
 .frame--duo img { filter: grayscale(1) contrast(1.15); transition: filter .8s; }
@@ -380,14 +387,13 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
 .panel--garnet { background: var(--garnet); border-top-color: var(--white); }
 .panel--garnet:hover { background: var(--garnet-2); }
 .panel--garnet .panel__num { background: var(--bg); }
-/* Sponsors "Four ways in": panels stacked as rows on the left, two photos on the right */
-.ways { align-items: start; }
+/* Sponsors "Four ways in": headline-only panels (details live in the sponsorship PDF) stacked on the left,
+   stretched to the height of the two photos on the right */
 .ways__list, .ways__media { display: grid; gap: var(--s2); }
-.ways .panel { display: grid; grid-template-columns: auto 1fr; column-gap: var(--s3); padding: var(--s3); }
-.ways .panel__num { grid-row: span 2; margin: 0; font-size: 2.4rem; align-self: start; }
-.ways .panel h3 { margin-top: 0; }
-@media (min-width: 960px) { .ways__media { position: sticky; top: calc(var(--header-h) + var(--s3)); } }
-@media (max-width: 560px) { .ways .panel { grid-template-columns: 1fr; } .ways .panel__num { grid-row: auto; margin-bottom: var(--s2); justify-self: start; } }
+.ways .panel { display: grid; grid-template-columns: auto 1fr; align-items: center; column-gap: var(--s3); padding: var(--s3); }
+.ways .panel__num { margin: 0; font-size: 2.4rem; }
+.ways .panel h3 { margin: 0; font-size: clamp(1.6rem, 2.6vw, 2.4rem); }
+@media (min-width: 960px) { .ways { align-items: stretch; } .ways__list { grid-auto-rows: 1fr; } }
 .section--polar .panel { background: var(--white); color: var(--black); }
 .section--polar .panel:hover { background: var(--white); }
 .section--garnet .panel { background: rgba(0,0,0,.28); border-top-color: var(--white); }
