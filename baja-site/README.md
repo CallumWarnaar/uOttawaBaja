@@ -89,12 +89,15 @@ All motion switches off for visitors with "reduce motion" enabled, and content s
 3. Open `tech.html?edit` in a browser. Drag each numbered dot onto its part; the HUD prints `style="--x:..%; --y:..%"`. Paste that onto the matching hotspot.
 4. `python build.py`.
 
+## Writing copy
+Every section should tell the reader something new. Before adding a paragraph, check that the same point isn't already made elsewhere on the page or in a nearby section. Only a few sections are meant to summarize (the home-page stats, the sponsors-page tier table). On the sponsors page, keep the text short and let the sponsorship package PDF carry the detail. The October 2026 trim (batch 2 in `LaunchPrep.md`) cut repeated text on the home, about and sponsors pages along these lines.
+
 ## Each new season
 - **Car number:** #230 is this season's number and it usually changes at the end of each calendar year. Update it everywhere it appears (search the site for `230`).
 - **Events:** add the season's competitions to the home page's `data-events` list and the competitions page schedule.
 
 ## Launch prep
-The site goes public the weekend of October 3, 2026. `LaunchPrep.md` in the repo root lists every pre-launch change Callum asked for. The first batch (done) removed Nora's last name, replaced the roster's members with "TBD / Under construction" slots until the full roster is ready, filled in the tech page's "What's new this year" cards, removed every dashed placeholder box and "to be added" note, and renamed the merch crewneck to a quarter-zip.
+The site goes public the weekend of October 3, 2026. `LaunchPrep.md` in the repo root lists every pre-launch change Callum asked for. The first batch (done) removed Nora's last name, replaced the roster's members with "TBD / Under construction" slots until the full roster is ready, filled in the tech page's "What's new this year" cards, removed every dashed placeholder box and "to be added" note, and renamed the merch crewneck to a quarter-zip. The second batch (done, October 1) trimmed the copy and cut repetition: shorter sponsors page (headline-only "Four ways in", cash vs in-kind budget, new section titles), a shorter "What is Baja SAE?" and "How we work" on the About page, a bigger "Who we are" photo, and a new home-page scrub line and join photo.
 
 ## Still to fill in
 Placeholder notes and dashed boxes were taken off the public pages for launch, so these gaps are now simply left out rather than marked:
