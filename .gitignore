@@ -11,3 +11,7 @@ __pycache__/
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# Member portal backend: local secrets and dependencies
+portal/.env
+portal/api/node_modules/
