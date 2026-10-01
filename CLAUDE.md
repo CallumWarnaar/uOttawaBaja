@@ -57,16 +57,23 @@ amplify.yml          Amplify serves baja-site/ as-is, no build step
 
 ## Launch prep (site goes public weekend of 2026-10-03)
 
-Callum is sending pre-launch change requests in batches. **`LaunchPrep.md` (repo root) is the checklist**: add each new batch there, tick items as they merge, and keep this summary current. Batch 1 (2026-09-29, done): Nora's last name removed, roster members replaced by "TBD / Under construction" slots, tech "What's new this year" filled in (suspension, gearbox, chassis), every dashed `todo` box and "to be added" note removed from public pages, merch crewneck → quarter-zip. Batch 2 (2026-10-01, done): copy trimmed and repetition cut on home, about and sponsors (see "Copy" below and `LaunchPrep.md`).
+Callum is sending pre-launch change requests in batches. **`LaunchPrep.md` (repo root) is the checklist**: add each new batch there, tick items as they merge, and keep this summary current. Batch 1 (2026-09-29, done): Nora's last name removed, roster members replaced by "TBD / Under construction" slots, tech "What's new this year" filled in (suspension, gearbox, chassis), every dashed `todo` box and "to be added" note removed from public pages, merch crewneck → quarter-zip. Batch 2 (2026-10-01, done): copy trimmed and repetition cut on home, about and sponsors (see "Copy" below and `LaunchPrep.md`). Batch 3 (2026-10-01, done): slimmer pages (less section spacing, shorter heroes/bands, 2-column phone gallery), filler trimmed on every page, sponsors tier cards + "Every event" band removed, sponsors talent section polar → charcoal, competitions "What happens at an event" removed (duplicated About), and the login-portal plan (`MemberPortal.md` + `portal/`).
 
 ## Copy: less repetition, every section unique (Callum, 2026-10-01)
 
+- **Keep pages slim (Callum, batch 3).** Section padding is 6rem desktop / 3.5rem phone (`.section`), heroes 64svh, bands max 500px. Don't add new full-height bands or spacer sections; prefer tightening a sentence to adding one.
+- **No light (Polar) sections on the sponsors page** (Callum found it a flashbang). The About page's skills section is still `section--polar`; ask before changing it.
+- **Competitions has no scoring section** since batch 3 (it duplicated About's "Judged three ways"); the schedule lead links to `about.html#format`. Restore with `git show 63c13b9:site-src/pages/competitions.html`.
 - **Each section must tell the reader something new.** Before adding text, check the page (and the sections around it) doesn't already say it. Only a few sections summarize the page (home stats, sponsors tier table). Known overlaps to avoid: the engineering-programs list (About "Who we are" + home join only), the one-year cycle (About "How we work", car page timeline, sponsors budget each phrase it differently), skills lists (About "What members learn" + team-page join only), the build process (car-page timeline only; the About timeline is about why, not what).
 - **Sponsors page stays short;** the sponsorship package PDF carries the detail. "Four ways in" is headline-only panels (`.ways`, stretched to the photo column), and the lead links the PDF. Don't add the descriptions back.
 - Budget section: ~$40K is the **cash** budget; in-kind sponsorship is separate and on top, with a line saying it makes a massive impact on design and development. Tiers title is "How you can help"; talent title is "Meet the talent behind the team".
 - Scrub text (`.scrub-text`, home + sponsors) is all white now. Callum found the red `<em>` highlight hard to read, so don't add `<em>` back.
 - Home scrub line is deliberately plain ("Every team runs the same engine under the same rules. The rest of the car is ours to design."); Callum found the old one over the top. Keep the tone understated.
 - About "Who we are" uses `.split--media` (wider image column; from 1200px the frame stretches to the text height) + `.frame--tall-wide` (7:5) so the photo isn't shorter than the text. Below 1200px it doesn't stretch, because the extra crop cut people off the group photo.
+
+## Member & sponsor portal (planned, not built)
+
+`MemberPortal.md` (repo root) is the plan to hide the full roster behind a login for sponsors and team members; `portal/` holds the scaffold (Postgres `db/schema.sql` with role-filtered views, `db/seed.sql` fake data, Lambda `api/handler.mjs`). `portal/` is outside `baja-site/`, so it isn't deployed and `build.py` ignores it. Key rule: private profile fields must leave `roster-data.js` (anything in the static site is public), and the API filters by role server-side. Nothing in AWS (Cognito, API Gateway, Lambda, database, S3) gets created without Callum's go-ahead, and he still has to pick the database host and field visibility.
 
 ## Pending review (don't change yet)
 

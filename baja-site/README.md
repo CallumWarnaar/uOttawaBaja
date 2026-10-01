@@ -25,6 +25,7 @@ uOttawaBaja/
 │       ├── img/tech/          car image for the tech page (placeholder SVG for now)
 │       ├── img/texture/       grunge mask, scratches, mud spray, torn edges
 │       └── docs/              sponsorship package PDF
+├── portal/              ← sponsor & member login backend (plan/scaffold only, NOT deployed; see MemberPortal.md)
 └── amplify.yml          hosting settings
 ```
 
@@ -90,14 +91,16 @@ All motion switches off for visitors with "reduce motion" enabled, and content s
 4. `python build.py`.
 
 ## Writing copy
-Every section should tell the reader something new. Before adding a paragraph, check that the same point isn't already made elsewhere on the page or in a nearby section. Only a few sections are meant to summarize (the home-page stats, the sponsors-page tier table). On the sponsors page, keep the text short and let the sponsorship package PDF carry the detail. The October 2026 trim (batch 2 in `LaunchPrep.md`) cut repeated text on the home, about and sponsors pages along these lines.
+Every section should tell the reader something new. Before adding a paragraph, check that the same point isn't already made elsewhere on the page or in a nearby section. Only a few sections are meant to summarize (the home-page stats, the sponsors-page tier table). On the sponsors page, keep the text short and let the sponsorship package PDF carry the detail. The October 2026 trims (batches 2 and 3 in `LaunchPrep.md`) cut repeated text and filler on every page along these lines.
+
+Keep the pages slim, too: sections use 6rem of padding on desktop (3.5rem on phones), page heroes are about two-thirds of the screen, and photo bands top out at 500px. Avoid adding extra full-height bands or spacer sections. The sponsors page has no light (Polar Grey) sections, since a near-white block in a dark page flashes when you scroll past it.
 
 ## Each new season
 - **Car number:** #230 is this season's number and it usually changes at the end of each calendar year. Update it everywhere it appears (search the site for `230`).
 - **Events:** add the season's competitions to the home page's `data-events` list and the competitions page schedule.
 
 ## Launch prep
-The site goes public the weekend of October 3, 2026. `LaunchPrep.md` in the repo root lists every pre-launch change Callum asked for. The first batch (done) removed Nora's last name, replaced the roster's members with "TBD / Under construction" slots until the full roster is ready, filled in the tech page's "What's new this year" cards, removed every dashed placeholder box and "to be added" note, and renamed the merch crewneck to a quarter-zip. The second batch (done, October 1) trimmed the copy and cut repetition: shorter sponsors page (headline-only "Four ways in", cash vs in-kind budget, new section titles), a shorter "What is Baja SAE?" and "How we work" on the About page, a bigger "Who we are" photo, and a new home-page scrub line and join photo.
+The site goes public the weekend of October 3, 2026. `LaunchPrep.md` in the repo root lists every pre-launch change Callum asked for. The first batch (done) removed Nora's last name, replaced the roster's members with "TBD / Under construction" slots until the full roster is ready, filled in the tech page's "What's new this year" cards, removed every dashed placeholder box and "to be added" note, and renamed the merch crewneck to a quarter-zip. The second batch (done, October 1) trimmed the copy and cut repetition: shorter sponsors page (headline-only "Four ways in", cash vs in-kind budget, new section titles), a shorter "What is Baja SAE?" and "How we work" on the About page, a bigger "Who we are" photo, and a new home-page scrub line and join photo. The third batch (done, October 1) made every page slimmer: less space between sections, shorter heroes and photo bands, filler words trimmed everywhere, the sponsors page's repeated tier cards and "Every event" band removed, the sponsors talent section switched from light to grey, the competitions page's "What happens at an event" section removed (the About page has the same content), and a 2-column gallery on phones.
 
 ## Still to fill in
 Placeholder notes and dashed boxes were taken off the public pages for launch, so these gaps are now simply left out rather than marked:
@@ -112,6 +115,8 @@ Placeholder notes and dashed boxes were taken off the public pages for launch, s
 - **Speed optimization:** see `Optimization.md` in the repo root for the phased plan (Phases 1, 2 and 4 are done: lazy-loading fixes, smaller WebP web copies of every photo, automatic cache versioning and `perf_check.py`. Still to come: Phase 3, headshot/merch/car-render sizes). Full-size originals stay in Google Drive; only web-sized copies go in the repo.
 - **Merch cart and checkout:** the merch page is a preview only, with nothing for sale. Once the designs are final, it needs a proper cart and secure checkout, likely PayPal. Payments must be created and confirmed on a small server (not in the browser) and PayPal keys must never go in the repo. CLAUDE.md has the full checklist.
 - **Past seasons (competitions page)** was taken out in Sept 2026 so the page focuses on upcoming events. To bring it back, copy the `<!-- RESULTS -->` section from `git show 245e5ea:site-src/pages/competitions.html` and fill in real results.
+
+- **Sponsor & member login (hide the full roster):** planned in `MemberPortal.md` in the repo root, with starter code in `portal/` (database tables, sample data, the API's skeleton). Nothing is live yet. Important: anything in `roster-data.js` is public, so private profile details have to move to the database before the login means anything.
 
 ## Hosting
 - **AWS Amplify Hosting**, connected to this GitHub repo. Every push to `main` redeploys the site automatically, usually within a minute or two.

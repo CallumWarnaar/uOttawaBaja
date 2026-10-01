@@ -47,3 +47,45 @@ Goal: every section tells the reader something new. Only a few sections summariz
 - [x] **Home, scrub line:** "Every team runs the same engine, restricted to 10 hp. Same rules… What separates the field is…" → "Every team runs the same engine under the same rules. The rest of the car is ours to design." (The 10 hp figure stays in the stat right below it.)
 - [x] **Home, "Want to build a race car?":** photo changed to `img_3612` (team members working on car #230 under the paddock tent). `img_3854` is now only in the competitions gallery.
 - [x] **Home, small repetition fixes:** the intro no longer lists the engineering programs (the join section does) and the join section no longer repeats the hero's "design, machine, weld, wire".
+
+## Batch 3: slimmer pages, less filler (requested 2026-10-01)
+
+Goal: shorter pages with less empty space between sections, fewer filler words, and less redundancy on the sponsors page. Plus a darker sponsors talent section and a plan for a login-gated roster.
+
+- [x] **Less space everywhere** (`styles.css`, applies to every page):
+  - Section padding 10rem → **6rem** top and bottom on desktop, 7rem → **3.5rem** on phones; "tight" sections 7rem → 4rem (2.5rem on phones).
+  - Gap under section headings 4rem → 2.5rem (1.5rem on phones); `mt-4`/`mt-5` spacers 2.5/4rem → 1.5/2.5rem; timeline steps, team subteam blocks, roster blocks and the footer all tightened to match.
+  - Page heroes 78% → **64%** of the screen height (roster hero 64% → 52%), with less padding under the hero text.
+  - Full-width photo bands (e.g. "Built in Ottawa", "One seat. Four hours.") 70vh (max 760px) → **45vh (max 500px)**.
+  - The big outlined section numbers (01, 02…) are smaller (max 12rem → 8.5rem) so they don't sit on top of the tighter headings.
+  - Competitions gallery shows **2 columns on phones** instead of 1 (it was ~24,000px tall on a phone).
+- [x] **Sponsors page: redundancy removed**
+  - The four tier cards (Bronze $500+ … Platinum $5,000+) are gone: the benefits table's header already shows every tier and its range. The "Minimum sponsorship is $500" sentence folded into the tiers lead.
+  - The "Every event. Every lap." photo band is gone: it repeated the "your brand travels with us" point already made by the scrub text and the "Ride along" contact step. (Restore from `git show 63c13b9:site-src/pages/sponsors.html`, photo `dsc_0546`.)
+  - Talent section: shorter panel text, Talent Package paragraph cut to one line (the employer-industry list is gone), shorter Profile/Portfolio/Delivery steps.
+  - Shorter hero lead, in-kind note, partners lead, contact lead and contact steps.
+  - **Not touched (still pending Vincent/Nora's review):** the budget section and the "10–15 members" figures.
+- [x] **Sponsors "Meet the talent behind the team" section: light → grey.** It was the only Polar Grey (near-white) section on the page and flashed bright when scrolling. Now Secondary Charcoal (`section--charcoal`), with slightly lighter panels (`.section--charcoal .panel` uses `--charcoal-2`) so the cards still stand out. The About page's "Can't learn this in a lecture" section is still light; say the word if it should go grey too.
+- [x] **Competitions: "What happens at an event" section removed.** Its three panels were word-for-word the same as About's "Judged three ways". The schedule lead now links to `about.html#format` ("How events are judged"), and the sponsor-branding sentence (covered by "Travel with us") was cut. (Restore from `git show 63c13b9:site-src/pages/competitions.html`, `<!-- SCORING -->`.)
+- [x] **Filler trimmed on every page** (same facts, fewer words):
+  - Home: hero lead, intro (two paragraphs → one), subteams intro, car teaser, OktoBajaFest/Williamsport text (both in the no-JS text and the `data-events` JSON), partners lead ("The car doesn't happen without them."), join lead.
+  - About: "What is Baja SAE?" lead and engine sentence, format lead, "Who we are" bullets, skills lead.
+  - Team: subteams lead and the five subteam descriptions ("Responsible for…" / "Designs the…" openers dropped).
+  - The Car: overview line, steering, brakes, cockpit, engine (no longer repeats the spec list right below it) and rear-suspension blurbs, subsystem-sponsor lead; "By the numbers" lost its filler lead.
+  - Competitions: schedule lead and both event descriptions.
+  - Merch: "Where it goes" lead + bullets shortened, and the 4th "Build" step (repeated section 01) removed.
+  - Roster: hero lead.
+- [x] **Result** (page height in px, measured in headless Chromium):
+
+  | Page | Desktop 1440px | Phone 390px |
+  |---|---|---|
+  | Home | 9,538 → 8,257 (−13%) | 10,306 → 8,775 (−15%) |
+  | About | 7,500 → 6,323 (−16%) | 9,927 → 8,585 (−14%) |
+  | Team | 7,838 → 6,852 (−13%) | 10,326 → 9,200 (−11%) |
+  | The Car | 6,601 → 5,721 (−13%) | 9,510 → 8,429 (−11%) |
+  | Competitions | 12,079 → 10,552 (−13%) | 23,835 → 8,746 (−63%) |
+  | Sponsors | 11,082 → 8,878 (−20%) | 14,530 → 11,658 (−20%) |
+  | Merch | 5,752 → 5,011 (−13%) | 6,421 → 5,575 (−13%) |
+  | Roster | 7,224 → 6,855 (−5%) | 7,793 → 7,348 (−6%) |
+
+- [x] **Sponsor & member login: plan + scaffold only, nothing deployed.** `MemberPortal.md` (repo root) is the plan: Cognito login with sponsor / member / admin groups, API Gateway + Lambda, PostgreSQL, private S3 for resumes, opt-in consent for sharing with sponsors. `portal/` holds the starting code (SQL schema with role-filtered views, sample data, Lambda handler stub). Needs Callum's decisions (database host, which fields each role sees, admins) before any AWS work.
