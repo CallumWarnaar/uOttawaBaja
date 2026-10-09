@@ -11,6 +11,7 @@ portal/
   api/handler.mjs   Lambda handler: routes, role checks, parameterized queries
   api/package.json  Lambda dependencies (pg). The website itself stays npm-free.
   .env.example      names of the settings the Lambda needs (values go in AWS, never in git)
+  drafts/           privacy notice + advisor email drafts (Callum reviews; the notice becomes privacy.html)
 ```
 
 ## Try the database locally

@@ -101,9 +101,13 @@ Column filtering happens in SQL (`portal/db/schema.sql` defines `v_roster_sponso
 5. **Sponsors:** invite current sponsor contacts, tie access to tier/season.
 6. **Later:** member self-editing with approval, Talent Package export (PDF/ZIP), resume uploads.
 
-## Decisions needed from Callum
+## Decisions (Callum, 2026-10-09)
 
-- Database host (Neon vs RDS).
-- Which fields are public, member-only, sponsor-visible (proposal is in `schema.sql` views).
-- Who besides Callum and Nora gets `admin`.
-- Whether sponsors at every tier get portal access, or only some tiers (the tier table promises a team portfolio and resume booklet at all tiers).
+| # | Decision |
+|---|---|
+| D1 | **Database: Neon** (free tier, AWS US East). Logins (Cognito) and files (S3) stay in `ca-central-1`, Montreal. The advisor email asks whether data has to stay in Canada; if yes, revisit with RDS in Montreal. |
+| D2 | **Public:** first name, headshot, subteam(s) (with the role title, as on `team.html` today), program. **Behind login:** everything else (last name, class/grad year, joined, about, focus, highlights, seeking, LinkedIn, email, resume). Within the login, the safer split from this plan still applies unless Callum changes it: members and admins see all active members; sponsors see only members who opted in, and never email or last name. |
+| D3 | **Admins: Callum and Nora** only. Hand admin to a successor before either leaves the team. |
+| D4 | **All sponsor tiers** get portal logins. |
+| D5 | **Same AWS account** as Amplify, region `ca-central-1`. |
+| D6 | Privacy notice **drafted by an agent, reviewed by Callum**, then sent to the advisors. Drafts: `portal/drafts/privacy-notice.md`, `portal/drafts/advisor-email.md`. |
