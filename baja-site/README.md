@@ -39,7 +39,7 @@ The build also adds each photo's real `width` and `height` to its `<img>` tag au
 
 Amplify doesn't run the build itself. It publishes `baja-site/` exactly as committed, so if you skip step 2 your change won't appear on the site.
 
-CSS, JavaScript and images in `baja-site/assets/` are edited directly. Browsers cache files in `assets/` (see `amplify.yml`), so **run `python build.py` after changing any CSS or JS file** (including `roster-data.js`), then commit. The build stamps every linked CSS, JS and PDF file with a fingerprint of its contents (`styles.css?v=0f77cdc1`), so a changed file gets a new URL and returning visitors fetch it. There are no version numbers to bump by hand.
+CSS, JavaScript and images in `baja-site/assets/` are edited directly. Browsers cache files in `assets/` (see `amplify.yml`), so **run `python build.py` after changing any CSS or JS file** (including `roster-data.js`), then commit. The build stamps every linked CSS, JS and PDF file with a fingerprint of its contents (`styles.css?v=0f77cdc1`), so a changed file gets a new URL and returning visitors fetch it. There are no version numbers to bump by hand. Line endings don't count (Windows and Mac/Linux builds give the same fingerprint), so rebuilding on another computer doesn't change the HTML.
 
 Images and fonts aren't fingerprinted. When you replace a photo, sponsor logo or headshot, **give the new file a new name** instead of overwriting the old one, or returning visitors may keep seeing the old image.
 

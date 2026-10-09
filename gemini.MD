@@ -176,36 +176,19 @@ When writing copy or populating specs, use these confirmed figures:
 
 ## 7. Known Bugs, Quirks & Diagnostic Inventory
 
-The following technical defects and platform nuances have been cataloged:
+Reviewed 2026-10-09. Fixed items stay listed so they aren't reported again.
 
-### 1. Windows CRLF vs. LF SHA-256 Hash Mismatch (`build.py`)
-- **Quirk**: `build.py` calculates asset hashes using `hashlib.sha256(f.read_bytes()).hexdigest()[:8]`.
-- **Impact**: On Windows systems with Git `core.autocrlf = true`, checked-out text assets (`styles.css`, `main.js`) have CRLF line endings on disk. Running `build.py` produces different hash values in `?v=<hash>` compared to Linux/macOS environments, creating unexpected git diffs across all generated HTML files.
-- **Workaround**: Avoid staging `baja-site/*.html` files if the only differences are `?v=` hashes caused by line endings.
+### Fixed
+1. **CRLF vs. LF asset hashes (`build.py`)**: CSS/JS are now hashed with CRLF normalized to LF, so Windows (`core.autocrlf = true`) and Linux/macOS builds produce the same `?v=` values.
+2. **`.frame` chamfer lost after `data-reveal="clip"` (`styles.css`, `main.js`)**: the chamfer lives in `--shape`; the reveal tween clears its inline `inset()` when done and `.is-revealed` restores `clip-path: var(--shape)`.
+3. **`data-suffix` ignored by counters (`main.js`)**: `fmt()` now appends it.
+4. **Lightbox**: the "3 / 62" counter never updated (its line had been swallowed by a comment); fixed. `show()` also closes the lightbox if no photos are visible, instead of indexing an empty list.
+5. **Focus escaping modals (`main.js`)**: the menu and lightbox now make the rest of the page `inert` while open (`inertOthers`); the header stays live under the menu because it holds the Close toggle. Closing the lightbox returns focus to the clicked photo.
 
-### 2. Chamfered Corner Destruction on `.frame` (`styles.css` & `main.js`)
-- **Bug**: `.frame` elements feature an angular chamfered corner cutout: `clip-path: polygon(0 0, 100% 0, 100% calc(100% - 48px), calc(100% - 48px) 100%, 0 100%)`.
-- **Impact**: When `.frame` has `data-reveal="clip"`, GSAP animates `clipPath: 'inset(0% 0 0 0)'` directly as an inline style. Once completed, the chamfered corner is overwritten and permanently replaced with a flat rectangle.
-
-### 3. Unreadable Scrub Text When GSAP Fails (`styles.css`)
-- **Bug**: In `styles.css`, `.js .scrub-text .word` has `opacity: .16;` by default.
-- **Impact**: If GSAP fails to load or motion is disabled, JavaScript sets class `reduce-motion`. However, CSS only resets opacity to 1 inside `@media (prefers-reduced-motion)`. There is no `.reduce-motion .scrub-text .word { opacity: 1; }` fallback, leaving text stuck at 16% opacity (barely visible).
-
-### 4. Cross-Page Hash Anchor Failure with Lenis (`main.js`)
-- **Bug**: Cross-page links pointing to specific IDs (e.g. `sponsors.html#become-a-sponsor` or `team.html#join`) load the destination page, but Lenis momentum scrolling does not inspect `window.location.hash` after the page wipe/splash finishes.
-- **Impact**: Users land at the very top of the page rather than jumping/scrolling to the target section.
-
-### 5. `data-suffix` Ignored in Animated Counters (`main.js`)
-- **Bug**: Line 331 documents `<span data-count="50260" data-prefix="$" data-suffix="+">`.
-- **Impact**: The formatting function `fmt(v)` on line 336 only prepends `el.dataset.prefix`, completely omitting `el.dataset.suffix`.
-
-### 6. Lightbox Zero-Item Division by Zero (`main.js`)
-- **Bug**: In `main.js:394`, `idx = (i + v.length) % v.length;`.
-- **Impact**: If a gallery filter ever matches zero images (`v.length === 0`), `idx` evaluates to `NaN`. Accessing `v[NaN].querySelector('img')` throws an unhandled `TypeError`.
-
-### 7. Accessibility Focus Trap Gaps (`main.js`)
-- **Bug**: Opening the full-screen menu (`#menu`), the photo lightbox (`.lightbox`), or the roster profile drawer toggles `inert` on the modal itself, but does not apply `inert` to the background content (`<main>`, `<header>`, `<footer>`).
-- **Impact**: Keyboard and screen reader users can Tab through elements hidden behind active modal overlays.
+### Checked and not a bug
+- **Scrub text stuck at 16% opacity without GSAP**: the `.word` spans are only created inside the `motion` branch of `main.js`, so without GSAP (or with reduced motion) the text is plain and fully visible.
+- **Cross-page `#hash` links with Lenis**: tested in headless Edge with motion on (`team.html#join`, `sponsors.html#become-a-sponsor`, with splash and with page wipe); the browser lands on the target, offset by the header (`scroll-padding-top`).
+- **Roster drawer focus**: `roster.js` already traps Tab inside the drawer.
 
 ---
 
