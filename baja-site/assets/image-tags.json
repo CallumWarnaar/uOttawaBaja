@@ -1,0 +1,2536 @@
+{
+  "version": "1.0",
+  "description": "Rough Rider Racing image catalog with detailed content tagging, action attributes, person classifications, and substitution guides.",
+  "summary": {
+    "total_items": 88,
+    "track_action_photos": 30,
+    "people_and_paddock_photos": 37,
+    "total_photos": 67,
+    "sponsor_logos": 13,
+    "textures": 5,
+    "tech_schematic": 1,
+    "branding": 2
+  },
+  "images": [
+    {
+      "id": "dsc_0663",
+      "filename": "dsc_0663.webp",
+      "category": "car_on_track",
+      "action": "car racing with competitor in pursuit",
+      "detailed_action": "Car racing wheel-to-wheel on course with an opponent car trailing closely behind",
+      "terrain": "grass and dirt track",
+      "angle": "side profile / front three-quarter left",
+      "tags": [
+        "track",
+        "wheel to wheel",
+        "competition",
+        "competitor car",
+        "endurance",
+        "chase",
+        "racing"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "wheel_to_wheel_racing",
+        "endurance_traffic",
+        "chase_action"
+      ]
+    },
+    {
+      "id": "dsc_0665",
+      "filename": "dsc_0665.webp",
+      "category": "car_on_track",
+      "action": "car turning between cones",
+      "detailed_action": "Car navigating tight gate between two orange cones on slalom course",
+      "terrain": "hard packed dirt and grass",
+      "angle": "front view",
+      "tags": [
+        "track",
+        "slalom",
+        "cones",
+        "gate",
+        "front view",
+        "precision"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "car_turning_between_cones",
+        "slalom_gate",
+        "precision_driving"
+      ]
+    },
+    {
+      "id": "dsc_0677",
+      "filename": "dsc_0677.webp",
+      "category": "car_on_track",
+      "action": "car cornering hard on grass",
+      "detailed_action": "Car pitching into hard left corner on grassy field with outside suspension compressed",
+      "terrain": "mowed green grass course",
+      "angle": "front three-quarter right",
+      "tags": [
+        "track",
+        "grass",
+        "cornering",
+        "suspension compression",
+        "handling",
+        "lateral load"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "car_cornering_on_grass",
+        "suspension_compression",
+        "handling_demo"
+      ]
+    },
+    {
+      "id": "dsc_0832",
+      "filename": "dsc_0832.webp",
+      "category": "car_on_track",
+      "action": "car turning past cone",
+      "detailed_action": "Car steering sharply past an orange course boundary cone during dynamic event",
+      "terrain": "packed dirt with grass edge",
+      "angle": "front three-quarter left",
+      "tags": [
+        "track",
+        "cones",
+        "slalom",
+        "manoeuvrability",
+        "steering",
+        "precision",
+        "action"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "car_turning_past_cone",
+        "manoeuvrability_test",
+        "steering_action"
+      ]
+    },
+    {
+      "id": "dsc_0833",
+      "filename": "dsc_0833.webp",
+      "category": "car_on_track",
+      "action": "car rounding cone close-up",
+      "detailed_action": "Close-up front view of car rounding a course marker cone with driver visible at wheel",
+      "terrain": "flat dirt track",
+      "angle": "front view slight left angle",
+      "tags": [
+        "track",
+        "cone",
+        "driver visible",
+        "front view",
+        "steering",
+        "close-up",
+        "action"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "car_rounding_cone",
+        "front_vehicle_close_up",
+        "driver_in_action"
+      ]
+    },
+    {
+      "id": "dsc_0850",
+      "filename": "dsc_0850.webp",
+      "category": "car_on_track",
+      "action": "car kicking up dust through turn",
+      "detailed_action": "Car executing a high-speed hard turn kicking up a massive rooster tail of dust and dirt",
+      "terrain": "dry loose dirt track",
+      "angle": "side profile rear three-quarter right",
+      "tags": [
+        "track",
+        "dust",
+        "cornering",
+        "drift",
+        "speed",
+        "rooster tail",
+        "dirt",
+        "action"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "car_kicking_up_dust",
+        "dynamic_cornering",
+        "speed_action"
+      ]
+    },
+    {
+      "id": "dsc_0936",
+      "filename": "dsc_0936.webp",
+      "category": "car_on_track",
+      "action": "car driving through ruts",
+      "detailed_action": "Car powering through deep dirt ruts and mud tracks on endurance course",
+      "terrain": "deep dirt ruts, loose soil",
+      "angle": "front three-quarter right",
+      "tags": [
+        "track",
+        "ruts",
+        "endurance",
+        "dirt",
+        "suspension travel",
+        "action",
+        "rough terrain"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "car_driving_through_ruts",
+        "endurance_action",
+        "suspension_load"
+      ]
+    },
+    {
+      "id": "dsc_0937",
+      "filename": "dsc_0937.webp",
+      "category": "car_on_track",
+      "action": "car descending dirt slope with cones",
+      "detailed_action": "Car descending angled dirt slope between orange course cones",
+      "terrain": "dirt slope incline, cone gate",
+      "angle": "front three-quarter right",
+      "tags": [
+        "track",
+        "dirt slope",
+        "cones",
+        "descent",
+        "incline",
+        "handling"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "dirt_slope_descent",
+        "cone_navigation",
+        "downhill_slalom"
+      ]
+    },
+    {
+      "id": "dsc_0954",
+      "filename": "dsc_0954.webp",
+      "category": "car_on_track",
+      "action": "car climbing berm past hay bales",
+      "detailed_action": "Car climbing over elevated dirt berm obstacle adjacent to protective hay bales",
+      "terrain": "packed dirt berm, incline",
+      "angle": "front three-quarter right, low angle",
+      "tags": [
+        "track",
+        "berm",
+        "climb",
+        "hay bales",
+        "obstacle",
+        "incline",
+        "action"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "car_climbing_berm",
+        "obstacle_navigation",
+        "hill_climb"
+      ]
+    },
+    {
+      "id": "dsc_1036",
+      "filename": "dsc_1036.webp",
+      "category": "car_on_track",
+      "action": "car battling beside competitor car",
+      "detailed_action": "Car cornering side-by-side with a competitor vehicle through endurance turn",
+      "terrain": "dirt and grass corner",
+      "angle": "three-quarter rear / side",
+      "tags": [
+        "track",
+        "side by side",
+        "overtake",
+        "competitor",
+        "traffic",
+        "endurance",
+        "battle"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "side_by_side_racing",
+        "overtake_action",
+        "race_traffic"
+      ]
+    },
+    {
+      "id": "dsc_1041",
+      "filename": "dsc_1041.webp",
+      "category": "car_on_track",
+      "action": "car navigating grassy slope curve",
+      "detailed_action": "Car turning across green grass hillside slope under bright overcast sky",
+      "terrain": "green grass hillside",
+      "angle": "front three-quarter left",
+      "tags": [
+        "track",
+        "grass slope",
+        "curve",
+        "hillside",
+        "clean terrain"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "grassy_slope_curve",
+        "hillside_driving",
+        "clean_action"
+      ]
+    },
+    {
+      "id": "dsc_1060",
+      "filename": "dsc_1060.webp",
+      "category": "car_on_track",
+      "action": "car driving across grassy slope between cones",
+      "detailed_action": "Car navigating off-camber hillside course across grassy slope between guide cones",
+      "terrain": "off-camber hillside, grass slope",
+      "angle": "side three-quarter profile left",
+      "tags": [
+        "track",
+        "slope",
+        "hillside",
+        "grass",
+        "off-camber",
+        "cones",
+        "stability"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "car_on_slope",
+        "off_camber_driving",
+        "hillside_traverse"
+      ]
+    },
+    {
+      "id": "dsc_9516",
+      "filename": "dsc_9516.webp",
+      "category": "car_on_track",
+      "action": "car climbing banked turn past hay bale",
+      "detailed_action": "Car carrying momentum up a banked dirt berm curve right beside course hay bales",
+      "terrain": "banked dirt berm, curved embankment",
+      "angle": "front three-quarter right, low ground angle",
+      "tags": [
+        "track",
+        "banked turn",
+        "berm",
+        "hay bales",
+        "incline",
+        "cornering",
+        "action"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "banked_turn",
+        "berm_cornering",
+        "incline_action"
+      ]
+    },
+    {
+      "id": "dsc_9957",
+      "filename": "dsc_9957.webp",
+      "category": "car_on_track",
+      "action": "car driving away showing rear drivetrain and engine",
+      "detailed_action": "Rear perspective of car accelerating away on track, showing custom gearbox, CVT cover and rear suspension",
+      "terrain": "open dirt and grass track",
+      "angle": "direct rear view",
+      "tags": [
+        "track",
+        "rear view",
+        "drivetrain",
+        "engine",
+        "gearbox",
+        "rear suspension",
+        "acceleration"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "rear_view_on_track",
+        "drivetrain_showcase",
+        "acceleration_away"
+      ]
+    },
+    {
+      "id": "img_2876",
+      "filename": "img_2876.webp",
+      "category": "car_on_track",
+      "action": "car charging toward camera showing front suspension",
+      "detailed_action": "Direct head-on view of car approaching at speed with front double-wishbone suspension and air shocks prominent",
+      "terrain": "packed dirt track",
+      "angle": "direct front view, eye level",
+      "tags": [
+        "track",
+        "front view",
+        "head-on",
+        "front suspension",
+        "A-arms",
+        "air shocks",
+        "aggressive stance"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "head_on_action",
+        "front_suspension_showcase",
+        "aggressive_front_view"
+      ]
+    },
+    {
+      "id": "img_5096",
+      "filename": "img_5096.webp",
+      "category": "car_on_track",
+      "action": "car parked in open field under sun",
+      "detailed_action": "Car parked stationary in open rural grass field during test session with natural backdrop",
+      "terrain": "rural grass field",
+      "angle": "side three-quarter profile",
+      "tags": [
+        "track",
+        "field",
+        "testing",
+        "grass",
+        "sunlight",
+        "vehicle portrait",
+        "rural"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "vehicle_portrait_field",
+        "outdoor_testing",
+        "static_car_shot"
+      ]
+    },
+    {
+      "id": "img_5114",
+      "filename": "img_5114.webp",
+      "category": "car_on_track",
+      "action": "car parked stationary in open grass field",
+      "detailed_action": "Static side three-quarter view of car parked in tall grass field during test session",
+      "terrain": "tall grass field",
+      "angle": "side three-quarter profile left",
+      "tags": [
+        "track",
+        "parked",
+        "grass",
+        "testing",
+        "static",
+        "profile"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "static_car_showcase",
+        "parked_in_grass",
+        "field_portrait"
+      ]
+    },
+    {
+      "id": "img_5284",
+      "filename": "img_5284.webp",
+      "category": "car_on_track",
+      "action": "cars racing in dense dust cloud on endurance course",
+      "detailed_action": "Wide shot of multiple competitor cars racing through a heavy cloud of kicked-up dust during 4-hour endurance",
+      "terrain": "dry dirt track, dust storm conditions",
+      "angle": "wide track perspective",
+      "tags": [
+        "track",
+        "endurance",
+        "dust cloud",
+        "race pack",
+        "multi-car",
+        "wheel to wheel",
+        "harsh conditions"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "endurance_dust_pack",
+        "multi_car_action",
+        "harsh_conditions"
+      ]
+    },
+    {
+      "id": "img_5372",
+      "filename": "img_5372.webp",
+      "category": "car_on_track",
+      "action": "car leaning into turn beside cones",
+      "detailed_action": "Car pitching sharply into right-hand turn right beside orange cones on agility course",
+      "terrain": "dirt and grass surface",
+      "angle": "front three-quarter left",
+      "tags": [
+        "track",
+        "cones",
+        "cornering",
+        "agility",
+        "tight turn",
+        "steering"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "tight_cornering",
+        "agility_course",
+        "steering_precision"
+      ]
+    },
+    {
+      "id": "img_5557",
+      "filename": "img_5557.webp",
+      "category": "car_on_track",
+      "action": "car racing down dusty hill on endurance course",
+      "detailed_action": "Car plunging down a steep dusty dirt hillside with course ropes and spectators along the edge",
+      "terrain": "steep dirt hill descent, loose dust",
+      "angle": "front three-quarter right, downhill angle",
+      "tags": [
+        "track",
+        "downhill",
+        "descent",
+        "dust",
+        "endurance",
+        "steep hill",
+        "high speed"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "hill_descent",
+        "downhill_action",
+        "endurance_speed"
+      ]
+    },
+    {
+      "id": "img_5559",
+      "filename": "img_5559.webp",
+      "category": "car_on_track",
+      "action": "car descending dirt hill drop-off",
+      "detailed_action": "Car navigating a steep vertical drop-off on dirt hill with front suspension fully loaded",
+      "terrain": "steep dirt drop-off, downhill grade",
+      "angle": "front three-quarter right, downward angle",
+      "tags": [
+        "track",
+        "drop-off",
+        "descent",
+        "hill",
+        "dirt",
+        "suspension travel",
+        "steep"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "steep_drop_off",
+        "hill_descent",
+        "terrain_challenge"
+      ]
+    },
+    {
+      "id": "img_5574",
+      "filename": "img_5574.webp",
+      "category": "car_on_track",
+      "action": "car on course with spectators lined up behind barrier",
+      "detailed_action": "Car speeding across open track section with enthusiastic spectators watching from the fence line",
+      "terrain": "open grass and dirt course",
+      "angle": "side profile slight front angle",
+      "tags": [
+        "track",
+        "spectators",
+        "fans",
+        "crowd",
+        "competition atmosphere",
+        "straightaway"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "spectator_zone",
+        "track_atmosphere",
+        "crowd_presence"
+      ]
+    },
+    {
+      "id": "img_5582",
+      "filename": "img_5582.webp",
+      "category": "car_on_track",
+      "action": "car driving across grassy slope in sunlight",
+      "detailed_action": "Car traversing bright green grassy slope with sponsor decals and roll cage in sharp sunlight",
+      "terrain": "smooth green grass slope",
+      "angle": "side profile three-quarter",
+      "tags": [
+        "track",
+        "grass",
+        "slope",
+        "clean look",
+        "side profile",
+        "sunlight"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "grassy_slope",
+        "clean_car_on_track",
+        "hillside_traverse"
+      ]
+    },
+    {
+      "id": "img_5678",
+      "filename": "img_5678.webp",
+      "category": "car_on_track",
+      "action": "car approaching obstacle course feature",
+      "detailed_action": "Car approaching log / rock obstacle course section during suspension validation",
+      "terrain": "dirt obstacle course with embedded features",
+      "angle": "front three-quarter left",
+      "tags": [
+        "track",
+        "obstacle",
+        "suspension test",
+        "rock crawl",
+        "approach",
+        "technical"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "obstacle_approach",
+        "suspension_obstacle",
+        "technical_course"
+      ]
+    },
+    {
+      "id": "img_5829",
+      "filename": "img_5829.webp",
+      "category": "car_on_track",
+      "action": "car cornering near course marshals",
+      "detailed_action": "Car drifting through wide turn with safety marshals stationed in high-vis vests watching from edge",
+      "terrain": "hard packed dirt turn",
+      "angle": "side three-quarter profile right",
+      "tags": [
+        "track",
+        "marshals",
+        "officials",
+        "cornering",
+        "safety",
+        "drift",
+        "action"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "marshalled_corner",
+        "cornering_drift",
+        "official_safety"
+      ]
+    },
+    {
+      "id": "img_5836",
+      "filename": "img_5836.webp",
+      "category": "car_on_track",
+      "action": "car cornering hard beside tire barrier obstacle",
+      "detailed_action": "Car cornering hard around tire barrier obstacle with outside suspension fully loaded",
+      "terrain": "tight dirt track corner",
+      "angle": "front three-quarter right",
+      "tags": [
+        "track",
+        "tire barrier",
+        "chicane",
+        "hard cornering",
+        "suspension load",
+        "aggressive"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "aggressive_cornering",
+        "tire_barrier",
+        "suspension_stress"
+      ]
+    },
+    {
+      "id": "img_5850",
+      "filename": "img_5850.webp",
+      "category": "car_on_track",
+      "action": "hero close-up of car on course at speed",
+      "detailed_action": "Iconic hero action shot of RRR car on dirt course, driver locked in, front wheel kicking up dirt",
+      "terrain": "competition dirt track",
+      "angle": "front three-quarter right, low dramatic angle",
+      "tags": [
+        "track",
+        "hero shot",
+        "close-up",
+        "speed",
+        "driver",
+        "action",
+        "flagship"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "flagship_hero",
+        "action_close_up",
+        "high_speed_track"
+      ]
+    },
+    {
+      "id": "img_5859",
+      "filename": "img_5859.webp",
+      "category": "car_on_track",
+      "action": "car on grass hillside with course marshals",
+      "detailed_action": "Car driving across hillside grass section with course workers observing from the ridge",
+      "terrain": "undulating grass hillside",
+      "angle": "front three-quarter left",
+      "tags": [
+        "track",
+        "hillside",
+        "grass",
+        "marshals",
+        "ridge",
+        "rolling hills"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "hillside_transit",
+        "grassy_ridge",
+        "open_course"
+      ]
+    },
+    {
+      "id": "img_5879",
+      "filename": "img_5879.webp",
+      "category": "car_on_track",
+      "action": "car on course near construction excavator",
+      "detailed_action": "Car navigating dirt track beside heavy construction excavator and earth-moving equipment",
+      "terrain": "heavy dirt and rock work track",
+      "angle": "side three-quarter profile left",
+      "tags": [
+        "track",
+        "excavator",
+        "machinery",
+        "heavy equipment",
+        "quarry",
+        "rugged",
+        "industrial"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "rugged_industrial",
+        "heavy_machinery_setting",
+        "tough_terrain"
+      ]
+    },
+    {
+      "id": "dsc_0546",
+      "filename": "dsc_0546.webp",
+      "category": "car_on_track",
+      "action": "driver at wheel with sponsor decals on side panel",
+      "detailed_action": "Side profile of driver seated at steering wheel with full sponsor livery and decals visible on side panel",
+      "terrain": "flat paddock / staging lane",
+      "angle": "direct side profile close-up",
+      "tags": [
+        "track",
+        "driver",
+        "sponsor decals",
+        "side panel",
+        "livery",
+        "cockpit",
+        "branding"
+      ],
+      "substitutable_for": [
+        "car_on_track",
+        "driver_close_up",
+        "sponsor_panel_showcase",
+        "staging_lane"
+      ]
+    },
+    {
+      "id": "crew_headset",
+      "filename": "crew_headset.webp",
+      "category": "people",
+      "action": "crew member wearing radio headset standing beside car",
+      "people_count": 1,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "crew member / pit communicator",
+          "attire": "uOttawa Baja team shirt, dark cap, two-way radio headset with boom mic",
+          "posture": "standing beside roll cage, looking toward track",
+          "focus": "pit-to-car communications and telemetry monitoring"
+        }
+      ],
+      "setting": "paddock staging area beside RRR car",
+      "tags": [
+        "people",
+        "radio",
+        "headset",
+        "crew",
+        "pit communication",
+        "team apparel",
+        "staging"
+      ],
+      "substitutable_for": [
+        "crew_portrait",
+        "pit_crew_communication",
+        "team_member_single"
+      ]
+    },
+    {
+      "id": "driver_lakeside",
+      "filename": "driver_lakeside.webp",
+      "category": "people",
+      "action": "driver smiling from cockpit of car",
+      "people_count": 1,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "driver",
+          "attire": "casual / team gear, helmet off",
+          "posture": "seated inside cockpit, hands on steering wheel, smiling at camera",
+          "focus": "driver portrait from inside roll cage"
+        }
+      ],
+      "setting": "cockpit interior, outdoor scenic background",
+      "tags": [
+        "people",
+        "driver",
+        "cockpit",
+        "smile",
+        "driver portrait",
+        "steering wheel"
+      ],
+      "substitutable_for": [
+        "driver_portrait",
+        "cockpit_view",
+        "student_driver"
+      ]
+    },
+    {
+      "id": "dsc_0463",
+      "filename": "dsc_0463.webp",
+      "category": "people",
+      "action": "crew member in paddock wearing industrial ear protection",
+      "people_count": 1,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "pit crew member / mechanic",
+          "attire": "grey team shirt, yellow/black industrial over-ear hearing protection",
+          "posture": "standing in paddock, focused expression toward prep area",
+          "focus": "hearing safety in loud engine paddock"
+        }
+      ],
+      "setting": "active team paddock during loud engine revving",
+      "tags": [
+        "people",
+        "safety",
+        "ear protection",
+        "paddock",
+        "crew member",
+        "mechanic",
+        "focus"
+      ],
+      "substitutable_for": [
+        "crew_portrait",
+        "safety_gear",
+        "paddock_mechanic"
+      ]
+    },
+    {
+      "id": "dsc_0541",
+      "filename": "dsc_0541.webp",
+      "category": "people",
+      "action": "driver in blue helmet strapped into race cockpit",
+      "people_count": 1,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "driver",
+          "attire": "full racing fire suit, blue full-face Snell/DOT helmet with tinted visor, racing gloves",
+          "posture": "strapped tightly into 5-point harness in cockpit, hands on steering wheel",
+          "focus": "pre-race focus, ready to launch"
+        }
+      ],
+      "setting": "cockpit interior behind firewall and roll cage",
+      "tags": [
+        "people",
+        "driver",
+        "helmet",
+        "blue helmet",
+        "racing suit",
+        "5-point harness",
+        "cockpit",
+        "race ready"
+      ],
+      "substitutable_for": [
+        "driver_in_cockpit",
+        "helmeted_driver",
+        "race_ready_driver"
+      ]
+    },
+    {
+      "id": "img_3576",
+      "filename": "img_3576.webp",
+      "category": "paddock",
+      "action": "team members working together under paddock tent",
+      "people_count": 3,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "lead mechanic",
+          "attire": "team shirt, work pants",
+          "posture": "leaning over front suspension with socket wrench",
+          "focus": "suspension bolt torque verification"
+        },
+        {
+          "person": "person 2",
+          "role": "chassis / cockpit tech",
+          "attire": "dark hoodie, safety glasses",
+          "posture": "reaching inside cockpit examining pedal box assembly",
+          "focus": "controls inspection"
+        },
+        {
+          "person": "person 3",
+          "role": "subteam engineer",
+          "attire": "team gear, gloves",
+          "posture": "standing at side of tent holding inspection checklist",
+          "focus": "task coordination"
+        }
+      ],
+      "setting": "under canopy tent in team paddock with tools on work mats",
+      "tags": [
+        "paddock",
+        "teamwork",
+        "tent",
+        "mechanics",
+        "tools",
+        "collaboration",
+        "inspection"
+      ],
+      "substitutable_for": [
+        "team_working_under_tent",
+        "paddock_maintenance",
+        "multi_member_collaboration"
+      ]
+    },
+    {
+      "id": "img_3578",
+      "filename": "img_3578.webp",
+      "category": "people",
+      "action": "team member inspecting cockpit ergonomics and harness",
+      "people_count": 1,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "chassis & ergonomics engineer",
+          "attire": "grey team tee, jeans",
+          "posture": "crouched over roll cage door bar looking into driver seat",
+          "focus": "seat insert and harness mounting points check"
+        }
+      ],
+      "setting": "paddock canopy next to car",
+      "tags": [
+        "people",
+        "cockpit inspection",
+        "ergonomics",
+        "roll cage",
+        "chassis engineer"
+      ],
+      "substitutable_for": [
+        "cockpit_inspection",
+        "chassis_engineer_working",
+        "ergonomics_check"
+      ]
+    },
+    {
+      "id": "img_3587",
+      "filename": "img_3587.webp",
+      "category": "paddock",
+      "action": "crew members working around car under tent",
+      "people_count": 3,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "drivetrain tech",
+          "attire": "team shirt",
+          "posture": "kneeling at rear left wheel examining hub assembly",
+          "focus": "rear hub and axle inspection"
+        },
+        {
+          "person": "person 2",
+          "role": "engine tech",
+          "attire": "black jacket, work gloves",
+          "posture": "bent over rear chassis inspecting engine mount",
+          "focus": "Kohler engine securement"
+        },
+        {
+          "person": "person 3",
+          "role": "support crew",
+          "attire": "team hoodie",
+          "posture": "standing behind car holding tool tray",
+          "focus": "tool hand-off"
+        }
+      ],
+      "setting": "paddock tent with spare tires in background",
+      "tags": [
+        "paddock",
+        "drivetrain",
+        "rear hub",
+        "engine check",
+        "mechanics",
+        "canopy"
+      ],
+      "substitutable_for": [
+        "drivetrain_work",
+        "rear_assembly_maintenance",
+        "paddock_crew_working"
+      ]
+    },
+    {
+      "id": "img_3596",
+      "filename": "img_3596.webp",
+      "category": "people",
+      "action": "team member in uOttawa Baja shirt watching the car",
+      "people_count": 1,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "team member / spotter",
+          "attire": "official uOttawa Baja SAE garnet and grey branded team shirt",
+          "posture": "standing, back three-quarter turned toward camera, watching car on track",
+          "focus": "observing vehicle dynamic performance"
+        }
+      ],
+      "setting": "track boundary perimeter fence",
+      "tags": [
+        "people",
+        "team shirt",
+        "branding",
+        "spotter",
+        "watching track",
+        "uOttawa shirt"
+      ],
+      "substitutable_for": [
+        "team_apparel_showcase",
+        "spotter_on_track",
+        "student_spectator"
+      ]
+    },
+    {
+      "id": "img_3612",
+      "filename": "img_3612.webp",
+      "category": "paddock",
+      "action": "busy paddock crew tuning car under tent",
+      "people_count": 4,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "suspension engineer",
+          "attire": "team tee",
+          "posture": "adjusting front right air shock pressure",
+          "focus": "shock valve tuning"
+        },
+        {
+          "person": "person 2",
+          "role": "electrical lead",
+          "attire": "work shirt",
+          "posture": "checking kill switch harness inside dash area",
+          "focus": "electrical continuity"
+        },
+        {
+          "person": "person 3",
+          "role": "mechanic",
+          "attire": "grey hoodie",
+          "posture": "kneeling at rear wheel with torque wrench",
+          "focus": "wheel nut torquing"
+        },
+        {
+          "person": "person 4",
+          "role": "team member",
+          "attire": "team gear",
+          "posture": "standing by toolbox reviewing prep checklist",
+          "focus": "prep protocol"
+        }
+      ],
+      "setting": "full team paddock bay under white canopy tent",
+      "tags": [
+        "paddock",
+        "crew at work",
+        "suspension tuning",
+        "electrical check",
+        "paddock tent",
+        "busy"
+      ],
+      "substitutable_for": [
+        "full_paddock_crew",
+        "prep_session",
+        "pre_race_inspection"
+      ]
+    },
+    {
+      "id": "img_3693",
+      "filename": "img_3693.webp",
+      "category": "paddock",
+      "action": "student engineer working on rear chassis and tube joints",
+      "people_count": 1,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "chassis & welding specialist",
+          "attire": "dark team shirt, work jeans",
+          "posture": "hunched closely over rear 4130 steel tube node inspecting weld seam",
+          "focus": "structural integrity check of roll cage rear brace"
+        }
+      ],
+      "setting": "rear frame inspection in paddock bay",
+      "tags": [
+        "paddock",
+        "chassis",
+        "roll cage",
+        "tubing",
+        "weld inspection",
+        "hands-on engineering"
+      ],
+      "substitutable_for": [
+        "chassis_fabrication",
+        "frame_inspection",
+        "hands_on_student_work"
+      ]
+    },
+    {
+      "id": "img_3829",
+      "filename": "img_3829.webp",
+      "category": "people",
+      "action": "team member smiling in paddock beside car",
+      "people_count": 1,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "student engineer",
+          "attire": "black team hoodie with Baja SAE crest",
+          "posture": "standing proudly beside RRR car front wheel, smiling at camera",
+          "focus": "student portrait with competition car"
+        }
+      ],
+      "setting": "sunlit paddock grass area beside car front tire",
+      "tags": [
+        "people",
+        "student portrait",
+        "smile",
+        "team hoodie",
+        "pride",
+        "paddock"
+      ],
+      "substitutable_for": [
+        "student_member_portrait",
+        "paddock_smile",
+        "team_member_feature"
+      ]
+    },
+    {
+      "id": "img_3854",
+      "filename": "img_3854.webp",
+      "category": "people",
+      "action": "student member grinning in mud-splattered team shirt",
+      "people_count": 1,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "pit crew member / recovery specialist",
+          "attire": "uOttawa Baja team shirt covered in authentic competition mud splatters",
+          "posture": "standing upright, broad grin facing camera",
+          "focus": "motorsport grit and fun after rough endurance laps"
+        }
+      ],
+      "setting": "paddock after rain/mud endurance race",
+      "tags": [
+        "people",
+        "mud",
+        "splattered",
+        "grin",
+        "endurance",
+        "dirt",
+        "grit",
+        "humour"
+      ],
+      "substitutable_for": [
+        "mud_splattered_member",
+        "endurance_grit_portrait",
+        "fun_motorsport_lifestyle"
+      ]
+    },
+    {
+      "id": "img_3971",
+      "filename": "img_3971.webp",
+      "category": "paddock",
+      "action": "team members presenting car at SAE technical inspection",
+      "people_count": 4,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "team captain / lead presenter",
+          "attire": "clean team polo, badge",
+          "posture": "standing by cockpit explaining safety compliance to judge",
+          "focus": "rules compliance defense"
+        },
+        {
+          "person": "person 2",
+          "role": "technical director",
+          "attire": "team shirt",
+          "posture": "pointing at master kill switch and exterior wiring",
+          "focus": "electrical shutdown verification"
+        },
+        {
+          "person": "person 3",
+          "role": "SAE tech inspector / industry judge",
+          "attire": "SAE official safety vest, clipboard, tech inspection sticker sheet",
+          "posture": "leaning over front suspension verifying track width and steering stops",
+          "focus": "official safety certification"
+        },
+        {
+          "person": "person 4",
+          "role": "support student engineer",
+          "attire": "team tee",
+          "posture": "holding rulebook reference binder",
+          "focus": "documentation support"
+        }
+      ],
+      "setting": "SAE International technical inspection bay under official tent",
+      "tags": [
+        "paddock",
+        "technical inspection",
+        "SAE judge",
+        "compliance",
+        "rules",
+        "scrutineering"
+      ],
+      "substitutable_for": [
+        "tech_inspection",
+        "sae_scrutineering",
+        "judging_presentation"
+      ]
+    },
+    {
+      "id": "img_3988",
+      "filename": "img_3988.webp",
+      "category": "people",
+      "action": "team member giving thumbs-up under tech inspection tent",
+      "people_count": 1,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "team member",
+          "attire": "team cap, grey team tee",
+          "posture": "standing under inspection tent, smiling with proud thumbs-up gesture",
+          "focus": "celebrating passed inspection sticker"
+        }
+      ],
+      "setting": "tech inspection tent exit area",
+      "tags": [
+        "people",
+        "thumbs up",
+        "inspection pass",
+        "success",
+        "smile",
+        "celebration"
+      ],
+      "substitutable_for": [
+        "inspection_success",
+        "thumbs_up_portrait",
+        "celebration_shot"
+      ]
+    },
+    {
+      "id": "img_4387",
+      "filename": "img_4387.webp",
+      "category": "paddock",
+      "action": "two team members collaborating on front suspension upright",
+      "people_count": 2,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "front suspension engineer",
+          "attire": "team tee, mechanic gloves",
+          "posture": "kneeling on left, holding socket wrench on ball joint nut",
+          "focus": "camber / steering knuckle adjustment"
+        },
+        {
+          "person": "person 2",
+          "role": "suspension co-engineer",
+          "attire": "black jacket, jeans",
+          "posture": "crouching on right, supporting the aluminum wheel hub and rotor assembly",
+          "focus": "aligning upper A-arm mount"
+        }
+      ],
+      "setting": "paddock gravel workspace in front of car",
+      "tags": [
+        "paddock",
+        "suspension",
+        "upright",
+        "knuckle",
+        "teamwork",
+        "wrenching",
+        "mechanics"
+      ],
+      "substitutable_for": [
+        "suspension_assembly_work",
+        "collaborative_wrenching",
+        "upright_maintenance"
+      ]
+    },
+    {
+      "id": "img_4434",
+      "filename": "img_4434.webp",
+      "category": "people",
+      "action": "team member smiling beside car engine bay",
+      "people_count": 1,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "drivetrain engineer",
+          "attire": "team tee, cap",
+          "posture": "standing beside rear engine cage, leaning against tubing, smiling at camera",
+          "focus": "portrait beside Kohler CH440 and CVT housing"
+        }
+      ],
+      "setting": "outdoor paddock paddock bay",
+      "tags": [
+        "people",
+        "drivetrain engineer",
+        "smile",
+        "engine bay",
+        "Kohler",
+        "student portrait"
+      ],
+      "substitutable_for": [
+        "engine_bay_portrait",
+        "drivetrain_lead_shot",
+        "student_engineer_profile"
+      ]
+    },
+    {
+      "id": "img_4441",
+      "filename": "img_4441.webp",
+      "category": "paddock",
+      "action": "team members in sponsor-backed shirts wrenching on car",
+      "people_count": 3,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "pit crew mechanic",
+          "attire": "white team shirt with clear sponsor logos on back",
+          "posture": "bent over cockpit frame with ratchet tool",
+          "focus": "interior cockpit fasteners"
+        },
+        {
+          "person": "person 2",
+          "role": "drivetrain technician",
+          "attire": "grey team tee with sponsor branding",
+          "posture": "crouched at rear axle adjusting CVT guard",
+          "focus": "drivetrain enclosure"
+        },
+        {
+          "person": "person 3",
+          "role": "crew coordinator",
+          "attire": "dark jacket",
+          "posture": "standing by rear tire observing",
+          "focus": "monitoring progress"
+        }
+      ],
+      "setting": "team pit tent with sun streaming through fabric",
+      "tags": [
+        "paddock",
+        "sponsor shirts",
+        "team apparel",
+        "wrenching",
+        "pit crew",
+        "canopy"
+      ],
+      "substitutable_for": [
+        "sponsor_apparel_in_action",
+        "paddock_wrenching",
+        "crew_prep"
+      ]
+    },
+    {
+      "id": "img_4479",
+      "filename": "img_4479.webp",
+      "category": "people",
+      "action": "full pit crew walking car across paddock to staging",
+      "people_count": 6,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "driver",
+          "attire": "racing suit and helmet",
+          "posture": "seated inside rolling car steering",
+          "focus": "guiding vehicle trajectory"
+        },
+        {
+          "person": "person 2",
+          "role": "crew member",
+          "attire": "team shirt, jeans",
+          "posture": "walking alongside front left tire keeping clearance",
+          "focus": "front left obstacle watch"
+        },
+        {
+          "person": "person 3",
+          "role": "crew member",
+          "attire": "team shirt, cap",
+          "posture": "pushing left side roll cage bar",
+          "focus": "forward vehicle momentum"
+        },
+        {
+          "person": "person 4",
+          "role": "crew member",
+          "attire": "team gear",
+          "posture": "pushing rear roll cage hoop",
+          "focus": "rear pushing power"
+        },
+        {
+          "person": "person 5",
+          "role": "crew member",
+          "attire": "team gear",
+          "posture": "pushing right side roll cage bar",
+          "focus": "right side push"
+        },
+        {
+          "person": "person 6",
+          "role": "crew member",
+          "attire": "team gear",
+          "posture": "walking ahead guiding route toward tech staging",
+          "focus": "path clearing"
+        }
+      ],
+      "setting": "gravel / dirt lane connecting paddock to dynamic track gates",
+      "tags": [
+        "people",
+        "pushing car",
+        "walking car",
+        "paddock transit",
+        "staging",
+        "team coordination",
+        "crew"
+      ],
+      "substitutable_for": [
+        "car_in_transit",
+        "pit_crew_pushing",
+        "team_moving_vehicle"
+      ]
+    },
+    {
+      "id": "img_4534",
+      "filename": "img_4534.webp",
+      "category": "people",
+      "action": "team members in team shirts pushing car up incline to hill climb event",
+      "people_count": 4,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "pit crew pusher (left)",
+          "attire": "navy uOttawa Baja SAE shirt (back visible with crest)",
+          "posture": "leaning hard into rear cage tubing, pushing uphill",
+          "focus": "pushing effort"
+        },
+        {
+          "person": "person 2",
+          "role": "pit crew pusher (right)",
+          "attire": "navy uOttawa Baja SAE shirt",
+          "posture": "pushing right rear cage hoop with two hands",
+          "focus": "pushing effort"
+        },
+        {
+          "person": "person 3",
+          "role": "driver",
+          "attire": "helmet and harness inside vehicle",
+          "posture": "seated inside vehicle guiding front wheels",
+          "focus": "steering control"
+        },
+        {
+          "person": "person 4",
+          "role": "guide crew member",
+          "attire": "team shirt",
+          "posture": "walking alongside front right tire checking ground clearance",
+          "focus": "course guide"
+        }
+      ],
+      "setting": "gravel hill ascent leading to hill climb staging lane",
+      "tags": [
+        "people",
+        "hill climb",
+        "pushing uphill",
+        "team shirts",
+        "shirt back",
+        "teamwork",
+        "effort"
+      ],
+      "substitutable_for": [
+        "team_apparel_shirts",
+        "pushing_to_staging",
+        "hill_climb_prep"
+      ]
+    },
+    {
+      "id": "img_4906",
+      "filename": "img_4906.webp",
+      "category": "people",
+      "action": "two team members resting on grass hillside between race heats",
+      "people_count": 2,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "team member",
+          "attire": "team shirt, sunglasses, shorts",
+          "posture": "reclining back on grass hillside, looking relaxed",
+          "focus": "midday rest"
+        },
+        {
+          "person": "person 2",
+          "role": "team member",
+          "attire": "team hoodie, cap",
+          "posture": "lying on grass looking up at sky",
+          "focus": "recharging energy between grueling events"
+        }
+      ],
+      "setting": "lush green grass hill overlooking competition valley",
+      "tags": [
+        "people",
+        "relaxing",
+        "rest",
+        "grass hill",
+        "between events",
+        "friendship",
+        "camaraderie"
+      ],
+      "substitutable_for": [
+        "downtime_between_events",
+        "team_camaraderie",
+        "casual_student_life"
+      ]
+    },
+    {
+      "id": "img_4971",
+      "filename": "img_4971.webp",
+      "category": "people",
+      "action": "full team portrait with race car in front of competition trailer",
+      "people_count": 12,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "team captain (Nora)",
+          "attire": "team apparel",
+          "posture": "standing front row near car"
+        },
+        {
+          "person": "person 2",
+          "role": "driver",
+          "attire": "racing suit",
+          "posture": "kneeling at front tire"
+        },
+        {
+          "person": "person 3",
+          "role": "front suspension engineer (Callum)",
+          "attire": "team shirt",
+          "posture": "standing beside front wing/A-arm"
+        },
+        {
+          "person": "person 4",
+          "role": "drivetrain lead (Vincent)",
+          "attire": "team shirt",
+          "posture": "standing center row"
+        },
+        {
+          "person": "person 5",
+          "role": "electrical lead (Fahad)",
+          "attire": "team shirt",
+          "posture": "standing back row"
+        },
+        {
+          "person": "person 6",
+          "role": "chassis co-lead (Megan)",
+          "attire": "team shirt",
+          "posture": "standing front row"
+        },
+        {
+          "person": "person 7",
+          "role": "chassis co-lead (Kira)",
+          "attire": "team shirt",
+          "posture": "standing front row"
+        },
+        {
+          "person": "person 8",
+          "role": "suspension lead (Matthew)",
+          "attire": "team shirt",
+          "posture": "standing center row"
+        },
+        {
+          "person": "person 9",
+          "role": "admin / finance (Etienne)",
+          "attire": "team shirt",
+          "posture": "standing back row"
+        },
+        {
+          "person": "person 10",
+          "role": "admin / outreach (Joseph)",
+          "attire": "team shirt",
+          "posture": "standing back row"
+        },
+        {
+          "person": "person 11",
+          "role": "crew member",
+          "attire": "team shirt",
+          "posture": "standing back row right"
+        },
+        {
+          "person": "person 12",
+          "role": "crew member",
+          "attire": "team shirt",
+          "posture": "standing back row left"
+        }
+      ],
+      "setting": "in front of uOttawa Engineering branded competition trailer in paddock",
+      "tags": [
+        "people",
+        "full team",
+        "team photo",
+        "trailer",
+        "official portrait",
+        "car and crew",
+        "flagship portrait"
+      ],
+      "substitutable_for": [
+        "full_team_photo",
+        "official_team_portrait",
+        "all_hands_crew"
+      ]
+    },
+    {
+      "id": "img_4973",
+      "filename": "img_4973.webp",
+      "category": "people",
+      "action": "wide full team group photo in front of race trailer",
+      "people_count": 12,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "team captain",
+          "attire": "team shirt",
+          "posture": "standing center front"
+        },
+        {
+          "person": "person 2",
+          "role": "driver",
+          "attire": "racing suit",
+          "posture": "kneeling at front"
+        },
+        {
+          "person": "person 3 through person 12",
+          "role": "engineering leads and members",
+          "attire": "matching uOttawa Baja team shirts",
+          "posture": "standing shoulder-to-shoulder in front of team trailer"
+        }
+      ],
+      "setting": "wide paddock lens in front of aluminum race trailer",
+      "tags": [
+        "people",
+        "wide group photo",
+        "team photo",
+        "crew portrait",
+        "trailer",
+        "official"
+      ],
+      "substitutable_for": [
+        "full_team_wide",
+        "official_group_shot",
+        "team_roster_group"
+      ]
+    },
+    {
+      "id": "img_5029",
+      "filename": "img_5029.webp",
+      "category": "paddock",
+      "action": "mechanics working on car beside team trailer",
+      "people_count": 3,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "mechanic",
+          "attire": "team tee",
+          "posture": "bent over front wheel checking caliper bolts",
+          "focus": "brake system bleeding / check"
+        },
+        {
+          "person": "person 2",
+          "role": "chassis tech",
+          "attire": "grey hoodie",
+          "posture": "inspecting firewall seam near trailer ramp",
+          "focus": "firewall clearance"
+        },
+        {
+          "person": "person 3",
+          "role": "crew member",
+          "attire": "team gear",
+          "posture": "standing by open trailer door organizing parts bins",
+          "focus": "spare parts staging"
+        }
+      ],
+      "setting": "side of team trailer on gravel parking zone",
+      "tags": [
+        "paddock",
+        "trailer",
+        "brake check",
+        "parts staging",
+        "mechanics",
+        "trailer work"
+      ],
+      "substitutable_for": [
+        "trailer_side_maintenance",
+        "brake_system_check",
+        "paddock_prep"
+      ]
+    },
+    {
+      "id": "img_5163",
+      "filename": "img_5163.webp",
+      "category": "people",
+      "action": "crew members strapping driver into cockpit harness",
+      "people_count": 3,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "driver",
+          "attire": "racing suit, blue helmet, balaclava",
+          "posture": "seated in form-fitted foam cockpit seat",
+          "focus": "driver securement"
+        },
+        {
+          "person": "person 2",
+          "role": "crew chief / safety officer",
+          "attire": "team shirt, radio on belt",
+          "posture": "leaning deep into roll cage pulling left shoulder strap tight",
+          "focus": "5-point latch and lock verification"
+        },
+        {
+          "person": "person 3",
+          "role": "assistant crew member",
+          "attire": "team tee",
+          "posture": "leaning over right side bar connecting lap belt buckle",
+          "focus": "lap belt cinch"
+        }
+      ],
+      "setting": "staging grid before launch gate",
+      "tags": [
+        "people",
+        "driver strap in",
+        "harness",
+        "safety check",
+        "5-point harness",
+        "cockpit prep",
+        "pre-race"
+      ],
+      "substitutable_for": [
+        "driver_strap_in",
+        "safety_harness_check",
+        "pre_launch_grid"
+      ]
+    },
+    {
+      "id": "img_5180",
+      "filename": "img_5180.webp",
+      "category": "people",
+      "action": "team member laughing beside driver in cockpit",
+      "people_count": 2,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "driver",
+          "attire": "racing helmet, racing suit",
+          "posture": "seated at wheel, turning head to laugh",
+          "focus": "pre-race banter"
+        },
+        {
+          "person": "person 2",
+          "role": "crew member / teammate",
+          "attire": "team shirt, cap",
+          "posture": "leaning on roll cage tubing laughing with driver",
+          "focus": "keeping mood relaxed before intense endurance stint"
+        }
+      ],
+      "setting": "staging lane beside grass track",
+      "tags": [
+        "people",
+        "laughter",
+        "driver and crew",
+        "camaraderie",
+        "staging lane",
+        "fun",
+        "relaxed"
+      ],
+      "substitutable_for": [
+        "driver_and_crew_camaraderie",
+        "pre_race_laughter",
+        "team_spirit"
+      ]
+    },
+    {
+      "id": "img_5203",
+      "filename": "img_5203.webp",
+      "category": "people",
+      "action": "team members gathered around car and driver celebrating",
+      "people_count": 6,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "driver",
+          "attire": "blue racing helmet and suit",
+          "posture": "seated inside car giving peace sign / wave"
+        },
+        {
+          "person": "person 2",
+          "role": "team captain",
+          "attire": "team shirt",
+          "posture": "standing left of roll cage, smiling warmly at camera"
+        },
+        {
+          "person": "person 3",
+          "role": "front suspension lead",
+          "attire": "team tee",
+          "posture": "kneeling beside front left tire, resting hand on suspension upright"
+        },
+        {
+          "person": "person 4",
+          "role": "drivetrain engineer",
+          "attire": "team hoodie",
+          "posture": "standing right of roll cage grinning"
+        },
+        {
+          "person": "person 5",
+          "role": "crew member",
+          "attire": "team tee",
+          "posture": "standing in back row smiling"
+        },
+        {
+          "person": "person 6",
+          "role": "crew member",
+          "attire": "team tee",
+          "posture": "standing in back row right smiling"
+        }
+      ],
+      "setting": "paddock celebration area after successful event run",
+      "tags": [
+        "people",
+        "celebration",
+        "car and crew",
+        "team photo",
+        "driver in car",
+        "post-race joy"
+      ],
+      "substitutable_for": [
+        "car_and_crew_celebration",
+        "subteam_photo_with_car",
+        "post_race_celebration"
+      ]
+    },
+    {
+      "id": "img_5212",
+      "filename": "img_5212.webp",
+      "category": "people",
+      "action": "crew members surrounding car with driver in paddock",
+      "people_count": 5,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "driver",
+          "attire": "helmet on inside cockpit",
+          "posture": "seated inside car looking forward"
+        },
+        {
+          "person": "person 2",
+          "role": "team leader",
+          "attire": "team polo",
+          "posture": "standing at left side of roll cage"
+        },
+        {
+          "person": "person 3",
+          "role": "subteam lead",
+          "attire": "team tee",
+          "posture": "standing at right side of roll cage"
+        },
+        {
+          "person": "person 4",
+          "role": "mechanic",
+          "attire": "team shirt",
+          "posture": "standing near rear tire"
+        },
+        {
+          "person": "person 5",
+          "role": "crew member",
+          "attire": "team shirt",
+          "posture": "standing in front row"
+        }
+      ],
+      "setting": "sunlit paddock grass area",
+      "tags": [
+        "people",
+        "crew surrounding car",
+        "team portrait",
+        "driver",
+        "paddock staging"
+      ],
+      "substitutable_for": [
+        "crew_with_car",
+        "paddock_team_portrait",
+        "driver_surrounded_by_team"
+      ]
+    },
+    {
+      "id": "img_5777",
+      "filename": "img_5777.webp",
+      "category": "people",
+      "action": "team members watching race action from perimeter fence line",
+      "people_count": 3,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "team spotter / lead",
+          "attire": "team hoodie, sunglasses",
+          "posture": "leaning against wooden fence rail, eyes tracking car through turn"
+        },
+        {
+          "person": "person 2",
+          "role": "student engineer",
+          "attire": "uOttawa Baja team shirt",
+          "posture": "standing beside person 1 holding pit radio"
+        },
+        {
+          "person": "person 3",
+          "role": "team member",
+          "attire": "dark team jacket",
+          "posture": "leaning against fence rail taking notes on lap times"
+        }
+      ],
+      "setting": "spectator and spotter fence line overlooking endurance track",
+      "tags": [
+        "people",
+        "fence line",
+        "spotters",
+        "spectating",
+        "watching race",
+        "lap timing"
+      ],
+      "substitutable_for": [
+        "spotters_on_fence",
+        "watching_endurance",
+        "timing_crew"
+      ]
+    },
+    {
+      "id": "img_5931",
+      "filename": "img_5931.webp",
+      "category": "paddock",
+      "action": "team gathering around car in paddock for briefing",
+      "people_count": 5,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "team captain / speaker",
+          "attire": "team jacket",
+          "posture": "standing at front of car gesturing during debrief"
+        },
+        {
+          "person": "person 2 through person 5",
+          "role": "subteam leads and crew members",
+          "attire": "matching team apparel",
+          "posture": "encircling vehicle listening intently and discussing adjustments"
+        }
+      ],
+      "setting": "team paddock staging zone under daylight",
+      "tags": [
+        "paddock",
+        "team briefing",
+        "strategy huddle",
+        "discussion",
+        "leadership",
+        "planning"
+      ],
+      "substitutable_for": [
+        "team_briefing",
+        "strategy_meeting",
+        "paddock_huddle"
+      ]
+    },
+    {
+      "id": "img_5937",
+      "filename": "img_5937.webp",
+      "category": "people",
+      "action": "driver smiling warmly inside cockpit with helmet off",
+      "people_count": 1,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "driver",
+          "attire": "fire-retardant balaclava around neck, racing harness buckled",
+          "posture": "seated in custom foam insert seat, broad happy smile facing camera",
+          "focus": "post-stint relief and happiness"
+        }
+      ],
+      "setting": "cockpit close-up, steering wheel and dashboard gauges visible",
+      "tags": [
+        "people",
+        "driver",
+        "cockpit smile",
+        "post race",
+        "relief",
+        "happiness",
+        "steering wheel"
+      ],
+      "substitutable_for": [
+        "driver_smiling_cockpit",
+        "post_stint_portrait",
+        "driver_close_up"
+      ]
+    },
+    {
+      "id": "img_5976",
+      "filename": "img_5976.webp",
+      "category": "paddock",
+      "action": "front three-quarter view of car with team members examining roll cage",
+      "people_count": 2,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "chassis engineer",
+          "attire": "team shirt",
+          "posture": "standing near front bumper checking nose cone fasteners"
+        },
+        {
+          "person": "person 2",
+          "role": "suspension engineer",
+          "attire": "team gear",
+          "posture": "kneeling by right wheel hub"
+        }
+      ],
+      "setting": "paddock gravel bay, dramatic front angle of vehicle",
+      "tags": [
+        "paddock",
+        "chassis",
+        "roll cage",
+        "front angle",
+        "vehicle inspection",
+        "mechanics"
+      ],
+      "substitutable_for": [
+        "front_chassis_view",
+        "car_and_mechanics",
+        "front_end_inspection"
+      ]
+    },
+    {
+      "id": "img_5983",
+      "filename": "img_5983.webp",
+      "category": "paddock",
+      "action": "car surrounded by active team members in crowded paddock",
+      "people_count": 6,
+      "people": [
+        {
+          "person": "person 1 through person 6",
+          "role": "pit crew mechanics and engineers",
+          "attire": "team apparel and work pants",
+          "posture": "working simultaneously on front suspension, rear drivetrain, and cockpit controls"
+        }
+      ],
+      "setting": "dense competition paddock, other team trailers in background",
+      "tags": [
+        "paddock",
+        "crowded paddock",
+        "all hands on deck",
+        "pit work",
+        "team effort"
+      ],
+      "substitutable_for": [
+        "all_hands_on_deck",
+        "busy_pit_lane",
+        "full_crew_wrenching"
+      ]
+    },
+    {
+      "id": "img_6012",
+      "filename": "img_6012.webp",
+      "category": "paddock",
+      "action": "engine specialists tuning carburetor and throttle linkage",
+      "people_count": 2,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "powertrain technician",
+          "attire": "team tee, mechanic gloves",
+          "posture": "adjusting carburetor throttle linkage screw on Kohler CH440"
+        },
+        {
+          "person": "person 2",
+          "role": "drivetrain engineer",
+          "attire": "dark hoodie",
+          "posture": "verifying primary CVT clutch engagement rpm with tachometer"
+        }
+      ],
+      "setting": "rear of car in paddock bay",
+      "tags": [
+        "paddock",
+        "engine tuning",
+        "Kohler CH440",
+        "CVT tuning",
+        "powertrain",
+        "mechanics",
+        "carburetor"
+      ],
+      "substitutable_for": [
+        "engine_tuning",
+        "powertrain_adjustment",
+        "carburetor_cvt_tuning"
+      ]
+    },
+    {
+      "id": "img_6028",
+      "filename": "img_6028.webp",
+      "category": "paddock",
+      "action": "close-up detail shot of sponsor decals on side panel",
+      "people_count": 1,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "crew member",
+          "attire": "team shirt",
+          "posture": "partial view in background inspecting rear tire",
+          "focus": "background presence, foreground focused on sponsor livery"
+        }
+      ],
+      "setting": "side panel close-up in paddock, ETBO, DBG, SolidWorks, Altium logos razor sharp",
+      "tags": [
+        "paddock",
+        "sponsors",
+        "decals",
+        "livery",
+        "branding",
+        "side panel",
+        "close-up"
+      ],
+      "substitutable_for": [
+        "sponsor_livery_detail",
+        "branding_close_up",
+        "sponsor_decals_showcase"
+      ]
+    },
+    {
+      "id": "img_6036",
+      "filename": "img_6036.webp",
+      "category": "paddock",
+      "action": "team members gathered in conversation around car",
+      "people_count": 5,
+      "people": [
+        {
+          "person": "person 1 through person 5",
+          "role": "subteam engineers",
+          "attire": "team shirts and caps",
+          "posture": "standing in circle around car discussing track conditions"
+        }
+      ],
+      "setting": "paddock open space under afternoon light",
+      "tags": [
+        "paddock",
+        "discussion",
+        "circle",
+        "team conversation",
+        "paddock atmosphere"
+      ],
+      "substitutable_for": [
+        "team_discussion",
+        "paddock_gathering",
+        "crew_circle"
+      ]
+    },
+    {
+      "id": "img_6038",
+      "filename": "img_6038.webp",
+      "category": "paddock",
+      "action": "mechanics performing rapid servicing on car",
+      "people_count": 3,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "mechanic",
+          "attire": "team tee",
+          "posture": "wiping dust off shock damper shaft"
+        },
+        {
+          "person": "person 2",
+          "role": "mechanic",
+          "attire": "team tee",
+          "posture": "checking tire pressure with digital gauge"
+        },
+        {
+          "person": "person 3",
+          "role": "support tech",
+          "attire": "team hoodie",
+          "posture": "holding air bottle"
+        }
+      ],
+      "setting": "paddock pit area",
+      "tags": [
+        "paddock",
+        "rapid servicing",
+        "tire pressure",
+        "shock cleaning",
+        "pit stop",
+        "maintenance"
+      ],
+      "substitutable_for": [
+        "pit_stop_servicing",
+        "rapid_maintenance",
+        "tire_pressure_check"
+      ]
+    },
+    {
+      "id": "img_6045",
+      "filename": "img_6045.webp",
+      "category": "paddock",
+      "action": "crew members with tools laid out systematically around car",
+      "people_count": 3,
+      "people": [
+        {
+          "person": "person 1",
+          "role": "lead technician",
+          "attire": "team shirt, work gloves",
+          "posture": "reaching for 1/2-inch drive socket from organized socket rail on floor"
+        },
+        {
+          "person": "person 2",
+          "role": "mechanic",
+          "attire": "team gear",
+          "posture": "holding impact driver near rear hub"
+        },
+        {
+          "person": "person 3",
+          "role": "mechanic",
+          "attire": "team tee",
+          "posture": "inspecting chain/belt tension"
+        }
+      ],
+      "setting": "paddock workspace with tools and wrenches neatly laid out on ground",
+      "tags": [
+        "paddock",
+        "tools laid out",
+        "sockets",
+        "wrenches",
+        "organized",
+        "systematic",
+        "deep maintenance"
+      ],
+      "substitutable_for": [
+        "organized_tool_setup",
+        "deep_maintenance_session",
+        "systematic_pit_crew"
+      ]
+    },
+    {
+      "id": "3dconnexion",
+      "filename": "3dconnexion.png",
+      "category": "logo",
+      "company": "3Dconnexion",
+      "type": "software_partner",
+      "description": "3D SpaceMouse hardware and CAD navigation drivers partner logo",
+      "tags": [
+        "sponsor",
+        "software",
+        "cad",
+        "hardware",
+        "partner"
+      ]
+    },
+    {
+      "id": "altair",
+      "filename": "altair.png",
+      "category": "logo",
+      "company": "Altair",
+      "type": "software_partner",
+      "description": "Engineering simulation, FEA, multi-body dynamics and structural optimization software logo",
+      "tags": [
+        "sponsor",
+        "software",
+        "fea",
+        "simulation",
+        "partner"
+      ]
+    },
+    {
+      "id": "altium",
+      "filename": "altium.png",
+      "category": "logo",
+      "company": "Altium Designer",
+      "type": "software_partner",
+      "description": "Electronic design automation, PCB layout, and sensor wiring schematic software logo",
+      "tags": [
+        "sponsor",
+        "software",
+        "electrical",
+        "pcb",
+        "partner"
+      ]
+    },
+    {
+      "id": "continual",
+      "filename": "continual.png",
+      "category": "logo",
+      "company": "Continual Energy",
+      "type": "corporate_sponsor",
+      "description": "Industrial energy and power infrastructure partner logo",
+      "tags": [
+        "sponsor",
+        "corporate",
+        "energy",
+        "partner"
+      ]
+    },
+    {
+      "id": "dbg",
+      "filename": "dbg.png",
+      "category": "logo",
+      "company": "DBG",
+      "type": "corporate_sponsor",
+      "description": "Heavy manufacturing, metal stamping, and custom tooling partner logo",
+      "tags": [
+        "sponsor",
+        "corporate",
+        "manufacturing",
+        "stamping",
+        "partner"
+      ]
+    },
+    {
+      "id": "eef",
+      "filename": "eef.png",
+      "category": "logo",
+      "company": "uOttawa Engineering Endowment Fund (EEF)",
+      "type": "institutional_partner",
+      "description": "Student-funded university endowment fund backing competitive engineering design teams logo",
+      "tags": [
+        "sponsor",
+        "institutional",
+        "uottawa",
+        "endowment",
+        "funding",
+        "partner"
+      ]
+    },
+    {
+      "id": "etbo",
+      "filename": "etbo.png",
+      "category": "logo",
+      "company": "ETBO Tool & Die",
+      "type": "manufacturing_partner",
+      "description": "Precision tooling, custom CNC machining, and progressive dies partner logo",
+      "tags": [
+        "sponsor",
+        "manufacturing",
+        "machining",
+        "tool and die",
+        "partner"
+      ]
+    },
+    {
+      "id": "kisssoft",
+      "filename": "kisssoft.png",
+      "category": "logo",
+      "company": "KISSsoft",
+      "type": "software_partner",
+      "description": "Gearbox calculation, gear tooth optimization, and transmission modeling software logo",
+      "tags": [
+        "sponsor",
+        "software",
+        "drivetrain",
+        "gearbox",
+        "gears",
+        "partner"
+      ]
+    },
+    {
+      "id": "miller-scotiamcleod",
+      "filename": "miller-scotiamcleod.png",
+      "category": "logo",
+      "company": "The Miller Investment Management Group, ScotiaMcLeod",
+      "type": "corporate_sponsor",
+      "description": "Wealth and investment management team competition travel endowment sponsor logo",
+      "tags": [
+        "sponsor",
+        "corporate",
+        "financial",
+        "travel",
+        "partner"
+      ]
+    },
+    {
+      "id": "siemens",
+      "filename": "siemens.png",
+      "category": "logo",
+      "company": "Siemens",
+      "type": "software_partner",
+      "description": "Industrial automation, PLM, and digital engineering software partner logo",
+      "tags": [
+        "sponsor",
+        "software",
+        "plm",
+        "engineering",
+        "partner"
+      ]
+    },
+    {
+      "id": "solidworks",
+      "filename": "solidworks.png",
+      "category": "logo",
+      "company": "SolidWorks (Dassault Syst\u00e8mes)",
+      "type": "software_partner",
+      "description": "3D mechanical computer-aided design, weldment modeling, and assemblies software logo",
+      "tags": [
+        "sponsor",
+        "software",
+        "cad",
+        "3d",
+        "design",
+        "partner"
+      ]
+    },
+    {
+      "id": "uottawa",
+      "filename": "uottawa.png",
+      "category": "logo",
+      "company": "University of Ottawa (Faculty of Engineering)",
+      "type": "institutional_partner",
+      "description": "University of Ottawa Faculty of Engineering institution crest logo",
+      "tags": [
+        "sponsor",
+        "institutional",
+        "university",
+        "faculty of engineering",
+        "uottawa",
+        "partner"
+      ]
+    },
+    {
+      "id": "vr3",
+      "filename": "vr3.png",
+      "category": "logo",
+      "company": "VR3 Engineering",
+      "type": "manufacturing_partner",
+      "description": "Computer-controlled laser tube notching and 4130 steel tubing fabrication partner logo",
+      "tags": [
+        "sponsor",
+        "manufacturing",
+        "tubing",
+        "roll cage",
+        "laser cutting",
+        "partner"
+      ]
+    },
+    {
+      "id": "grunge-mask",
+      "filename": "grunge-mask.webp",
+      "category": "texture",
+      "company": "Rough Rider Racing (Design System)",
+      "type": "text_mask",
+      "description": "High-contrast grunge distressing mask used by .worn CSS class to give display headings distressed stencil motorsport grit",
+      "tags": [
+        "texture",
+        "grunge",
+        "mask",
+        "stencil",
+        "typography",
+        "css"
+      ]
+    },
+    {
+      "id": "scratches",
+      "filename": "scratches.webp",
+      "category": "texture",
+      "company": "Rough Rider Racing (Design System)",
+      "type": "overlay",
+      "description": "Mechanical scratches and surface wear overlay applied to .scratched garnet container surfaces",
+      "tags": [
+        "texture",
+        "scratches",
+        "overlay",
+        "wear",
+        "css"
+      ]
+    },
+    {
+      "id": "splatter",
+      "filename": "splatter.webp",
+      "category": "texture",
+      "company": "Rough Rider Racing (Design System)",
+      "type": "accent",
+      "description": "Organic dirt and mud spray splatter graphics used as background edge accents",
+      "tags": [
+        "texture",
+        "splatter",
+        "mud",
+        "dirt",
+        "accent",
+        "css"
+      ]
+    },
+    {
+      "id": "torn-top",
+      "filename": "torn-top.svg",
+      "category": "texture",
+      "company": "Rough Rider Racing (Design System)",
+      "type": "divider",
+      "description": "Seamless vector mask creating the torn-paper rugged top section edge transition",
+      "tags": [
+        "texture",
+        "torn paper",
+        "divider",
+        "svg",
+        "mask",
+        "css"
+      ]
+    },
+    {
+      "id": "torn-bottom",
+      "filename": "torn-bottom.svg",
+      "category": "texture",
+      "company": "Rough Rider Racing (Design System)",
+      "type": "divider",
+      "description": "Seamless vector mask creating the torn-paper rugged bottom section edge transition",
+      "tags": [
+        "texture",
+        "torn paper",
+        "divider",
+        "svg",
+        "mask",
+        "css"
+      ]
+    },
+    {
+      "id": "car-placeholder",
+      "filename": "car-placeholder.svg",
+      "category": "tech_schematic",
+      "company": "Rough Rider Racing (Design System)",
+      "type": "schematic",
+      "description": "Blueprint silhouette side profile of the RRR vehicle mapping 10 coordinate hotspots (chassis, front suspension, steering, brakes, cockpit, electrical, engine, CVT, gearbox, rear suspension)",
+      "tags": [
+        "tech",
+        "schematic",
+        "car",
+        "blueprint",
+        "hotspots",
+        "svg",
+        "interactive"
+      ]
+    },
+    {
+      "id": "logo",
+      "filename": "logo.png",
+      "category": "branding",
+      "company": "Rough Rider Racing (uOttawa Baja SAE)",
+      "type": "crest",
+      "description": "Official Rough Rider Racing team crest emblem used in site header, splash loading gauge, and page-enter wipe",
+      "tags": [
+        "branding",
+        "logo",
+        "crest",
+        "emblem",
+        "uottawa baja",
+        "rough rider racing"
+      ]
+    },
+    {
+      "id": "favicon",
+      "filename": "favicon.png",
+      "category": "branding",
+      "company": "Rough Rider Racing (uOttawa Baja SAE)",
+      "type": "favicon",
+      "description": "Browser tab icon featuring the team crest",
+      "tags": [
+        "branding",
+        "favicon",
+        "icon"
+      ]
+    }
+  ]
+}
