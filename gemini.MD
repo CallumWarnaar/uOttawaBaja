@@ -62,6 +62,8 @@ Website/
 ├── CLAUDE.md                       ← Historical Claude agent guidelines
 ├── LaunchPrep.md                   ← Launch checklist and content tracking
 ├── MemberPortal.md                 ← Member & sponsor login portal specification
+├── PortalAgentPlan.md              ← Portal work packages for agents
+├── PortalCallumPlan.md             ← Portal checklist for Callum
 ├── Optimization.md                 ← Performance benchmarks and asset optimization plan
 └── gemini.MD                       ← This document
 ```
@@ -200,6 +202,7 @@ Reviewed 2026-10-09. Fixed items stay listed so they aren't reported again.
 - [ ] **Full Team Roster (`roster-data.js`)**:
   - Replace the 40 "TBD / Under construction" placeholder entries with confirmed member names, programs, and graduation years from the team roster sheet.
 - [ ] **Member & Sponsor Portal (`MemberPortal.md`, `portal/`)**:
+  - Execution plans: `PortalAgentPlan.md` (agent work packages + ground rules, read before touching `portal/`) and `PortalCallumPlan.md` (Callum's decisions D1–D6 and deploy steps).
   - Future implementation of authenticated member directory with role-based visibility (Cognito + Lambda + Postgres).
 - [ ] **Merch E-Commerce Checkout (`merch.html`)**:
   - Integrate server-side PayPal Orders API and shopping cart when apparel designs and pricing are finalized.

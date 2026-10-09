@@ -84,7 +84,7 @@ Callum is sending pre-launch change requests in batches. **`LaunchPrep.md` (repo
 
 ## Member & sponsor portal (planned, not built)
 
-`MemberPortal.md` (repo root) is the plan to hide the full roster behind a login for sponsors and team members; `portal/` holds the scaffold (Postgres `db/schema.sql` with role-filtered views, `db/seed.sql` fake data, Lambda `api/handler.mjs`). `portal/` is outside `baja-site/`, so it isn't deployed and `build.py` ignores it. Key rule: private profile fields must leave `roster-data.js` (anything in the static site is public), and the API filters by role server-side. Nothing in AWS (Cognito, API Gateway, Lambda, database, S3) gets created without Callum's go-ahead, and he still has to pick the database host and field visibility.
+`MemberPortal.md` (repo root) is the plan to hide the full roster behind a login for sponsors and team members; `portal/` holds the scaffold (Postgres `db/schema.sql` with role-filtered views, `db/seed.sql` fake data, Lambda `api/handler.mjs`). `portal/` is outside `baja-site/`, so it isn't deployed and `build.py` ignores it. Key rule: private profile fields must leave `roster-data.js` (anything in the static site is public), and the API filters by role server-side. Nothing in AWS (Cognito, API Gateway, Lambda, database, S3) gets created without Callum's go-ahead, and he still has to pick the database host and field visibility. **Execution plans (2026-10-09):** `PortalAgentPlan.md` = agent work packages WP1–WP7 (WP1 migrations + PGlite tests and WP2 roster import can start without Callum; ground rules at the top), `PortalCallumPlan.md` = Callum's steps and decisions D1–D6. Real roster data goes only in git-ignored `portal/private/`.
 
 ## Pending review (don't change yet)
 
