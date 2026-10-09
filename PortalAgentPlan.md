@@ -32,7 +32,7 @@ baja-site/assets/js/portal-config.js   public IDs/URLs output by the SAM deploy
 
 ## Work packages
 
-Dependencies are shown as "after". WP1 and WP2 can start now (they need no decisions from Callum). Everything that depends on a decision says which one (D1–D6, listed in `PortalCallumPlan.md`).
+Dependencies are shown as "after". WP1 and WP2 can start now. **D1–D6 were answered on 2026-10-09** (table in `MemberPortal.md`, "Decisions"): Neon, so WP4 has no VPC; public fields = first name, headshot, subteam + title, program; admins = Callum and Nora.
 
 ### WP1: Database migrations and tests harness (now)
 - [ ] Move `db/schema.sql` to `db/migrations/001_init.sql`; leave `schema.sql` deleted, update docs.
@@ -45,7 +45,7 @@ Dependencies are shown as "after". WP1 and WP2 can start now (they need no decis
 ### WP2: Roster import tool (now; real run needs D2)
 - [ ] `tools/import_roster.py` (stdlib `csv`): reads `portal/private/roster.csv` (columns in `PortalCallumPlan.md`, step 3) and writes:
   - `portal/private/roster-import.sql`: upserts into `members`, `member_roles`, `subteams` (git-ignored, Callum runs it).
-  - `baja-site/assets/js/roster-data.js` entries with **public fields only** (per D2), replacing the `placeholder` loop.
+  - `baja-site/assets/js/roster-data.js` entries with **public fields only** (D2: `id`, first `name`, `photo`, `roles` (subteam + title), `program`, plus `rank`/`lead` for card layout), replacing the `placeholder` loop. No `grad`, `joined`, `about`, `focus`, `highlights`, `seeking`, `links`.
 - [ ] Validates: unique ids, subteam names match `RRR_TEAMS`, 4-digit grad year, no empty names; prints a summary, exits non-zero on errors.
 - [ ] Test with a fake CSV in `portal/tools/test/`.
 - Done when: a fake CSV round-trips into PGlite and into a `roster-data.js` that `roster.html` renders (headless Edge check).
@@ -80,7 +80,7 @@ Dependencies are shown as "after". WP1 and WP2 can start now (they need no decis
 - Done when: the page works end to end against the mock, and nothing private is in any static file.
 
 ### WP6: Go-live (after Callum's step 6 tests pass; PR waits for Callum)
-- [ ] Strip private fields (per D2) from `roster-data.js`; the public drawer says "Sponsors and members: log in for full profiles" with a link to `portal.html`.
+- [ ] Strip private fields (per D2) from `roster-data.js` and `roster.js`: the public list loses the "Class" column (grad year is login-only now) and sort by class/seniority; the public drawer says "Sponsors and members: log in for full profiles" with a link to `portal.html`.
 - [ ] `amplify.yml`: Content-Security-Policy for `portal.html` (`connect-src` = API + auth domain, `frame-ancestors 'none'`), `Referrer-Policy`, `X-Content-Type-Options`. **Needs Callum's go-ahead.**
 - [ ] `privacy.html` (from Callum's approved text, D6), linked from the portal and footer.
 - [ ] Update docs: CLAUDE.md "Member & sponsor portal" from planned → live, README, `gemini.MD`.

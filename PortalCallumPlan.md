@@ -8,7 +8,7 @@ What **you** do to get the sponsor & member login live. Agents write the code (s
 
 | Step | You do | Time | Unblocks |
 |---|---|---|---|
-| 1 | Answer decisions D1–D6 | 15 min | everything |
+| 1 | ~~Answer decisions D1–D6~~ ✔ done 2026-10-09 | | everything |
 | 2 | Privacy OK from Jason and Alex | 1 email | go-live |
 | 3 | Fill the roster spreadsheet | 30 min | real data |
 | 4 | AWS account, tools, budget alert | 1 hr | deploy |
@@ -20,9 +20,9 @@ What **you** do to get the sponsor & member login live. Agents write the code (s
 
 Agents can start WP1 and WP2 right now; they don't need anything from you yet.
 
-## Step 1: Decisions
+## Step 1: Decisions ✔ (answered 2026-10-09)
 
-Reply in chat with your picks (e.g. "D1 Neon, D2 as recommended, D3 me + Nora + Etienne, …"). The agent records them in `MemberPortal.md`.
+Your answers are recorded in `MemberPortal.md` ("Decisions"): Neon; public = first name, headshot, subteam, program, everything else behind login; admins = you and Nora; all sponsor tiers; same AWS account; agent drafts the privacy notice, you review. The table below is the original question list, kept for reference.
 
 | # | Question | Recommended | Why |
 |---|---|---|---|
@@ -35,8 +35,8 @@ Reply in chat with your picks (e.g. "D1 Neon, D2 as recommended, D3 me + Nora + 
 
 ## Step 2: Privacy sign-off
 
-1. Ask an agent to draft the privacy notice + a short email to Jason and Alex (what's stored, who sees it, opt-in for sponsors, how to delete it, where it's hosted).
-2. Send it from your own email. Ask them two things: is the notice OK, and **does member data have to stay in Canada** (that settles D1).
+1. ~~Ask an agent to draft~~ Done: review `portal/drafts/privacy-notice.md` (the **Check** list at the top has the choices to confirm) and `portal/drafts/advisor-email.md`.
+2. Send the email from your own email, with the notice attached or pasted in. Ask them two things: is the notice OK, and **does member data have to stay in Canada** (that settles D1).
 3. Save their reply. Go-live (step 8) waits for it.
 
 ## Step 3: Roster spreadsheet
