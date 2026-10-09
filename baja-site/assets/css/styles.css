@@ -125,30 +125,16 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
   background: url("../img/texture/scratches.webp") center / 900px auto; opacity: .35; mix-blend-mode: overlay;
 }
-/* Mud kick-up decoration */
-.mud {
-  position: absolute; pointer-events: none; width: min(70vw, 900px); aspect-ratio: 7 / 3; background: var(--grey);
-  -webkit-mask: url("../img/texture/splatter.webp") center / contain no-repeat; mask: url("../img/texture/splatter.webp") center / contain no-repeat;
-  opacity: .22;
-}
 /* Hazard stripe band */
 .hazard { height: 14px; background: repeating-linear-gradient(-45deg, var(--garnet) 0 18px, var(--bg) 18px 36px); }
 .hazard--grey { background: repeating-linear-gradient(-45deg, var(--charcoal-2) 0 18px, var(--bg) 18px 36px); }
-/* Tire-tread divider */
-.tread {
-  height: 28px; opacity: .5;
-  background:
-    linear-gradient(135deg, var(--charcoal-2) 25%, transparent 25%) 0 0 / 28px 28px,
-    linear-gradient(225deg, var(--charcoal-2) 25%, transparent 25%) 0 0 / 28px 28px;
-}
 /* Torn paper edges: set --edge to the section's own background colour */
-.torn-top, .torn-bottom { position: relative; }
-.torn-top::before, .torn-bottom::after {
+.torn-top { position: relative; }
+.torn-top::before {
   content: ""; position: absolute; left: 0; right: 0; height: 44px; background: var(--edge, var(--bg)); z-index: 2; pointer-events: none;
   -webkit-mask-size: 100% 100%; mask-size: 100% 100%;
 }
 .torn-top::before { top: -43px; -webkit-mask-image: url("../img/texture/torn-top.svg"); mask-image: url("../img/texture/torn-top.svg"); }
-.torn-bottom::after { bottom: -43px; -webkit-mask-image: url("../img/texture/torn-bottom.svg"); mask-image: url("../img/texture/torn-bottom.svg"); }
 
 /* ---------- 04 SPLASH + PAGE WIPES -------------------------------------- */
 .splash {
@@ -293,7 +279,6 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
 
 /* ---------- 10 MARQUEE -------------------------------------------------- */
 .marquee { position: relative; overflow: hidden; background: var(--garnet); color: var(--white); padding-block: 1.1rem; transform: rotate(-2deg) scale(1.04); margin-block: -1rem; z-index: 3; }
-.marquee--dark { background: var(--charcoal); transform: rotate(1.5deg) scale(1.04); }
 .marquee__track { display: flex; width: max-content; will-change: transform; }
 .marquee__group { display: flex; align-items: center; flex-shrink: 0; }
 .marquee__item { font-family: var(--f-stencil); font-weight: 900; font-size: clamp(2rem, 5vw, 4rem); line-height: 1; text-transform: uppercase; padding-inline: .6em; white-space: nowrap; }
@@ -354,7 +339,6 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
 @media (min-width: 1366px) { .split--media { grid-template-columns: 1.35fr 1fr; } }
 
 .grid { display: grid; gap: var(--s3); }
-.grid--2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
 .grid--3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
 .grid--4 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
 
@@ -469,14 +453,6 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
 .roster-chip small { font-size: inherit; letter-spacing: .05em; opacity: .7; font-variant-numeric: tabular-nums; }
 .roster-chip:hover { color: var(--polar); border-color: var(--grey); }
 .roster-chip[aria-pressed="true"] { color: var(--white); background: var(--garnet); border-color: var(--garnet); }
-.roster-sort { display: flex; align-items: center; gap: .75rem; }
-.roster-sort label { font-family: var(--f-label); font-weight: 700; font-size: var(--fs-xs); letter-spacing: .2em; text-transform: uppercase; color: var(--text-muted); }
-.roster-sort select {
-  appearance: none; -webkit-appearance: none; cursor: pointer; color-scheme: dark;
-  font-family: var(--f-label); font-weight: 700; font-size: var(--fs-sm); letter-spacing: .12em; text-transform: uppercase;
-  color: var(--polar); background: var(--charcoal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23f2f2f2'/%3E%3C/svg%3E") no-repeat right .9rem center;
-  border: 1px solid var(--line); padding: .6rem 2.4rem .6rem .9rem;
-}
 .roster-count { margin: var(--s2) 0 var(--s4); font-family: var(--f-label); font-size: var(--fs-xs); letter-spacing: .2em; text-transform: uppercase; color: var(--text-muted); }
 .roster-card { display: block; color: inherit; text-decoration: none; }
 .roster-card:focus-visible .member__photo, .roster-card:hover .member__photo { filter: none; }
@@ -509,7 +485,7 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
 @media (max-width: 900px) { .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s3) var(--s2); } .product__name { font-size: 1.3rem; } .product__img span { font-size: 1.15rem; padding: .4rem .6rem; white-space: nowrap; } }
 
 /* Members list: slim rows (headshot · name/title · subteam tags · class · major) */
-.roster-list, .roster-list__head { --cols: 56px minmax(0, 1.3fr) minmax(0, 1.2fr) 5.5rem minmax(0, 1.3fr) 1.5rem; }
+.roster-list, .roster-list__head { --cols: 56px minmax(0, 1.3fr) minmax(0, 1.2fr) minmax(0, 1.3fr) 1.5rem; }
 .roster-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
 .roster-list__head {
   display: grid; grid-template-columns: var(--cols); gap: var(--s3); padding: 0 var(--s2) .6rem;
@@ -528,8 +504,7 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
 .roster-row__name { font-family: var(--f-display); font-weight: 800; font-size: 1.35rem; line-height: 1; text-transform: uppercase; margin: 0; }
 .roster-row__title { font-family: var(--f-label); font-size: var(--fs-xs); letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); margin: .3rem 0 0; }
 .roster-row__teams { margin: 0; }
-.roster-row__class, .roster-row__major { margin: 0; font-size: var(--fs-sm); }
-.roster-row__class { font-family: var(--f-label); font-weight: 600; letter-spacing: .08em; font-variant-numeric: tabular-nums; }
+.roster-row__major { margin: 0; font-size: var(--fs-sm); }
 .roster-row .is-empty { color: var(--text-muted); }
 .roster-row__go { color: var(--text-muted); transition: transform .3s var(--ease-out), color .2s; }
 .roster-row:hover .roster-row__go, .roster-row:focus-visible .roster-row__go { color: var(--garnet); transform: translateX(4px); }
@@ -537,15 +512,14 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
   .roster-list__head { display: none; }
   .roster-row {
     grid-template-columns: 56px auto minmax(0, 1fr) 1.2rem; gap: .45rem var(--s2); align-items: start;
-    grid-template-areas: "photo who who go" "photo teams teams go" "photo class major go";
+    grid-template-areas: "photo who who go" "photo teams teams go" "photo major major go";
   }
   .roster-row__photo { grid-area: photo; }
   .roster-row__who { grid-area: who; }
   .roster-row__teams { grid-area: teams; }
-  .roster-row__class { grid-area: class; }
   .roster-row__major { grid-area: major; }
   .roster-row__go { grid-area: go; }
-  .roster-row__class::before, .roster-row__major::before { content: attr(data-label) " "; font-family: var(--f-label); font-weight: 700; font-size: var(--fs-xs); letter-spacing: .2em; text-transform: uppercase; color: var(--text-muted); margin-right: .4rem; }
+  .roster-row__major::before { content: attr(data-label) " "; font-family: var(--f-label); font-weight: 700; font-size: var(--fs-xs); letter-spacing: .2em; text-transform: uppercase; color: var(--text-muted); margin-right: .4rem; }
 }
 
 .profile { position: fixed; inset: 0; z-index: 9000; } /* above the site header (8000), below page wipes */
@@ -569,6 +543,8 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
 .profile__role { margin: .4rem 0 0; font-family: var(--f-label); font-weight: 600; font-size: var(--fs-sm); letter-spacing: .12em; text-transform: uppercase; color: var(--polar); }
 .profile__role .tag { margin-right: .35rem; }
 .profile__facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; margin: 0; background: var(--line); border: 1px solid var(--line); }
+.profile__facts--one { grid-template-columns: 1fr; }
+/* .profile__section/__about/__tags are kept for the login portal's full profiles (PortalAgentPlan.md, WP5) */
 .profile__fact { background: var(--charcoal); padding: .8rem 1rem; }
 .profile__fact dt { font-family: var(--f-label); font-weight: 700; font-size: var(--fs-xs); letter-spacing: .2em; text-transform: uppercase; color: var(--text-muted); }
 .profile__fact dd { margin: .2rem 0 0; font-weight: 600; }

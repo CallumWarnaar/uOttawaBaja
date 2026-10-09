@@ -4,11 +4,11 @@
        Hotspot positions in pages/tech.html match these component coordinates. -->
 
   <!-- ground + wheelbase dimension -->
-  <g stroke="#908681" stroke-width="3" opacity=".55">
+  <g stroke="#a3a3a3" stroke-width="3" opacity=".55">
     <path d="M40 812 H1560" stroke-dasharray="6 14"/>
     <path d="M360 832 v36 M1180 832 v36 M360 850 H1180" stroke-width="2"/>
   </g>
-  <text x="770" y="885" fill="#908681" font-family="monospace" font-size="22" text-anchor="middle">WHEELBASE: 70 IN (1778 MM)</text>
+  <text x="770" y="885" fill="#a3a3a3" font-family="monospace" font-size="22" text-anchor="middle">WHEELBASE: 70 IN (1778 MM)</text>
 
   <!-- body panels (translucent background fills) -->
   <!-- cockpit lower side panel with sponsor area cut -->
@@ -142,5 +142,5 @@
   <!-- electrical: master kill switch + wiring harness -->
   <rect x="995" y="325" width="40" height="40" fill="#8f001a" rx="4"/>
   <circle cx="1015" cy="345" r="10" fill="#f2f2f2"/>
-  <path d="M1015 365 C 1015 420, 1050 440, 1080 445" stroke="#908681" stroke-width="3" stroke-dasharray="10 8"/>
+  <path d="M1015 365 C 1015 420, 1050 440, 1080 445" stroke="#a3a3a3" stroke-width="3" stroke-dasharray="10 8"/>
 </svg>

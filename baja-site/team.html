@@ -30,7 +30,7 @@
   <link rel="preload" href="assets/fonts/big-shoulders-display-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/vendor/lenis.css?v=2f668ae8">
-  <link rel="stylesheet" href="assets/css/styles.css?v=1794385b">
+  <link rel="stylesheet" href="assets/css/styles.css?v=064ca588">
   <script src="assets/vendor/gsap.min.js?v=92bb9a96" defer></script>
   <script src="assets/vendor/ScrollTrigger.min.js?v=b0b14d67" defer></script>
   <script src="assets/vendor/SplitText.min.js?v=419f7027" defer></script>
@@ -137,9 +137,10 @@
 
     <!--
       MEMBER CARD — copy one <article class="member"> per person.
-      Headshot:     <div class="member__photo" style="background-image:url('assets/img/team/firstname-lastname.jpg')"></div>
+      Headshot:     <div class="member__photo" style="background-image:url('assets/img/team/firstname.webp')"></div>
       No headshot:  <div class="member__photo"><span class="member__initials" aria-hidden="true">AB</span></div>
-      Headshots: portrait 4:5 crop, ~800x1000 JPG, saved to assets/img/team/ (shown greyscale, colour on hover).
+      Headshots: portrait 4:5 crop, ~800x1000 WebP, saved to assets/img/team/ (shown greyscale, colour on hover).
+      Convert phone/camera photos with optimize_images.py first: build.py refuses images with GPS/camera metadata.
     -->
 
     <section id="leadership" class="section section--tight section--garnet scratched" aria-labelledby="lead-title">
@@ -361,7 +362,7 @@
 
   <!-- Lightbox (used by galleries) -->
   <div class="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
-    <img src="" alt="">
+    <img alt="">
     <button class="lightbox__close" type="button" aria-label="Close">✕</button>
     <button class="lightbox__prev" type="button" aria-label="Previous photo">‹</button>
     <button class="lightbox__next" type="button" aria-label="Next photo">›</button>

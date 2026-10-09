@@ -29,14 +29,6 @@ og_image: img_4479
         <h2 id="roster-title" class="visually-hidden">Team members</h2>
         <div class="roster-controls">
           <div class="roster-filter" role="group" aria-label="Filter by subteam" data-roster-filters></div>
-          <div class="roster-sort">
-            <label for="roster-sort">Sort by</label>
-            <select id="roster-sort" data-roster-sort>
-              <option value="alpha">Name (A–Z)</option>
-              <option value="seniority">Seniority</option>
-              <option value="class">Class year</option>
-            </select>
-          </div>
         </div>
         <p class="roster-count" data-roster-count aria-live="polite"></p>
         <div data-roster>
@@ -46,10 +38,10 @@ og_image: img_4479
             <h3 class="roster-block__title">Leads</h3>
             <div class="grid grid--members roster-grid" data-roster-leads></div>
           </div>
-          <!-- Everyone else: slim list with headshot, subteam tags, class and major -->
+          <!-- Everyone else: slim list with headshot, subteam tags and major (public fields only, see roster-data.js) -->
           <div class="roster-block" data-roster-members-wrap>
             <h3 class="roster-block__title">Members</h3>
-            <div class="roster-list__head" aria-hidden="true"><span></span><span>Name</span><span>Subteam</span><span>Class</span><span>Major</span><span></span></div>
+            <div class="roster-list__head" aria-hidden="true"><span></span><span>Name</span><span>Subteam</span><span>Major</span><span></span></div>
             <ul class="roster-list" data-roster-list></ul>
           </div>
         </div>

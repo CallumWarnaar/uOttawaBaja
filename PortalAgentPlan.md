@@ -80,7 +80,7 @@ Dependencies are shown as "after". WP1 and WP2 can start now. **D1–D6 were ans
 - Done when: the page works end to end against the mock, and nothing private is in any static file.
 
 ### WP6: Go-live (after Callum's step 6 tests pass; PR waits for Callum)
-- [ ] Strip private fields (per D2) from `roster-data.js` and `roster.js`: the public list loses the "Class" column (grad year is login-only now) and sort by class/seniority; the public drawer says "Sponsors and members: log in for full profiles" with a link to `portal.html`.
+- [x] *(Done early, 2026-10-09 final audit; `build.py` now refuses private keys in `roster-data.js`.)* Strip private fields (per D2) from `roster-data.js` and `roster.js`: the public list loses the "Class" column (grad year is login-only now) and sort by class/seniority; the public drawer says "Sponsors and members: log in for full profiles" with a link to `portal.html`.
 - [ ] `amplify.yml`: Content-Security-Policy for `portal.html` (`connect-src` = API + auth domain, `frame-ancestors 'none'`), `Referrer-Policy`, `X-Content-Type-Options`. **Needs Callum's go-ahead.**
 - [ ] `privacy.html` (from Callum's approved text, D6), linked from the portal and footer.
 - [ ] Update docs: CLAUDE.md "Member & sponsor portal" from planned → live, README, `gemini.MD`.

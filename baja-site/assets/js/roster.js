@@ -1,11 +1,15 @@
 /* =========================================================================
    Full roster: renders RRR_ROSTER (roster-data.js) as leads (full-size cards)
-   plus a slim members list, sortable and filterable, and opens a profile
+   plus a slim members list, A–Z and filterable by subteam, and opens a profile
    drawer per person at roster.html#person-id.
+   Public fields only (Callum's portal decision D2, 2026-10-09): first name, headshot,
+   subteam + title, program. Anything else in roster-data.js is dropped here, and
+   build.py refuses to build if private fields appear in that file at all.
    ========================================================================= */
 (function () {
   'use strict';
-  const people = window.RRR_ROSTER || [];
+  const PUBLIC_KEYS = ['id', 'name', 'sortName', 'rank', 'lead', 'roles', 'program', 'photo', 'placeholder'];
+  const people = (window.RRR_ROSTER || []).map((p) => Object.fromEntries(PUBLIC_KEYS.filter((k) => k in p).map((k) => [k, p[k]])));
   const teams = window.RRR_TEAMS || [];
   const root = document.querySelector('[data-roster]');
   if (!root) return;
@@ -14,35 +18,19 @@
   const leadsWrap = root.querySelector('[data-roster-leads-wrap]');
   const membersWrap = root.querySelector('[data-roster-members-wrap]');
   const isLead = (p) => p.lead === true || (p.rank ?? 2) <= 1;
-  const classYear = (p) => { const m = String(p.grad || '').match(/\d{4}/); return m ? Number(m[0]) : null; };
 
   const $ = (s, r = document) => r.querySelector(s);
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
   const initials = (name) => name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
-  const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} } };
 
-  const sortSel = $('[data-roster-sort]');
   const filterBox = $('[data-roster-filters]');
   const countEl = $('[data-roster-count]');
-  const savedSort = store.get('rrr-roster-sort');
-  let sortBy = savedSort === 'seniority' || savedSort === 'class' ? savedSort : 'alpha';
   let team = 'All';
   let visible = [];
 
   const byName = (a, b) => (a.sortName || a.name).localeCompare(b.sortName || b.name, 'en-CA', { sensitivity: 'base' });
-  const sorters = {
-    alpha: (a, b) => (a.placeholder ? 1 : 0) - (b.placeholder ? 1 : 0) || byName(a, b),
-    seniority: (a, b) =>
-      (a.joined ?? Infinity) - (b.joined ?? Infinity) ||
-      (a.rank ?? 2) - (b.rank ?? 2) ||
-      (a.placeholder ? 1 : 0) - (b.placeholder ? 1 : 0) ||
-      byName(a, b),
-    class: (a, b) =>
-      (classYear(a) ?? Infinity) - (classYear(b) ?? Infinity) ||
-      (a.placeholder ? 1 : 0) - (b.placeholder ? 1 : 0) ||
-      byName(a, b),
-  };
-  const sortLabel = { alpha: 'A–Z', seniority: 'most senior first', class: 'by class year' };
+  // A–Z, empty "TBD" slots last (seniority and class-year sorts need login-only fields, so they're gone)
+  const alpha = (a, b) => (a.placeholder ? 1 : 0) - (b.placeholder ? 1 : 0) || byName(a, b);
 
   function photo(p, cls) {
     const box = el('div', cls);
@@ -63,8 +51,7 @@
     a.append(photo(p, 'member__photo'));
     a.append(el('p', 'member__name', p.name));
     a.append(el('p', 'member__role', ((p.roles || [])[0] || {}).title || ''));
-    const meta = [classYear(p) && `Class of ${classYear(p)}`, p.program].filter(Boolean).join(' · ');
-    if (meta) a.append(el('p', 'roster-card__meta', meta));
+    if (p.program) a.append(el('p', 'roster-card__meta', p.program));
     a.append(teamTags(p));
     return a;
   }
@@ -79,18 +66,16 @@
     const who = el('div', 'roster-row__who');
     who.append(el('p', 'roster-row__name', p.name), el('p', 'roster-row__title', ((p.roles || [])[0] || {}).title || ''));
     const tags = teamTags(p); tags.classList.add('roster-row__teams');
-    const cy = classYear(p);
-    const cls = el('p', 'roster-row__class' + (cy ? '' : ' is-empty'), cy ? String(cy) : '—'); cls.dataset.label = 'Class';
     const major = el('p', 'roster-row__major' + (p.program ? '' : ' is-empty'), p.program || '—'); major.dataset.label = 'Major';
     const go = el('span', 'roster-row__go', '→'); go.setAttribute('aria-hidden', 'true');
-    a.append(who, tags, cls, major, go);
+    a.append(who, tags, major, go);
     li.append(a);
     return li;
   }
 
   function render() {
-    const shown = people.filter((p) => team === 'All' || (p.roles || []).some((r) => r.team === team)).sort(sorters[sortBy]);
-    const leads = shown.filter(isLead).sort((a, b) => (a.rank ?? 1) - (b.rank ?? 1) || sorters[sortBy](a, b)); // captain first
+    const shown = people.filter((p) => team === 'All' || (p.roles || []).some((r) => r.team === team)).sort(alpha);
+    const leads = shown.filter(isLead).sort((a, b) => (a.rank ?? 1) - (b.rank ?? 1) || alpha(a, b)); // captain first
     const members = shown.filter((p) => !isLead(p));
     visible = [...leads, ...members]; // drawer prev/next follows page order
     leadsGrid.textContent = '';
@@ -100,7 +85,7 @@
     leadsWrap.hidden = !leads.length;
     membersWrap.hidden = !members.length;
     const n = (k, one, many) => `${k} ${k === 1 ? one : many}`;
-    countEl.textContent = [n(leads.length, 'lead', 'leads'), n(members.length, 'member', 'members'), sortLabel[sortBy]].join(' · ');
+    countEl.textContent = [n(leads.length, 'lead', 'leads'), n(members.length, 'member', 'members')].join(' · ');
   }
 
   /* ---- Controls ---- */
@@ -119,8 +104,6 @@
     });
     filterBox.append(b);
   });
-  sortSel.value = sortBy;
-  sortSel.addEventListener('change', () => { sortBy = sortSel.value; store.set('rrr-roster-sort', sortBy); render(); });
 
   /* ---- Profile drawer ---- */
   const drawer = $('[data-profile]');
@@ -128,18 +111,6 @@
   const panel = $('.profile__panel', drawer);
   let current = null;
   let lastFocus = null;
-
-  function field(label, value) {
-    const d = el('div', 'profile__fact');
-    d.append(el('dt', '', label), el('dd', value ? '' : 'is-empty', value || 'To be added'));
-    return d;
-  }
-  function section(title, content, emptyText) {
-    const s = el('section', 'profile__section');
-    s.append(el('h3', '', title));
-    if (content) s.append(content); else s.append(el('p', 'profile__empty', emptyText));
-    return s;
-  }
 
   function fill(p) {
     body.textContent = '';
@@ -157,41 +128,17 @@
     body.append(head);
     if (p.placeholder) { body.append(el('p', 'profile__empty', 'This profile is under construction. Check back soon.')); return; }
 
-    const facts = el('dl', 'profile__facts');
-    facts.append(
-      field('Program', p.program),
-      field('Year', p.year),
-      field('Joined', p.joined ? `${p.joined}–${String(p.joined + 1).slice(-2)} season` : ''),
-      field('Graduating', p.grad),
-    );
-    body.append(facts);
-
-    let about = null;
-    if (p.about) { about = el('div', 'profile__about'); p.about.split(/\n\s*\n/).forEach((para) => about.append(el('p', '', para.trim()))); }
-    body.append(section('About me', about, 'About me coming soon.'));
-
-    let focus = null;
-    if (p.focus && p.focus.length) { focus = el('ul', 'profile__tags'); p.focus.forEach((f) => focus.append(el('li', '', f))); }
-    body.append(section('Focus areas', focus, 'Skills and focus areas coming soon.'));
-
-    let hl = null;
-    if (p.highlights && p.highlights.length) { hl = el('ul', 'check-list'); p.highlights.forEach((x) => hl.append(el('li', '', x))); }
-    body.append(section('On the car', hl, 'Design and build highlights coming soon.'));
-
-    if (p.seeking) body.append(section('Looking for', el('p', '', p.seeking)));
-
-    const L = p.links || {};
-    const row = el('div', 'btn-row profile__links');
-    [['linkedin', 'LinkedIn'], ['portfolio', 'Portfolio'], ['resume', 'Résumé']].forEach(([k, label]) => {
-      if (!L[k]) return;
-      const a = el('a', 'btn btn--sm', label + ' ↗'); a.href = L[k]; a.target = '_blank'; a.rel = 'noopener'; row.append(a);
-    });
-    if (L.email) { const a = el('a', 'btn btn--sm btn--ghost', L.email); a.href = 'mailto:' + L.email; row.append(a); }
-    if (!row.children.length) {
-      const a = el('a', 'btn btn--sm btn--ghost', 'Contact via baja@uottawa.ca');
-      a.href = 'mailto:baja@uottawa.ca?subject=' + encodeURIComponent('Connecting with ' + p.name);
-      row.append(a);
+    if (p.program) {
+      const facts = el('dl', 'profile__facts profile__facts--one');
+      const d = el('div', 'profile__fact');
+      d.append(el('dt', '', 'Program'), el('dd', '', p.program));
+      facts.append(d);
+      body.append(facts);
     }
+    const row = el('div', 'btn-row profile__links');
+    const a = el('a', 'btn btn--sm btn--ghost', 'Contact via baja@uottawa.ca');
+    a.href = 'mailto:baja@uottawa.ca?subject=' + encodeURIComponent('Connecting with ' + p.name);
+    row.append(a);
     body.append(row);
   }
 
