@@ -53,7 +53,7 @@ Full-size originals stay in Google Drive; the site only gets small web copies.
 1. Download the originals into a folder **outside** `baja-site/` (e.g. `website pics/`, which git ignores).
 2. From `site-src/`, run `python optimize_images.py "path/to/folder"` (needs Pillow: `pip install pillow`). Each photo becomes `assets/img/photos/<name>.webp` plus smaller `-640` and `-1280` copies. The name comes from the file name, e.g. `IMG_5212.JPG` → `img_5212`; use `python optimize_images.py photo.jpg --name good_name` to choose one.
 3. Use it in a page as `<img src="assets/img/photos/img_5212.webp" alt="What's in the photo" loading="lazy">`, then run `python build.py`. The build adds the sizes so phones download the small copy.
-4. Try not to reuse a photo already shown on another page; the gallery page (`gallery.html`) is the one place that collects them all.
+4. To find a photo by what's in it (car in dust, crew at the tent, a single person…), search `assets/image-tags.md` (or `image-tags.json`), an AI-made catalog of every image. Check the photo itself before using it, and add new photos to the catalog. Try not to reuse a photo already shown on another page; the gallery page (`gallery.html`) is the one place that collects them all.
 
 ## Updating the team
 
