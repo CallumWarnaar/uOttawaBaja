@@ -10,7 +10,7 @@ uOttawaBaja/
 │   ├── build.py         run:  python build.py   (Python 3, no packages needed)
 │   ├── perf_check.py    run:  python perf_check.py   (page weight per page, needs Edge)
 │   ├── partials/layout.html   shared <head>, splash, header, menu, footer
-│   └── pages/*.html     one file per page (index, about, team, tech, competitions, sponsors, merch, roster)
+│   └── pages/*.html     one file per page (index, about, team, tech, competitions, gallery, sponsors, merch, roster)
 ├── baja-site/           ← WHAT GETS PUBLISHED (HTML is generated, assets are edited by hand)
 │   ├── *.html           built by build.py, don't edit these directly
 │   └── assets/
@@ -53,7 +53,7 @@ Full-size originals stay in Google Drive; the site only gets small web copies.
 1. Download the originals into a folder **outside** `baja-site/` (e.g. `website pics/`, which git ignores).
 2. From `site-src/`, run `python optimize_images.py "path/to/folder"` (needs Pillow: `pip install pillow`). Each photo becomes `assets/img/photos/<name>.webp` plus smaller `-640` and `-1280` copies. The name comes from the file name, e.g. `IMG_5212.JPG` → `img_5212`; use `python optimize_images.py photo.jpg --name good_name` to choose one.
 3. Use it in a page as `<img src="assets/img/photos/img_5212.webp" alt="What's in the photo" loading="lazy">`, then run `python build.py`. The build adds the sizes so phones download the small copy.
-4. Try not to reuse a photo already shown on another page; the competitions gallery is the one place that collects them all.
+4. Try not to reuse a photo already shown on another page; the gallery page (`gallery.html`) is the one place that collects them all.
 
 ## Updating the team
 
@@ -93,14 +93,14 @@ All motion switches off for visitors with "reduce motion" enabled, and content s
 ## Writing copy
 Every section should tell the reader something new. Before adding a paragraph, check that the same point isn't already made elsewhere on the page or in a nearby section. Only a few sections are meant to summarize (the home-page stats, the sponsors-page tier table). On the sponsors page, keep the text short and let the sponsorship package PDF carry the detail. The October 2026 trims (batches 2 and 3 in `LaunchPrep.md`) cut repeated text and filler on every page along these lines.
 
-Keep the pages slim, too: sections use 6rem of padding on desktop (3.5rem on phones), page heroes are about two-thirds of the screen, and photo bands top out at 500px. Avoid adding extra full-height bands or spacer sections. The sponsors page has no light (Polar Grey) sections, since a near-white block in a dark page flashes when you scroll past it.
+Keep the pages slim, too: sections use 6rem of padding on desktop (3.5rem on phones), page heroes are about two-thirds of the screen, and photo bands top out at 500px. Avoid adding extra full-height bands or spacer sections. No page has light (Polar Grey) sections any more, since a near-white block in a dark page flashes when you scroll past it. For contrast, use the garnet red sections (`section--garnet scratched`, like the recruitment block) rather than more grey: pages alternate the dark background with garnet, and never put two garnet sections next to each other.
 
 ## Each new season
-- **Car number:** #230 is this season's number and it usually changes at the end of each calendar year. Update it everywhere it appears (search the site for `230`).
+- **Car number:** the site doesn't show it (it changes most seasons). Hero numbers, captions and alt text say "RRR" / "the RRR car" instead, so nothing needs updating when the number changes.
 - **Events:** add the season's competitions to the home page's `data-events` list and the competitions page schedule.
 
 ## Launch prep
-The site goes public the weekend of October 3, 2026. `LaunchPrep.md` in the repo root lists every pre-launch change Callum asked for. The first batch (done) removed Nora's last name, replaced the roster's members with "TBD / Under construction" slots until the full roster is ready, filled in the tech page's "What's new this year" cards, removed every dashed placeholder box and "to be added" note, and renamed the merch crewneck to a quarter-zip. The second batch (done, October 1) trimmed the copy and cut repetition: shorter sponsors page (headline-only "Four ways in", cash vs in-kind budget, new section titles), a shorter "What is Baja SAE?" and "How we work" on the About page, a bigger "Who we are" photo, and a new home-page scrub line and join photo. The third batch (done, October 1) made every page slimmer: less space between sections, shorter heroes and photo bands, filler words trimmed everywhere, the sponsors page's repeated tier cards and "Every event" band removed, the sponsors talent section switched from light to grey, the competitions page's "What happens at an event" section removed (the About page has the same content), and a 2-column gallery on phones.
+The site goes public the weekend of October 3, 2026. `LaunchPrep.md` in the repo root lists every pre-launch change Callum asked for. The first batch (done) removed Nora's last name, replaced the roster's members with "TBD / Under construction" slots until the full roster is ready, filled in the tech page's "What's new this year" cards, removed every dashed placeholder box and "to be added" note, and renamed the merch crewneck to a quarter-zip. The second batch (done, October 1) trimmed the copy and cut repetition: shorter sponsors page (headline-only "Four ways in", cash vs in-kind budget, new section titles), a shorter "What is Baja SAE?" and "How we work" on the About page, a bigger "Who we are" photo, and a new home-page scrub line and join photo. The third batch (done, October 1) made every page slimmer: less space between sections, shorter heroes and photo bands, filler words trimmed everywhere, the sponsors page's repeated tier cards and "Every event" band removed, the sponsors talent section switched from light to grey, the competitions page's "What happens at an event" section removed (the About page has the same content), and a 2-column gallery on phones. The fourth batch (done, October 9) replaced the car number with "RRR", changed the horsepower to the 9.5 hp dyno figure, moved the photo gallery to its own page, moved the faculty advisors to the bottom of the team page, made the About "Can't learn this in a lecture" section grey (no white sections anywhere now), slimmed the sponsors "Four ways in" tiles (all red now) and halved the talent section, and swapped several grey sections for red ones.
 
 ## Still to fill in
 Placeholder notes and dashed boxes were taken off the public pages for launch, so these gaps are now simply left out rather than marked:
