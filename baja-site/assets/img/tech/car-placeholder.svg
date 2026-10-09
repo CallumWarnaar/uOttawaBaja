@@ -1,79 +1,146 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <!-- PLACEHOLDER line drawing (side view, car faces left) until the SolidWorks Visualize render
-       replaces it (see Optimization.md, Phase 3). Hotspot positions in pages/tech.html match these parts. -->
+  <!-- Rough Rider Racing (RRR) Baja SAE Vehicle Schematic (Side View, faces left)
+       Accurate to the RRR27 SolidWorks chassis CAD and competition vehicle specs.
+       Hotspot positions in pages/tech.html match these component coordinates. -->
+
   <!-- ground + wheelbase dimension -->
   <g stroke="#908681" stroke-width="3" opacity=".55">
     <path d="M40 812 H1560" stroke-dasharray="6 14"/>
     <path d="M360 832 v36 M1180 832 v36 M360 850 H1180" stroke-width="2"/>
   </g>
-  <text x="770" y="885" fill="#908681" font-family="monospace" font-size="22" text-anchor="middle">WHEELBASE: 70 IN</text>
+  <text x="770" y="885" fill="#908681" font-family="monospace" font-size="22" text-anchor="middle">WHEELBASE: 70 IN (1778 MM)</text>
 
-  <!-- side panels (behind the tubes) -->
-  <path d="M292 596 L318 488 L905 488 L905 600 Z" fill="#f2f2f2" opacity=".06"/>
-  <path d="M905 250 L905 600" stroke="#908681" stroke-width="14" opacity=".45"/>
+  <!-- body panels (translucent background fills) -->
+  <!-- cockpit lower side panel with sponsor area cut -->
+  <path d="M494 461 L995 462 L995 600 L494 600 Z" fill="#f2f2f2" opacity=".05"/>
+  <path d="M494 461 L995 462 L870 600 L494 600 Z" fill="#8f001a" opacity=".12"/>
+  <!-- firewall & seatback bulkhead -->
+  <path d="M995 240 L1070 315 L995 600 Z" fill="#3a3a37" opacity=".3"/>
 
   <!-- wheels + tires -->
-  <g stroke="#f2f2f2" stroke-width="5"><circle cx="360" cy="655" r="138"/><circle cx="360" cy="655" r="82" stroke-width="3"/><circle cx="360" cy="655" r="20" stroke-width="3"/></g>
+  <!-- Front Wheel (cx=360, cy=655) -->
+  <g stroke="#f2f2f2" stroke-width="5">
+    <circle cx="360" cy="655" r="138"/>
+    <circle cx="360" cy="655" r="82" stroke-width="3"/>
+    <circle cx="360" cy="655" r="20" stroke-width="3"/>
+  </g>
+  <!-- Front tire knobby treads -->
   <path d="M496 655 L510 655 M494 679 L508 681 M488 702 L501 706 M478 723 L490 730 M464 742 L475 751 M447 759 L456 770 M428 773 L435 785 M407 783 L411 796 M384 789 L386 803 M360 791 L360 805 M336 789 L334 803 M313 783 L309 796 M292 773 L285 785 M273 759 L264 770 M256 742 L245 751 M242 723 L230 730 M232 702 L219 706 M226 679 L212 681 M224 655 L210 655 M226 631 L212 629 M232 608 L219 604 M242 587 L230 580 M256 568 L245 559 M273 551 L264 540 M292 537 L285 525 M313 527 L309 514 M336 521 L334 507 M360 519 L360 505 M384 521 L386 507 M407 527 L411 514 M428 537 L435 525 M447 551 L456 540 M464 568 L475 559 M478 587 L490 580 M488 608 L501 604 M494 631 L508 629" stroke="#f2f2f2" stroke-width="7" opacity=".55"/>
   <path d="M381 662 L432 678 M360 677 L360 731 M339 662 L288 678 M347 637 L315 594 M373 637 L405 594" stroke="#f2f2f2" stroke-width="2" opacity=".5"/>
-  <g stroke="#f2f2f2" stroke-width="5"><circle cx="1180" cy="655" r="142"/><circle cx="1180" cy="655" r="86" stroke-width="3"/><circle cx="1180" cy="655" r="20" stroke-width="3"/></g>
+
+  <!-- Rear Wheel (cx=1180, cy=655) -->
+  <g stroke="#f2f2f2" stroke-width="5">
+    <circle cx="1180" cy="655" r="142"/>
+    <circle cx="1180" cy="655" r="86" stroke-width="3"/>
+    <circle cx="1180" cy="655" r="20" stroke-width="3"/>
+  </g>
+  <!-- Rear tire knobby treads -->
   <path d="M1320 655 L1334 655 M1318 679 L1332 682 M1312 703 L1325 708 M1301 725 L1313 732 M1287 745 L1298 754 M1270 762 L1279 773 M1250 776 L1257 788 M1228 787 L1233 800 M1204 793 L1207 807 M1180 795 L1180 809 M1156 793 L1153 807 M1132 787 L1127 800 M1110 776 L1103 788 M1090 762 L1081 773 M1073 745 L1062 754 M1059 725 L1047 732 M1048 703 L1035 708 M1042 679 L1028 682 M1040 655 L1026 655 M1042 631 L1028 628 M1048 607 L1035 602 M1059 585 L1047 578 M1073 565 L1062 556 M1090 548 L1081 537 M1110 534 L1103 522 M1132 523 L1127 510 M1156 517 L1153 503 M1180 515 L1180 501 M1204 517 L1207 503 M1228 523 L1233 510 M1250 534 L1257 522 M1270 548 L1279 537 M1287 565 L1298 556 M1301 585 L1313 578 M1312 607 L1325 602 M1318 631 L1332 628" stroke="#f2f2f2" stroke-width="7" opacity=".55"/>
   <path d="M1201 662 L1256 680 M1180 677 L1180 735 M1159 662 L1104 680 M1167 637 L1133 590 M1193 637 L1227 590" stroke="#f2f2f2" stroke-width="2" opacity=".5"/>
+
   <!-- brake rotors + calipers -->
   <g stroke="#8f001a" stroke-width="5"><circle cx="360" cy="655" r="46"/><circle cx="1180" cy="655" r="48"/></g>
   <g fill="#8f001a"><rect x="390" y="597" width="24" height="36" rx="4"/><rect x="1212" y="595" width="24" height="36" rx="4"/></g>
 
-  <!-- chassis: 4130 space frame + roll cage -->
+  <!-- ================= RRR27 CHASSIS SPACE FRAME ================= -->
+  <!-- 4130 Chromoly tubing matching SolidWorks CAD side view -->
   <g stroke="#f2f2f2" stroke-width="7">
-    <path d="M905 600 L292 600 L262 548 L300 488"/>                 <!-- lower frame rail + nose -->
-    <path d="M300 488 L640 250 L915 238"/>                          <!-- front bracing + roof members -->
-    <path d="M915 238 L905 600"/>                                   <!-- rear roll hoop -->
-    <path d="M300 488 L905 488" stroke-width="5"/>                  <!-- side impact member -->
-    <path d="M640 250 L700 488" stroke-width="4"/>                     <!-- front hoop brace -->
-    <path d="M905 600 L1290 592 L1310 470 L912 410" stroke-width="6"/> <!-- rear subframe -->
-    <path d="M1110 440 L1150 596 M905 520 L1000 600" stroke-width="4"/>
+    <!-- FRONT NOSE BOX: front vertical bulkhead + curved skid radius + lower rail -->
+    <!-- Front upright bulkhead (Frame 1): from top down to skid radius -->
+    <path d="M223 432 L223 538 A 38 38 0 0 0 261 574 L494 600"/>
+    <!-- Top nose longitudinal tube: from Frame 1 to Frame 2 (bulkhead) -->
+    <path d="M223 432 L494 461"/>
+    <!-- Internal nose member (mid rail) -->
+    <path d="M223 522 L494 552" stroke-width="5"/>
+    <!-- Cockpit front bulkhead (Frame 2 / firewall upright) -->
+    <path d="M494 461 L494 600"/>
+
+    <!-- ROLL CAGE: Front Hoop (RHO), Roof Rail & Main Hoop (MH) -->
+    <!-- Front Hoop (RHO) sweeping from bulkhead up to roof with radius bend -->
+    <path d="M494 461 L606 237 Q 620 200 664 200 L1127 200"/>
+    <!-- Main Roll Hoop (MH) from roof down-left to side rail and lower floor -->
+    <path d="M1127 200 L995 462 L928 600"/>
+    <!-- Roof diagonal support brace -->
+    <path d="M911 200 L1069 315" stroke-width="5"/>
+
+    <!-- COCKPIT INTERNAL STRUCTURE -->
+    <!-- Side-impact horizontal tube -->
+    <path d="M494 461 L995 462" stroke-width="6"/>
+    <!-- Vertical B-pillar / engine firewall upright -->
+    <path d="M995 462 L995 600" stroke-width="5"/>
+    <!-- Lower cockpit diagonal / intrusion tube with floor curve -->
+    <path d="M494 600 Q 560 595 611 563 L724 462" stroke-width="5"/>
+    <!-- Dropped seat frame / floor cradle -->
+    <path d="M765 600 L782 572 L910 572 L926 600" stroke-width="4"/>
+
+    <!-- MAIN LOWER FRAME RAIL: continuous from front bulkhead to rear subframe -->
+    <path d="M494 600 L1212 600"/>
+
+    <!-- REAR SUBFRAME / ENGINE CAGE & REAR BUMPER -->
+    <!-- Rear Roll Hoop Braces (RRHB): from top of main hoop to rear bumper apex -->
+    <path d="M1127 200 L1367 439" stroke-width="6"/>
+    <!-- Upper rear frame rail: from main hoop to rear bumper apex -->
+    <path d="M995 462 L1367 439" stroke-width="5"/>
+    <!-- Lower rear bumper member: from bottom rail to rear apex -->
+    <path d="M1212 600 L1367 439" stroke-width="6"/>
   </g>
 
-  <!-- seat (reclined, facing forward) + harness -->
-  <path d="M698 542 L716 570 L872 584 L898 332 L884 300 L864 300 L852 338 L842 556 L728 548 Z" fill="#3a3a37" stroke="#f2f2f2" stroke-width="5"/>
-  <path d="M872 350 L800 530 M768 552 L800 530" stroke="#8f001a" stroke-width="5"/>
+  <!-- seat (racing bucket, reclined) + 5-point harness -->
+  <path d="M740 546 L762 572 L905 572 L970 310 L952 280 L930 280 L918 316 L880 548 L768 548 Z" fill="#3a3a37" stroke="#f2f2f2" stroke-width="5"/>
+  <path d="M945 328 L865 522 M825 548 L865 522" stroke="#8f001a" stroke-width="5"/>
 
-  <!-- steering: wheel, column, rack at the front axle -->
+  <!-- steering: wheel, column, rack at the front bulkhead -->
   <g stroke="#f2f2f2" stroke-width="5">
-    <ellipse cx="660" cy="410" rx="14" ry="46" transform="rotate(-24 660 410)"/>
-    <path d="M660 410 L520 520 L420 560"/>
+    <ellipse cx="642" cy="405" rx="14" ry="46" transform="rotate(-24 642 405)"/>
+    <path d="M642 405 L525 510 L470 542"/>
   </g>
-  <!-- pedals -->
-  <path d="M430 590 L452 530 M462 590 L486 536" stroke="#f2f2f2" stroke-width="4"/>
+  <!-- pedals at bulkhead -->
+  <path d="M490 580 L465 530 M490 595 L475 550" stroke="#f2f2f2" stroke-width="4"/>
 
-  <!-- front suspension: double wishbone + coilover -->
+  <!-- front suspension: double wishbone + King air shock -->
   <g stroke="#f2f2f2" stroke-width="5">
-    <path d="M300 540 L360 606 M292 596 L360 704"/>                <!-- upper + lower arms -->
-    <path d="M360 600 L360 708" stroke-width="7"/>                 <!-- upright -->
+    <!-- Upper and lower A-arms -->
+    <path d="M300 450 L360 600 M270 575 L360 706"/>
+    <!-- Upright -->
+    <path d="M360 600 L360 708" stroke-width="7"/>
   </g>
-  <path d="M470 470 L378 676" stroke="#9e243a" stroke-width="10"/>
-  <path d="M470 494 l-18 -8 M461 514 l-18 -8 M452 534 l-18 -8 M443 554 l-18 -8 M434 574 l-18 -8" stroke="#f2f2f2" stroke-width="2"/>
+  <!-- King PR2008 front air shock -->
+  <path d="M494 461 L378 676" stroke="#9e243a" stroke-width="10"/>
+  <path d="M494 485 l-18 -8 M485 505 l-18 -8 M476 525 l-18 -8 M467 545 l-18 -8 M458 565 l-18 -8" stroke="#f2f2f2" stroke-width="2"/>
 
-  <!-- rear suspension: semi-trailing arm + camber link + coilover -->
+  <!-- rear suspension: semi-trailing arm + camber link + King air shock -->
   <g stroke="#f2f2f2" stroke-width="5">
-    <path d="M990 600 L1180 690 L1180 626" stroke-width="7"/>         <!-- trailing arm -->
-    <path d="M1000 540 L1180 612"/>                                  <!-- camber link -->
+    <!-- Trailing arm from chassis node to rear hub -->
+    <path d="M995 600 L1180 690 L1180 626" stroke-width="7"/>
+    <!-- Camber link / upper lateral link -->
+    <path d="M1020 500 L1180 612"/>
   </g>
-  <path d="M1080 432 L1160 668" stroke="#9e243a" stroke-width="10"/>
-  <path d="M1090 458 l18 -6 M1098 482 l18 -6 M1106 506 l18 -6 M1114 530 l18 -6 M1122 554 l18 -6" stroke="#f2f2f2" stroke-width="2"/>
+  <!-- King PR2012 rear air shock -->
+  <path d="M1080 320 L1160 668" stroke="#9e243a" stroke-width="10"/>
+  <path d="M1088 346 l18 -6 M1096 370 l18 -6 M1104 394 l18 -6 M1112 418 l18 -6 M1120 442 l18 -6" stroke="#f2f2f2" stroke-width="2"/>
 
-  <!-- engine (Kohler CH440) -->
+  <!-- engine (Kohler CH440) on rear deck -->
   <g stroke="#f2f2f2" stroke-width="5">
-    <rect x="1030" y="320" width="180" height="130" rx="12"/>
-    <path d="M1050 320 v-30 h56 v30 M1140 320 v-44 h52 v44"/>
-    <path d="M1050 350 h140 M1050 375 h140 M1050 400 h140 M1050 425 h140" stroke-width="2"/>
+    <rect x="1035" y="315" width="175" height="130" rx="12"/>
+    <path d="M1055 315 v-30 h56 v30 M1145 315 v-44 h52 v44"/>
+    <path d="M1055 345 h135 M1055 370 h135 M1055 395 h135 M1055 420 h135" stroke-width="2"/>
   </g>
-  <!-- CVT cover -->
-  <g stroke="#f2f2f2" stroke-width="5"><path d="M950 466 h120 a56 56 0 0 1 0 112 h-120 a56 56 0 0 1 0 -112z"/><circle cx="955" cy="522" r="30" stroke-width="3"/><circle cx="1066" cy="522" r="40" stroke-width="3"/></g>
-  <!-- gearbox -->
-  <g stroke="#f2f2f2" stroke-width="5"><rect x="1215" y="560" width="100" height="90" rx="8"/><circle cx="1265" cy="605" r="18" stroke-width="3"/></g>
 
-  <!-- electrical: kill switch + harness -->
-  <rect x="920" y="330" width="44" height="44" fill="#8f001a"/><circle cx="942" cy="352" r="11" fill="#f2f2f2"/>
-  <path d="M942 374 C 940 430, 1010 450, 1040 452" stroke="#908681" stroke-width="3" stroke-dasharray="10 8"/>
+  <!-- CVT transmission cover & pulleys -->
+  <g stroke="#f2f2f2" stroke-width="5">
+    <path d="M1005 460 h120 a56 56 0 0 1 0 112 h-120 a56 56 0 0 1 0 -112z"/>
+    <circle cx="1010" cy="516" r="30" stroke-width="3"/>
+    <circle cx="1121" cy="516" r="40" stroke-width="3"/>
+  </g>
+
+  <!-- custom student gearbox at rear axle -->
+  <g stroke="#f2f2f2" stroke-width="5">
+    <rect x="1190" y="565" width="100" height="90" rx="8"/>
+    <circle cx="1240" cy="610" r="18" stroke-width="3"/>
+  </g>
+
+  <!-- electrical: master kill switch + wiring harness -->
+  <rect x="995" y="325" width="40" height="40" fill="#8f001a" rx="4"/>
+  <circle cx="1015" cy="345" r="10" fill="#f2f2f2"/>
+  <path d="M1015 365 C 1015 420, 1050 440, 1080 445" stroke="#908681" stroke-width="3" stroke-dasharray="10 8"/>
 </svg>
