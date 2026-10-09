@@ -2,7 +2,7 @@
 
 This document catalogs all visual media in `baja-site/assets/img/`. Use this guide to easily look up image names (`img_xxxx`, `dsc_xxxx`) by what the vehicle is doing on track or find specific people/crew compositions when substituting photos on pages.
 
-A machine-readable JSON version of this catalog is also available at `baja-site/assets/image-tags.json`.
+A machine-readable JSON version of this catalog is also available at `site-src/image-tags.json`.
 
 ---
 
@@ -236,16 +236,16 @@ Classifies each person present in the image (`person 1`, `person 2`, etc.) along
 - **Category**: `people` | **People Count**: 12
 - **Setting**: in front of uOttawa Engineering branded competition trailer in paddock
 - **People Breakdown**:
-  - **Person 1**: **team captain (Nora)**; Attire: team apparel; Action/Posture: standing front row near car
+  - **Person 1**: **team member (person 1)**; Attire: team apparel; Action/Posture: standing front row near car
   - **Person 2**: **driver**; Attire: racing suit; Action/Posture: kneeling at front tire
-  - **Person 3**: **front suspension engineer (Callum)**; Attire: team shirt; Action/Posture: standing beside front wing/A-arm
-  - **Person 4**: **drivetrain lead (Vincent)**; Attire: team shirt; Action/Posture: standing center row
-  - **Person 5**: **electrical lead (Fahad)**; Attire: team shirt; Action/Posture: standing back row
-  - **Person 6**: **chassis co-lead (Megan)**; Attire: team shirt; Action/Posture: standing front row
-  - **Person 7**: **chassis co-lead (Kira)**; Attire: team shirt; Action/Posture: standing front row
-  - **Person 8**: **suspension lead (Matthew)**; Attire: team shirt; Action/Posture: standing center row
-  - **Person 9**: **admin / finance (Etienne)**; Attire: team shirt; Action/Posture: standing back row
-  - **Person 10**: **admin / outreach (Joseph)**; Attire: team shirt; Action/Posture: standing back row
+  - **Person 3**: **team member (person 3)**; Attire: team shirt; Action/Posture: standing beside front wing/A-arm
+  - **Person 4**: **team member (person 4)**; Attire: team shirt; Action/Posture: standing center row
+  - **Person 5**: **team member (person 5)**; Attire: team shirt; Action/Posture: standing back row
+  - **Person 6**: **team member (person 6)**; Attire: team shirt; Action/Posture: standing front row
+  - **Person 7**: **team member (person 7)**; Attire: team shirt; Action/Posture: standing front row
+  - **Person 8**: **team member (person 8)**; Attire: team shirt; Action/Posture: standing center row
+  - **Person 9**: **team member (person 9)**; Attire: team shirt; Action/Posture: standing back row
+  - **Person 10**: **team member (person 10)**; Attire: team shirt; Action/Posture: standing back row
   - **Person 11**: **crew member**; Attire: team shirt; Action/Posture: standing back row right
   - **Person 12**: **crew member**; Attire: team shirt; Action/Posture: standing back row left
 - **Substitution Tags**: `full_team_photo`, `official_team_portrait`, `all_hands_crew`
