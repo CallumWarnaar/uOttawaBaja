@@ -90,6 +90,8 @@ All motion switches off for visitors with "reduce motion" enabled, and content s
 3. Open `tech.html?edit` in a browser. Drag each numbered dot onto its part; the HUD prints `style="--x:..%; --y:..%"`. Paste that onto the matching hotspot.
 4. `python build.py`.
 
+**Animated version (preferred, not built yet).** Like cwrumotorsports.com/car: instead of one still, the render is a camera move around the car, saved as a numbered image sequence (~24 frames per system, 1920×1080, background exactly `#2d2d2c`, lossless PNG in Drive), plus one big still at each system stop and, if possible, a black-and-white mask per highlighted part. The page flips through the frames as you scroll. This page is allowed to be heavier than the others for it (first load up to 4 MB). The full render checklist and the web plan are in `CLAUDE.md`, "Car render: scroll-scrubbed sequence".
+
 ## Writing copy
 Every section should tell the reader something new. Before adding a paragraph, check that the same point isn't already made elsewhere on the page or in a nearby section. Only a few sections are meant to summarize (the home-page stats, the sponsors-page tier table). On the sponsors page, keep the text short and let the sponsorship package PDF carry the detail. The October 2026 trims (batches 2 and 3 in `LaunchPrep.md`) cut repeated text and filler on every page along these lines.
 

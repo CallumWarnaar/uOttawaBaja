@@ -9,6 +9,7 @@ split into photos / everything else, and flags pages over the budget.
     python perf_check.py --width 500          narrow window (Edge won't go much below ~500px)
     python perf_check.py index merch          only these pages
     python perf_check.py --budget 1500        budget in KB (default 2048 = 2 MB first load)
+                                              (pages in PAGE_BUDGETS keep their own budget)
     python perf_check.py -v                   also list every request
 
 Run it before merging image-heavy changes. Exit code 1 if any page is over budget.
@@ -40,6 +41,9 @@ BROWSERS = [
     "/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge",
     "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
 ]
+# Pages allowed a bigger first load than --budget. tech.html: the scroll-scrubbed car render
+# (overview frame + first leg of frames), approved by Callum 2026-10-09; see CLAUDE.md "Car render".
+PAGE_BUDGETS = {"tech.html": 4096}
 EXTRA = []  # extra "page#fragment" views to measure (the gallery has its own page since 2026-10-09)
 
 
@@ -109,7 +113,8 @@ def main():
             raise SystemExit(f"{page}: the browser made no requests (sandboxed shell? try PowerShell)")
         photos = sum(n for p, n in log if "/img/photos/" in p) / 1024
         total = sum(n for _, n in log) / 1024
-        flag = "  OVER" if total > a.budget else ""
+        budget = PAGE_BUDGETS.get(page.split("#")[0], a.budget)
+        flag = f"  OVER ({budget} KB)" if total > budget else ""
         if flag:
             over.append(page)
         print(f"{page:<28}{len(log):>5}{photos:>11.0f}{total - photos:>10.0f}{total:>10.0f}{flag}")
