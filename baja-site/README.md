@@ -116,7 +116,7 @@ Placeholder notes and dashed boxes were taken off the public pages for launch, s
 - **Merch cart and checkout:** the merch page is a preview only, with nothing for sale. Once the designs are final, it needs a proper cart and secure checkout, likely PayPal. Payments must be created and confirmed on a small server (not in the browser) and PayPal keys must never go in the repo. CLAUDE.md has the full checklist.
 - **Past seasons (competitions page)** was taken out in Sept 2026 so the page focuses on upcoming events. To bring it back, copy the `<!-- RESULTS -->` section from `git show 245e5ea:site-src/pages/competitions.html` and fill in real results.
 
-- **Sponsor & member login (hide the full roster):** planned in `MemberPortal.md` in the repo root, with starter code in `portal/` (database tables, sample data, the API's skeleton). Nothing is live yet. Important: anything in `roster-data.js` is public, so private profile details have to move to the database before the login means anything.
+- **Sponsor & member login (hide the full roster):** planned in `MemberPortal.md` in the repo root, with starter code in `portal/` (database tables, sample data, the API's skeleton). Nothing is live yet. Important: anything in `roster-data.js` is public, so private profile details have to move to the database before the login means anything. `PortalCallumPlan.md` is the step-by-step list of what Callum does (decisions, AWS and database setup, deploy, testing), and `PortalAgentPlan.md` is the matching list of coding tasks for agents.
 
 ## Hosting
 - **AWS Amplify Hosting**, connected to this GitHub repo. Every push to `main` redeploys the site automatically, usually within a minute or two.

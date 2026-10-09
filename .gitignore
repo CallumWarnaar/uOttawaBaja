@@ -14,4 +14,5 @@ desktop.ini
 
 # Member portal backend: local secrets and dependencies
 portal/.env
+portal/private/
 portal/api/node_modules/

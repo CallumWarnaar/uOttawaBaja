@@ -1,6 +1,6 @@
 # Member & sponsor portal (login-gated roster)
 
-**Status: planning only (2026-10-01). Nothing here is deployed.** The scaffold lives in `portal/` (outside `baja-site/`, so Amplify never serves it). Any AWS resources, `amplify.yml` changes, DNS or access-control work need Callum's go-ahead first (see CLAUDE.md, "Standing permission").
+**Status: planning only (2026-10-01). Nothing here is deployed.** Execution plans (2026-10-09): [`PortalAgentPlan.md`](PortalAgentPlan.md) (work packages for agents) and [`PortalCallumPlan.md`](PortalCallumPlan.md) (Callum's decisions, accounts, deploy and testing). The scaffold lives in `portal/` (outside `baja-site/`, so Amplify never serves it). Any AWS resources, `amplify.yml` changes, DNS or access-control work need Callum's go-ahead first (see CLAUDE.md, "Standing permission").
 
 ## Goal
 
