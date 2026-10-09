@@ -45,7 +45,14 @@
     }));
   }
   const scrollLock = (on) => { if (lenis) on ? lenis.stop() : lenis.start(); document.body.style.overflow = on ? 'hidden' : ''; };
-  window.RRR = { scrollLock }; // shared with page scripts (roster.js)
+  // Modal layers (menu, lightbox): make the rest of the page inert so Tab can't wander behind the overlay.
+  // Only touches elements that weren't inert already (the closed menu is), and returns a function that undoes it.
+  const inertOthers = (keep) => {
+    const els = Array.from(document.body.children).filter((el) => !el.inert && !keep.some((k) => k && el.contains(k)));
+    els.forEach((el) => { el.inert = true; });
+    return () => els.forEach((el) => { el.inert = false; });
+  };
+  window.RRR = { scrollLock, inertOthers }; // shared with page scripts (roster.js)
 
   /* ---------------------------------------------------------------------
      Splash screen (first visit per session) + page wipes
@@ -164,11 +171,13 @@
   const menu = $('#menu');
   const toggle = $('.menu-toggle');
   let menuTl = null;
+  let menuRelease = null;
   function openMenu() {
     if (!menu) return;
     html.classList.add('menu-open'); toggle.setAttribute('aria-expanded', 'true');
     toggle.querySelector('.menu-toggle__text').textContent = 'Close';
     menu.style.visibility = 'visible'; menu.removeAttribute('inert');
+    menuRelease = inertOthers([menu, header]); // the header stays live: it holds the Close toggle
     scrollLock(true);
     if (motion) {
       menuTl && menuTl.kill();
@@ -184,6 +193,7 @@
     html.classList.remove('menu-open'); toggle.setAttribute('aria-expanded', 'false');
     toggle.querySelector('.menu-toggle__text').textContent = 'Menu';
     menu.setAttribute('inert', '');
+    if (menuRelease) { menuRelease(); menuRelease = null; }
     scrollLock(false);
     const done = () => { menu.style.visibility = 'hidden'; };
     if (motion && !instant) {
@@ -291,7 +301,8 @@
       const delay = (parseFloat(el.dataset.delay) || 0) * 0.1;
       const st = { trigger: el, start: 'top 88%' };
       if (kind === 'clip') {
-        gsap.to(el, { clipPath: 'inset(0% 0 0 0)', duration: 1.4, ease: 'expo.inOut', delay, scrollTrigger: st });
+        // the inset() wipe would flatten a .frame's chamfered corner, so hand clip-path back to the CSS shape (--shape) once it's done
+        gsap.to(el, { clipPath: 'inset(0% 0 0 0)', duration: 1.4, ease: 'expo.inOut', delay, scrollTrigger: st, clearProps: 'clipPath', onComplete: () => el.classList.add('is-revealed') });
         const img = $('img', el);
         if (img) gsap.from(img, { scale: 1.35, duration: 1.8, ease: 'expo.out', delay, scrollTrigger: st });
       } else if (kind === 'stagger') {
@@ -374,7 +385,7 @@
   $$('[data-count]').forEach((el) => {
     const end = parseFloat(el.dataset.count);
     const dec = (el.dataset.count.split('.')[1] || '').length;
-    const fmt = (v) => (el.dataset.prefix || '') + v.toLocaleString('en-CA', { minimumFractionDigits: dec, maximumFractionDigits: dec });
+    const fmt = (v) => (el.dataset.prefix || '') + v.toLocaleString('en-CA', { minimumFractionDigits: dec, maximumFractionDigits: dec }) + (el.dataset.suffix || '');
     if (!motion) { el.firstChild ? (el.firstChild.textContent = fmt(end)) : (el.textContent = fmt(end)); return; }
     const o = { v: 0 };
     const textNode = el.firstChild && el.firstChild.nodeType === 3 ? el.firstChild : el.insertBefore(document.createTextNode(''), el.firstChild);
@@ -429,16 +440,23 @@
     const lb = $('.lightbox');
     if (lb) {
       const img = $('img', lb), count = $('.lightbox__count', lb);
-      let idx = 0; let lastFocus = null;
+      let idx = 0; let lastFocus = null; let release = null;
       const visible = () => items.filter((i) => !i.hidden);
       const show = (i) => {
-        const v = visible(); idx = (i + v.length) % v.length;
+        const v = visible();
+        if (!v.length) return close();
+        idx = (i + v.length) % v.length;
         const src = v[idx].querySelector('img');
-        img.src = src.src; img.alt = src.alt; // src is the largest copy; the thumbnail's srcset picks a small one count.textContent = `${idx + 1} / ${v.length}`;
+        img.src = src.src; img.alt = src.alt; // src is the largest copy; the thumbnail's srcset picks a small one
+        count.textContent = `${idx + 1} / ${v.length}`;
       };
-      const open = (i) => { lastFocus = document.activeElement; lb.hidden = false; scrollLock(true); show(i); $('.lightbox__close', lb).focus(); };
-      const close = () => { lb.hidden = true; scrollLock(false); lastFocus && lastFocus.focus(); };
-      items.forEach((it) => it.addEventListener('click', () => open(visible().indexOf(it))));
+      const open = (i, from) => { lastFocus = from || document.activeElement; lb.hidden = false; release = inertOthers([lb]); scrollLock(true); show(i); $('.lightbox__close', lb).focus(); };
+      const close = () => {
+        if (lb.hidden) return;
+        lb.hidden = true; if (release) { release(); release = null; }
+        scrollLock(false); lastFocus && lastFocus.focus();
+      };
+      items.forEach((it) => it.addEventListener('click', () => open(visible().indexOf(it), it))); // focus returns to the photo (Safari doesn't focus clicked buttons)
       $('.lightbox__close', lb).addEventListener('click', close);
       $('.lightbox__prev', lb).addEventListener('click', () => show(idx - 1));
       $('.lightbox__next', lb).addEventListener('click', () => show(idx + 1));

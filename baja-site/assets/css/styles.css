@@ -359,7 +359,8 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
 .grid--4 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
 
 /* Framed image with clip reveal + parallax inner */
-.frame { position: relative; overflow: hidden; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 48px), calc(100% - 48px) 100%, 0 100%); background: var(--charcoal); aspect-ratio: 4 / 5; }
+/* --shape is the chamfered outline; clip reveals (main.js) restore it when they finish */
+.frame { --shape: polygon(0 0, 100% 0, 100% calc(100% - 48px), calc(100% - 48px) 100%, 0 100%); position: relative; overflow: hidden; clip-path: var(--shape); background: var(--charcoal); aspect-ratio: 4 / 5; }
 .frame--wide { aspect-ratio: 16 / 10; }
 .frame--tall-wide { aspect-ratio: 7 / 5; }
 /* Image overscans the frame by 9% top and bottom so the ±7% parallax never exposes the frame background */
@@ -757,6 +758,7 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
 /* Reveal defaults: hidden only when JS + motion are available */
 .js.motion [data-reveal] { opacity: 0; }
 .js.motion [data-reveal="clip"] { opacity: 1; clip-path: inset(100% 0 0 0); }
+.js.motion [data-reveal="clip"].is-revealed { clip-path: var(--shape, none); }
 
 /* ---------- 20 REDUCED MOTION ---------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
@@ -774,7 +776,7 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.2rem; }
 .js.motion:not(.js-ready) [data-reveal],
 .js.motion:not(.js-ready) .hero__title .line > span { animation: failsafe-show 0s 3.5s forwards; }
 .show-splash:not(.js-ready) .splash, .is-entering:not(.js-ready) .wipe { animation: failsafe-hide 0s 3.5s forwards; }
-@keyframes failsafe-show { to { opacity: 1; transform: none; clip-path: none; } }
+@keyframes failsafe-show { to { opacity: 1; transform: none; clip-path: var(--shape, none); } }
 @keyframes failsafe-hide { to { visibility: hidden; opacity: 0; } }
 
 /* Accent words on charcoal: garnet text is too low-contrast there, so use a garnet paint block */

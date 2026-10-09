@@ -137,14 +137,19 @@ def add_asset_versions(html):
     returning visitors keep the old copy. The hash changes exactly when the file does, so
     there's nothing to bump by hand; just rebuild after editing a CSS/JS file.
     Fonts and images are left alone: preloaded fonts must match the url() in styles.css
-    exactly, and replaced photos/logos get a new file name instead (see README)."""
+    exactly, and replaced photos/logos get a new file name instead (see README).
+    CSS/JS are hashed with LF line endings, so a Windows checkout (CRLF, core.autocrlf)
+    and a Linux/macOS one give the same ?v= and rebuilding elsewhere doesn't churn the HTML."""
     def stamp(m):
         path = m.group(2)
         if path not in _hashes:
             f = OUT / path
             if not f.exists():
                 raise SystemExit(f"linked file not found: {path}")
-            _hashes[path] = hashlib.sha256(f.read_bytes()).hexdigest()[:8]
+            data = f.read_bytes()
+            if f.suffix in (".css", ".js"):
+                data = data.replace(b"\r\n", b"\n")
+            _hashes[path] = hashlib.sha256(data).hexdigest()[:8]
         return f'{m.group(1)}="{path}?v={_hashes[path]}"'
     return re.sub(r'\b(href|src)="(assets/[^"?#]+\.(?:css|js|pdf))(?:\?v=[^"]*)?"', stamp, html)
 
