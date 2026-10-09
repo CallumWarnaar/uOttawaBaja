@@ -5,7 +5,7 @@ Serves ../baja-site/ on a local port, loads each page in headless Edge (fresh pr
 empty cache) and counts every request the browser makes. Prints requests and KB per page,
 split into photos / everything else, and flags pages over the budget.
 
-    python perf_check.py                      all pages + competitions.html#gallery, 1440x900
+    python perf_check.py                      every page, 1440x900
     python perf_check.py --width 500          narrow window (Edge won't go much below ~500px)
     python perf_check.py index merch          only these pages
     python perf_check.py --budget 1500        budget in KB (default 2048 = 2 MB first load)
@@ -19,7 +19,7 @@ Notes
   woff2 don't shrink). Compare runs with each other, not with DevTools' "transferred".
 - Edge is started with --blink-settings=lazyLoadEnabled=true. Without it headless Edge
   ignores loading="lazy" and downloads every image, which overstates page weight.
-- "page#fragment" (e.g. competitions.html#gallery) measures a page opened at that section.
+- "page#fragment" (e.g. about.html#format) measures a page opened at that section.
 - Set EDGE_PATH, or pass --browser, if Edge (or Chrome) isn't in the usual place.
 """
 import argparse
@@ -40,7 +40,7 @@ BROWSERS = [
     "/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge",
     "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
 ]
-EXTRA = ["competitions.html#gallery"]
+EXTRA = []  # extra "page#fragment" views to measure (the gallery has its own page since 2026-10-09)
 
 
 class Recorder(SimpleHTTPRequestHandler):
@@ -81,7 +81,7 @@ def load(browser, url, width, height):
 
 def main():
     ap = argparse.ArgumentParser(description="Measure first-load page weight in headless Edge.")
-    ap.add_argument("pages", nargs="*", help="page names (index, team, competitions.html#gallery...)")
+    ap.add_argument("pages", nargs="*", help="page names (index, team, about.html#format...)")
     ap.add_argument("--width", type=int, default=1440)
     ap.add_argument("--height", type=int, default=900)
     ap.add_argument("--budget", type=int, default=2048, help="KB per page (default 2048)")

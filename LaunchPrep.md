@@ -89,3 +89,18 @@ Goal: shorter pages with less empty space between sections, fewer filler words, 
   | Roster | 7,224 → 6,855 (−5%) | 7,793 → 7,348 (−6%) |
 
 - [x] **Sponsor & member login: plan + scaffold only, nothing deployed.** `MemberPortal.md` (repo root) is the plan: Cognito login with sponsor / member / admin groups, API Gateway + Lambda, PostgreSQL, private S3 for resumes, opt-in consent for sharing with sponsors. `portal/` holds the starting code (SQL schema with role-filtered views, sample data, Lambda handler stub). Needs Callum's decisions (database host, which fields each role sees, admins) before any AWS work.
+
+## Batch 4 (requested 2026-10-09, after launch)
+
+Pages before this batch: `git show d0a328e:site-src/pages/<page>.html`.
+
+- [x] **"230" → "RRR" everywhere**, so nothing changes when the car number does: hero numbers (home, team, merch, roster, gallery), "RRR · 2026–27" (home hero, car page), "The crew behind RRR" (team hero), "RRR Quarter-Zip" (merch, `data-product="rrr-quarter-zip"`), and alt text "the RRR car".
+- [x] **Horsepower 10 → 9.5** (the dyno figure): home stat, About engine sentence, car page overview, engine spec and "By the numbers".
+- [x] **About:** "One seat. Four hours." band removed. "Can't learn this in a lecture" section: Polar (white) → Secondary Charcoal (grey). "Judged three ways" is now garnet.
+- [x] **Team:** faculty advisors (Jason, Alex) moved out of Leadership into their own section at the bottom, "Special thank you · To our faculty advisors…", just above Join (on-page nav gets "Advisors"). Leadership is now a tight garnet section. The programs marquee (Mechanical · Electrical · Software…) was removed; it repeated the hero line.
+- [x] **Gallery has its own page** (`gallery.html`, menu item 06, between Competitions and Sponsors): short hero (`img_6036`), filters, lightbox. It also gained the two competitions photos it used to skip (`img_5557`, `dsc_1060`). Competitions links to it from the schedule lead; the home "See the full gallery" link points there. `perf_check.py` no longer needs the `competitions.html#gallery` extra.
+- [x] **Sponsors "Four ways in":** all four tiles the same garnet, slimmer (smaller padding and numbers, no stretching to the photo height), the "details are in the sponsorship package" line moved under the tiles, and the two photos side by side.
+- [x] **Sponsors "Meet the talent behind the team": about half the height.** One row of four short garnet panels (info sessions, workshops, tours & demos, Talent Package); the three-step Talent Package block was cut. The in-kind panel under the tier table is garnet too.
+- [x] **More red, less grey, no white:** `section--polar` deleted from the CSS. Garnet now on the home stats band and join section, About format, team leadership, car-page build timeline, merch "Where it goes", sponsors talent. Grey (charcoal) sections removed from the home car teaser and merch shop. A "Garnet sections" CSS block keeps bullets, timeline dots, tags and buttons visible on red.
+- [x] **Less scrolling:** home "Built in Ottawa" band removed (plus the About band and team marquee above, and the gallery leaving Competitions).
+- **Not touched:** sponsors budget section and "Travel with us" (still pending Vincent/Nora's review), the car page's content and wireframe car (waiting on the render).
