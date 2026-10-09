@@ -44,8 +44,8 @@ Website/
 │   └── assets/                     ← Static assets (EDIT DIRECTLY HERE)
 │       ├── css/styles.css          ← Core design system & CSS custom properties (:root)
 │       ├── js/main.js              ← Interactions, GSAP timelines, Lenis scroll, hotspot viewer
-│       ├── js/roster.js            ← Roster sorting, filtering, and profile drawer controller
-│       ├── js/roster-data.js       ← Canonical member data objects
+│       ├── js/roster.js            ← Roster A–Z list, subteam filter, short profile drawer (public fields only)
+│       ├── js/roster-data.js       ← PUBLIC roster data: first name, photo, subteam/title, program only (build.py rejects private fields)
 │       ├── fonts/                  ← Self-hosted Fontsource fonts (WOFF2)
 │       ├── vendor/                 ← Self-hosted scripts (GSAP, ScrollTrigger, SplitText, Lenis)
 │       ├── img/
@@ -202,7 +202,7 @@ Reviewed 2026-10-09. Fixed items stay listed so they aren't reported again.
   - Replace `assets/img/tech/car-placeholder.svg` with a high-resolution transparent background SolidWorks Visualize render (~3600px wide).
   - Fine-tune hotspot coordinates using `tech.html?edit`.
 - [ ] **Full Team Roster (`roster-data.js`)**:
-  - Replace the 40 "TBD / Under construction" placeholder entries with confirmed member names, programs, and graduation years from the team roster sheet.
+  - Replace the 40 "TBD / Under construction" placeholder entries with confirmed first names, subteams/titles and programs from the team roster sheet. No last names, grad years or other private fields (Callum's decision D2; `build.py` refuses them).
 - [ ] **Member & Sponsor Portal (`MemberPortal.md`, `portal/`)**:
   - Execution plans: `PortalAgentPlan.md` (agent work packages + ground rules, read before touching `portal/`) and `PortalCallumPlan.md` (Callum's decisions D1–D6 and deploy steps).
   - Future implementation of authenticated member directory with role-based visibility (Cognito + Lambda + Postgres).

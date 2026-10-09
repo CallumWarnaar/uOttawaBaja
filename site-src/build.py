@@ -154,7 +154,35 @@ def add_asset_versions(html):
     return re.sub(r'\b(href|src)="(assets/[^"?#]+\.(?:css|js|pdf))(?:\?v=[^"]*)?"', stamp, html)
 
 
+PRIVATE_ROSTER_KEYS = ("lastName", "last_name", "email", "phone", "year", "grad", "joined", "about",
+                       "focus", "highlights", "seeking", "links", "linkedin", "resume", "portfolio")
+
+
+def check_public_roster():
+    """roster-data.js is downloadable by anyone, so it may only hold public fields (first name,
+    photo, subteam/title, program; Callum's portal decision D2). Stop the build if a private
+    field shows up, before it gets committed and deployed."""
+    js = (OUT / "assets" / "js" / "roster-data.js").read_text(encoding="utf-8")
+    code = re.sub(r"/\*.*?\*/|//[^\n]*", "", js, flags=re.S)
+    found = sorted(set(re.findall(r"\b(" + "|".join(PRIVATE_ROSTER_KEYS) + r")\s*:", code)))
+    if found:
+        raise SystemExit(f"roster-data.js has private fields ({', '.join(found)}). It's public: keep only "
+                         "id, name, sortName, roles, rank, lead, program, photo, placeholder.")
+
+
+def check_image_metadata():
+    """Phone/camera photos carry EXIF (often GPS location) and XMP. optimize_images.py strips it;
+    stop the build if an image that skipped it (e.g. a headshot dropped straight in) would be published."""
+    markers = (b"Exif\x00\x00", b"EXIF", b"eXIf", b"<x:xmpmeta", b"http://ns.adobe.com/xap/")
+    bad = [str(p.relative_to(OUT)) for p in (OUT / "assets" / "img").rglob("*")
+           if p.suffix.lower() in (".jpg", ".jpeg", ".png", ".webp") and any(m in p.read_bytes() for m in markers)]
+    if bad:
+        raise SystemExit("images with camera/GPS metadata (convert them with optimize_images.py):\n  " + "\n  ".join(bad))
+
+
 def build():
+    check_public_roster()
+    check_image_metadata()
     layout = (ROOT / "partials" / "layout.html").read_text(encoding="utf-8")
     for slug, _, _ in PAGES + EXTRA_PAGES:
         raw = (ROOT / "pages" / f"{slug}.html").read_text(encoding="utf-8")

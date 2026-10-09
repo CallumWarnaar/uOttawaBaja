@@ -30,7 +30,7 @@
   <link rel="preload" href="assets/fonts/big-shoulders-display-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/vendor/lenis.css?v=2f668ae8">
-  <link rel="stylesheet" href="assets/css/styles.css?v=1794385b">
+  <link rel="stylesheet" href="assets/css/styles.css?v=064ca588">
   <script src="assets/vendor/gsap.min.js?v=92bb9a96" defer></script>
   <script src="assets/vendor/ScrollTrigger.min.js?v=b0b14d67" defer></script>
   <script src="assets/vendor/SplitText.min.js?v=419f7027" defer></script>
@@ -133,14 +133,6 @@
         <h2 id="roster-title" class="visually-hidden">Team members</h2>
         <div class="roster-controls">
           <div class="roster-filter" role="group" aria-label="Filter by subteam" data-roster-filters></div>
-          <div class="roster-sort">
-            <label for="roster-sort">Sort by</label>
-            <select id="roster-sort" data-roster-sort>
-              <option value="alpha">Name (A–Z)</option>
-              <option value="seniority">Seniority</option>
-              <option value="class">Class year</option>
-            </select>
-          </div>
         </div>
         <p class="roster-count" data-roster-count aria-live="polite"></p>
         <div data-roster>
@@ -150,10 +142,10 @@
             <h3 class="roster-block__title">Leads</h3>
             <div class="grid grid--members roster-grid" data-roster-leads></div>
           </div>
-          <!-- Everyone else: slim list with headshot, subteam tags, class and major -->
+          <!-- Everyone else: slim list with headshot, subteam tags and major (public fields only, see roster-data.js) -->
           <div class="roster-block" data-roster-members-wrap>
             <h3 class="roster-block__title">Members</h3>
-            <div class="roster-list__head" aria-hidden="true"><span></span><span>Name</span><span>Subteam</span><span>Class</span><span>Major</span><span></span></div>
+            <div class="roster-list__head" aria-hidden="true"><span></span><span>Name</span><span>Subteam</span><span>Major</span><span></span></div>
             <ul class="roster-list" data-roster-list></ul>
           </div>
         </div>
@@ -173,8 +165,8 @@
       </article>
     </div>
 
-    <script src="assets/js/roster-data.js?v=21986b88" defer></script>
-    <script src="assets/js/roster.js?v=ed8de506" defer></script>
+    <script src="assets/js/roster-data.js?v=2dff9e92" defer></script>
+    <script src="assets/js/roster.js?v=fb39d83a" defer></script>
   </main>
 
   <!-- ===== Footer ===== -->
@@ -246,7 +238,7 @@
 
   <!-- Lightbox (used by galleries) -->
   <div class="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
-    <img src="" alt="">
+    <img alt="">
     <button class="lightbox__close" type="button" aria-label="Close">✕</button>
     <button class="lightbox__prev" type="button" aria-label="Previous photo">‹</button>
     <button class="lightbox__next" type="button" aria-label="Next photo">›</button>

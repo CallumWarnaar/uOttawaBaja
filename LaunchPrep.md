@@ -104,3 +104,34 @@ Pages before this batch: `git show d0a328e:site-src/pages/<page>.html`.
 - [x] **More red, less grey, no white:** `section--polar` deleted from the CSS. Garnet now on the home stats band and join section, About format, team leadership, car-page build timeline, merch "Where it goes", sponsors talent. Grey (charcoal) sections removed from the home car teaser and merch shop. A "Garnet sections" CSS block keeps bullets, timeline dots, tags and buttons visible on red.
 - [x] **Less scrolling:** home "Built in Ottawa" band removed (plus the About band and team marquee above, and the gallery leaving Competitions).
 - **Not touched:** sponsors budget section and "Travel with us" (still pending Vincent/Nora's review), the car page's content and wireframe car (waiting on the render).
+
+## Final audit (2026-10-09)
+
+Full pass over the code and the built site before launch. The live site couldn't be checked (see open item 1), so the identical local build was audited instead: every page served locally, loaded in headless Edge at 1440 px and 500 px with animations on, and scrolled top to bottom.
+
+**Checked and fine**
+- `build.py` output matches `site-src/` (rebuild gives no diff).
+- No JavaScript errors, failed requests or broken images on any of the 9 pages; all internal links, `#anchors` and asset files exist; every page has a title, description, canonical URL and an existing share image; no leftover `todo` boxes, "230", "10 hp" or "to be added" text.
+- Page weight (first load, `perf_check.py`): 0.6–1.4 MB desktop, 0.7–1.4 MB phone, all under the 2 MB budget.
+- 220 images scanned: none carries EXIF/GPS/camera/XMP metadata.
+- No passwords, keys or private data in the repo files.
+
+**Fixed in this PR**
+- [x] **Public roster limited to the public fields from decision D2** (first name, headshot, subteam + title, program). `roster-data.js` lost its empty private fields and now says at the top that it's public; `roster.js` ignores anything else; the members list lost its "Class" column and the seniority/class-year sorts (they need login-only data); the profile drawer shows photo, name, subteam, program and a "Contact via baja@uottawa.ca" button instead of "coming soon" sections. **`build.py` now stops if a private field (last name, email, grad, joined, about, links…) is added to `roster-data.js`.**
+- [x] **`build.py` refuses images with camera/GPS metadata** anywhere in `assets/img/` (protects against a phone headshot dropped straight in; `optimize_images.py` strips it).
+- [x] Home "Next up" fallback text (shown before JavaScript runs and to search engines) switched from OktoBajaFest (over) to Baja SAE Williamsport, May 20–23, 2027. The live countdown already did this by itself.
+- [x] Lightbox placeholder `<img src="">` fired an error on every page; it no longer has an empty `src`.
+- [x] Unused CSS removed (`.mud`, `.tread`, `.torn-bottom`, `.grid--2`, `.marquee--dark`).
+- [x] Car wireframe: an off-palette warm grey (`#908681`) → palette grey (`#a3a3a3`).
+
+**Open: needs Callum**
+1. [ ] **The site is behind a password.** Every URL (`uottawabaja.ca`, `www.`, the Amplify default) answers `401` with a login prompt, i.e. Amplify access control is on. To launch: Amplify → Hosting → Access control → turn it off, then ask an agent to re-check the live site.
+2. [ ] **The GitHub repo is public.** Anyone can read every file and the full history: CLAUDE.md and LaunchPrep notes (including the pending-review comments and the $50,260 budget figure), the portal plans and drafts, the image-catalog commit with guessed names (`9bffe0d`), and old roster versions. Recommended: make it **private** (GitHub → Settings → General → Danger zone → Change visibility); Amplify keeps deploying as long as its GitHub app can see the repo (push a commit afterwards and confirm a deploy). Also: your personal Gmail is the author address on 35 commits; use `git config --global user.email 98788381+CallumWarnaar@users.noreply.github.com` and GitHub's "Keep my email address private" from now on.
+3. [ ] **Sponsorship package PDF is out of date and heavy (9 MB).** Page 3 says "14 hp Kohler … restrictor plate" (site: 9.5 hp); page 7 shows the "$50,260 program budget" (site: ~$40K, and the decision was not to show $50,260) and a "two-year vehicle cycle" (site: one-year); page 12's footer URL is `RRR-BajaUOttawa.github.io/baja-site` (should be `uottawabaja.ca`). Its source isn't in the repo: regenerate it, export smaller (aim for 2–3 MB), and replace `baja-site/assets/docs/RRR_Sponsorship_Package_2026-2027.pdf` (same name is fine, PDFs are `?v=` stamped).
+4. [ ] **Nora's full name** ("Team captain · Nora Jordan") is the only last name on the site (sponsors-page sign-off, also in the PDF). Keep it as the sponsor contact, or switch to "Nora" to match D2?
+5. [ ] **Security headers** (needs your go-ahead, it's `amplify.yml`): today only `Cache-Control` is set. Suggested for all pages: `Strict-Transport-Security: max-age=31536000`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `X-Frame-Options: DENY`, `Permissions-Policy: camera=(), microphone=(), geolocation=()`. A full Content-Security-Policy comes with the portal (WP6).
+6. [ ] **Heading accent contrast (accessibility):** garnet accent words on the dark background measure 1.43:1 and black accent words on garnet sections 2.18:1, below the 3:1 minimum for large text (body text is fine at 4.5–12:1). Option: use the white-on-garnet paint block (`.accent-hl`, 9.6:1, already used on grey sections) for every accent, and white accents on garnet sections. Design call.
+7. [ ] OktoBajaFest is over: the competitions page still describes it as the season opener; add a result line when you have one.
+8. [ ] Amplify console (domain settings, your call): `www` → bare-domain redirect, and a custom 404 page (none exists; missing URLs show Amplify's default error).
+9. [ ] Still pending Vincent/Nora's review: sponsors budget section and the "10–15 members" figures.
+10. [ ] Minor: the car page's system panel jumps from `h1` to `h3`; unused files still deployed but never loaded (`img/texture/torn-bottom.svg`, `splatter.webp`, near-duplicate photos `dsc_0546`, `dsc_0937`, `dsc_1041`, `img_5114` with their sizes, ~1.6 MB); `baja-site/README.md` is served publicly (developer notes only, nothing sensitive).
