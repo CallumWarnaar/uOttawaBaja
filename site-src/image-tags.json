@@ -1494,7 +1494,7 @@
       "people": [
         {
           "person": "person 1",
-          "role": "team captain (Nora)",
+          "role": "team member (person 1)",
           "attire": "team apparel",
           "posture": "standing front row near car"
         },
@@ -1506,49 +1506,49 @@
         },
         {
           "person": "person 3",
-          "role": "front suspension engineer (Callum)",
+          "role": "team member (person 3)",
           "attire": "team shirt",
           "posture": "standing beside front wing/A-arm"
         },
         {
           "person": "person 4",
-          "role": "drivetrain lead (Vincent)",
+          "role": "team member (person 4)",
           "attire": "team shirt",
           "posture": "standing center row"
         },
         {
           "person": "person 5",
-          "role": "electrical lead (Fahad)",
+          "role": "team member (person 5)",
           "attire": "team shirt",
           "posture": "standing back row"
         },
         {
           "person": "person 6",
-          "role": "chassis co-lead (Megan)",
+          "role": "team member (person 6)",
           "attire": "team shirt",
           "posture": "standing front row"
         },
         {
           "person": "person 7",
-          "role": "chassis co-lead (Kira)",
+          "role": "team member (person 7)",
           "attire": "team shirt",
           "posture": "standing front row"
         },
         {
           "person": "person 8",
-          "role": "suspension lead (Matthew)",
+          "role": "team member (person 8)",
           "attire": "team shirt",
           "posture": "standing center row"
         },
         {
           "person": "person 9",
-          "role": "admin / finance (Etienne)",
+          "role": "team member (person 9)",
           "attire": "team shirt",
           "posture": "standing back row"
         },
         {
           "person": "person 10",
-          "role": "admin / outreach (Joseph)",
+          "role": "team member (person 10)",
           "attire": "team shirt",
           "posture": "standing back row"
         },

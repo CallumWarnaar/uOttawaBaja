@@ -22,6 +22,8 @@ Website/
 │   ├── build.py                    ← Static builder (Python 3 stdlib: HTML compile, asset hash, sitemap)
 │   ├── optimize_images.py          ← Image pipeline tool (Pillow: WebP 640/1280/1920 + OG jpg)
 │   ├── perf_check.py               ← Headless Edge performance auditor (2 MB budget check)
+│   ├── image-tags.json             ← AI-made image catalog (tags, actions, people roles; no names, not deployed); verify visually
+│   ├── image-tags.md               ← Same catalog, human-readable
 │   ├── partials/
 │   │   └── layout.html             ← Shared shell (<head>, splash, wipe, header, menu, footer, lightbox)
 │   └── pages/                      ← Content templates (front-matter comment at top)
@@ -44,8 +46,6 @@ Website/
 │       ├── js/main.js              ← Interactions, GSAP timelines, Lenis scroll, hotspot viewer
 │       ├── js/roster.js            ← Roster sorting, filtering, and profile drawer controller
 │       ├── js/roster-data.js       ← Canonical member data objects
-│       ├── image-tags.json         ← AI-made image catalog (tags, actions, people roles); use it to pick photos, verify visually
-│       ├── image-tags.md           ← Same catalog, human-readable
 │       ├── fonts/                  ← Self-hosted Fontsource fonts (WOFF2)
 │       ├── vendor/                 ← Self-hosted scripts (GSAP, ScrollTrigger, SplitText, Lenis)
 │       ├── img/
