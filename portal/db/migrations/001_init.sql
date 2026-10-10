@@ -1,8 +1,18 @@
 -- =========================================================================
--- Rough Rider Racing member & sponsor portal: PostgreSQL schema (draft)
--- Plan: ../../MemberPortal.md. Plain PostgreSQL 15+, works on Neon, RDS, Aurora or local.
--- Run: psql <db> -f schema.sql   (idempotent enough for a fresh database, not a migration tool)
+-- Rough Rider Racing member & sponsor portal: migration 001 (initial schema)
+-- Plan: ../../../MemberPortal.md. Plain PostgreSQL 15+ (Neon, RDS or local).
+-- Run once, as the database owner, in the Neon SQL Editor (paste the whole file) or:
+--   psql <db> -f 001_init.sql
+-- Then run ../grants.sql. Never edit this file after it's merged: add 002_....sql instead.
 -- =========================================================================
+
+begin;
+
+-- Which migrations have run on this database (each file adds its own row)
+create table schema_migrations (
+  version    text primary key,
+  applied_at timestamptz not null default now()
+);
 
 create extension if not exists citext;
 
@@ -51,6 +61,8 @@ create table members (
   share_with_sponsors boolean not null default false,   -- consent: default OFF
   active              boolean not null default true,    -- false when they leave (keep history)
   status              profile_status not null default 'approved',
+  consent_updated_at  timestamptz,        -- last time share_with_sponsors changed
+  deleted_at          timestamptz,        -- "delete my data" request: hidden at once, purged by an admin script
   updated_at          timestamptz not null default now()
 );
 
@@ -110,7 +122,7 @@ select m.id, m.first_name as name, m.rank, m.is_lead,
 from members m
 left join member_roles r on r.member_id = m.id
 left join subteams s on s.id = r.subteam_id
-where m.active and m.status = 'approved'
+where m.active and m.status = 'approved' and m.deleted_at is null
 group by m.id;
 
 -- Sponsor: full profile of opted-in members only; no email, no last name
@@ -129,10 +141,8 @@ select p.*, m.last_name, m.joined, m.program, m.study_year, m.grad, m.about, m.f
 from v_roster_public p
 join members m on m.id = p.id;
 
--- ---------- Least-privilege DB user for the Lambda ------------------------
--- Run once as the owner, with a real password from Secrets Manager:
---   create role portal_api login password '...';
---   grant select on v_roster_public, v_roster_sponsor, v_roster_member, accounts, sponsors to portal_api;
---   grant insert on access_log, profile_edits to portal_api;
---   grant update (last_login) on accounts to portal_api;
--- The API user can't edit members directly; approved edits are applied by an admin script.
+-- The Lambda's database login (portal_api) and its permissions are in ../grants.sql.
+
+insert into schema_migrations (version) values ('001_init');
+
+commit;

@@ -1,6 +1,6 @@
 # Member & sponsor portal (login-gated roster)
 
-**Status: planning only (2026-10-01). Nothing here is deployed.** Execution plans (2026-10-09): [`PortalAgentPlan.md`](PortalAgentPlan.md) (work packages for agents) and [`PortalCallumPlan.md`](PortalCallumPlan.md) (Callum's decisions, accounts, deploy and testing). The scaffold lives in `portal/` (outside `baja-site/`, so Amplify never serves it). Any AWS resources, `amplify.yml` changes, DNS or access-control work need Callum's go-ahead first (see CLAUDE.md, "Standing permission").
+**Status: planning (2026-10-01); WP1 (migrations, grants, tests) merged 2026-10-10. Neon project `rrr-portal` created by Callum 2026-10-10, still empty. Nothing is deployed.** Execution plans (2026-10-09): [`PortalAgentPlan.md`](PortalAgentPlan.md) (work packages for agents) and [`PortalCallumPlan.md`](PortalCallumPlan.md) (Callum's decisions, accounts, deploy and testing). The scaffold lives in `portal/` (outside `baja-site/`, so Amplify never serves it). Any AWS resources, `amplify.yml` changes, DNS or access-control work need Callum's go-ahead first (see CLAUDE.md, "Standing permission").
 
 ## Goal
 
@@ -30,7 +30,7 @@ Browser (static site on Amplify)
       └──fetch + JWT──▶  API Gateway (HTTP API, JWT authorizer = Cognito)
                                │ rejects bad/expired tokens before any code runs
                                ▼
-                         Lambda (portal/api)  ──SQL──▶  PostgreSQL (portal/db/schema.sql)
+                         Lambda (portal/api)  ──SQL──▶  PostgreSQL (portal/db/migrations/)
                                │
                                └── signed URLs ──▶  private S3 bucket (resumes, private headshots)
 ```
@@ -50,7 +50,7 @@ Why this shape:
 | Aurora Serverless v2 | Pay per use, can scale to 0 | Overkill for ~50 members. |
 | Supabase | Free tier | Has its own auth too, but free projects pause after a week idle, which would break logins. |
 
-The schema in `portal/db/schema.sql` is plain PostgreSQL, so switching hosts later is a dump-and-restore.
+The schema in `portal/db/migrations/` is plain PostgreSQL, so switching hosts later is a dump-and-restore.
 
 ## Accounts and access
 
@@ -72,7 +72,7 @@ The schema in `portal/db/schema.sql` is plain PostgreSQL, so switching hosts lat
 | `GET /roster/{id}/resume` | sponsor, member, admin | 5-minute signed S3 URL |
 | `POST /admin/invite` | admin | Invite a member or sponsor contact |
 
-Column filtering happens in SQL (`portal/db/schema.sql` defines `v_roster_sponsor` and `v_roster_member` views), so a code bug can't leak a column the view doesn't have.
+Column filtering happens in SQL (`portal/db/migrations/001_init.sql` defines `v_roster_sponsor` and `v_roster_member` views), so a code bug can't leak a column the view doesn't have.
 
 ## Front end (when we build it)
 
@@ -86,7 +86,7 @@ Column filtering happens in SQL (`portal/db/schema.sql` defines `v_roster_sponso
 
 - [ ] Secrets (DB URL, Cognito IDs) in Lambda environment variables / AWS Secrets Manager. **Never in the repo.** `portal/.env.example` shows the names only.
 - [ ] Parameterized SQL only (the scaffold uses `$1` placeholders), never string-built queries.
-- [ ] Lambda's DB user has `SELECT` on the views + `UPDATE` on its own profile rows only, not table owner.
+- [x] Lambda's DB user (`portal_api`, `portal/db/grants.sql`) has `SELECT` on the views, `accounts` and `sponsors`, `INSERT` on the access log and pending edits, `UPDATE (last_login)` only; no direct access to `members`. Tested in `portal/api/test/views.test.mjs`. Created in SQL, not Neon's Roles tab (those roles join `neon_superuser`).
 - [ ] HTTPS only, CORS allow-list = `https://uottawabaja.ca`.
 - [ ] Rate limiting on API Gateway (throttling) and Cognito advanced security / lockout on.
 - [ ] Privacy: members' personal info is covered by Ontario/uOttawa expectations. Write a short privacy notice (what's stored, who sees it, how to delete it) and get the faculty advisors' OK before launch.
@@ -94,7 +94,7 @@ Column filtering happens in SQL (`portal/db/schema.sql` defines `v_roster_sponso
 
 ## Build phases
 
-1. **Data:** create the Postgres DB, run `schema.sql`, import the roster from Callum's Excel file (names, positions, subteams) with a small script.
+1. **Data:** create the Postgres DB, run the migrations then `grants.sql`, import the roster from Callum's Excel file (names, positions, subteams) with a small script.
 2. **Auth:** Cognito user pool + groups, invite admins only, test login on a local copy of `portal.html`.
 3. **API:** deploy `portal/api` to Lambda behind API Gateway with the JWT authorizer. Test each role.
 4. **Front end:** `portal.html`, then strip private fields out of `roster-data.js`.

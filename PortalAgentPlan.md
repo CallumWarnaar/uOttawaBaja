@@ -34,13 +34,13 @@ baja-site/assets/js/portal-config.js   public IDs/URLs output by the SAM deploy
 
 Dependencies are shown as "after". WP1 and WP2 can start now. **D1–D6 were answered on 2026-10-09** (table in `MemberPortal.md`, "Decisions"): Neon, so WP4 has no VPC; public fields = first name, headshot, subteam + title, program; admins = Callum and Nora.
 
-### WP1: Database migrations and tests harness (now)
-- [ ] Move `db/schema.sql` to `db/migrations/001_init.sql`; leave `schema.sql` deleted, update docs.
-- [ ] Add `db/grants.sql` (role `portal_api`: `select` on the three views, `accounts`, `sponsors`; `insert` on `access_log`, `profile_edits`; `update (last_login)` on `accounts`). Password placeholder only.
-- [ ] Add to `members`: `consent_updated_at timestamptz`, `deleted_at timestamptz` (soft delete for "delete my data" requests, purged by an admin script).
-- [ ] `api/package.json`: add dev dependency `@electric-sql/pglite`; `npm test` = `node --test`.
-- [ ] `api/test/views.test.mjs`: load migrations + `seed.sql` into PGlite and assert: sponsor view has no `email`/`last_name` columns and only opted-in members; member view has everyone active; inactive/pending members appear nowhere.
-- Done when: `cd portal/api && npm ci && npm test` passes on Windows and Linux.
+### WP1: Database migrations and tests harness ✔ (merged 2026-10-10)
+- [x] Move `db/schema.sql` to `db/migrations/001_init.sql`; leave `schema.sql` deleted, update docs.
+- [x] Add `db/grants.sql` (role `portal_api`: `select` on the three views, `accounts`, `sponsors`; `insert` on `access_log`, `profile_edits`; `update (last_login)` on `accounts`). No password in the file: it creates `portal_api` as `nologin` and Callum runs one `alter role … login password` line. **Created in SQL on purpose:** Neon adds roles made in its Roles tab to `neon_superuser` (reads/writes every table).
+- [x] Add to `members`: `consent_updated_at timestamptz`, `deleted_at timestamptz` (soft delete for "delete my data" requests, purged by an admin script).
+- [x] `api/package.json`: add dev dependency `@electric-sql/pglite`; `npm test` = `node --test`.
+- [x] `api/test/views.test.mjs`: load migrations + `seed.sql` into PGlite and assert: sponsor view has no `email`/`last_name` columns and only opted-in members; member view has everyone active; inactive/pending/deleted members appear nowhere. Also checks `portal_api`'s grants (can't read `members`, can't update anything but `last_login`).
+- Done when: `cd portal/api && npm ci && npm test` passes on Windows and Linux. (Passes on Windows, 11 tests, 2026-10-10; Linux not run yet.)
 
 ### WP2: Roster import tool (now; real run needs D2)
 - [ ] `tools/import_roster.py` (stdlib `csv`): reads `portal/private/roster.csv` (columns in `PortalCallumPlan.md`, step 3) and writes:

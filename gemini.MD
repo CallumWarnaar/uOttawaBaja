@@ -205,6 +205,7 @@ Reviewed 2026-10-09. Fixed items stay listed so they aren't reported again.
   - Replace the 40 "TBD / Under construction" placeholder entries with confirmed first names, subteams/titles and programs from the team roster sheet. No last names, grad years or other private fields (Callum's decision D2; `build.py` refuses them).
 - [ ] **Member & Sponsor Portal (`MemberPortal.md`, `portal/`)**:
   - Execution plans: `PortalAgentPlan.md` (agent work packages + ground rules, read before touching `portal/`) and `PortalCallumPlan.md` (Callum's decisions D1–D6 and deploy steps).
-  - Future implementation of authenticated member directory with role-based visibility (Cognito + Lambda + Postgres).
+  - Future implementation of authenticated member directory with role-based visibility (Cognito + Lambda + Postgres on Neon).
+  - WP1 done (2026-10-10): schema in `portal/db/migrations/`, Lambda login in `portal/db/grants.sql` (created in SQL, never Neon's Roles tab), PGlite tests (`cd portal/api && npm test`).
 - [ ] **Merch E-Commerce Checkout (`merch.html`)**:
   - Integrate server-side PayPal Orders API and shopping cart when apparel designs and pricing are finalized.
