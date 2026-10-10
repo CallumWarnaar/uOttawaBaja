@@ -79,12 +79,17 @@ aws sts get-caller-identity
 
 ## Step 5: Database (Neon, if D1 = Neon)
 
-Wait until the agent says WP1 is merged (that creates the `migrations/` folder and `grants.sql`).
+1. ✔ Project `rrr-portal` created (2026-10-10): AWS US East 1, free plan, Postgres 18. Ignore Neon's Better Auth, Object storage and Functions; we use AWS for those.
+2. **SQL Editor:** paste in and run `portal/db/migrations/001_init.sql` (the whole file), then `portal/db/grants.sql`. Both are ready (WP1 merged 2026-10-10).
+3. Still in the SQL Editor, give the Lambda login a password. Generate one with a password manager (24+ random characters), then run this one line with it pasted in, and delete that query from the editor's history afterwards:
 
-1. Sign up at neon.tech **with the team email**. Create a project `rrr-portal`, region **AWS US East (N. Virginia)** (closest to Montreal).
-2. Open the **SQL Editor** and run, in order (copy each file's contents in): `portal/db/migrations/001_init.sql`, then any later migrations, then `portal/db/grants.sql`.
-3. **Roles** tab → create role `portal_api` and let Neon generate the password. Copy the connection string for that role (with `sslmode=require`). **Keep it in your clipboard only**; it goes into AWS in step 6.
-4. When you have it, run `portal/private/roster-import.sql` in the SQL Editor the same way.
+   ```sql
+   alter role portal_api with login password 'PASTE-IT-HERE';
+   ```
+
+   **Don't use the Roles tab for this.** Neon gives roles made there access to every table, which skips the privacy filtering.
+4. **Connect** button → role `portal_api`, database `neondb`, connection pooling **on** → copy the string. It won't contain your password, so put it in where the password goes. It looks like `postgresql://portal_api:PASSWORD@ep-…-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require`. **Keep it in your clipboard only**; it goes into AWS in step 6.
+5. Later, when you have it: run `portal/private/roster-import.sql` in the SQL Editor the same way.
 
 (If D1 = RDS instead, the agent's `DEPLOY.md` will have the RDS steps.)
 
