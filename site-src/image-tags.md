@@ -436,4 +436,4 @@ Classifies each person present in the image (`person 1`, `person 2`, etc.) along
 | **`torn-bottom`** | `torn-bottom.svg` | `divider` | Seamless vector mask creating the torn-paper rugged bottom section edge transition |
 | **`car-placeholder`** | `car-placeholder.svg` | `schematic` | Blueprint silhouette side profile of the RRR vehicle mapping 10 coordinate hotspots (chassis, front suspension, steering, brakes, cockpit, electrical, engine, CVT, gearbox, rear suspension) |
 | **`logo`** | `logo.png` | `crest` | Official Rough Rider Racing team crest emblem used in site header, splash loading gauge, and page-enter wipe |
-| **`favicon`** | `favicon.png` | `favicon` | Browser tab icon featuring the team crest |
+| **`favicon`** | `favicon-96.png` | `favicon` | Browser tab icon featuring the team crest. Sizes made from logo.png: /favicon.ico (16/32/48), favicon-96/-192.png, apple-touch-icon.png (180). Google search needs a multiple-of-48px square. |
