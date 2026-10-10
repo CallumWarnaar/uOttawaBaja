@@ -2521,11 +2521,11 @@
     },
     {
       "id": "favicon",
-      "filename": "favicon.png",
+      "filename": "favicon-96.png",
       "category": "branding",
       "company": "Rough Rider Racing (uOttawa Baja SAE)",
       "type": "favicon",
-      "description": "Browser tab icon featuring the team crest",
+      "description": "Browser tab icon featuring the team crest. Sizes made from logo.png: /favicon.ico (16/32/48), favicon-96/-192.png, apple-touch-icon.png (180). Google search needs a multiple-of-48px square.",
       "tags": [
         "branding",
         "favicon",
